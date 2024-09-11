@@ -1,0 +1,31 @@
+{% comment %} Please don’t update this content {% endcomment %}
+
+{% layout none %}
+{% paginate collection.products by 50 %}
+  {
+    "products":
+      [
+        {% for product in collection.products %}
+          {
+            "id":{{ product.id }},
+            
+            "metafields":[
+              
+              {% comment %}
+                Variant Metafield
+              {% endcomment %}
+              {% assign l_variants = product.variants %}
+              {% for v_variant in l_variants %}
+                {
+                  "namespace": {{ v_variant.id }},
+                  "key": "discontinued",
+                  "value": {{ v_variant.metafields.custom_fields["discontinued"] | json }}
+                },
+              {% endfor %}
+        
+            ]
+          },
+        {% endfor %}
+      ]
+  }
+{% endpaginate %}

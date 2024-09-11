@@ -1,0 +1,47 @@
+{
+  "parent": "index.json",
+  "context": {
+    "b2b": true
+  },
+  "sections": {
+    "5bfc0e15-7a73-4321-9ed9-e4ea81ab394d": {
+      "settings": {
+        "image": "shopify:\/\/shop_images\/jan_w1_2024_banner_-_arteriors_copy.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/mobile.png",
+        "pretext": "",
+        "title": "Tailored Solutions for Your Projects",
+        "subtitle": "<p>• Special Trade Discounts • Dedicated Account Management • Customized Solutions for Projects • Priority Shipping • Access to Top Brands • Expert Consultations Available<\/p>",
+        "heading_color": "#a2a2a2",
+        "button_1": "Browse",
+        "custom_css": "@media screen and (min-width: 769px) {\n  .hero--adapt .hero__title,\n  .hero__slide .hero__title {\n    color: #f37022 !important;\n  }\n  .hero__slide .hero__subtitle {\n    color: white !important;\n  }\n}"
+      },
+      "blocks": {
+      }
+    },
+    "163916638768364866": {
+      "disabled": true,
+      "settings": {
+      },
+      "blocks": {
+      }
+    },
+    "163934816156a2ecd9": {
+      "settings": {
+      },
+      "blocks": {
+        "1639348161407bc59a-1": {
+          "disabled": true,
+          "settings": {
+          }
+        }
+      }
+    },
+    "index_newsletter_tTi9M3": {
+      "disabled": true,
+      "settings": {
+      },
+      "blocks": {
+      }
+    }
+  }
+}

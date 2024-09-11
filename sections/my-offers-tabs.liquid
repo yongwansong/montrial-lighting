@@ -1,0 +1,198 @@
+{% assign is_french_site = false %}
+{% if request.path contains '/fr' %}
+  {% assign is_french_site = true %}
+{% endif %}
+
+<script>
+  var offers = (function() {
+    var offers = {{ section.settings | json }};
+    
+    var items = [];
+    {% for block in section.blocks %}
+    var item = {{ block.settings | json }};
+    items.push(item);
+    {% endfor %}
+    
+    offers.items = items;
+    
+    return offers;
+  })();
+</script>
+
+{% if section.settings.enabled %}
+<div id="promo-drawer-overlay"></div>
+
+<style>
+  #drawer-tab {
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+  }
+</style>
+{% for block in section.blocks %}
+<style>
+  [data-block-id="{{ block.id }}"] .offer-body {
+  background: {{ block.settings.offer_bg_color }};
+  color: {{ block.settings.offer_text_color }};
+  }
+</style>
+{% endfor %}    
+
+<div id="promo-drawer" class="" style="display: none;">
+  <button type="button" id="drawer-tab" class="drawer-trigger ready">
+    {% if is_french_site %}
+      {{ section.settings.btn_text_fr }}
+    {% else %}
+      {{ section.settings.btn_text }}
+    {% endif %}
+  </button>
+  
+  <div class="offers-container">
+    <div class="offers">
+      {% for block in section.blocks %}
+      <div class="offer-card" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+        <div class="offer-body">
+          {% if block.settings.image != blank %}
+          	<img loading="lazy" alt="{{ shop.name }}" class="lazyload" data-src="{{ block.settings.image | img_url: 'x1024' }}" />
+          {% else %}
+            {% if is_french_site %}
+              {{ block.settings.title_fr }}
+          	{% else %}
+              {{ block.settings.title }}
+          	{% endif %}
+          {% endif %}
+        </div>
+
+        <div class="offer-footer">
+          {% if block.settings.link_url != blank %}<a href="{{ block.settings.link_url }}">{% endif %}
+          	{% if is_french_site %}
+              {{ block.settings.link_text_fr }}
+          	{% else %}
+              {{ block.settings.link_text }}
+          	{% endif %}
+          {% if block.settings.link_url != blank %}</a>{% endif %}
+        </div>
+      </div>
+      {% endfor %}      
+    </div>
+    
+  </div>
+</div>
+
+<script src="{{ 'offers-tab.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Offers Tab",
+    "settings": [
+	  {
+		"type": "checkbox",
+		"id": "enabled",
+		"label": "Show Offers?",
+		"default": false
+	  },
+	  {
+		"type": "text",
+		"id": "btn_text",
+		"default": "MY OFFERS",
+		"label": "Button Text"
+	  },
+	  {
+		"type": "text",
+		"id": "btn_text_fr",
+		"default": "MY OFFERS",
+		"label": "Button Text (FRENCH)"
+	  },
+	  {
+		"type": "color",
+		"id": "btn_bg_color",
+		"default": "#fff",
+		"label": "Button Background Color"
+	  },
+	  {
+		"type": "color",
+		"id": "btn_text_color",
+		"default": "#000",
+		"label": "Button Text Color"
+	  }
+	],
+	"blocks": [
+	  {
+		"type": "offer",
+		"name": "Offer",
+		"settings": [
+		  {
+			"type": "image_picker",
+			"id": "image",
+			"label": "Offer Details (Image)",
+			"info": "Note: Using image will take whole block without text"
+		  },
+		  {
+			"type": "collection",
+			"id": "collection",
+			"label": "Offer Applies to Collection"
+		  },
+		  {
+			"type": "richtext",
+			"id": "title",
+			"label": "Offer Details",
+			"info": "Note: Bold text styled as bigger text"
+		  },
+		  {
+			"type": "richtext",
+			"id": "offer_details_product_cart",
+			"label": "Offer Details (To be Shown on Product page and Cart)",
+			"info": "Use a single line for better display on product, cart page"
+		  },
+		  {
+			"type": "richtext",
+			"id": "title_fr",
+			"label": "Offer Details (FRENCH)",
+			"info": "Note: Bold text styled as bigger text"
+		  },
+		  {
+			"type": "richtext",
+			"id": "offer_details_product_cart_fr",
+			"label": "Offer Details (To be Shown on Product page and Cart) (FRENCH)",
+			"info": "Use a single line for better display on product, cart page"
+		  },
+		  {
+			"type": "color",
+			"id": "offer_bg_color",
+			"label": "Offer Background Color",
+			"default": "#f1f1f1"
+		  },
+		  {
+			"type": "color",
+			"id": "offer_text_color",
+			"label": "Offer Text Color",
+			"default": "#222222"
+		  },
+		  {
+			"type": "text",
+			"id": "link_text",
+			"label": "Offer Link Text",
+			"default": "Offer Link"
+		  },
+		  {
+			"type": "text",
+			"id": "link_text_fr",
+			"label": "Offer Link Text (FRENCH)",
+			"default": "Offer Link"
+		  },
+		  {
+			"type": "url",
+			"id": "link_url",
+			"label": "Offer Link URL"
+		  }
+		]
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

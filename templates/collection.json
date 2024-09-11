@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "banner": {
+      "type": "fallback_image_banner",
+      "settings": {
+        "image_darken": true,
+        "width": "wide",
+        "banner_height": "small",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "main": {
+      "type": "collection__main",
+      "settings": {
+        "collection_breadcrumb": true,
+        "collection_tags": false,
+        "collection_sort": true,
+        "show_sidebar": false,
+        "sidebar_position": "left",
+        "show_promo_banner": false,
+        "image_darken": true,
+        "promo_title": "Special sale on now!",
+        "promo_text": "<p>Description of promotion with lots of details.<\/p>",
+        "banner_height": "medium",
+        "align_height": true,
+        "collection_height": 360,
+        "products_per_row": 3,
+        "mobile_products_per_row": "2",
+        "pagination_limit": 48,
+        "pagination_type": "basic_pagination",
+        "width": "wide",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "bottom_content_2_G64W6h": {
+      "type": "bottom-content-2",
+      "settings": {
+        "heading_font": "open_sans_n4",
+        "heading_alignment": "center",
+        "heading_size": 30,
+        "heading_color": "rgba(0,0,0,0)",
+        "text_color": "#000000",
+        "background": "#ffffff",
+        "gradient_rotation": 180,
+        "text_font": "open_sans_n4",
+        "text_alignment": "left",
+        "text_size": 14
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "bottom_content_2_G64W6h"
+  ]
+}

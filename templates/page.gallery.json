@@ -1,0 +1,176 @@
+{
+  "sections": {
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/yellow-pillow-bedside-table.jpg",
+        "image_darken": false,
+        "subtitle": "",
+        "width": "wide",
+        "banner_height": "small",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "main": {
+      "type": "page-content__main",
+      "settings": {
+        "show_heading": true,
+        "heading_alignment": "left",
+        "width": "standard",
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb": {
+      "type": "index__collection-list",
+      "blocks": {
+        "template--16123450785982__ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb-16850274517c5ad7b7-0": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "living-room",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "template--16123450785982__ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb-16850274517c5ad7b7-1": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "kitchen",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "template--16123450785982__ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb-16850274517c5ad7b7-2": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "bedroom",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "af878e5d-1981-423c-abe8-ac6d590f216d": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "bathroom",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "3ac3ed99-82cf-46fb-8295-4d9de396696b": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "dining-room",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "625ac2ae-3440-48a4-ba0f-cd97bc44ce12": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "office-lighting",
+            "title": "",
+            "button_label": "View products"
+          }
+        }
+      },
+      "block_order": [
+        "template--16123450785982__ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb-16850274517c5ad7b7-0",
+        "template--16123450785982__ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb-16850274517c5ad7b7-1",
+        "template--16123450785982__ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb-16850274517c5ad7b7-2",
+        "af878e5d-1981-423c-abe8-ac6d590f216d",
+        "3ac3ed99-82cf-46fb-8295-4d9de396696b",
+        "625ac2ae-3440-48a4-ba0f-cd97bc44ce12"
+      ],
+      "settings": {
+        "collections_per_row": 3,
+        "align_height": true,
+        "collection_height": 350,
+        "enable_zoom": true,
+        "button_style": "button--primary",
+        "overlay_background": "#939393",
+        "overlay_background_opacity": 0,
+        "overlay_text": "#ffffff",
+        "collection_title_below_image": true,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "4479285d-1005-4cec-bc1f-be92fcbfc9c1": {
+      "type": "index__collection-list",
+      "blocks": {
+        "d1be182d-9d47-42ad-b7ba-ad2d4d747b15": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "library",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "7af7560c-5133-4a20-a327-88df472e6b44": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "outdoor-space",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "569b0b33-12c5-4a7b-bfdb-857daaadc111": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "foyer",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "1d89179c-2509-4b5e-9379-5ab31e0e499e": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "hallway",
+            "title": "",
+            "button_label": "View products"
+          }
+        }
+      },
+      "block_order": [
+        "d1be182d-9d47-42ad-b7ba-ad2d4d747b15",
+        "7af7560c-5133-4a20-a327-88df472e6b44",
+        "569b0b33-12c5-4a7b-bfdb-857daaadc111",
+        "1d89179c-2509-4b5e-9379-5ab31e0e499e"
+      ],
+      "settings": {
+        "collections_per_row": 3,
+        "align_height": true,
+        "collection_height": 350,
+        "enable_zoom": true,
+        "button_style": "button--primary",
+        "overlay_background": "#939393",
+        "overlay_background_opacity": 0,
+        "overlay_text": "#ffffff",
+        "collection_title_below_image": true,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "animation": "none",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "ffae13b7-24e6-45c0-8fa9-ea32bd38dcfb",
+    "4479285d-1005-4cec-bc1f-be92fcbfc9c1"
+  ]
+}

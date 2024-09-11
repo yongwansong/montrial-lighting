@@ -1,0 +1,24 @@
+{% comment %} This template must be named 'collection.pt-filter-menu' {% endcomment %}
+{% layout none %} 
+
+<html>
+
+  <head>
+  {% assign primary_sort_collection = collection %}
+    {% if collection.metafields.sort_primary.collection_handle %}
+    {% assign primary_sort_collection = collections[collection.metafields.sort_primary.collection_handle] %}
+    {% endif %}
+    {% if template contains "collection" and primary_sort_collection %}
+    <link rel="canonical" href="{{ shop.url }}{{ primary_sort_collection.url }}{% if current_tags and current_tags.first %}/{{ current_tags.first }}{% endif %}{% if current_tags and current_tags[1] %}+{{ current_tags[1] }}{% endif %}{% if current_page > 1 %}?page={{ current_page }}{% endif %}" />
+    {% else %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+    {% endif %}
+  </head>
+
+  <body>
+    <div id="pt-async">
+    	{% render 'filter-menu' %}
+    </div>
+  </body>
+  
+</html>

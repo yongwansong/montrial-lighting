@@ -1,0 +1,120 @@
+var _utils = (function() {
+  var fx = {};
+  
+  fx.onElementLoad = function(selector, callback) {
+    var loaded = false;
+    var totalTime = 0;
+
+    var timer = setInterval(function() {
+      if (document.querySelectorAll(selector).length) {
+        console.log(selector + ' loaded!');
+        loaded = true;
+      }
+
+      if (loaded) {
+        clearInterval(timer);
+        callback();
+      }
+
+      if (totalTime > 5000) {
+        clearInterval(timer);
+      }
+      totalTime += 100;
+    }, 100);
+  }
+
+  fx.debounce = function(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }  
+  
+  return fx;
+})();
+
+(function($) {
+  function LanguageSelector() {
+    function addLanguageSelector() {
+      if ($('.custom-language-switcher.loaded').length) {
+        return;
+      }
+
+      // hide original selector from app
+      $('.ls-sw-languages').hide(); 
+
+      // add custom selector
+      $('.top-bar__menu-items').after($('.custom-language-switcher'));
+      $('.mobile-menu__last').append($('.custom-language-switcher').clone());
+      $('.custom-language-switcher').removeClass('hidden').addClass('loaded');
+    }
+
+    _utils.onElementLoad('.ls-sw-languages', addLanguageSelector);
+
+    addLanguageSelector();
+  }
+  
+  function InitVariantChangeEvent() {
+    $(document).on('variant-change', function(e) {
+      var current_variant_id = $(e.productEl).find('select[name=id]').val();
+      var variant = e.variant;
+      
+      if (current_variant_id !== e.variant.id) {
+        var variant_url = `${window.location.origin}${window.location.pathname}?variant=${variant.id}&view=variant-mf-raw'`;
+        $.get(variant_url).then(function(response) {
+          //console.log(response);
+          var newVariantMetafieldContent = $(response).find('.variant-metafields-content').html();
+          $('.variant-metafields-content').html(newVariantMetafieldContent);
+        });        
+      }
+      
+      applyDiscontinued(variant);
+      
+      // Tearsheet update url
+      var $btn_print = $('.btn-print-tearsheet');
+      let variant_print_url = `${$btn_print.data('url')}?view=print&variant=${e.variant.id}`;
+      $btn_print.attr('href', variant_print_url);      
+    });
+  }
+  
+  function BlogLanguageSwitcher() {
+    var template = "{{ template }}";
+    var isBlog = $('body').hasClass('blog');
+    var isArticle = $('body').hasClass('article');
+    if (isBlog) {
+      //$('.custom-language-switcher a[title="French"]').attr('href', '//www.montrealluminaire.com/blogs/blogue-francais');
+      $('.custom-language-switcher a[title="French"]').attr('href', '//www.montreallighting.com/fr/blogs/blogue-francais');
+      $('.custom-language-switcher a[title="English"]').attr('href', '//www.montreallighting.com/blogs/blog-english');
+    }
+    else if (isArticle) {
+      if (typeof article !== 'undefined') {
+        $('.custom-language-switcher a[title="French"]').attr('href', article.fr);
+        $('.custom-language-switcher a[title="English"]').attr('href', article.en);
+      }
+    }
+
+    var isFrenchSite = window.location.pathname.indexOf('/fr/') !== -1;
+    if (isFrenchSite) {
+      $('a[href="/blogs/blog-english"]').attr('href', '/blogs/blogue-francais');
+    }
+  }  
+  
+  function ProductQuantity() {
+    $('.purchase-details__buttons').prepend($('.purchase-details__quantity'));
+  }
+  
+  $(document).ready(function() {
+    LanguageSelector();
+    InitVariantChangeEvent();
+    BlogLanguageSwitcher();
+    ProductQuantity();
+  });
+})(jQuery);

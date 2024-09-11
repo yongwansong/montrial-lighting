@@ -1,0 +1,16 @@
+<div translate="no" class="custom-language-switcher hidden">
+  <div class="container">
+    <ul>
+      <li data-code="fr">
+        <a title="French" href="//{{ request.host }}{% unless request.path contains '/fr' %}/fr{% endunless %}{{ request.path }}" class="js-no-transition ls-sw-link">
+          <i class="ls-text">FR</i>
+        </a>        
+      </li>
+      <li data-code="en" class="active">
+        <a title="English" href="//{{ request.host }}{{ request.path | replace: '/fr', '' }}" class="js-no-transition ls-sw-link">
+          <i class="ls-text">EN</i>
+        </a>
+      </li>
+    </ul>    
+  </div>
+</div>

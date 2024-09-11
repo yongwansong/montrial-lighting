@@ -1,0 +1,107 @@
+{% comment %}
+----------------
+Optional values
+context: <string>
+{% endcomment %}
+
+{% comment %} Check if product is on sale {% endcomment %}
+{% if product.compare_at_price_max > product.price %}
+  {% assign product_on_sale = true %}
+{% endif %}
+
+{% comment %} Check if sticker holder should be displayed {% endcomment %}
+
+{% if collection_handles contains 'best-seller' or
+      collection_handles contains 'coming-soon' or
+      collection_handles contains 'new-arrivals' or
+      collection_handles contains 'pre-order' or
+      collection_handles contains 'summer-sale' or
+      collection_handles contains 'thanksgiving-sale' or
+      collection_handles contains 'staff-pick' or
+      collection_handles contains 'boxing-week' or
+      product_on_sale or 
+	  product.template_suffix == 'open-box' %}
+  <div class="
+              sticker-holder
+              sticker-shape-{{ settings.sticker_shape }}
+              sticker-position-{{ settings.sticker_position }}">
+    <div class="sticker-holder__content sticker-holder__content--{{ context }}">
+
+      {% comment %}SV-15.11.22{% endcomment %}
+      {% if product.tags contains 'overstock' %}
+        <div class="sale-sticker thumbnail-sticker">
+          <span class="sticker-text">Quick Ship</span>
+        </div>
+      {% elsif product.template_suffix == 'open-box' %}
+        <div class="sale-sticker thumbnail-sticker">
+          <span class="sticker-text">Open Box</span>
+        </div>
+      {% endif %}
+      
+      {% if collection_handles contains 'best-seller' %}
+        <div class="best-seller-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.best_seller' | t }}</span>
+        </div>
+      {% endif %}
+
+
+      {% if collection_handles contains 'coming-soon' %}
+        <div class="coming-soon-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.coming_soon' | t }}</span>
+        </div>
+      {% endif %}
+
+
+      {% if collection_handles contains 'new' %}
+        <div class="new-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.new' | t }}</span>
+        </div>
+      {% endif %}
+
+      {% if collection_handles contains 'summer-sale' %}
+        <div class="sale-sticker thumbnail-sticker">
+          <span class="sticker-text">Sale</span>
+        </div>
+      {% endif %}
+
+      {% if collection_handles contains 'thanksgiving-sale' %}
+        <div class="sale-sticker thumbnail-sticker">
+          <span class="sticker-text">sale</span>
+        </div>
+      {% endif %}
+
+        {% if collection_handles contains 'new-arrivals' %}
+        <div class="sale-sticker thumbnail-sticker">
+          <span class="sticker-text">New Arrivals</span>
+        </div>
+      {% endif %}
+      
+      {% if collection_handles contains 'pre-order' %}
+        <div class="pre-order-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.pre_order' | t }}</span>
+        </div>
+      {% endif %}
+
+      {% comment %}SV-15.11.22{% endcomment %}
+      {% unless product.template_suffix == 'open-box' %}
+        {% if product.available and product_on_sale %}
+          <div class="sale-sticker thumbnail-sticker sticker-{{i}}">
+            <span class="sticker-text">{{ 'collections.general.sale' | t }}</span>
+          </div>
+        {% endif %}
+      {% endunless %}
+
+      {% unless product.available %}
+        <div class="sold-out-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.sold_out' | t }}</span>
+        </div>
+      {% endunless %}
+
+      {% if collection_handles contains 'staff-pick' %}
+        <div class="staff-pick-sticker thumbnail-sticker sticker-{{i}}">
+          <span class="sticker-text">{{ 'collections.general.staff_pick' | t }}</span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

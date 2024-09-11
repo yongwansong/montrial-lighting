@@ -1,0 +1,15 @@
+<div class="product-discontinued hidden" data-host="{{ request.host }}">
+  <div class="container">
+    <div class="discontinued">
+      {% if request.host contains 'montreallighting.com' %}
+      <strong>Discontinued</strong>
+      <p>This item is no longer available. Our Lighting Experts are standing by to assist you in locating a suitable replacement.
+        Please e-mail us at <a href="mailto:support@montrealluminaire.com">support@montrealluminaire.com</a> or call us at <a href="tel:514-416-2013">514-416-2013</a> for assistance.</p>
+      {% else %}
+      <strong>Abandonné</strong>
+      <p>Cet article n'est plus disponible. Nos experts en éclairage sont à votre disposition pour vous assister à trouver un remplacement approprié. 
+        Veuillez nous envoyer un courriel à <a href="mailto:support@montrealluminaire.com">support@montrealluminaire.com</a> ou nous appeler au <a href="tel:514-416-2013">514-416-2013</a> pour obtenir de l’assistance.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
