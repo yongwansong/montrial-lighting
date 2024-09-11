@@ -1,55 +1,36 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsFeaturedCollection = {
+window.PXUTheme.jsFeaturedCollection = {
   init: function($section) {
-
     // Add settings from schema to current object
-    Shopify.theme.jsFeaturedCollection = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsFeaturedCollection = $.extend(this, window.PXUTheme.getSectionData($section));
 
-    if(this.enable_masonry_layout && !this.align_height && this.collection_style == 'grid') {
-      Shopify.theme.applyMasonry();
+    if (this.collection_layout == 'slider') {
+      this.createSlider('.slider-gallery--desktop');
     }
 
-    if(this.collection_style == 'slider') {
-      this.createSlider();
+    if (this.collection_layout_mobile == 'slider') {
+      this.createSlider('.slider-gallery--mobile');
     }
-
-
   },
-  createSlider: function() {
+  createSlider: function(el) {
+    const slider = $(el);
 
-    let featuredCollectionSlider = $('.featured-collection.layout--slider .slider-gallery');
-
-    const slideData = {
-      products_per_slide: this.products_per,
-      products_available: this.products_available,
-      products_limit: this.products_limit,
-      cellAlign: "left",
-      wrapAround: true
-    }
-
-    $(featuredCollectionSlider).flickity({
+    $(slider).flickity({
       lazyLoad: 2,
       freeScroll: true,
       imagesLoaded: true,
       draggable: true,
       cellAlign: 'center',
-      wrapAround: slideData.wrapAround,
+      wrapAround: true,
       pageDots: false,
       contain: true,
-      prevNextButtons: slideData.products_limit > slideData.products_per_slide ? true : false,
+      prevNextButtons: this.products_limit > this.products_per ? true : false,
       initialIndex: 0,
       arrowShape: arrowShape,
-      on: {
-        ready: function() {
-          // Resize flickity when the slider is settled
-          $(featuredCollectionSlider).on( 'settle.flickity', function() {
-            $(featuredCollectionSlider).flickity('resize')
-          });
-        }
-      }
     });
 
+    $(slider).on('settle.flickity', () => $(slider).flickity('resize'));
   },
   unload: function($section) {
     let $slider = $section.find('.flickity-enabled');

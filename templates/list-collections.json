@@ -2,11 +2,49 @@
   "sections": {
     "main": {
       "type": "list-collections__main",
+      "disabled": true,
       "settings": {
+        "collections_per_row": 3,
+        "pagination_limit": 48,
+        "pagination_type": "basic_pagination",
+        "align_height": false,
+        "collection_height": 400,
+        "enable_zoom": true,
+        "button_style": "button--secondary",
+        "overlay_background": "#939393",
+        "overlay_background_opacity": 70,
+        "overlay_text": "#FFFFFF",
+        "collection_title_below_image": false,
+        "width": "standard",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "172174738699f2e294": {
+      "type": "apps",
+      "blocks": {
+        "algolia_search_and_discovery_instantsearch_jHGXLQ": {
+          "type": "shopify:\/\/apps\/algolia-search-and-discovery\/blocks\/instantsearch\/57bb7f86-d5fe-4d43-96ca-3953324494cf",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "algolia_search_and_discovery_instantsearch_jHGXLQ"
+      ],
+      "settings": {
+        "width": "standard",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "css_class": "",
+        "custom_css": ""
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "172174738699f2e294"
   ]
 }

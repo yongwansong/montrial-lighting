@@ -1,8 +1,8 @@
 <ul class="social-icons is-flex is-flex-wrap {{flex_alignment}}">
-  {% if settings.twitter_link != '' %}
+   {% if settings.x_link != '' %}
     <li>
-      <a href="{{ settings.twitter_link }}" title="{{ shop.name }} on Twitter" rel="me" target="_blank"  rel="noopener"class="icon-twitter">
-        {% render 'icon', name: 'twitter' %}
+      <a href="{{ settings.x_link }}" title="{{ shop.name }} on X" rel="me" target="_blank"  rel="noopener" class="icon-x">
+        {% render 'icon', name: 'x-social' %}
       </a>
     </li>
   {% endif %}

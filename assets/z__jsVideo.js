@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsVideo = {
+window.PXUTheme.jsVideo = {
   init: function ($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsVideo = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsVideo = $.extend(this, window.PXUTheme.getSectionData($section));
 
     // Selectors
     const $videoElement = $section.find('[data-video-element]');

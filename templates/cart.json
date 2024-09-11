@@ -19,9 +19,32 @@
         "display_product_quantity_cart": true,
         "display_savings": true,
         "cart_message": "",
+        "continue_shopping_link": "",
         "width": "standard",
         "padding_top": 40,
         "padding_bottom": 40,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "171333634255177c3e": {
+      "type": "apps",
+      "blocks": {
+        "essential_trust_badges_app_block_yP8ADU": {
+          "type": "shopify:\/\/apps\/essential-trust-badges\/blocks\/app-block\/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "all",
+            "banner_id": "75818d41-b35c-47bf-bb14-d91577292a39"
+          }
+        }
+      },
+      "block_order": [
+        "essential_trust_badges_app_block_yP8ADU"
+      ],
+      "settings": {
+        "width": "standard",
+        "padding_top": 20,
+        "padding_bottom": 20,
         "css_class": "",
         "custom_css": ""
       }
@@ -29,6 +52,7 @@
   },
   "order": [
     "banner",
-    "main"
+    "main",
+    "171333634255177c3e"
   ]
 }

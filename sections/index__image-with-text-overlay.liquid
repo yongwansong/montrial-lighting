@@ -15,8 +15,8 @@
 {%- assign mobile_preheading_color = section.settings.pretext_color_mobile -%}
 {%- assign mobile_headline_color = section.settings.heading_color_mobile -%}
 {%- assign mobile_subtitle_color = section.settings.subheading_color_mobile -%}
-{%- assign mobile_textbtn_color = section.settings.text_color_mobile -%}
-{%- assign mobile_backbtn_color = section.settings.back_color_mobile -%}
+{%- assign mobile_textbtn_color = section.settings.textbtn_color_mobile -%}
+{%- assign mobile_backbtn_color = section.settings.backgroundbtn_color_mobile -%}
 
 {% if button_1 != blank and button_2 != blank %}
   {%- assign buttons = true -%}
@@ -33,7 +33,6 @@
 {%- assign mobile_preheading_alpha = mobile_preheading_color | color_extract: 'alpha' -%}
 {%- assign mobile_subtitle_alpha = mobile_subtitle_color | color_extract: 'alpha' -%}
 {%- assign caption_border_alpha = section.settings.border_color | color_extract: 'alpha' -%}
-
 
 {% comment %} Section specific CSS {% endcomment %}
 {% capture section_css -%}
@@ -54,30 +53,16 @@
     color: {% if subheading_alpha != 0 %}{{ section.settings.subheading_color }}{% else %}{{ settings.heading_color }}{% endif %};
   }
   .image-with-text-overlay__buttons a {
-    color: {% if subheading_alpha != 0 %}{{ section.settings.text_color }}{% else %}{{ settings.heading_color }}{% endif %};
+    color: {% if subheading_alpha != 0 %}{{ section.settings.text_btn }}{% else %}{{ settings.heading_color }}{% endif %};
   }
   .image-with-text-overlay__buttons a {
-    background: {% if subheading_alpha != 0 %}{{ section.settings.back_color_btn }}{% else %}{{ settings.heading_color }}{% endif %};
+    background: {% if subheading_alpha != 0 %}{{ section.settings.back_btn_color }}{% else %}{{ settings.heading_color }}{% endif %};
   }
 {%- endcapture -%}
 
 {% comment %} Section specific CSS {% endcomment %}
 
 {% style %}
-
-
-/* .caption-content .buttons a {
-  color: "{{ section.settings.text_color_btn }}"
-} */
-
-
-
-
-
-
-
-
-  
   {% render 'css-loop',
           css: section_css,
           id: section.id
@@ -93,10 +78,10 @@
     #shopify-section-{{ section.id }} .image-with-text-overlay__subheading {
       color: {% if mobile_subtitle_alpha != 0 %}{{ mobile_subtitle_color}}{% endif %};
     }
-    #shopify-section-{{ section.id }} .image-with-text-overlay__buttons a  {
+    #shopify-section-{{ section.id }} .image-with-text-overlay__buttons a {
       color: {% if mobile_subtitle_alpha != 0 %}{{ mobile_textbtn_color}}{% endif %};
     }
-    #shopify-section-{{ section.id }} .image-with-text-overlay__buttons a  {
+    #shopify-section-{{ section.id }} .image-with-text-overlay__buttons a {
       background: {% if mobile_subtitle_alpha != 0 %}{{ mobile_backbtn_color}}{% endif %};
     }
   }
@@ -148,7 +133,9 @@
               {% if section.settings.width == 'wide' or section.settings.width == 'half' %}
                 equal-columns--outside-trim
               {% endif %}">
-    <div class="image-with-text-overlay__banner columns one-whole image-crop-{{ mobile_text_crop }}">
+    <div class="image-with-text-overlay__banner columns one-whole image-crop-{{ mobile_text_crop }}" 
+      style="--aspect-ratio: {{ image.aspect_ratio }};
+      --aspect-ratio-m: {% if mobile_image != blank %}{{ mobile_image.aspect_ratio }}{% else %}{{ image.aspect_ratio }}{% endif %};">
 
       {% if mobile_image != blank %}
         {%- assign hide_mobile = 'is-hidden-mobile-only' -%}
@@ -288,25 +275,19 @@
       "label": "Heading",
       "default": "#000000"
     },
-    
     {
       "type": "color",
       "id": "subheading_color",
       "label": "Subheading",
       "default": "#000000"
     },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "text color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "back_color_btn",
-      "label": "background color",
-      "default": "#000000"
-    },
+
+
+
+
+
+
+    
     {
       "type": "select",
       "id": "text_alignment",
@@ -425,6 +406,20 @@
       "id": "button_1_link",
       "label": "Button 1 link"
     },
+
+ {
+      "type": "color",
+      "id": "text_btn",
+      "label": "text btn",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "back_btn_color",
+      "label": "background color",
+      "default": "#000000"
+    },
+    
     {
       "type": "select",
       "id": "button_1_style",
@@ -534,14 +529,14 @@
     },
     {
       "type": "color",
-      "id": "text_color_mobile",
+      "id": "textbtn_color_mobile",
       "label": "text button mobile",
       "default": "rgba(0,0,0,0)"
     },
     {
       "type": "color",
-      "id": "back_color_mobile",
-      "label": "background color btn",
+      "id": "backgroundbtn_color_mobile",
+      "label": "text button mobile",
       "default": "rgba(0,0,0,0)"
     },
     {

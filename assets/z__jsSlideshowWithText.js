@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsSlideshowWithText = {
+window.PXUTheme.jsSlideshowWithText = {
 	init: function($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsSlideshowWithText = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsSlideshowWithText = $.extend(this, window.PXUTheme.getSectionData($section));
 
     const textTransition = this.text_transition;
 
@@ -36,7 +36,7 @@ Shopify.theme.jsSlideshowWithText = {
       on: {
         ready: function () {
           const $currentTextSlide = $textSlideshowEl.find('.is-selected .text-slideshow__content');
-          Shopify.theme.animation.slideTransition($currentTextSlide, textTransition);
+          window.PXUTheme.animation.slideTransition($currentTextSlide, textTransition);
         }
       }
     });
@@ -45,7 +45,7 @@ Shopify.theme.jsSlideshowWithText = {
       $textSlideshow.flickity('select', index, true, true);
 
       const $currentTextSlide = $textSlideshowEl.find('.is-selected .text-slideshow__content');
-      Shopify.theme.animation.slideTransition($currentTextSlide, textTransition);
+      window.PXUTheme.animation.slideTransition($currentTextSlide, textTransition);
 
     });
 

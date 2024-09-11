@@ -1,0 +1,195 @@
+{% if section.blocks.size > 0 %}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+
+    {% if section.settings.width == 'wide' %}
+      width: 100%;
+    {% endif %}
+  }
+
+  @media only screen and (max-width: 798px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="section is-width-wide">
+  <div class="container">
+    <div class="testimonial-two--slider carousel-comman-arrwos">   
+      {% for block in section.blocks %}
+      <div class="tTwo-feature-row-wrap">
+        <div class="tTwo-feature-row__text js-auto-height">
+          <div class="tTwo-feature-row__text-inner">
+            {% if block.settings.title != blank %}<div class="section__title--small is-uppercase h3"> {{ block.settings.title }} </div>{% endif %}
+            {% if block.settings.des != blank %}
+            <div class="tTwo-feature-row__subtext h4">
+              <p>{{ block.settings.des }} </p>
+            </div>
+            {% endif %}
+            {% if block.settings.pos != blank %}<div class="tTwo-feature-row__subtext-subtitle is-uppercase">{{ block.settings.pos }}</div>{% endif %}
+            {% if block.settings.btn-text != blank %}<a href="{% if block.settings.btn-link != blank %}{{ block.settings.btn-link }}{% else %}#{% endif %}" class="button button--primary"> {{ block.settings.btn-text }} </a>{% endif %}
+          </div>          
+        </div>
+        {% if block.settings.desk-img != blank %}
+        <div class="tTwo-feature-row__media">
+          {% assign item_image = block.settings.desk-img %}
+          {% assign mobile_image = block.settings.mob-img | default: item_image %}
+           {%- if item_image != blank -%}
+              {%
+                render 'image-element',
+                image: item_image,
+                alt: item_image.alt,
+                stretch_width: true,
+                additional_wrapper_classes: 'is-hidden-mobile-only',
+                focal_point: item_image.presentation.focal_point,
+              %}              
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg grid-item__desktop-svg' }}
+            {%- endif -%}
+            {%- if mobile_image != blank -%}
+              {%
+                render 'image-element',
+                image: mobile_image,
+                alt: mobile_image.alt,
+                stretch_width: true,
+                additional_wrapper_classes: 'is-hidden-desktop-only',
+                focal_point: mobile_image.presentation.focal_point,
+              %}
+          {%- endif -%}          
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {  
+    $('.testimonial-two--slider').flickity({
+      // options
+      cellAlign: 'left',
+      contain: true,
+      adaptiveHeight: true,      
+      wrapAround: true
+    });
+  });
+</script>
+  
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Testimonials Two",
+    "class": "section-testimonial-two",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },      
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "header",
+        "content": "Mobile layout"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "label": "Mobile top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "label": "Mobile bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "testimonial",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "des",
+            "label": "Description"
+          },
+          {
+            "type": "text",
+            "id": "pos",
+            "label": "Position"
+          },
+          {
+            "type": "text",
+            "id": "btn-text",
+            "label": "Button Text"
+          },
+          {
+            "type": "url",
+            "id": "btn-link",
+            "label": "Button Link"
+          },
+          {
+            "type": "image_picker",
+            "id":"desk-img",
+            "label": "Desktop Image"
+          },
+          {
+            "type": "image_picker",
+            "id":"mob-img",
+            "label": "Mobile Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials Two",
+        "category": "Store information",
+        "settings": {
+            "padding_top": 20,
+            "padding_bottom": 20
+        }
+      }
+    ],
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
+    }
+  }
+{% endschema %}

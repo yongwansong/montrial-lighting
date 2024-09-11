@@ -1,19 +1,42 @@
 {% for address in customer.addresses %}
   {% if address-loop contains 'default' %}
     {% if address == customer.default_address %}
-      <div class="address_table">
+      <div class="address-table__table">
         <div id="view_address_{{address.id}}" class="customer_address">
           <h4 class="address_title">
             {{ address.first_name | capitalize }} {{address.last_name | capitalize }}
             {% if address == customer.default_address %}({{ 'customer.addresses.default' | t }}){% endif %}
           </h4>
-          <p class="view_address">
-            {{ address.company }}<br>
-            {{ address.street }}<br>
-            {{ address.city | capitalize }}{% if address.province_code %}, {{ address.province_code | upcase }}{% endif %} {{ address.zip | upcase }}<br>
-            {{ address.country }}<br>
-            {{ address.phone }}
-          </p>
+          <ul class="view_address">
+            {% if address.company != blank %}
+              <li>{{ address.company }}</li>
+            {% endif %}
+
+            {% if address.street != blank %}
+              <li>{{ address.street }}</li>
+            {% endif %}
+
+            {% if address.city != blank or address.zip != blank or address.province_code %}
+              <li>
+                {{- address.city | capitalize -}}
+                {%- if address.province_code -%}
+                  {% if address.city != blank %},{% endif %} {{ address.province_code | upcase }}
+                {%- else -%}
+                  {%- comment -%}Make space between city and zip code{%- endcomment -%}
+                  {% if address.city != blank %} {% endif %}
+                {%- endif -%}
+                {{- address.zip | upcase -}}
+              </li>
+            {% endif %}
+
+            {% if address.country != blank %}
+              <li>{{ address.country }}</li>
+            {% endif %}
+
+            {% if address.phone != blank %}
+              <li>{{ address.phone }}</li>
+            {% endif %}
+          </ul>
 
           <p class="address_actions">
             <span class="action_edit">{{ 'customer.addresses.edit' | t | edit_customer_address_link: address.id }}</span> |
@@ -119,25 +142,60 @@
     {% endif %}
   {% else %}
     {% unless address == customer.default_address %}
-      <div class="address_table one-third column">
-          <div id="view_address_{{address.id}}" class="customer_address">
-            <h4 class="address_title">
-              {{ address.first_name | capitalize }} {{address.last_name | capitalize }}
+      <div
+        class="
+          address-table__address
+          one-third
+          column
+          small-down--one-whole
+        "
+      >
+          <div id="view_address_{{ address.id }}">
+            <h4 class="address-table__title">
+              {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
               {% if address == customer.default_address %}({{ 'customer.addresses.default' | t }}){% endif %}
             </h4>
-            <p class="view_address">
-              {{ address.company }}<br>
-              {{ address.street }}<br>
-              {{ address.city | capitalize }}{% if address.province_code %}, {{ address.province_code | upcase }}{% endif %} {{ address.zip | upcase }}<br>
-              {{ address.country }}<br>
-              {{ address.phone }}
-            </p>
 
-            <p class="address_actions">
-              <span class="action_edit">{{ 'customer.addresses.edit' | t | edit_customer_address_link: address.id }}</span> |
-              <span class="action_delete">{{ 'customer.addresses.delete' | t | delete_customer_address_link: address.id }}</span>
-            </p>
+            <ul class="address-table__details">
+              {% if address.company != blank %}
+                <li>{{ address.company }}</li>
+              {% endif %}
 
+              {% if address.street != blank %}
+                <li>{{ address.street }}</li>
+              {% endif %}
+
+              {% if address.city != blank or address.zip != blank or address.province_code %}
+                <li>
+                  {{- address.city | capitalize -}}
+                  {%- if address.province_code -%}
+                    {% if address.city != blank %},{% endif %} {{ address.province_code | upcase }}
+                  {%- else -%}
+                    {%- comment -%}Make space between city and zip code{%- endcomment -%}
+                    {% if address.city != blank %} {% endif %}
+                  {%- endif -%}
+                  {{- address.zip | upcase -}}
+                </li>
+              {% endif %}
+
+              {% if address.country != blank %}
+                <li>{{ address.country }}</li>
+              {% endif %}
+
+              {% if address.phone != blank %}
+                <li>{{ address.phone }}</li>
+              {% endif %}
+            </ul>
+
+            <div class="address-table__actions">
+              <span class="address-table__action-edit">
+                {{ 'customer.addresses.edit' | t | edit_customer_address_link: address.id }}
+              </span>
+              |
+              <span class="address-table__action-delete">
+                {{ 'customer.addresses.delete' | t | delete_customer_address_link: address.id }}
+              </span>
+            </div>
           </div>
 
           <div id="edit_address_{{address.id}}" class="customer_address edit_address" style="display:none;">
@@ -237,6 +295,4 @@
         {% cycle '', '', '<hr>' %}
       {% endunless %}
     {% endif %}
-  <!-- end .address_table -->
-
 {% endfor %}

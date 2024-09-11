@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsCustomContactForm = {
+window.PXUTheme.jsCustomContactForm = {
   init: function () {
 
   // Selectors
@@ -23,7 +23,7 @@ Shopify.theme.jsCustomContactForm = {
 
     const $form = $(this);
     const $formBlocks = $('.contact-form__blocks [data-checkbox-required]', $form);
-    const $errorMessage = Shopify.translation.contact_form_checkbox_error;
+    const $errorMessage = window.PXUTheme.translation.contact_form_checkbox_error;
     const $errorMessageContainer = $('.form__error', $form);
 
     let completeForm = true;

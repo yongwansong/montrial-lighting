@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsSlideshowClassic = {
+window.PXUTheme.jsSlideshowClassic = {
 	init: function($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsSlideshowClassic = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsSlideshowClassic = $.extend(this, window.PXUTheme.getSectionData($section));
 
     // Selectors
     const $slideshowClassicEl = $section.find('[data-slideshow-classic]').removeClass('is-hidden');

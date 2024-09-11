@@ -214,34 +214,34 @@ This file was created by the app developer. Feel free to contact the original de
 }
 
 .slideInLeft {
-    animation-name: slideInLeft
+    animation-name: slideInLeft;
 }
 
 @keyframes slideInRight {
     0% {
         transform: translate3d(100%, 0, 0);
         visibility: visible;
-        opacity: 1
+        opacity: 1;
     }
 
     to {
         transform: translateZ(0);
-        opacity: 1
+        opacity: 1;
     }
 }
 
 .slideInRight {
-    animation-name: slideInRight
+    animation-name: slideInRight;
 }
 
 @keyframes slideOutRight {
     0% {
-        transform: translateZ(0)
+        transform: translateZ(0);
     }
 
     to {
         visibility: hidden;
-        transform: translate3d(100%, 0, 0)
+        transform: translate3d(100%, 0, 0);
     }
 }
 
@@ -819,23 +819,23 @@ https://github.com/vb/lazyframe
 }
 
 .plyr__captions .plyr__caption div {
-    display: inline
+    display: inline;
 }
 
 .plyr__captions span:empty {
-    display: none
+    display: none;
 }
 
 @media (min-width:480px) {
     .plyr__captions {
         font-size: 16px;
-        padding: 20px
+        padding: 20px;
     }
 }
 
 @media (min-width:768px) {
     .plyr__captions {
-        font-size: 18px
+        font-size: 18px;
     }
 }
 
@@ -869,42 +869,42 @@ https://github.com/vb/lazyframe
 }
 
 .plyr__control:focus {
-    outline: 0
+    outline: 0;
 }
 
 .plyr__control.plyr__tab-focus {
     box-shadow: 0 0 0 5px rgba(0, 179, 255, .5);
-    outline: 0
+    outline: 0;
 }
 
 a.plyr__control {
-    text-decoration: none
+    text-decoration: none;
 }
 
 a.plyr__control::after,
 a.plyr__control::before {
-    display: none
+    display: none;
 }
 
 .plyr__control.plyr__control--pressed .icon--not-pressed,
 .plyr__control.plyr__control--pressed .label--not-pressed,
 .plyr__control:not(.plyr__control--pressed) .icon--pressed,
 .plyr__control:not(.plyr__control--pressed) .label--pressed {
-    display: none
+    display: none;
 }
 
 .plyr--audio .plyr__control.plyr__tab-focus,
 .plyr--audio .plyr__control:hover,
 .plyr--audio .plyr__control[aria-expanded=true] {
     background: #00b3ff;
-    color: #fff
+    color: #fff;
 }
 
 .plyr--video .plyr__control.plyr__tab-focus,
 .plyr--video .plyr__control:hover,
 .plyr--video .plyr__control[aria-expanded=true] {
     background: #00b3ff;
-    color: #fff
+    color: #fff;
 }
 
 .plyr__control--overlaid {
@@ -918,84 +918,84 @@ a.plyr__control::before {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2
+    z-index: 2;
 }
 
 .plyr__control--overlaid svg {
     left: 2px;
-    position: relative
+    position: relative;
 }
 
 .plyr__control--overlaid:focus,
 .plyr__control--overlaid:hover {
-    background: #00b3ff
+    background: #00b3ff;
 }
 
 .plyr--playing .plyr__control--overlaid {
     opacity: 0;
-    visibility: hidden
+    visibility: hidden;
 }
 
 .plyr--full-ui.plyr--video .plyr__control--overlaid {
-    display: block
+    display: block;
 }
 
 .plyr--full-ui ::-webkit-media-controls {
-    display: none
+    display: none;
 }
 
 .plyr__controls {
     align-items: center;
     display: flex;
     justify-content: flex-end;
-    text-align: center
+    text-align: center;
 }
 
 .plyr__controls .plyr__progress__container {
     flex: 1;
-    min-width: 0
+    min-width: 0;
 }
 
 .plyr__controls .plyr__controls__item {
-    margin-left: 2.5px
+    margin-left: 2.5px;
 }
 
 .plyr__controls .plyr__controls__item:first-child {
     margin-left: 0;
-    margin-right: auto
+    margin-right: auto;
 }
 
 .plyr__controls .plyr__controls__item.plyr__progress__container {
-    padding-left: 2.5px
+    padding-left: 2.5px;
 }
 
 .plyr__controls .plyr__controls__item.plyr__time {
-    padding: 0 5px
+    padding: 0 5px;
 }
 
 .plyr__controls .plyr__controls__item.plyr__progress__container:first-child,
 .plyr__controls .plyr__controls__item.plyr__time+.plyr__time,
 .plyr__controls .plyr__controls__item.plyr__time:first-child {
-    padding-left: 0
+    padding-left: 0;
 }
 
 .plyr__controls .plyr__controls__item.plyr__volume {
-    padding-right: 5px
+    padding-right: 5px;
 }
 
 .plyr__controls .plyr__controls__item.plyr__volume:first-child {
-    padding-right: 0
+    padding-right: 0;
 }
 
 .plyr__controls:empty {
-    display: none
+    display: none;
 }
 
 .plyr--audio .plyr__controls {
     background: #fff;
     border-radius: inherit;
     color: #4a5764;
-    padding: 10px
+    padding: 10px;
 }
 
 .plyr--video .plyr__controls {
@@ -1009,12 +1009,12 @@ a.plyr__control::before {
     position: absolute;
     right: 0;
     transition: opacity .4s ease-in-out, transform .4s ease-in-out;
-    z-index: 3
+    z-index: 3;
 }
 
 @media (min-width:480px) {
     .plyr--video .plyr__controls {
-        padding: 35px 10px 10px
+        padding: 35px 10px 10px;
     }
 }
 
@@ -1028,31 +1028,31 @@ a.plyr__control::before {
 .plyr [data-plyr=captions],
 .plyr [data-plyr=fullscreen],
 .plyr [data-plyr=pip] {
-    display: none
+    display: none;
 }
 
 .plyr--airplay-supported [data-plyr=airplay],
 .plyr--captions-enabled [data-plyr=captions],
 .plyr--fullscreen-enabled [data-plyr=fullscreen],
 .plyr--pip-supported [data-plyr=pip] {
-    display: inline-block
+    display: inline-block;
 }
 
 .plyr__menu {
     display: flex;
-    position: relative
+    position: relative;
 }
 
 .plyr__menu .plyr__control svg {
-    transition: transform .3s ease
+    transition: transform .3s ease;
 }
 
 .plyr__menu .plyr__control[aria-expanded=true] svg {
-    transform: rotate(90deg)
+    transform: rotate(90deg);
 }
 
 .plyr__menu .plyr__control[aria-expanded=true] .plyr__tooltip {
-    display: none
+    display: none;
 }
 
 .plyr__menu__container {
@@ -1068,12 +1068,12 @@ a.plyr__control::before {
     right: -3px;
     text-align: left;
     white-space: nowrap;
-    z-index: 3
+    z-index: 3;
 }
 
 .plyr__menu__container>div {
     overflow: hidden;
-    transition: height .35s cubic-bezier(.4, 0, .2, 1), width .35s cubic-bezier(.4, 0, .2, 1)
+    transition: height .35s cubic-bezier(.4, 0, .2, 1), width .35s cubic-bezier(.4, 0, .2, 1);
 }
 
 .plyr__menu__container::after {
@@ -1084,7 +1084,7 @@ a.plyr__control::before {
     position: absolute;
     right: 15px;
     top: 100%;
-    width: 0
+    width: 0;
 }
 
 .plyr__menu__container [role=menu] {
@@ -13145,7 +13145,7 @@ shopify-payment-terms {
     display: flex;
     width: 100%;
     padding: 5px 10px;
-    text-align: center;
+    text-align: center
 }
 
 .thumbnail-sticker.sale-sticker,

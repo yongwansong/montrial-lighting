@@ -80,9 +80,9 @@
 
             {% elsif block.type == 'search' %}
               {% comment %} Search {% endcomment %}
-              {% render 'sidebar__search',
-                      block: block,
-                      context: 'sidebar'
+              {%
+                render 'sidebar__search',
+                block: block,
               %}
 
             {% elsif block.type == 'text' %}
@@ -98,7 +98,7 @@
     <script data-theme-editor-load-script src="{{ 'z__jsSidebar.js' | asset_url }}"></script>
 
     <main class="three-fourths medium-down--one-whole column has-margin-top equal-columns--outside-trim">
-      <div class="container page__container">
+      <div class="container">
           {%- if section.settings.show_heading != blank -%}
             {% render 'heading',
                     title: page.title,

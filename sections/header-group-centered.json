@@ -1,0 +1,322 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "homepage_only": false,
+        "enable_sticky": true,
+        "show_close_icon": false,
+        "icon_label": "",
+        "text": "<p>VALENTINE'S DAY SALE: 20% OFF WITH CODE \"LOVE20\"<\/p>",
+        "alignment": "center",
+        "size": "small",
+        "button_label": "",
+        "link": "",
+        "button_style": "button--primary",
+        "background": "#373738",
+        "text_color": "#ffffff",
+        "width": "wide",
+        "css_class": "",
+        "custom_css": "{\n  visibility: hidden !important; \nheight: 0px\n}"
+      }
+    },
+    "header_top_bar": {
+      "type": "header-centered__top-bar",
+      "settings": {
+        "show_social_icons": true,
+        "text": "<p>(514) 416-2013<\/p>",
+        "top_bar_background": "rgba(0,0,0,0)",
+        "top_bar_link": "rgba(0,0,0,0)",
+        "top_bar_link_hover": "rgba(0,0,0,0)",
+        "top_bar_text": "rgba(0,0,0,0)",
+        "font": "din_next_n4",
+        "font_style": "none",
+        "font_size": 14,
+        "letter_spacing": 0,
+        "display_search": true,
+        "icon_style": "icons",
+        "cart_button_background": "#000000",
+        "cart_button_text": "#ffffff",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "header": {
+      "type": "header-centered",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/logo-white.png",
+        "logo_width": 200,
+        "logo_position": "between",
+        "main_linklist": "main-menu",
+        "menu_spacing": "default",
+        "enable_overlay": false,
+        "show_text_shadow": false,
+        "overlay_background": "rgba(0,0,0,0)",
+        "overlay_background_opacity": 0,
+        "overlay_link_color": "rgba(0,0,0,0)",
+        "overlay_link_hover_color": "rgba(0,0,0,0)",
+        "overlay_logo": "shopify:\/\/shop_images\/logo.png",
+        "overlay_logo_width": 80,
+        "enable_sticky": false,
+        "sticky_background_opacity": 50,
+        "scroll_logo_width": 200,
+        "width": "standard",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "mega_menu_1": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "ad99ed18-8ace-4abe-acde-fa0432a982a3": {
+          "type": "menu",
+          "settings": {
+            "menu_1": "ceiling-lighting",
+            "menu_1_link": "shopify:\/\/collections\/ceiling-lighting"
+          }
+        },
+        "5a8e4a93-b56c-4e57-ad92-5870f4852566": {
+          "type": "mixed",
+          "settings": {
+            "richtext_top": "",
+            "image_link_top": "",
+            "image_caption_top": "<p><\/p>",
+            "menu_1": "wall-lighting",
+            "menu_1_link": "shopify:\/\/collections\/wall-lighting",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "61189b9e-5c26-45af-b709-33bfdadd9621": {
+          "type": "mixed",
+          "settings": {
+            "richtext_top": "",
+            "image_link_top": "",
+            "image_caption_top": "",
+            "menu_1": "table-floor-lamps",
+            "menu_1_link": "shopify:\/\/collections\/table-floor-lamps",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_link_bottom": "",
+            "richtext_bottom": "<p><\/p>"
+          }
+        },
+        "8025ab5b-cf85-44cc-99f6-de6ab78781da": {
+          "type": "mixed",
+          "settings": {
+            "richtext_top": "",
+            "image_link_top": "",
+            "image_caption_top": "<p><\/p>",
+            "menu_1": "recessed-lighting",
+            "menu_1_link": "shopify:\/\/collections\/recessed-lighting",
+            "menu_2": "fans",
+            "menu_2_link": "shopify:\/\/collections\/fans",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_link_bottom": "",
+            "richtext_bottom": "<p><\/p>"
+          }
+        },
+        "88d49983-b27f-48bd-8ade-027ef2417dc4": {
+          "type": "mixed",
+          "settings": {
+            "richtext_top": "",
+            "image_link_top": "",
+            "image_caption_top": "<p><\/p>",
+            "menu_1": "outdoor-lighting",
+            "menu_1_link": "shopify:\/\/collections\/outdoor-lighting",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_link_bottom": "",
+            "richtext_bottom": "<p><\/p>"
+          }
+        },
+        "f35c5617-8426-4523-bec1-79fd758cf204": {
+          "type": "mixed",
+          "settings": {
+            "richtext_top": "",
+            "image_link_top": "",
+            "image_caption_top": "",
+            "menu_1": "light-bulbs",
+            "menu_1_link": "shopify:\/\/collections\/light-bulbs",
+            "menu_2": "lighting-controls",
+            "menu_2_link": "shopify:\/\/collections\/lighting-controls",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "ad99ed18-8ace-4abe-acde-fa0432a982a3",
+        "5a8e4a93-b56c-4e57-ad92-5870f4852566",
+        "61189b9e-5c26-45af-b709-33bfdadd9621",
+        "8025ab5b-cf85-44cc-99f6-de6ab78781da",
+        "88d49983-b27f-48bd-8ade-027ef2417dc4",
+        "f35c5617-8426-4523-bec1-79fd758cf204"
+      ],
+      "settings": {
+        "parent_link": "lighting",
+        "enable_mega_menu_border": true,
+        "mega_menu_background_color": "#f6f6f6",
+        "mega_menu_text_color": "#000000",
+        "show_mega_bottom_bar": false,
+        "mega_bottom_bar_icon": "",
+        "mega_bottom_bar_text": "Add your deal, information or promotional text",
+        "mega_bottom_bar_link": "",
+        "size": "regular",
+        "bottom_banner_bg": "#7d7e75",
+        "bottom_banner_text": "#efefef",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "mega_menu_2": {
+      "type": "mega-menu-2",
+      "blocks": {
+        "mega-menu-2-0": {
+          "type": "menu",
+          "settings": {
+            "menu_1": "cabinet-hardware",
+            "menu_1_link": "shopify:\/\/collections\/cabinet-hardware"
+          }
+        },
+        "2b32cf27-c266-4d37-8c48-aafa3692f9e4": {
+          "type": "menu",
+          "settings": {
+            "menu_1": "bathroom-hardware",
+            "menu_1_link": "shopify:\/\/collections\/bathroom-hardware"
+          }
+        }
+      },
+      "block_order": [
+        "mega-menu-2-0",
+        "2b32cf27-c266-4d37-8c48-aafa3692f9e4"
+      ],
+      "settings": {
+        "parent_link": "hardware",
+        "enable_mega_menu_border": true,
+        "mega_menu_background_color": "#f6f6f6",
+        "mega_menu_text_color": "#404040",
+        "show_mega_bottom_bar": false,
+        "mega_bottom_bar_icon": "",
+        "mega_bottom_bar_text": "Add your deal, information or promotional text",
+        "mega_bottom_bar_link": "",
+        "size": "regular",
+        "bottom_banner_bg": "#7d7e75",
+        "bottom_banner_text": "#efefef",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "mega_menu_3": {
+      "type": "mega-menu-3",
+      "blocks": {
+        "mega-menu-3-0": {
+          "type": "menu",
+          "settings": {
+            "menu_1": "furniture",
+            "menu_1_link": "shopify:\/\/collections\/furniture"
+          }
+        },
+        "ac6b8bee-a4c2-490d-b158-c6e4b72172e1": {
+          "type": "menu",
+          "settings": {
+            "menu_1": "mirrors",
+            "menu_1_link": "shopify:\/\/collections\/mirrors"
+          }
+        },
+        "cc2b0b57-baab-4690-bbb3-e50bf2fcf96c": {
+          "type": "menu",
+          "settings": {
+            "menu_1": "home-accents",
+            "menu_1_link": "shopify:\/\/collections\/home-accents"
+          }
+        }
+      },
+      "block_order": [
+        "mega-menu-3-0",
+        "ac6b8bee-a4c2-490d-b158-c6e4b72172e1",
+        "cc2b0b57-baab-4690-bbb3-e50bf2fcf96c"
+      ],
+      "settings": {
+        "parent_link": "furniture-decor",
+        "enable_mega_menu_border": true,
+        "mega_menu_background_color": "#f6f6f6",
+        "mega_menu_text_color": "#404040",
+        "show_mega_bottom_bar": false,
+        "mega_bottom_bar_icon": "",
+        "mega_bottom_bar_text": "Add your deal, information or promotional text",
+        "mega_bottom_bar_link": "",
+        "size": "regular",
+        "bottom_banner_bg": "#7d7e75",
+        "bottom_banner_text": "#efefef",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "mega_menu_4": {
+      "type": "mega-menu-4",
+      "blocks": {
+        "mega-menu-4-0": {
+          "type": "menu",
+          "settings": {
+            "menu_1": "fans-1",
+            "menu_1_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega-menu-4-0"
+      ],
+      "settings": {
+        "parent_link": "inspiration",
+        "enable_mega_menu_border": true,
+        "mega_menu_background_color": "#f6f6f6",
+        "mega_menu_text_color": "#404040",
+        "show_mega_bottom_bar": false,
+        "mega_bottom_bar_icon": "",
+        "mega_bottom_bar_text": "Add your deal, information or promotional text",
+        "mega_bottom_bar_link": "",
+        "size": "regular",
+        "bottom_banner_bg": "#007ace",
+        "bottom_banner_text": "#efefef",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "announcement_bar",
+    "header_top_bar",
+    "header",
+    "mega_menu_1",
+    "mega_menu_2",
+    "mega_menu_3",
+    "mega_menu_4"
+  ]
+}

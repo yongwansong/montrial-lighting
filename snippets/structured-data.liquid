@@ -69,13 +69,13 @@
   {% assign collection_url = collection.url %}
 {% endif %}
 
-{% if template.name == 'product' 
-    or template.name == 'list-collections' 
-    or template.name == 'collection' 
-    or template.name == 'blog' 
-    or template.name == 'article' 
-    or template.name == 'search' 
-    or template.name == 'cart' 
+{% if template.name == 'product'
+    or template.name == 'list-collections'
+    or template.name == 'collection'
+    or template.name == 'blog'
+    or template.name == 'article'
+    or template.name == 'search'
+    or template.name == 'cart'
     or template.name == 'page'
 %}
 
@@ -247,6 +247,7 @@
             }
           }
           {% if search.performed %}
+          ,
             {
               "@type": "ListItem",
               "position": 2,
@@ -256,6 +257,7 @@
               }
             }
             {% if current_page != 1 %}
+            ,
               {
                 "@type": "ListItem",
                 "position": 3,
@@ -320,7 +322,7 @@
     {% endif %}
     {% if product.vendor %}
       "brand": {
-        "@type": "Thing",
+        "@type": "Brand",
         "name": {{ product.vendor | json }}
       },
     {% endif %}
@@ -330,10 +332,24 @@
     {% if selected_variant.barcode != blank %}
       "mpn": {{ selected_variant.barcode | json }},
     {% endif %}
+    {% if product.metafields.reviews.rating.value != blank %}
+      "review": {
+        "@type": "Review",
+          "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "{{ product.metafields.reviews.rating.value }}"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.metafields.reviews.rating.value }}",
+        "reviewCount": "{{ product.metafields.reviews.rating_count }}"
+      },
+    {% endif %}
     "offers": {
       "@type": "Offer",
       "priceCurrency": {{ cart.currency.iso_code | json }},
-   "price": {{ selected_variant.price | divided_by: 100.0 | json }},
+      "price": {{ selected_variant.price | divided_by: 100.0 | json }},
       "availability": "http://schema.org/{% if selected_variant.available %}InStock{% else %}OutOfStock{% endif %}",
       "url": "{{ shop.url }}{{ selected_variant.url }}",
       "seller": {

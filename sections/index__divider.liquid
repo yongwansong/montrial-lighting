@@ -1,11 +1,13 @@
 {% comment %}** Divider **{% endcomment %}
 
-{%- assign divider_style = section.settings.divider_style -%}
-{%- assign divider_width = section.settings.divider_width -%}
-{%- assign divider_color = section.settings.divider_color -%}
+{% liquid
+  assign divider_style = section.settings.divider_style
+  assign divider_width = section.settings.divider_width
+  assign divider_color = section.settings.divider_color
 
-{% comment %} Is the color set to transparent? {% endcomment %}
-{%- assign divider_alpha = divider_color | color_extract: 'alpha' -%}
+  # Is the color set to transparent?
+  assign divider_alpha = divider_color | color_extract: 'alpha'
+%}
 
 {% comment %} Section specific CSS {% endcomment %}
 {% capture section_css -%}
@@ -24,25 +26,32 @@
   #shopify-section-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
+
     {% if section.settings.width == 'wide' %}
       width: 100%;
     {% endif %}
   }
 
+  @media only screen and (max-width: 798px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+
   {%
     render 'css-loop',
     css: section_css,
-    id: section.id
+    id: section.id,
   %}
 
   {%
     render 'css-loop',
     css: section.settings.custom_css,
-    id: section.id
+    id: section.id,
   %}
 {% endstyle %}
 
-{% comment %} HTML markup {% endcomment %}
 <section
   class="
     section
@@ -68,7 +77,6 @@
     </div>
   </div>
 </section>
-
 
 {% schema %}
   {
@@ -98,7 +106,7 @@
       {
         "type": "range",
         "id": "divider_width",
-        "label": "Width",
+        "label": "Line width",
         "min": 0,
         "max": 5,
         "default": 2,
@@ -107,7 +115,7 @@
       {
         "type": "color",
         "id": "divider_color",
-        "label": "Color",
+        "label": "Line color",
         "default": "rgba(0,0,0,0)"
       },
       {
@@ -210,6 +218,28 @@
       },
       {
         "type": "header",
+        "content": "Mobile layout"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "label": "Mobile top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "label": "Mobile bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "header",
         "content": "Advanced"
       },
       {
@@ -235,6 +265,11 @@
 
         }
       }
-    ]
+    ],
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
+    }
   }
 {% endschema %}

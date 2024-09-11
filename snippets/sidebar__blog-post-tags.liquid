@@ -1,10 +1,10 @@
 {% comment %}
-Required values
-blog_handle: <string>
+  @param block {Object}
+    The block object
 {% endcomment %}
 
 {% if block.settings.title != blank %}
-  <div data-has-toggle-option>
+  <div class="sidebar-block__toggle" data-has-toggle-option>
     <h3 class="sidebar-block__heading" {% if settings.toggle_sidebar %}data-sidebar-block__toggle="closed" aria-label="toggle"{% endif %}>
       {{ block.settings.title }}
       {% if settings.toggle_sidebar %}
@@ -27,7 +27,7 @@ blog_handle: <string>
   </div>
 {% endif %}
 <div class="sidebar-block__content tags" {% if settings.toggle_sidebar %} data-sidebar-block__content--collapsible{% endif %}>
-  {% for tag in blogs[blog_handle].all_tags %}
+  {% for tag in blogs[block.settings.blog].all_tags %}
     <span class="tag tag--{{ settings.tag_style }}">
       <a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}" title="{{ blog.title }} {{ 'blogs.general.tagged' | t }} {{ tag | escape }}">
         {{ tag }}

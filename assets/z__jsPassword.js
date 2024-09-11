@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsPassword = {
+window.PXUTheme.jsPassword = {
   init: function() {
     $('#open-me').on('click', function() {
       $('.overlay').addClass('overlay-open');

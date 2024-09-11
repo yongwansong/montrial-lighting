@@ -1,13 +1,7 @@
-{% include 'shogun-content-handler' %}
-{%- comment %}<locksmith:6c6e>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:6c6e>{% endcomment -%}
-
 {% capture content %}
 <!doctype html>
 <html lang="{{ shop.locale }}">
 <head>
-{{ locksmith_initializations }}
 <meta name="uri-translation" content="on" />
 
   <meta charset="utf-8">
@@ -29,7 +23,7 @@
     <link rel="preconnect dns-prefetch" href="https://productreviews.shopifycdn.com" />
   {% endif %}
 
-  {{ 'fancybox.css' | asset_url | stylesheet_tag }}
+  {{ 'fancybox.aio.min.css' | asset_url | stylesheet_tag }}
   <!-- Stylesheets for Flex "2.0.1" -->
   {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
 
@@ -62,10 +56,7 @@
   </noscript>
 
   {%- if page_description -%}
-    {%- comment %}<locksmith:441b>{% endcomment -%}
-      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />{%- endcomment %}
-    {%- comment %}</locksmith:441b>{% endcomment -%}
+    <meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />
   {%- endif -%}
 
   {%- if settings.favicon != nil -%}
@@ -95,8 +86,6 @@
 {% render 'weglot_hreftags' %}
 {% render 'weglot_switcher' %}
 {% section 'filter-menu-settings' %}
-
-  {% render 'shogun-head' %}
 </head>
 
 {% if template.name == 'index' %}

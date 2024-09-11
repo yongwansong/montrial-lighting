@@ -45,7 +45,7 @@
       <div class="account-sidebar__content has-padding-top">
         <h4><a href="{{ routes.account_url }}" title="{{ 'layout.customer.my_account' | t }}">{{ customer.name }}</a></h4>
         <p class="account-sidebar__email">{{ customer.email }}</p>
-        <h4 class="has-padding-top">Primary Address</h4>
+        <h4 class="has-padding-top">{{ 'customer.account.primary_address' | t }}</h4>
         <div class="account-sidebar__address">
           {% if customer.default_address != nil %}
             <p>{{ customer.default_address.address1 }}</p>

@@ -1,45 +1,5 @@
 {
   "sections": {
-    "index_image_with_text_overlay_kRjCBU": {
-      "type": "index__image-with-text-overlay",
-      "settings": {
-        "link": "",
-        "image": "shopify:\/\/shop_images\/MicrosoftTeams-image_10.png",
-        "pretext": "",
-        "title": "",
-        "subtitle": "",
-        "pretext_color": "#000000",
-        "heading_color": "#000000",
-        "subheading_color": "#000000",
-        "text_alignment": "center",
-        "text_horizontal_position": "center",
-        "text_vertical_position": "middle",
-        "background_color": "#ffffff",
-        "background_opacity": 100,
-        "border_color": "#ffffff",
-        "border_width": 0,
-        "text_width": 40,
-        "button_1": "",
-        "button_1_link": "",
-        "button_1_style": "button--secondary",
-        "button_2": "",
-        "button_2_link": "",
-        "button_2_style": "button--secondary",
-        "mobile_image_crop": "none",
-        "mobile_text_below_image": true,
-        "pretext_color_mobile": "rgba(0,0,0,0)",
-        "heading_color_mobile": "rgba(0,0,0,0)",
-        "subheading_color_mobile": "rgba(0,0,0,0)",
-        "width": "standard",
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_left": 0,
-        "padding_right": 0,
-        "animation": "none",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
     "6ffdfe5f-ef81-43bd-abd8-262177d45e31": {
       "type": "index__gallery",
       "blocks": {
@@ -86,11 +46,10 @@
         "template--16147862388926__6ffdfe5f-ef81-43bd-abd8-262177d45e31-1686151451c87df08a-3",
         "2a657dd1-22ba-446f-b40b-cf11ad644b1e"
       ],
-      "disabled": true,
       "settings": {
         "gallery_type": "classic",
-        "crop_images": true,
         "images_per_row": 5,
+        "crop_images": true,
         "enable_lightbox": false,
         "overlay_color": "#000000",
         "link_color": "#ffffff",
@@ -117,7 +76,6 @@
     }
   },
   "order": [
-    "index_image_with_text_overlay_kRjCBU",
     "6ffdfe5f-ef81-43bd-abd8-262177d45e31",
     "main"
   ]

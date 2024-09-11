@@ -1,15 +1,5 @@
 {
   "sections": {
-    "170904895312cc1475": {
-      "type": "apps",
-      "settings": {
-        "width": "standard",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
     "banner": {
       "type": "banner",
       "disabled": true,
@@ -26,16 +16,17 @@
     },
     "main": {
       "type": "search__main",
+      "disabled": true,
       "settings": {
         "search_breadcrumb": true,
-        "text": "",
+        "text": "<p>Find what you seek.<\/p>",
         "show_sidebar": false,
         "sidebar_position": "left",
         "products_per_row": 3,
         "mobile_products_per_row": "2",
         "pagination_limit": 48,
         "pagination_type": "basic_pagination",
-        "align_height": true,
+        "align_height": false,
         "collection_height": 200,
         "blog_author": false,
         "blog_date": true,
@@ -46,8 +37,9 @@
         "custom_css": ""
       }
     },
-    "1709048937892f09f0": {
+    "1721747280e1f9f51d": {
       "type": "apps",
+      "disabled": true,
       "settings": {
         "width": "standard",
         "padding_top": 20,
@@ -56,8 +48,18 @@
         "custom_css": ""
       }
     },
-    "170904890294145add": {
+    "172355466050432558": {
       "type": "apps",
+      "blocks": {
+        "product_filters_search_search_results_g4fhg8": {
+          "type": "shopify:\/\/apps\/product-filters-search\/blocks\/search_results\/95672d06-1c4e-4e1b-9368-e84ce1ad6886",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "product_filters_search_search_results_g4fhg8"
+      ],
       "settings": {
         "width": "standard",
         "padding_top": 20,
@@ -68,10 +70,9 @@
     }
   },
   "order": [
-    "170904895312cc1475",
     "banner",
     "main",
-    "1709048937892f09f0",
-    "170904890294145add"
+    "1721747280e1f9f51d",
+    "172355466050432558"
   ]
 }

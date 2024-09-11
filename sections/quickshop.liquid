@@ -1,8 +1,9 @@
 <section class="quickshop-container" data-html="content">
   {% style %}
-    {% render 'css-loop',
-            css: section.settings.custom_css,
-            id: section.id
+    {%
+      render 'css-loop',
+      css: section.settings.custom_css,
+      id: section.id,
     %}
   {% endstyle %}
 
@@ -18,6 +19,7 @@
     {%
       render 'product',
       product: product,
+      is_product_modal: true,
       sold_out_options: settings.sold_out_options,
       selected_variant: selected_variant,
       width: width,
@@ -38,35 +40,35 @@
       video_looping: section.settings.video_looping,
     %}
   </div>
+
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'price' -%}
+      {%- assign display_savings = block.settings.display_savings | json -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% comment %} JavaScript {% endcomment %}
+  <script
+    type="application/json"
+    data-section-id="{{ section.id }}"
+    data-section-data
+  >
+    {
+      "display_savings": {{ display_savings }},
+      "gallery_arrows": {{ section.settings.gallery_arrows | json }},
+      "thumbnail_arrows": {{ section.settings.gallery_arrows | json }},
+      "enable_zoom": {{ section.settings.enable_zoom | json }},
+      "enable_product_lightbox": {{ section.settings.enable_product_lightbox | json }},
+      "enable_thumbnail_slider": {{ section.settings.enable_thumbnail_slider | json }},
+      "slideshow_speed": {{ section.settings.slideshow_speed | json }},
+      "slideshow_transition": {{ section.settings.slideshow_transition | json }},
+      "thumbnails_enabled": {{ section.settings.display_thumbnails | json }},
+      "thumbnail_position": {{ section.settings.thumbnail_position | json }},
+      "product_media_amount": {{ product.media.size }},
+      "template": "classic"
+    }
+  </script>
 </section>
-
-{%- for block in section.blocks -%}
-  {%- if block.type == 'price' -%}
-    {%- assign display_savings = block.settings.display_savings | json -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{% comment %} JavaScript {% endcomment %}
-<script
-  type="application/json"
-  data-section-id="{{ section.id }}"
-  data-section-data
->
-  {
-    "display_savings": {{ display_savings }},
-    "gallery_arrows": {{ section.settings.gallery_arrows | json }},
-    "thumbnail_arrows": {{ section.settings.gallery_arrows | json }},
-    "enable_zoom": {{ section.settings.enable_zoom | json }},
-    "enable_product_lightbox": {{ section.settings.enable_product_lightbox | json }},
-    "enable_thumbnail_slider": {{ section.settings.enable_thumbnail_slider | json }},
-    "slideshow_speed": {{ section.settings.slideshow_speed | json }},
-    "slideshow_transition": {{ section.settings.slideshow_transition | json }},
-    "thumbnails_enabled": {{ section.settings.display_thumbnails | json }},
-    "thumbnail_position": {{ section.settings.thumbnail_position | json }},
-    "product_media_amount": {{ product.media.size }},
-    "template": "classic"
-  }
-</script>
 
 <script src="{{ 'z__jsProduct.js' | asset_url }}" defer="defer"></script>
 
@@ -246,6 +248,17 @@
       ]
     },
     {
+      "type": "rating",
+      "name": "Product rating",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "To display a rating, add a product rating app. [Learn more](https://apps.shopify.com/product-reviews)"
+        }
+      ]
+    },
+    {
       "type": "sku",
       "name": "SKU",
       "limit": 1
@@ -265,7 +278,24 @@
     {
       "type": "description",
       "name": "Description",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "truncate_words",
+          "label": "Truncate description",
+          "info": "Removes HTML when enabled",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "truncate_words_limit",
+          "label": "Description truncated words",
+          "min": 1,
+          "max": 50,
+          "default": 20
+        }
+      ]
     },
     {
       "type": "form",
@@ -324,6 +354,12 @@
       "name": "Size chart",
       "limit": 1,
       "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Label",
+          "default": "Size chart"
+        },
         {
           "type": "page",
           "id": "size_chart",

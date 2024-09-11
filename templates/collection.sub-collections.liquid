@@ -32,7 +32,7 @@
       <div class="container">
         <div class="one-whole column">
           <div class="collection__description content has-padding-bottom">
-            {{ collection.description | replace: '<img', '<img loading="lazy"' | replace: '<iframe', '<iframe loading="lazy"' | replace: '<video', '<video preload="none"' }}
+            {{ collection.description }}
           </div>
         </div>
       </div>
@@ -55,3 +55,4 @@
     {% section 'subcollection__featured-collection' %}
   </section>
 </div>
+

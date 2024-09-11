@@ -49,11 +49,10 @@
         </div>
         <div class="description">
           <strong>{{ item.title }}</strong>
-     {% if hasDiscontinuedVariants %}
-            <br><span class="item-pricing price" style="display:none"><span class="money">{{ selected_variant.price | money }}</span></span>
+          {% if hasDiscontinuedVariants %}
+            <br><span class="item-pricing price"><span class="money">{{ selected_variant.price | money }}</span></span>
           {% else %}
-<br><span class="item-pricing price"  style="display:none">from <span class="money">{{ item.price_min | money }}</span></span>
-
+            <br><span class="item-pricing price">from <span class="money">{{ item.price_min | money }}</span></span>
           {% endif %}
         </div>
       </a>

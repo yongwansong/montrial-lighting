@@ -5,7 +5,7 @@
     "show_fixed_message": false,
     "header_layout": "search_focus",
     "footer_layout": "classic",
-    "image_loading_style": "none",
+    "image_loading_style": "fade-in",
     "logo_mobile": "shopify:\/\/shop_images\/logo-white.png",
     "mobile_logo_width": 130,
     "logo_mobile_position": "center",
@@ -37,8 +37,8 @@
     "button_secondary_text_color--highlight": "#49494b",
     "button_secondary_border_radius": 0,
     "button_link_padding": "regular",
-    "button_link_text_color": "#ffffff",
-    "button_link_text_color--highlight": "#808080",
+    "button_link_text_color": "#000000",
+    "button_link_text_color--highlight": "#ccc",
     "button_link_underline_style": "solid",
     "button_link_underline_thickness": 1,
     "button_cart_padding": "regular",
@@ -64,7 +64,7 @@
     "form_button_style": "button--primary",
     "display_heading_divider": true,
     "heading_divider_animation": "none",
-    "heading_divider_style": "short",
+    "heading_divider_style": "long",
     "heading_divider_width": 2,
     "toggle_sidebar": true,
     "tab_style": "underline",
@@ -87,7 +87,7 @@
     "regular_color": "#49494b",
     "link_color": "#7d7e75",
     "link_hover_color": "#ffffff",
-    "heading_color": "#000000",
+    "heading_color": "#49494b",
     "banner_heading_color": "#ffffff",
     "divider_color": "#ffffff",
     "logo_text": "#ffffff",
@@ -179,13 +179,12 @@
     "limit_quantity": false,
     "display_inventory_left": false,
     "inventory_threshold": 10,
-    "free_price_text": "Call For Price",
+    "free_price_text": "Free",
     "product_form_style": "radio",
-    "sold_out_options": "selectable",
     "enable_swatches": true,
     "swatch_style": "rounded",
     "swatches_option_style": "color_swatch",
-    "notify_me_form": false,
+    "notify_me_form": true,
     "notify_me_description": "<p>Notify me when this product is available:<\/p>",
     "size_chart": "",
     "enable_quickshop": false,
@@ -205,7 +204,7 @@
     "enable_thumbnail_slider": true,
     "quickshop_gallery_position": "left",
     "video_looping": false,
-    "cart_action": "mini_cart",
+    "cart_action": "drawer",
     "show_lock_icon": true,
     "cart_icon": "cart",
     "display_special_instructions": false,
@@ -238,6 +237,7 @@
     "flickr_link": "",
     "email_link": "support@montrealluminaire.com",
     "favicon": "shopify:\/\/shop_images\/download.jpg",
+    "pt_force_dropdown": true,
     "pt_hide_headers": false,
     "pt_float_filters": "false",
     "color_pt_links": "#616161",
@@ -245,11 +245,13 @@
     "pt_links_weight": "600",
     "pt_accordion_enable": false,
     "pt_mobile_max_width": "1366px",
+    "pt_mobile_vertical": 7,
     "pt_view_more_enable": true,
     "pt_view_more_count": 12,
     "pt_async_load": true,
     "pt_show_only_on_collections": true,
     "pt_clear_to_current_collection": true,
+    "pt_filter_padding": 15,
     "pt_temporary_disable": false,
     "checkout_header_image": "",
     "checkout_logo_image": "shopify:\/\/shop_images\/MLH_Pantone_Logo_FR.png",
@@ -277,7 +279,6 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/ml-store-1.jpg",
-              "image_crop": "none",
               "image_link": ""
             }
           },
@@ -285,7 +286,6 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/ml-store-2.jpg",
-              "image_crop": "none",
               "image_link": ""
             }
           },
@@ -295,13 +295,13 @@
               "title": "A Local Lighting and Hardware Experience",
               "heading_size": "regular",
               "text": "<p>Our Montreal lighting showroom is over 15,000 square feet of lighting ideas and experiments, with over 2,000 products on display, including a natural environment outdoor lighting section, Montreal&#x27;s newest door and bath hardware displays, a fully operational condo to showcase the latest lighting and control technologies, and a training centre for the Professional Program.<\/p>",
+              "alignment": "left",
+              "vertical_position": "center",
               "button_label": "Visit Store",
               "link": "",
               "button_style": "button--primary",
               "background": "rgba(0,0,0,0)",
-              "text_color": "rgba(0,0,0,0)",
-              "alignment": "left",
-              "vertical_position": "center"
+              "text_color": "rgba(0,0,0,0)"
             }
           }
         },
@@ -328,39 +328,39 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Graypants_MG_9487.jpg",
-              "link": "shopify:\/\/collections\/category",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Shop By Category",
-              "text": "<p>Discover our collections →<\/p>"
+              "text": "<p>Discover our collections →<\/p>",
+              "link": "shopify:\/\/collections\/category",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           },
           "1557099098656-0": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/ml-feature-collection-1.jpg",
-              "link": "shopify:\/\/pages\/brands",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Shop By Brand",
-              "text": "<p>Discover our brands  →<\/p>"
+              "text": "<p>Discover our brands  →<\/p>",
+              "link": "shopify:\/\/pages\/brands",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           },
           "1557099098656-2": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/ml-feature-collection-3.jpg",
-              "link": "shopify:\/\/collections\/designer-lighting",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Shop by Designer",
-              "text": "<p>Discover our designers →<\/p>"
+              "text": "<p>Discover our designers →<\/p>",
+              "link": "shopify:\/\/collections\/designer-lighting",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           }
         },
@@ -372,10 +372,10 @@
         "settings": {
           "border_radius": 0,
           "crop_images": true,
+          "show_border": false,
+          "overlay_text": "#ffffff",
           "overlay_background": "#939393",
           "overlay_background_opacity": 0,
-          "overlay_text": "#ffffff",
-          "show_border": false,
           "width": "standard",
           "show_gutter": true,
           "padding_top": 20,
@@ -501,21 +501,21 @@
 
         ],
         "settings": {
-          "icon_label": "",
-          "text": "",
-          "alignment": "center",
-          "size": "regular",
-          "button_label": "",
-          "link": "shopify:\/\/collections\/quick-ship",
-          "button_style": "button--secondary",
-          "background": "#373738",
-          "text_color": "#ffffff",
-          "width": "wide",
           "homepage_only": false,
           "enable_sticky": true,
           "show_close_icon": false,
+          "icon_label": "",
+          "text": "<p>VALENTINE'S DAY SALE: 20% OFF WITH CODE \"LOVE20\"<\/p>",
+          "alignment": "center",
+          "size": "small",
+          "button_label": "",
+          "link": "",
+          "button_style": "button--primary",
+          "background": "#373738",
+          "text_color": "#ffffff",
+          "width": "wide",
           "css_class": "",
-          "custom_css": ""
+          "custom_css": "{\n  visibility: hidden !important; \nheight: 0px\n}"
         }
       },
       "header__top-bar": {
@@ -523,7 +523,6 @@
         "blocks": {
           "1595968694794": {
             "type": "text",
-            "disabled": true,
             "settings": {
               "text": "FREE DELIVERY IN CANADA ON ORDERS OVER $199*"
             }
@@ -541,18 +540,17 @@
           "1595957474548"
         ],
         "settings": {
-          "show_top_bar": true,
+          "background": "#a2a2a2",
+          "link_color": "#ffffff",
+          "link_hover_color": "#ededed",
+          "text_color": "#ffffff",
           "font": "din_next_n4",
           "font_style": "none",
           "font_size": 14,
           "letter_spacing": 0,
           "show_locale_selector": false,
           "show_currency_selector": false,
-          "background": "#8b8b8b",
-          "link_color": "#ffffff",
-          "link_hover_color": "#ededed",
-          "text_color": "#ffffff",
-          "width": "wide",
+          "width": "standard",
           "css_class": "",
           "custom_css": ""
         }
@@ -637,7 +635,7 @@
               "image_caption_top": "<p><\/p>",
               "menu_1": "recessed-lighting",
               "menu_1_link": "shopify:\/\/collections\/recessed-lighting",
-              "menu_2": "",
+              "menu_2": "fans",
               "menu_2_link": "shopify:\/\/collections\/fans",
               "menu_3": "",
               "menu_3_link": "",
@@ -817,9 +815,9 @@
           "copyright_text": "",
           "display_designed_by": false,
           "display_shopify": false,
-          "display_payment_methods": true,
           "show_locale_selector": false,
           "show_currency_selector": false,
+          "display_payment_methods": true,
           "css_class": "",
           "custom_css": ""
         }
@@ -829,14 +827,14 @@
         "settings": {
           "show_social_icons": true,
           "text": "<p>(514) 416-2013<\/p>",
-          "font": "din_next_n4",
-          "font_style": "none",
-          "font_size": 14,
-          "letter_spacing": 0,
           "top_bar_background": "rgba(0,0,0,0)",
           "top_bar_link": "rgba(0,0,0,0)",
           "top_bar_link_hover": "rgba(0,0,0,0)",
           "top_bar_text": "rgba(0,0,0,0)",
+          "font": "din_next_n4",
+          "font_style": "none",
+          "font_size": 14,
+          "letter_spacing": 0,
           "display_search": true,
           "icon_style": "icons",
           "cart_button_background": "#000000",
@@ -873,7 +871,6 @@
         "type": "header-search-focus",
         "settings": {
           "logo": "shopify:\/\/shop_images\/Logo-EN-White-2.png",
-          "logo_fr": "shopify:\/\/shop_images\/LOGO_FR_WHITE.png",
           "logo_width": 245,
           "search_background": "#363636",
           "search_icon": "#ffffff",
@@ -953,7 +950,6 @@
           "title": "Featured Collection",
           "collection": "new-introductions",
           "products_per": 4,
-          "mobile_products_per_row": "1",
           "products_limit": 12,
           "align_height": true,
           "collection_height": 200,
@@ -963,6 +959,7 @@
           "padding_top": 20,
           "padding_bottom": 20,
           "animation": "none",
+          "mobile_products_per_row": "1",
           "css_class": "",
           "custom_css": ""
         }
@@ -1230,7 +1227,6 @@
           "display_first_name": true,
           "display_last_name": true,
           "image": "",
-          "image_cropping": "center",
           "image_position": "left",
           "overlay_color": "#000000",
           "overlay_background_opacity": 80,
@@ -1296,19 +1292,19 @@
         "settings": {
           "title": "Featured Brands",
           "heading_font": "din_next_n5",
-          "heading_color": "rgba(0,0,0,0)",
           "heading_alignment": "center",
           "heading_size": 24,
           "text": "<p><\/p><p><\/p>",
           "text_font": "din_next_n4",
-          "text_color": "rgba(0,0,0,0)",
           "text_alignment": "center",
           "text_size": 8,
           "columns": 1,
           "button_label": "",
           "button_link": "",
-          "button_alignment": "center",
           "button_style": "button--primary",
+          "button_alignment": "center",
+          "heading_color": "rgba(0,0,0,0)",
+          "text_color": "rgba(0,0,0,0)",
           "background": "rgba(0,0,0,0)",
           "gradient": "rgba(0,0,0,0)",
           "gradient_rotation": 0,
@@ -1327,19 +1323,19 @@
         "settings": {
           "title": "",
           "heading_font": "open_sans_n4",
-          "heading_color": "rgba(0,0,0,0)",
           "heading_alignment": "center",
           "heading_size": 30,
           "text": "<p><\/p><p><\/p><p><\/p>",
           "text_font": "din_next_n4",
-          "text_color": "rgba(0,0,0,0)",
           "text_alignment": "left",
           "text_size": 14,
           "columns": 2,
           "button_label": "View All Brands",
           "button_link": "shopify:\/\/pages\/brands",
-          "button_alignment": "center",
           "button_style": "button--primary",
+          "button_alignment": "center",
+          "heading_color": "rgba(0,0,0,0)",
+          "text_color": "rgba(0,0,0,0)",
           "background": "rgba(0,0,0,0)",
           "gradient": "rgba(0,0,0,0)",
           "gradient_rotation": 180,
@@ -1382,8 +1378,8 @@
           "8158e201-a71d-4079-b227-ef097930786a": {
             "type": "image",
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/media-17989033-lp_ph5_rosa_army_wht_dark-grey_1_1800x_aa0812e9-4eb7-4637-89e1-2c62f12f4959.jpg",
+              "link": "",
               "pretext": "<p><strong>BLACK FRIDAY EXTENDED WITH<\/strong><\/p>",
               "title": "20% off your favourite brands",
               "subtitle": "<p><strong>LOUIS POULSEN | HUDSON VALLEY | FEISS | AND MORE...<\/strong><\/p>",
@@ -1392,18 +1388,17 @@
               "subheading_color": "#ffffff",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#000000",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Black Friday",
               "button_1_link": "shopify:\/\/collections\/black-friday-sale",
               "button_1_style": "button--primary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--secondary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1412,8 +1407,8 @@
           "1597687217268-0": {
             "type": "image",
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/Banner_Sept_2021.jpg",
+              "link": "",
               "pretext": "<p>One of a kind experience:<\/p>",
               "title": "Showroom shopping, online pricing",
               "subtitle": "",
@@ -1422,18 +1417,17 @@
               "subheading_color": "#ffffff",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#49494b",
               "background_opacity": 44,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop our Selection",
               "button_1_link": "shopify:\/\/collections\/category",
               "button_1_style": "button--primary",
               "button_2": "Contact Us",
               "button_2_link": "shopify:\/\/pages\/contact-us",
               "button_2_style": "button--primary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1442,8 +1436,8 @@
           "3ae06bde-1633-4b49-8553-f6a7239a19b9": {
             "type": "image",
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/TL_Brox_App1.jpg",
+              "link": "",
               "pretext": "<p>Let's welcome fall with<\/p>",
               "title": "15% off your favourite brands with code FALL15",
               "subtitle": "<p>ARTCRAFT | CRYSTORAMA | DAINOLITE | ROBERT ABBEY | RENWIL | SAVOY HOUSE | PABLO DESIGNS | AND MORE!<\/p>",
@@ -1452,18 +1446,17 @@
               "subheading_color": "#000000",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#ffffff",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Fall Sale",
               "button_1_link": "shopify:\/\/collections\/summer-sale",
               "button_1_style": "button--secondary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--secondary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1472,8 +1465,8 @@
           "647f11df-591e-4836-b68c-82183153c81b": {
             "type": "image",
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/Dals_Recessed_36621261-e475-4df6-8de6-d2435bdaf38e.jpg",
+              "link": "",
               "pretext": "<p>Buy More, Save Move<\/p>",
               "title": "Take 10-20% off all ceiling recessed lighting",
               "subtitle": "<p>Buy 1-25, save 10%, buy 26-50, save 15%, buy 51 or more, save 20%<\/p>",
@@ -1482,18 +1475,17 @@
               "subheading_color": "#ffffff",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#49494b",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Now",
               "button_1_link": "shopify:\/\/collections\/ceiling-recessed",
               "button_1_style": "button--primary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--secondary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1503,8 +1495,8 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/Artemide_Discovery_Suspension_ac1cb50e-f942-4592-8f19-9fd8044717c6.jpg",
+              "link": "",
               "pretext": "<p>Fall savings start now with<\/p>",
               "title": "15% off all Artemide Lighting",
               "subtitle": "<p>Until October 19<\/p>",
@@ -1513,18 +1505,17 @@
               "subheading_color": "#000000",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#ffffff",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Artemide",
               "button_1_link": "shopify:\/\/collections\/artemide",
               "button_1_style": "button--secondary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--secondary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1533,8 +1524,8 @@
           "b0c26e7a-661d-4f5c-ad31-73bc4ee022fe": {
             "type": "image",
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/Foscarini_Slider.jpg",
+              "link": "",
               "pretext": "<p>A new brand has landed!<\/p>",
               "title": "Introducing: Foscarini",
               "subtitle": "<p>Now available online and in the showroom<\/p>",
@@ -1543,18 +1534,17 @@
               "subheading_color": "#000000",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#ffffff",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Foscarini",
               "button_1_link": "shopify:\/\/collections\/foscarini",
               "button_1_style": "button--secondary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--secondary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1564,8 +1554,8 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/pablo-designs-belmont-floor-environmental-image-01_crop-01_300_download.jpg",
+              "link": "",
               "pretext": "<p>Major savings on contemporary lighting with<\/p>",
               "title": "15% off all Pablo Designs",
               "subtitle": "",
@@ -1574,18 +1564,17 @@
               "subheading_color": "#49494b",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#ffffff",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Pablo Designs",
               "button_1_link": "shopify:\/\/collections\/pablo-designs",
               "button_1_style": "button--secondary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--secondary",
-              "mobile_image_crop": "right",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1595,8 +1584,8 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/tech-kai-large.jpg",
+              "link": "",
               "pretext": "<p>Labour Day savings with<\/p>",
               "title": "20% off these brands:",
               "subtitle": "<p>GENERATION LIGHTING | TECH LIGHTING | MONTE CARLO FANS | FEISS | SEA GULL COLLECTION<\/p>",
@@ -1605,18 +1594,17 @@
               "subheading_color": "#ffffff",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#49494b",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Now",
               "button_1_link": "shopify:\/\/collections\/visual-comfort-sale",
               "button_1_style": "button--primary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--secondary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1626,8 +1614,8 @@
             "type": "image",
             "disabled": true,
             "settings": {
-              "link": "",
               "image": "shopify:\/\/shop_images\/Corbett_-_Charisma_Wide_abe37ca2-54f0-4adc-a262-496c5700216c.jpg",
+              "link": "",
               "pretext": "<p>Add striking lighting to your home with<\/p>",
               "title": "20% off all Corbett Lighting",
               "subtitle": "<p>Only until October 5th<\/p>",
@@ -1636,18 +1624,17 @@
               "subheading_color": "#ffffff",
               "text_alignment": "left",
               "text_horizontal_position": "left",
+              "text_width": 40,
               "background_color": "#49494b",
               "background_opacity": 77,
               "border_color": "#ffffff",
               "border_width": 0,
-              "text_width": 40,
               "button_1": "Shop Corbett Lighting",
               "button_1_link": "shopify:\/\/collections\/corbett-lighting",
               "button_1_style": "button--primary",
               "button_2": "",
               "button_2_link": "",
               "button_2_style": "button--primary",
-              "mobile_image_crop": "center",
               "pretext_color_mobile": "rgba(0,0,0,0)",
               "heading_color_mobile": "rgba(0,0,0,0)",
               "subheading_color_mobile": "rgba(0,0,0,0)"
@@ -1666,15 +1653,15 @@
           "8aa8b150-ec58-44dc-983c-f08dca116311"
         ],
         "settings": {
-          "image_transition": "slide",
           "image_slideshow_speed": 5,
+          "image_transition": "slide",
           "show_arrows": true,
           "show_nav_buttons": true,
-          "mobile_text_below_image": false,
           "width": "wide",
           "padding_top": 0,
           "padding_bottom": 0,
           "animation": "none",
+          "mobile_text_below_image": false,
           "css_class": "",
           "custom_css": ""
         }
@@ -2198,7 +2185,6 @@
           "title": "Best Sellers",
           "collection": "best-sellers",
           "products_per": 4,
-          "mobile_products_per_row": "1",
           "products_limit": 12,
           "align_height": true,
           "collection_height": 200,
@@ -2208,6 +2194,7 @@
           "padding_top": 20,
           "padding_bottom": 20,
           "animation": "none",
+          "mobile_products_per_row": "1",
           "css_class": "",
           "custom_css": ""
         }
@@ -2254,9 +2241,9 @@
           "align_height": false,
           "collection_height": 400,
           "button_style": "button--primary",
+          "overlay_text": "#ffffff",
           "overlay_background": "#939393",
           "overlay_background_opacity": 20,
-          "overlay_text": "#ffffff",
           "collection_title_below_image": false,
           "width": "standard",
           "show_gutter": true,
@@ -2274,39 +2261,39 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Hollis_and_Morris.jpg",
-              "link": "shopify:\/\/collections\/canadian-brands",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Canada's Best Brands",
-              "text": "<p>Shop Canadian →<\/p>"
+              "text": "<p>Shop Canadian →<\/p>",
+              "link": "shopify:\/\/collections\/canadian-brands",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           },
           "1611173192230751cc-1": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Matteo_-_C64001BZ_LifeScene.png",
-              "link": "shopify:\/\/collections\/sale",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Sale",
-              "text": "<p>Shop our promotions →<\/p>"
+              "text": "<p>Shop our promotions →<\/p>",
+              "link": "shopify:\/\/collections\/sale",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           },
           "1611173192230751cc-2": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/ml-store-1.jpg",
-              "link": "shopify:\/\/pages\/showroom",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Our Showroom",
-              "text": "<p>Visit our showroom →<\/p>"
+              "text": "<p>Visit our showroom →<\/p>",
+              "link": "shopify:\/\/pages\/showroom",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           }
         },
@@ -2318,10 +2305,10 @@
         "settings": {
           "border_radius": 0,
           "crop_images": true,
+          "show_border": true,
+          "overlay_text": "#ffffff",
           "overlay_background": "#939393",
           "overlay_background_opacity": 0,
-          "overlay_text": "#ffffff",
-          "show_border": true,
           "width": "standard",
           "show_gutter": true,
           "padding_top": 20,
@@ -2431,26 +2418,26 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Hubbardton_Forge_-_Courbe_Duet.jpg",
-              "link": "shopify:\/\/pages\/contact-us",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Want it, can't find it?",
-              "text": "<p>Our specialists love a challenge! Let us know what you’re searching for and we’ll source it for you.<\/p>"
+              "text": "<p>Our specialists love a challenge! Let us know what you’re searching for and we’ll source it for you.<\/p>",
+              "link": "shopify:\/\/pages\/contact-us",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           },
           "1614203840101ed7ea-1": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Alora_-_HARMONY_PD306418NBWC_lifestyle_72.jpg",
-              "link": "https:\/\/outlook.office365.com\/owa\/calendar\/MontrealLightingHardwareInc@montrealluminaire.com\/bookings\/",
-              "overlay_background": "#49494b",
-              "overlay_background_opacity": 40,
-              "overlay_text": "rgba(0,0,0,0)",
               "icon_label": "",
               "title": "Book An Appointment",
-              "text": "<p>Our team of experts is here to help you with complimentary in-person and virtual consultations.<\/p>"
+              "text": "<p>Our team of experts is here to help you with complimentary in-person and virtual consultations.<\/p>",
+              "link": "https:\/\/outlook.office365.com\/owa\/calendar\/MontrealLightingHardwareInc@montrealluminaire.com\/bookings\/",
+              "overlay_text": "rgba(0,0,0,0)",
+              "overlay_background": "#49494b",
+              "overlay_background_opacity": 40
             }
           }
         },
@@ -2461,10 +2448,10 @@
         "settings": {
           "border_radius": 0,
           "crop_images": true,
+          "show_border": false,
+          "overlay_text": "#ffffff",
           "overlay_background": "#939393",
           "overlay_background_opacity": 0,
-          "overlay_text": "#ffffff",
-          "show_border": false,
           "width": "standard",
           "show_gutter": true,
           "padding_top": 20,
@@ -2521,14 +2508,30 @@
               "link_url": ""
             }
           },
-          "offer_dwcp3V": {
+          "offer_AziyNP": {
+            "type": "offer",
+            "disabled": true,
+            "settings": {
+              "collection": "spring-sale",
+              "title": "<p>Spring Sale<\/p>",
+              "offer_details_product_cart": "<p>15% OFF WITH CODE SPRING15<\/p>",
+              "title_fr": "<p>Solde printanière<\/p>",
+              "offer_details_product_cart_fr": "<p>15% DE RABAIS AVEC CODE PRINTEMPS15<\/p>",
+              "offer_bg_color": "#f1f1f1",
+              "offer_text_color": "#222222",
+              "link_text": "Offer Link",
+              "link_text_fr": "Offer Link",
+              "link_url": ""
+            }
+          },
+          "offer_cfA6Wk": {
             "type": "offer",
             "settings": {
-              "collection": "summer-sale",
+              "collection": "easter-sale",
               "title": "",
-              "offer_details_product_cart": "<p><strong>15% OFF WITH CODE: SUMMER15<\/strong><br\/><\/p>",
+              "offer_details_product_cart": "<p>20% OFF WITH CODE: EASTER20<\/p>",
               "title_fr": "",
-              "offer_details_product_cart_fr": "<p><strong>15% DE RABAIS AVEC CODE: ETE15<\/strong><\/p>",
+              "offer_details_product_cart_fr": "<p>20% DE RABAIS AVEC CODE: PAQUES20<\/p>",
               "offer_bg_color": "#f1f1f1",
               "offer_text_color": "#222222",
               "link_text": "Offer Link",
@@ -2540,7 +2543,8 @@
         "block_order": [
           "25ae2ff5-f3a4-4a8a-b279-36ea9241127b",
           "offer_VXnW8Q",
-          "offer_dwcp3V"
+          "offer_AziyNP",
+          "offer_cfA6Wk"
         ],
         "settings": {
           "enabled": false,
@@ -2703,7 +2707,7 @@
           "mega-menu-4-0": {
             "type": "menu",
             "settings": {
-              "menu_1": "",
+              "menu_1": "fans-1",
               "menu_1_link": ""
             }
           }
@@ -2754,12 +2758,6 @@
           "wsaio_custom_css_file": ".ws--preview-bar-btn {\n    position: relative;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    display: inline-block;\n    height: auto;\n    margin: 0;\n    background: inherit;\n    border: 0;\n    border-radius: inherit;\n    font-family: inherit;\n    font-weight: 400;\n    cursor: pointer;\n    text-transform: none;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    vertical-align: middle;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    padding: .4rem 1.5rem;\n    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f9fafb));\n    background: linear-gradient(to bottom, #fff, #f9fafb);\n    border: 1px solid #c4cdd5;\n    -webkit-box-shadow: 0 1px 0 0 rgba(22, 29, 37, .05);\n    box-shadow: 0 1px 0 0 rgba(22, 29, 37, .05);\n    border-radius: 3px;\n    font-size: 1rem;\n    line-height: 1rem;\n    color: #212b36;\n    -webkit-transition-property: background, border, -webkit-box-shadow;\n    transition-property: background, border, -webkit-box-shadow;\n    transition-property: background, border, box-shadow;\n    transition-property: background, border, box-shadow, -webkit-box-shadow;\n    -webkit-transition-timing-function: cubic-bezier(.64, 0, .35, 1);\n    transition-timing-function: cubic-bezier(.64, 0, .35, 1);\n    -webkit-transition-duration: .2s;\n    transition-duration: .2s;\n    -webkit-tap-highlight-color: transparent;\n    opacity: 1\n}\n\n.ws-error {\n    border-color: red !important;\n    border: 1px solid !important;\n}\n\n.ws-success {\n    border-color: #008000;\n    border: 1px solid !important;\n}\n\n.checkout-disabled {\n    pointer-events: none;\n}\n\n.wsaio--Cart_ld__Message {\n    color: #008000;\n    margin-left: 35px !important;\n}\n\n\/* Discount code *\/\n.wsaio--coupon-code-form,.wsaio--coupon-code-alerts {\n   display: flex;\n   align-items: center;\n   margin-left: auto;\n   width: 253px;\n}\ninput#ws--discount_code--field {\n    outline: none;\n    border: 1px solid #898989;\n    padding: 8px 12px;\n    min-height: 25px;\n    \/* font-size: 1.6rem; *\/\n    border-radius: 2px;\n    box-shadow: none;\n    transition: border-color 0.5s;\n}\n\nbutton#ws--discount_code--button.ws-disabled{\n    pointer-events: none !important;\n    border: 1px solid #c8c8c8;\n    background-color: #c8c8c8;\n}\n\nbutton#ws--discount_code--button {\n    min-height: 36px;\n    padding: 8px 24px;\n    border: 1px solid #000000;\n    background-color: #000000;\n    margin-left: 4px;\n    \/* font-size: 1.6rem; *\/\n    cursor: pointer;\n    color: #fff;\n    transition: background 0.5s;\n    border-radius: 2px;\n    outline: none;\n    box-shadow: none;\n}\n\nbutton#ws--discount_code--button:hover,\nbutton#ws--discount_code--button:focus,\nbutton#ws--discount_code--button.ws_active {\n    background-color: #000000;\n    box-shadow: none;\n    border: 1px solid #000000;\n}\n\ninput#ws--discount_code--field:hover {\n    border-color: #000000;\n    outline: none;\n    box-shadow: none;\n}\n\n.additional-checkout-buttons {\n\n   display: none !important;\n}\n\ns#ComparePrice {\n   margin: 5px;\n}\n\n    table#wsaio-volume-discount--table {\n        width: 100%;    \n        text-align: center !important;\n        padding:10px;\n        border-collapse: collapse;\n        margin-top: 10px;\n    }\n   .wholesale-table thead th, .wholesale-table tbody td{\n        border:1px solid black !important;\n        text-align: center !important;\n        padding:10px;\n   }\n\n\nspan.prod_save {\n    display: contents;\n}\n\n.wsdapp span.price.price--sale {\n    color: #c70000;\n}  \n\n.empty .origg .compare-at-price{\n    display: none !important;\n}\n\n.subtitle{\n    font-size: 1.25rem !important;\n}"
         }
       },
-      "18146506648094396618": {
-        "type": "shopify:\/\/apps\/langshop\/blocks\/sdk\/84899e01-2b29-42af-99d6-46d16daa2111",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "855628211100114053": {
         "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
@@ -2790,16 +2788,24 @@
         "settings": {
         }
       },
-      "2118589882331710876": {
-        "type": "shopify:\/\/apps\/essential-trust-badges\/blocks\/app-embed\/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+      "18146506648094396618": {
+        "type": "shopify:\/\/apps\/langshop\/blocks\/sdk\/84899e01-2b29-42af-99d6-46d16daa2111",
         "disabled": false,
         "settings": {
         }
       },
-      "10864971697205422121": {
-        "type": "shopify:\/\/apps\/gorgias-live-chat-helpdesk\/blocks\/gorgias\/a66db725-7b96-4e3f-916e-6c8e6f87aaaa",
+      "2118589882331710876": {
+        "type": "shopify:\/\/apps\/essential-trust-badges\/blocks\/app-embed\/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+        "disabled": true,
+        "settings": {
+        }
+      },
+      "16662536352595574465": {
+        "type": "shopify:\/\/apps\/product-filters-search\/blocks\/autocomplete\/95672d06-1c4e-4e1b-9368-e84ce1ad6886",
         "disabled": false,
         "settings": {
+          "path": "\/pages\/search-results",
+          "new_jquery": true
         }
       }
     }

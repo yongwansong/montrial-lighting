@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsFeaturedPromos = {
+window.PXUTheme.jsFeaturedPromos = {
 	init: function($section) {
 
     // Selectors

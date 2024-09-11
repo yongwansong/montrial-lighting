@@ -15,7 +15,7 @@ context: <string>
       collection_handles contains 'coming-soon' or
       collection_handles contains 'new-arrivals' or
       collection_handles contains 'pre-order' or
-      collection_handles contains 'summer-sale' or
+      collection_handles contains 'spring-sale' or
       collection_handles contains 'thanksgiving-sale' or
       collection_handles contains 'staff-pick' or
       collection_handles contains 'boxing-week' or
@@ -30,7 +30,7 @@ context: <string>
       {% comment %}SV-15.11.22{% endcomment %}
       {% if product.tags contains 'overstock' %}
         <div class="sale-sticker thumbnail-sticker">
-          <span class="sticker-text">Quick Ship</span>
+          <span class="sticker-text">Overstock</span>
         </div>
       {% elsif product.template_suffix == 'open-box' %}
         <div class="sale-sticker thumbnail-sticker">
@@ -58,9 +58,9 @@ context: <string>
         </div>
       {% endif %}
 
-      {% if collection_handles contains 'summer-sale' %}
+      {% if collection_handles contains 'spring-sale' %}
         <div class="sale-sticker thumbnail-sticker">
-          <span class="sticker-text">Sale</span>
+          <span class="sticker-text">Spring Sale</span>
         </div>
       {% endif %}
 

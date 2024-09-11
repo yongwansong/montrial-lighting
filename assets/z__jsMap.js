@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsMap = {
+window.PXUTheme.jsMap = {
   init: function($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsMap = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsMap = $.extend(this, window.PXUTheme.getSectionData($section));
 
     let mapData = {
       address: this.map_address,
@@ -23,7 +23,7 @@ Shopify.theme.jsMap = {
       $.getScript(
         'https://maps.googleapis.com/maps/api/js?key=' + mapData.apikey
       ).then(function () {
-        Shopify.theme.jsMap.findLocation(mapData);
+        window.PXUTheme.jsMap.findLocation(mapData);
         $.ajaxSetup({ cache: false });
       });
     }
@@ -40,7 +40,7 @@ Shopify.theme.jsMap = {
         geoLng = results[0].geometry.location.lng();
 
         // Create map
-        Shopify.theme.jsMap.initMap(geoLat, geoLng, mapData);
+        window.PXUTheme.jsMap.initMap(geoLat, geoLng, mapData);
       } else {
         console.log('Error:' + status);
       }

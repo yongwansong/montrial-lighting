@@ -1,14 +1,14 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsBlog = {
+window.PXUTheme.jsBlog = {
   init: function($section){
 
     // Add settings from schema to current object
-    Shopify.theme.jsBlog = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsBlog = $.extend(this, window.PXUTheme.getSectionData($section));
 
     if(this.enable_filter == true) {
       $('#blog_filter').on('change', function() {
-        Shopify.theme.jsBlog.blogFilter();
+        window.PXUTheme.jsBlog.blogFilter();
       });
     }
 
@@ -21,5 +21,6 @@ Shopify.theme.jsBlog = {
     $('#blog_filter').off();
   }
 }
+
 /******/ })()
 ;

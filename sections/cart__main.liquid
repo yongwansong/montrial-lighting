@@ -2,15 +2,30 @@
 ** Cart page - main content area
 {% endcomment %}
 
-{% assign id = section.id %}
-{% comment %}Layout{% endcomment %}
-{% assign width = section.settings.width %}
-{% assign padding_top = section.settings.padding_top %}
-{% assign padding_bottom = section.settings.padding_bottom %}
-{% assign animation = section.settings.animation | default: 'none' %}
-{% comment %} Advanced {% endcomment %}
-{% assign css_class = section.settings.css_class %}
-{% assign custom_css = section.settings.custom_css %}
+{% liquid
+  assign id = section.id
+
+  # Layout
+  assign width = section.settings.width
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign animation = section.settings.animation | default: 'none'
+
+  # Advanced
+  assign css_class = section.settings.css_class
+  assign custom_css = section.settings.custom_css
+
+  # Continue shopping link
+  if section.settings.continue_shopping_link == blank
+    if cart.items.first.product.collections != blank
+      assign continue_shopping_link = cart.items.first.product.collections.last.url
+    else
+      assign continue_shopping_link = routes.all_products_collection_url
+    endif
+  else
+    assign continue_shopping_link = section.settings.continue_shopping_link
+  endif
+%}
 
 {% comment %} CSS {% endcomment %}
 {% style %}
@@ -47,16 +62,44 @@
     %}
   </div>
 
-  <div class="container cart__empty-cart-message {% if cart.item_count > 0 %}is-hidden{% endif %}">
-    <div class="column one-whole text-align-center has-padding-top has-padding-bottom">
-      <h2 class="quote">{{ 'cart.general.continue_browsing_html' | t }}</h2>
-      <a href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}" class="action_button continue-button add_to_cart">{{ 'cart.general.continue_shopping_link_html' | t }}</a>
+  <div
+    class="
+      container
+      cart__empty-cart-message
+      {% if cart.item_count > 0 %}
+        is-hidden
+      {% endif %}
+    "
+  >
+    <div
+      class="
+        column
+        one-whole
+        text-align-center
+        has-padding-top
+        has-padding-bottom
+      "
+    >
+      <h2 class="quote">
+        {{- 'cart.general.continue_browsing_html' | t -}}
+      </h2>
+
+      <a
+        class="
+          action_button
+          continue-button
+          add_to_cart
+        "
+        href="{{ continue_shopping_link }}"
+      >
+        {{- 'cart.general.continue_shopping_link_html' | t -}}
+      </a>
     </div>
   </div>
 
   <div class="cart__form {% if cart.item_count == 0 %}is-hidden{% endif %}"
       data-current-discount="{{ cart.total_discount }}">
-    <form action="{{ routes.cart_url }}" method="post" id="cart_form" class="{% if cart.item_count == 0 %}visuallyhidden{% endif %} quantity-box-enabled-{{ section.settings.display_product_quantity_cart }}">
+    <form action="{{ routes.cart_url }}" method="post" id="cart_form" class="{% if cart.item_count == 0 %}visually-hidden{% endif %} quantity-box-enabled-{{ section.settings.display_product_quantity_cart }}">
 
       <div class="container medium-down--hide">
         <div class="cart__headings column">
@@ -98,7 +141,7 @@
                     image: item.image,
                     alt: item.title,
                     object_fit: true,
-                    max_height: 150
+                    max_height: 150,
                   %}
                 </a>
               </div>
@@ -109,35 +152,56 @@
                       <a href="{{ item.url }}">{{ item.product.title }}</a>
                     </p>
 
-                    {% unless item.variant.title contains "Title" %}
-                      <p class="item__properties">
-                        {% for option in item.product.options %}
-                          <span>{{ option }}:</span> <span>{{ item.variant.options[forloop.index0] }}</span><br />
-                        {% endfor %}
-                      </p>
-                    {% endunless %}
+                    {%- if item.product.has_only_default_variant == false
+                      or item.properties.size != 0
+                      or item.selling_plan_allocation != null
+                    -%}
+                      <ul class="cart__product-options">
+                        {%- if item.product.has_only_default_variant == false -%}
+                          {%- for option in item.options_with_values -%}
+                            <li class="cart__product-option">
+                              <span class="cart__product-option-name">
+                                {{- option.name -}}:
+                              </span>
+                              <span class="cart__product-option-value">
+                                {{- option.value -}}
+                              </span>
+                            </li>
+                          {%- endfor -%}
+                        {%- endif -%}
 
-                    {% if item.properties %}
-                      <p>
-                        {% for p in item.properties %}
-                          {% unless p.last == blank %}
-                            {% if p.last contains '/uploads/' %}
-                              <div>
-                                {{ p.first }}: <a class="lightbox" href="{{ p.last }}">{{ 'cart.general.uploaded_file' | t }}</a>
-                              </div>
-                            {% else %}
-                              <div>
-                                {{ p.first }}: {{ p.last }}
-                              </div>
-                            {% endif %}
-                          {% endunless %}
-                        {% endfor %}
-                      </p>
-                    {% endif %}
+                        {%- for property in item.properties -%}
+                          {%- assign property_first_char = property.first | slice: 0 -%}
+                          {%- if property.last != blank and property_first_char != '_' -%}
+                            <li class="cart__product-option">
+                              <span class="cart__product-option-name">
+                                {{- property.first -}}:
+                              </span>
 
-                    {% if item.selling_plan_allocation.selling_plan %}
-                      <p class="item__selling-plan-name">{{ item.selling_plan_allocation.selling_plan.name }}</p>
-                    {% endif %}
+                              <span class="cart__product-option-value">
+                                {%- if property.last contains '/uploads/' -%}
+                                  <a
+                                    class="lightbox"
+                                    href="{{ property.last }}"
+                                    target="_blank"
+                                  >
+                                    {{- 'cart.general.uploaded_file' | t -}}
+                                  </a>
+                                {%- else -%}
+                                  {{- property.last -}}
+                                {%- endif -%}
+                              </span>
+                            </li>
+                          {%- endif -%}
+                        {%- endfor -%}
+
+                        {%- if item.selling_plan_allocation.selling_plan -%}
+                          <li class="cart__product-option">
+                            {{- item.selling_plan_allocation.selling_plan.name -}}
+                          </li>
+                        {%- endif -%}
+                      </ul>
+                    {%- endif -%}
                   </div>
                 </div>
 
@@ -312,7 +376,7 @@
                           rows="3"
                           {% if settings.use_placeholders %}placeholder="{{ 'cart.general.note_detailed' | t: shop_name: shop.name }}"{% endif %}
                         >
-                          {{ cart.note }}
+                          {{- cart.note -}}
                         </textarea>
                       </div>
                     </div>
@@ -369,7 +433,7 @@
                     <div class="is-flex is-align-center is-justify-end">
                       {% if cart.item_count > 0 %}
                         <div class="cart__featured-links">
-                          <a href="{% if cart.items.first.product.collections != blank %}{{ cart.items.first.product.collections.last.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">{{ 'cart.general.continue_shopping_link_html' | t }}</a>
+                          <a href="{{ continue_shopping_link }}">{{ 'cart.general.continue_shopping_link_html' | t }}</a>
                         </div>
                       {% endif %}
                     </div>
@@ -409,8 +473,7 @@
     }
   }
 </script>
-<script src="{{ 'z__jsCart.js' | asset_url }} defer"></script>
-<script src="{{ 'z__jsShippingCalculator.js' | asset_url }}" defer></script>
+<script src="{{ 'z__jsCart.js' | asset_url }}" defer></script>
 
 {% schema %}
 
@@ -434,6 +497,15 @@
       "type": "richtext",
       "id": "cart_message",
       "label": "Cart message"
+    },
+    {
+      "type": "header",
+      "content": "Continue shopping button"
+    },
+    {
+      "type": "url",
+      "id": "continue_shopping_link",
+      "label": "Link"
     },
     {
       "type": "header",

@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsFixedMessage = {
+window.PXUTheme.jsFixedMessage = {
   init: function ($section) {
 
     this.$el = $('.fixed-message-section');
@@ -28,5 +28,6 @@ Shopify.theme.jsFixedMessage = {
     $('.js-close-fixed-message').off();
   }
 }
+
 /******/ })()
 ;

@@ -26,7 +26,7 @@
           "sku": "{{ variant.sku }}",
         {%- endif -%}
         "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-     "price" : "{{ variant.price | divided_by: 100.00 }}",
+        "price" : "{{ variant.price | divided_by: 100.00 }}",
         "priceCurrency" : "{{ cart.currency.iso_code }}",
         "url" : "{{ shop.url }}{{ variant.url }}"
       }{% unless forloop.last %},{% endunless %}

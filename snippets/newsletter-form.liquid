@@ -4,21 +4,30 @@ newsletter_class: <string>
 {% endcomment %}
 
 {% comment %} Assign object as block or section {% endcomment %}
-{% if type == 'block' %}
-  {%- assign object = block -%}
-{% else %}
-  {%- assign object = section -%}
-{% endif %}
+{%- liquid
+  if type == 'block'
+    assign object = block
+  else
+    assign object = section
+  endif
 
-{% if settings.form_button_style contains 'primary' %}
-  {%- assign field_input_size = settings.button_primary_padding -%}
-  {%- assign field_input_style = 'primary-btn-style' -%}
-{% elsif settings.form_button_style contains 'secondary' %}
-  {%- assign field_input_size = settings.button_secondary_padding -%}
-  {%- assign field_input_style = 'secondary-btn-style' -%}
-{% else %}
-  {%- assign field_input_size = settings.button_link_padding -%}
-{% endif %}
+  if settings.form_button_style contains 'primary'
+    assign field_input_size = settings.button_primary_padding
+    assign field_input_style = 'primary-btn-style'
+  elsif settings.form_button_style contains 'secondary'
+    assign field_input_size = settings.button_secondary_padding
+    assign field_input_style = 'secondary-btn-style'
+  else
+    assign field_input_size = settings.button_link_padding
+  endif
+
+  if id == nil
+    assign form_id = 'contact_form'
+  else
+    assign form_id = id | append: '_contact_form'
+  endif
+  assign form_action = '/contact#' | append: form_id
+-%}
 
 {% style %}
 
@@ -38,7 +47,12 @@ newsletter_class: <string>
 <div class="newsletter-form__wrapper {{ newsletter_class }}">
   <div class="form__success-message text-align-{{ text_alignment }}"></div>
 
-  {% form 'customer', class: 'contact-form newsletter-form--newsletter-section', id: nil %}
+  {%
+    form 'customer',
+    class: 'contact-form newsletter-form--newsletter-section',
+    action: form_action,
+    id: form_id
+  %}
     {% if form.posted_successfully? %}
       <p class="quote">{{ 'general.newsletter_form.success_text' | t }}</p>
     {% elsif form.errors %}

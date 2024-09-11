@@ -13,7 +13,16 @@ Example use:
   {%- assign declarations = css | split: '}' -%}
   {%- for declaration in declarations -%}
     {%- if declaration != '' -%}
-      #shopify-section-{{ id }} {{ declaration }} }
+      {% if hasSecID == true %}
+      {{ declaration }} }
+      {% else %}
+        {% if declaration contains '@media' %}
+          {% assign temp = declaration | split:'){' %}          
+          {{ temp | first }} ) { #shopify-section-{{ id }} {{ temp | last }} }
+        {% else %}
+          #shopify-section-{{ id }} {{ declaration }} }
+        {% endif %}
+      {% endif %}
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}

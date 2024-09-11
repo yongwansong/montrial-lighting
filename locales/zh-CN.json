@@ -43,6 +43,27 @@
       "tags_html": "标记 \"{{ tags }}\""
     }
   },
+  "recipient": {
+    "form": {
+      "checkbox_label": "我想将此作为礼物发送",
+      "email_label": "收件人邮箱",
+      "email_placeholder": "收件人邮箱 *",
+      "error_message": "电子邮件无效",
+      "name_label": "收件人姓名（可选）",
+      "name_placeholder": "收件人姓名（可选）",
+      "message_label": "留言（可选）",
+      "message_placeholder": "留言（可选）",
+      "max_characters": "最多{{ max_characters }}个字符"
+    }
+  },
+  "sections": {
+    "complementary_product_block": {
+      "from": "从",
+      "now": "现在",
+      "price_per_unit_html": "{{ total_quantity }} | {{ unit_price }} \/ {{ unit_measure }}",
+      "view_details": "查看产品"
+    }
+  },
   "date_formats": {
     "month_day_year": "%月 %日, %年"
   },
@@ -51,6 +72,11 @@
       "title": "找不到页面",
       "subtext": "抱歉，我们找不到你要求的页面",
       "continue_shopping_html": "试试看其他搜寻或<a href=\"\/collections\/all\">继续购物<\/a>"
+    },
+    "accessibility": {
+      "star_review_text": "审查",
+      "star_reviews_text": "评论",
+      "star_reviews_info": "{{ rating_value }} 在之外 {{ rating_max }} 星星"
     },
     "pagination": {
       "previous": "前一篇文章",
@@ -101,9 +127,13 @@
       "description": "输入您想要找的商品",
       "no_results_html": " \"{{ terms }}\" ，无任何相关的商品。",
       "advanced_search_html": "进阶搜寻",
-      "top_suggestions": "热门建议",
+      "suggestions": "建议",
       "no_results": "无任相关搜寻结果",
-      "all_results": "更多",
+      "search_for": "搜索\"{{ search_terms }}\"",
+      "products": "产品",
+      "pages": "页面",
+      "posts": "帖子",
+      "pages_and_posts": "页面和帖子",
       "results_count": {
         "zero": "零",
         "one": "一",
@@ -112,13 +142,18 @@
       "placeholder": "",
       "placeholder_with_shop_name": "搜寻{{ shop_name }}...",
       "submit": "搜寻",
-      "common_terms": "经常搜索"
-    },
-    "currency": {
-      "dropdown_label": "货币"
+      "common_terms": "经常搜索",
+      "top_suggestions": "热门建议",
+      "all_results": "更多"
     },
     "language": {
       "dropdown_label": "语言"
+    },
+    "country": {
+      "dropdown_label": "国家"
+    },
+    "currency": {
+      "dropdown_label": "货币"
     }
   },
   "gallery": {
@@ -192,8 +227,9 @@
       "pre_order": "预购",
       "sale": "促销",
       "view_all": "查看全部",
-      "view_product_details_html": "看商品全部细节",
-      "sold_out": "卖光了"
+      "view_product_details": "看商品全部细节",
+      "sold_out": "卖光了",
+      "view_product_details_html": "看商品全部细节"
     },
     "sidebar": {
       "collections": "分类",
@@ -239,7 +275,6 @@
       "collections": "分类",
       "product_types": "品项",
       "tags": "类别",
-      "size_chart": "尺寸表",
       "savings": "促销",
       "products_tagged": "商品标签",
       "items_left_count": {
@@ -247,7 +282,8 @@
         "other": "库存剩下"
       },
       "view_in_your_space": "在您的空间中查看",
-      "select_variant": "请选择您的所有选项"
+      "select_variant": "请选择您的所有选项",
+      "size_chart": "尺寸表"
     },
     "notify_form": {
       "email": "请输入您的电邮地址",
@@ -279,7 +315,8 @@
       "title": "我的账户",
       "details": "账户详细资料",
       "view_addresses": "查看地址",
-      "return": "回到账户详细资料"
+      "return": "回到账户详细资料",
+      "primary_address": "主要地址"
     },
     "orders": {
       "title": "查看订单",
@@ -494,14 +531,15 @@
     },
     "social_sharing": {
       "title": "分享",
-      "twitter_share": "刚刚从{{ name }买了 {{ title }}  }: {{ current_url }}",
-      "twitter_title": "分享至推特",
+      "x_title": "在x上分享",
       "facebook_title": "分享至脸书",
       "pinterest_title": "分享至Pinterest",
       "pinterest_share": "{{ name }}的{{ title }}  ",
       "email_title": "电邮分享给好友",
       "email_subject": "我觉得你可能会喜欢{{ title }}",
-      "email_message": "嘿，我刚刚在看{{ name }} 然后找到了 {{ title }}。想跟你分享一下"
+      "email_message": "嘿，我刚刚在看{{ name }} 然后找到了 {{ title }}。想跟你分享一下",
+      "twitter_share": "刚刚从{{ name }买了 {{ title }}  }: {{ current_url }}",
+      "twitter_title": "分享至推特"
     },
     "customer": {
       "logged_in_as": "身份",
@@ -1144,50 +1182,5 @@
     "review_token_expired": "You're late. The link is expired!",
     "view_on_instagram": "View on Instagram",
     "login_required_to_review": "Please log in to leave your review"
-  },
-  "pagefly": {
-    "products": {
-      "product": {
-        "regular_price": "Regular price",
-        "sold_out": "Sold out",
-        "unavailable": "Unavailable",
-        "on_sale": "Sale",
-        "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
-        "back_to_collection": "Back to {{ title }}",
-        "view_details": "View details"
-      }
-    },
-    "article": {
-      "tags": "Tags:",
-      "all_topics": "All topics",
-      "by_author": "by {{ author }}",
-      "posted_in": "Posted in",
-      "read_more": "Read more",
-      "back_to_blog": "Back to {{ title }}"
-    },
-    "comments": {
-      "title": "Leave a comment",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "post": "Post comment",
-      "moderated": "Please note, comments must be approved before they are published",
-      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
-      "success": "Your comment was posted successfully! Thank you!",
-      "comments_with_count": {
-        "one": "{{ count }} comment",
-        "other": "{{ count }} comments"
-      }
-    },
-    "password_page": {
-      "login_form_message": "Enter store using password:",
-      "login_form_password_label": "Password",
-      "login_form_password_placeholder": "Your password",
-      "login_form_submit": "Enter",
-      "signup_form_email_label": "Email",
-      "signup_form_success": "We will send you an email right before we open!",
-      "password_link": "Enter using password"
-    }
   }
 }

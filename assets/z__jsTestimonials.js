@@ -1,14 +1,17 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsTestimonials = {
+window.PXUTheme.jsTestimonials = {
 	init: function($section) {
+    // Add settings from schema to current object
+    window.PXUTheme.jsTestimonials = $.extend(this, window.PXUTheme.getSectionData($section));
+
     const $testimonialSlider = $section.find('[data-testimonial-slider]');
 
     $testimonialSlider.flickity({
       wrapAround: true,
       initialIndex: 1,
       prevNextButtons: false,
-      pageDots: false,
+      pageDots: this.show_navigation_dots,
       watchCSS: true
     });
 

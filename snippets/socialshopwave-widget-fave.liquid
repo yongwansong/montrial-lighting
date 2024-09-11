@@ -7,7 +7,7 @@
   {% assign ssw_script_tags_allowed = shop.metafields.ssw['script_tags_allowed'] | plus: 0 %}
   {% if content_for_header contains 'ssw-empty.js' or ssw_manual_uninstall == 1 or ssw_script_tags_allowed != 1 %}
   {% if product %}
-  <div id="widget-fave-html">
+    <div id="widget-fave-html">
     </div>
     <script type="text/javascript" defer>
       if(typeof sswWidgetFaveInterval == 'undefined'){

@@ -2,20 +2,21 @@
 ** Heading **
 {% endcomment %}
 
-{%- assign preheading = section.settings.preheading -%}
-{%- assign title = section.settings.title -%}
-{%- assign subheading = section.settings.subheading -%}
+{% liquid
+  assign preheading = section.settings.preheading
+  assign title = section.settings.title
+  assign subheading = section.settings.subheading
 
-{% comment %} Is the color set to transparent? {% endcomment %}
-{%- assign heading_alpha = section.settings.heading_color | color_extract: 'alpha' -%}
-{%- assign preheading_alpha = section.settings.preheading_color | color_extract: 'alpha' -%}
-{%- assign subheading_alpha = section.settings.subheading_color | color_extract: 'alpha' -%}
-{%- assign background_alpha = section.settings.background | color_extract: 'alpha' -%}
-{%- assign gradient_alpha = section.settings.gradient | color_extract: 'alpha' -%}
+  # Is the color set to transparent?
+  assign heading_alpha = section.settings.heading_color | color_extract: 'alpha'
+  assign preheading_alpha = section.settings.preheading_color | color_extract: 'alpha'
+  assign subheading_alpha = section.settings.subheading_color | color_extract: 'alpha'
+  assign background_alpha = section.settings.background | color_extract: 'alpha'
+  assign gradient_alpha = section.settings.gradient | color_extract: 'alpha'
+%}
 
 {% comment %} Section specific CSS {% endcomment %}
 {% capture section_css -%}
-
   .section {
     background-image: linear-gradient({{ section.settings.gradient_rotation }}deg, rgba(255,255,255,0), {{ section.settings.gradient }});
     background-color: {%- if background_alpha != 0 -%}{{ section.settings.background }}{%- endif -%};
@@ -32,15 +33,15 @@
   .heading-section__subheading {
     color: {%- if subheading_alpha != 0 -%}{{ section.settings.subheading_color }}{%- else -%}{{ settings.heading_color }}{%- endif -%};
   }
-
 {%- endcapture -%}
 
 {% style %}
   #shopify-section-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
+    padding-right: {{ section.settings.padding_right }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     padding-left: {{ section.settings.padding_left }}px;
-    padding-right: {{ section.settings.padding_right }}px;
+
     {% if section.settings.width == 'wide' -%}
       width: 100%;
     {%- elsif section.settings.width == 'half' -%}
@@ -48,67 +49,90 @@
     {%- endif %}
   }
 
-  {% render 'css-loop',
-          css: section_css,
-          id: section.id
+  @media only screen and (max-width: 798px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+
+  {%
+    render 'css-loop',
+    css: section_css,
+    id: section.id,
   %}
-  {% render 'css-loop',
-          css: section.settings.custom_css,
-          id: section.id
+
+  {%
+    render 'css-loop',
+    css: section.settings.custom_css,
+    id: section.id,
   %}
 {% endstyle %}
 
-{% comment %} HTML markup {% endcomment %}
 {% if title != blank or subheading != blank or preheading != blank %}
-  <section class="section
-                  {{ section.settings.css_class }}
-                  is-width-{{ section.settings.width }}
-                  {% if background_alpha != 0 or gradient_alpha != 0  %}
-                    has-background
-                  {% endif %}
-                  "
-            data-section-id="{{ section.id }}"
-            {% if section.settings.animation != "none" %}
-              data-scroll-class="{{ section.settings.animation }}"
-            {% endif %}>
-    <div class="container
-                ">
+  <section
+    class="
+      section
+      {{ section.settings.css_class }}
+      is-width-{{ section.settings.width }}
+      {% if background_alpha != 0 or gradient_alpha != 0  %}
+        has-background
+      {% endif %}
+    "
+    data-section-id="{{ section.id }}"
+    {% if section.settings.animation != "none" %}
+      data-scroll-class="{{ section.settings.animation }}"
+    {% endif %}
+  >
+    <div class="container">
       <div class="one-whole column">
-        <div class="heading-section__content
-                    is-flex
-                    is-flex-column
-                    is-align-{{ section.settings.heading_alignment }}
-                    text-align-{{ section.settings.heading_alignment }}
-                    vertical-spacing-{{ section.settings.vertical_spacing }}">
+        <div
+          class="
+            heading-section__content
+            is-flex
+            is-flex-column
+            is-align-{{ section.settings.heading_alignment }}
+            {% if section.settings.mobile_text_alignment != 'none' %}
+              is-align--mobile-{{ section.settings.mobile_text_alignment }}
+            {% endif %}
+            text-align-{{ section.settings.heading_alignment }}
+            vertical-spacing-{{ section.settings.vertical_spacing }}
+          "
+        >
           {% if preheading != blank %}
             <div class="heading-section__preheading subtitle">
-              {{ preheading }}
+              {{- preheading -}}
             </div>
           {% endif %}
 
           {% if title != blank %}
-            <h2 class="heading-section__heading title">{{ title }}</h2>
+            <h2 class="heading-section__heading title">
+              {{- title -}}
+            </h2>
           {% endif %}
 
           {% if subheading != blank %}
             <div class="heading-section__subheading subtitle">
-              {{ subheading }}
+              {{- subheading -}}
             </div>
           {% endif %}
 
           {% if settings.display_heading_divider == true %}
-            <div class="heading-divider
-                      heading-divider--{{ settings.heading_divider_style }}"
-                  {% if settings.heading_divider_animation != "none" %}
-                    data-scroll-class="{{ settings.heading_divider_animation }}"
-                  {% endif %}>
+            <div
+              class="
+                heading-divider
+                heading-divider--{{ settings.heading_divider_style }}
+              "
+              {% if settings.heading_divider_animation != "none" %}
+                data-scroll-class="{{ settings.heading_divider_animation }}"
+              {% endif %}
+            >
             </div>
           {% endif %}
       </div>
     </div>
   </section>
 {% endif %}
-
 
 {% schema %}
   {
@@ -132,6 +156,46 @@
         "id": "subheading",
         "label": "Subheading",
         "default": "<p>Additional text or description of section</p>"
+      },
+      {
+        "type": "select",
+        "id": "heading_alignment",
+        "label": "Text alignment",
+        "options": [
+          {
+            "value": "start",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "end",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "select",
+        "id": "vertical_spacing",
+        "label": "Vertical text spacing",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium"
       },
       {
         "type": "header",
@@ -168,7 +232,7 @@
       {
         "type": "color",
         "id": "gradient",
-        "label": "Gradient",
+        "label": "Background gradient",
         "default": "rgba(0,0,0,0)"
       },
       {
@@ -184,46 +248,6 @@
       {
         "type": "header",
         "content": "Layout"
-      },
-      {
-        "type": "select",
-        "id": "heading_alignment",
-        "label": "Text alignment",
-        "options": [
-          {
-            "value": "start",
-            "label": "Left"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          },
-          {
-            "value": "end",
-            "label": "Right"
-          }
-        ],
-        "default": "center"
-      },
-      {
-        "type": "select",
-        "id": "vertical_spacing",
-        "label": "Vertical spacing",
-        "options": [
-          {
-            "value": "small",
-            "label": "Small"
-          },
-          {
-            "value": "medium",
-            "label": "Medium"
-          },
-          {
-            "value": "large",
-            "label": "Large"
-          }
-        ],
-        "default": "medium"
       },
       {
         "type": "select",
@@ -323,6 +347,56 @@
       },
       {
         "type": "header",
+        "content": "Mobile text"
+      },
+      {
+        "type": "select",
+        "id": "mobile_text_alignment",
+        "label": "Mobile text alignment",
+        "options": [
+          {
+            "value": "none",
+            "label": "Same as desktop"
+          },
+          {
+            "value": "start",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "end",
+            "label": "Right"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "header",
+        "content": "Mobile layout"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "label": "Mobile top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "label": "Mobile bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "header",
         "content": "Advanced"
       },
       {
@@ -348,6 +422,11 @@
 
         }
       }
-    ]
+    ],
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
+    }
   }
 {% endschema %}

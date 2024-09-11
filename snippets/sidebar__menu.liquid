@@ -1,5 +1,5 @@
 {% if menu != blank %}
-  <div data-has-toggle-option>
+  <div class="sidebar-block__toggle" data-has-toggle-option>
     <h3 class="sidebar-block__heading" {% if settings.toggle_sidebar %}data-sidebar-block__toggle="closed" aria-label="toggle"{% endif %}>
       {{ linklists[menu].title }}
       {% if settings.toggle_sidebar %}
@@ -30,7 +30,7 @@
     {% endfor %}
   </ul>
 {% else %}
-  <div data-has-toggle-option>
+  <div class="sidebar-block__toggle" data-has-toggle-option>
     <h3 class="sidebar-block__heading" {% if settings.toggle_sidebar %}data-sidebar-block__toggle="closed" aria-label="toggle"{% endif %}>
       {{ 'homepage.onboarding.menu_title' | t }}
       {% if settings.toggle_sidebar %}

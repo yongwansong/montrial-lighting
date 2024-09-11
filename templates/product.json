@@ -46,11 +46,13 @@
         "form": {
           "type": "form",
           "settings": {
-            "show_payment_button": true
+            "show_payment_button": true,
+            "show_gift_card_recipient_form": false
           }
         },
         "7bee11ea-b271-40eb-881a-9c6725c95e9b": {
           "type": "shopify:\/\/apps\/growave-loyalty-wishlist\/blocks\/block.product.faveButton\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "disabled": true,
           "settings": {
             "textColor": "",
             "backgroundColor": "",
@@ -123,6 +125,7 @@
     },
     "recommendations": {
       "type": "product__recommendations",
+      "disabled": true,
       "settings": {
         "show_product_recommendations": true,
         "product_recommendations_style": "slider",
@@ -135,6 +138,33 @@
         "padding_top": 20,
         "padding_bottom": 20,
         "animation": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "index_featured_collection_rxAKxq": {
+      "type": "index__featured-collection",
+      "settings": {
+        "title": "You may also like",
+        "collection": "all",
+        "products_per": 5,
+        "products_limit": 10,
+        "align_height": false,
+        "collection_height": 200,
+        "button_label": "",
+        "button_style": "button--primary",
+        "collection_style": "slider",
+        "width": "wide",
+        "show_gutter": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "animation": "none",
+        "collection_layout_mobile": "slider",
+        "mobile_products_per_row": "1",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
         "css_class": "",
         "custom_css": ""
       }
@@ -144,6 +174,7 @@
     "breadcrumbs",
     "sidebar",
     "main",
-    "recommendations"
+    "recommendations",
+    "index_featured_collection_rxAKxq"
   ]
 }

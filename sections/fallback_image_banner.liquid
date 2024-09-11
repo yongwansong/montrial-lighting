@@ -64,17 +64,19 @@
                 dark-overlay-{{ section.settings.image_darken }}
                 is-{{ banner_height }} okokok">
       {% if image != blank %}
-        {% render 'image-element',
-                image: image,
-                alt: image.alt,
-                stretch_width: true
+        {%
+          render 'image-element',
+          image: image,
+          alt: image.alt,
+          stretch_width: true,
+          focal_point: image.presentation.focal_point,
         %}
       {% else %}
         {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
       <div class="banner__content card-content">
         <div class="banner__text text-align-center">
-          <h2 class="banner__heading title">{{ title }}</h2>
+          <h1 class="banner__heading title">{{ title }}</h1>
           {% if subtitle != blank %}
             <p class="banner__subheading subtitle">{{ subtitle }}</p>
           {% endif %}
