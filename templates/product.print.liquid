@@ -171,7 +171,7 @@
             {% if product.description.length > 0 %}
               <tr>
                 <td class="{{ class_td_title }}">DESCRIPTION</td>
-                <td class="{{ class_td_content }}">{{ product.description }}</td>
+                <td class="{{ class_td_content }}">{{ product.description | replace: '<img', '<img loading="lazy"' | replace: '<iframe', '<iframe loading="lazy"' | replace: '<video', '<video preload="none"' }}</td>
                 {{ column_hide_row }}
               </tr>
             {% endif %}
@@ -273,7 +273,7 @@
         %}
         <div class="tw-p-10">
           <div class="product-image tw-text-center -tw-mt-10">
-            <img loading="lazy" class="tw-w-full tw-mx-auto" src="{{ featured_image | img_url: 'x800' }}">
+            <img loading="lazy" loading="lazy" class="tw-w-full tw-mx-auto" src="{{ featured_image | img_url: 'x800' }}">
           </div>
         </div>
       </div>

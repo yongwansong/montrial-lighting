@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsPopup = {
+window.PXUTheme.jsPopup = {
   init: function ($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsPopup = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsPopup = $.extend(this, window.PXUTheme.getSectionData($section));
 
     const cookieValue = Cookies.get('popup');
     const cookieEnabled = this.popup_days_to_hide != 0 ? true : false;

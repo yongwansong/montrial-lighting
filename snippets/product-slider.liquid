@@ -4,52 +4,64 @@ Optional values
 product_recommendations: <boolean>
 {% endcomment %}
 
-{% comment %}Check for related products and increase limit by one (to offset the currently selected product that is removed from the product loop){% endcomment %}
-{% if related_products == true %}
-  {%- assign limit = limit | plus: 0 -%}
-  {%- assign loop_limit = limit | plus: 1 -%}
-  {%- assign hover_enabled = block.settings.show_related_products_title_on_hover -%}
-{% else %}
-  {%- assign limit = limit | plus: 0 -%}
-  {%- assign loop_limit = limit | plus: 0 -%}
-  {%- assign hover_enabled = settings.thumbnail_hover_enabled -%}
-{% endif %}
+{% liquid
+  # Check for related products and increase limit by one (to offset the currently selected product that is removed from the product loop)
 
-{% if per_slide != blank %}
-  {%- assign visible_products = per_slide -%}
-{% else %}
-  {% if products_per != blank %}
-    {%- assign visible_products = products_per | plus: 0 -%}
-  {% else %}
-    {%- assign visible_products = products_per | plus: 0 -%}
-  {% endif %}
-{% endif %}
+  if related_products == true
+    assign limit = limit | plus: 0
+    assign loop_limit = limit | plus: 1
+    assign hover_enabled = block.settings.show_related_products_title_on_hover
+  else
+    assign limit = limit | plus: 0
+    assign loop_limit = limit | plus: 0
+    assign hover_enabled = settings.thumbnail_hover_enabled
+  endif
 
-{% if template.name == 'product' %}
-  {% if limit <= visible_products %}
-    {%- assign products_length = limit -%}
-  {% else %}
-    {%- assign products_length = products.size | minus: 1 -%}
-  {% endif %}
-{% elsif featured_collection %}
-  {%- assign products_length = collections[featured_collection].products.size -%}
-{% elsif section.settings.show_product_recommendations %}
-  {%- assign products_length = limit -%}
-{% else %}
-  {%- assign products_length = products.size -%}
-{% endif %}
+  if per_slide != blank
+    assign visible_products = per_slide
+  else
+    if products_per != blank
+      assign visible_products = products_per | plus: 0
+    else
+      assign visible_products = products_per | plus: 0
+    endif
+  endif
 
-{% if product_recommendations == true %}
-  {%- assign hover_enabled = settings.thumbnail_hover_enabled -%}
-{% endif %}
+  if template.name == 'product'
+    if limit <= visible_products
+      assign products_length = limit
+    else
+      assign products_length = products.size | minus: 1
+    endif
+  elsif featured_collection
+    assign products_length = collections[featured_collection].products.size
+  elsif section.settings.show_product_recommendations
+    assign products_length = limit
+  else
+    assign products_length = products.size
+  endif
 
-<div class="slider-gallery
-    {% if show_gutter == false %}has-no-side-gutter{% endif %}
-    products-slider products-length-{{ products_length }}
-    transparentBackground--{{ settings.slideshow_button_style }}"
-    data-products-per-slide="{{ visible_products }}"
-    data-products-limit="{{ limit }}"
-    data-products-available="{{ products_length }}">
+  if product_recommendations == true
+    assign hover_enabled = settings.thumbnail_hover_enabled
+  endif
+%}
+
+<div
+  class="
+    slider-gallery
+    slider-gallery--{{ view }}
+    {{ additional_classes }}
+    {% if show_gutter == false %}
+      has-no-side-gutter
+    {% endif %}
+    products-slider
+    products-length-{{ products_length }}
+    transparentBackground--{{ settings.slideshow_button_style }}
+  "
+  data-products-per-slide="{{ visible_products }}"
+  data-products-limit="{{ limit }}"
+  data-products-available="{{ products_length }}"
+>
   {% for product in products limit: loop_limit %}
     {%- assign collection_handles = product.collections | map: 'handle' -%}
   
@@ -86,7 +98,7 @@ product_recommendations: <boolean>
                   {%
                     render 'product-thumbnail__sticker',
                     product: product,
-                    context: 'product',
+                    context: 'thumbnail',
                     collection_handles: collection_handles
                   %}
                 {% endif %}
@@ -97,7 +109,7 @@ product_recommendations: <boolean>
                   image: product.featured_media.preview_image,
                   alt: alt_text,
                   object_fit: align_height,
-                  max_height: height
+                  max_height: height,
                 %}
 
                 {% comment %} Secondary image {% endcomment %}
@@ -108,7 +120,7 @@ product_recommendations: <boolean>
                     alt: alt_text,
                     object_fit: align_height,
                     max_height: height,
-                    additional_classes: 'secondary swap--visible'
+                    additional_classes: 'secondary swap--visible',
                   %}
                 {% endif %}
               </a>
@@ -140,8 +152,31 @@ product_recommendations: <boolean>
                   {% endif %}
 
                   {% if hover_enabled %}
-                    {% if settings.enable_shopify_collection_badges %}
-                      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                    {% if settings.enable_shopify_collection_badges and product.metafields.reviews.rating.value != blank %}
+                      <div class="product__rating rating">
+                        {%
+                          render 'rating-stars',
+                          value: product.metafields.reviews.rating.value.rating,
+                          scale_max: product.metafields.reviews.rating.value.scale_max,
+                        %}
+
+                        <p class="rating__text">
+                          <span aria-hidden="true">
+                            {{ product.metafields.reviews.rating.value }} / {{ product.metafields.reviews.rating.value.scale_max }}
+                          </span>
+                        </p>
+
+                        <p class="rating__count">
+                          <span aria-hidden="true">
+                            {{ product.metafields.reviews.rating_count }}
+                            {% if product.metafields.reviews.rating_count > 1 %}
+                              {{ "general.accessibility.star_reviews_text" | t }}
+                            {% else %}
+                              {{ "general.accessibility.star_review_text" | t }}
+                            {% endif %}
+                          </span>
+                        </p>
+                      </div>
                     {% endif %}
                   {% endif %}
                 </div>

@@ -1,10 +1,12 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsAjaxCart = {
+/* eslint-disable */
+
+window.PXUTheme.jsAjaxCart = {
   init: function ($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsAjaxCart = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsAjaxCart = $.extend(this, window.PXUTheme.getSectionData($section));
 
     if (isScreenSizeLarge() || this.cart_action == 'drawer') {
       this.initializeAjaxCart();
@@ -18,7 +20,7 @@ Shopify.theme.jsAjaxCart = {
 
       $(document).on('click', '[data-ajax-cart-trigger]', function (e) {
         e.preventDefault();
-        Shopify.theme.jsAjaxCart.showDrawer();
+        window.PXUTheme.jsAjaxCart.showDrawer();
 
         return false;
       });
@@ -30,7 +32,7 @@ Shopify.theme.jsAjaxCart = {
     $(document).on('click', '.ajax-submit', function (e) {
       e.preventDefault();
       const $addToCartForm = $(this).closest('form');
-      Shopify.theme.jsAjaxCart.addToCart($addToCartForm);
+      window.PXUTheme.jsAjaxCart.addToCart($addToCartForm);
 
       return false;
     });
@@ -38,10 +40,10 @@ Shopify.theme.jsAjaxCart = {
     $(document).on('click', '[data-ajax-cart-delete]', function (e) {
       e.preventDefault();
       const lineID = $(this).parents('[data-line-item]').data('line-item');
-      Shopify.theme.jsAjaxCart.removeFromCart(lineID);
+      window.PXUTheme.jsAjaxCart.removeFromCart(lineID);
 
-      if (Shopify.theme.jsCart) {
-        Shopify.theme.jsCart.removeFromCart(lineID);
+      if (window.PXUTheme.jsCart) {
+        window.PXUTheme.jsCart.removeFromCart(lineID);
       }
 
       return false;
@@ -49,8 +51,8 @@ Shopify.theme.jsAjaxCart = {
 
     $(document).on('click', '[data-ajax-cart-close]', function (e) {
       e.preventDefault();
-      Shopify.theme.jsAjaxCart.hideDrawer();
-      Shopify.theme.jsAjaxCart.hideMiniCart();
+      window.PXUTheme.jsAjaxCart.hideDrawer();
+      window.PXUTheme.jsAjaxCart.hideMiniCart();
 
       return false;
     });
@@ -60,7 +62,7 @@ Shopify.theme.jsAjaxCart = {
     const $el = $('[data-ajax-cart-trigger]');
 
     $el.hover(function() {
-      if(Shopify.theme_settings.header_layout == 'centered' && $('.header-sticky-wrapper').hasClass('is-sticky')) {
+      if(window.PXUTheme.theme_settings.header_layout == 'centered' && $('.header-sticky-wrapper').hasClass('is-sticky')) {
         $('.header-sticky-wrapper [data-ajax-cart-trigger]').addClass('show-mini-cart');
       } else {
         $el.addClass('show-mini-cart');
@@ -87,7 +89,7 @@ Shopify.theme.jsAjaxCart = {
       }
 
       // Loads content into ajaxCart container for mobile header
-      Shopify.theme.jsAjaxCart.initializeAjaxCartOnMobile();
+      window.PXUTheme.jsAjaxCart.initializeAjaxCartOnMobile();
 
       // If user clicks outside the element, toggle the mini cart
       $el.toggleClass('show-mini-cart');
@@ -110,7 +112,7 @@ Shopify.theme.jsAjaxCart = {
       data: 'quantity=0&line=' + lineID,
       dataType: 'json',
       success: function (cart) {
-        Shopify.theme.jsAjaxCart.updateView();
+        window.PXUTheme.jsAjaxCart.updateView();
       },
       error: function (XMLHttpRequest, textStatus) {
         var response = eval('(' + XMLHttpRequest.responseText + ')');
@@ -121,8 +123,8 @@ Shopify.theme.jsAjaxCart = {
   },
   initializeAjaxCart: function () {
 
-    Shopify.theme.asyncView.load(
-      Shopify.routes.cart_url, // template name
+    window.PXUTheme.asyncView.load(
+      window.PXUTheme.routes.cart_url, // template name
       'ajax', // view name (suffix)
     )
       .done(({ html, options }) => {
@@ -130,8 +132,8 @@ Shopify.theme.jsAjaxCart = {
         $('[data-ajax-cart-content]').html(html.content);
 
         // Converting the currencies
-        if (Shopify.theme.currencyConverter) {
-          Shopify.theme.currencyConverter.convertCurrencies();
+        if (window.PXUTheme.currencyConverter) {
+          window.PXUTheme.currencyConverter.convertCurrencies();
         }
 
       })
@@ -143,8 +145,8 @@ Shopify.theme.jsAjaxCart = {
 
     this.toggleMiniCart();
 
-    Shopify.theme.asyncView.load(
-      Shopify.routes.cart_url, // template name
+    window.PXUTheme.asyncView.load(
+      window.PXUTheme.routes.cart_url, // template name
       'ajax', // view name (suffix)
     )
       .done(({ html, options }) => {
@@ -158,11 +160,16 @@ Shopify.theme.jsAjaxCart = {
   },
   addToCart: function ($addToCartForm) {
     const $addToCartBtn = $addToCartForm.find('.button--add-to-cart');
+    this.recipientForm = $addToCartForm[0].querySelector('[data-recipient-form]');
+
+    if (this.recipientForm) {
+      this.recipientForm.classList.remove('recipient-form--has-errors');
+    }
 
     $addToCartForm.removeClass('shopify-product-form--unselected-error');
 
     if ($addToCartBtn[0].hasAttribute('data-options-unselected')) {
-      const cartWarning = `<p class="cart-warning__message animated bounceIn">${Shopify.translation.select_variant}</p>`;
+      const cartWarning = `<p class="cart-warning__message animated bounceIn">${window.PXUTheme.translation.select_variant}</p>`;
 
       $('.warning').remove();
 
@@ -201,7 +208,6 @@ Shopify.theme.jsAjaxCart = {
             .addClass('animated zoomOut');
         },
         success: function (product) {
-
           let $el = $('[data-ajax-cart-trigger]');
 
           $addToCartBtn
@@ -212,7 +218,7 @@ Shopify.theme.jsAjaxCart = {
 
             if (!isScreenSizeLarge()) {
               $el = $('.mobile-header [data-ajax-cart-trigger]');
-              Shopify.theme.scrollToTop($el);
+              window.PXUTheme.scrollToTop($el);
             } else {
               $el = $('[data-ajax-cart-trigger]');
             }
@@ -239,10 +245,10 @@ Shopify.theme.jsAjaxCart = {
 
           }, 1000);
 
-          Shopify.theme.jsAjaxCart.showDrawer();
-          Shopify.theme.jsAjaxCart.updateView();
+          window.PXUTheme.jsAjaxCart.showDrawer();
+          window.PXUTheme.jsAjaxCart.updateView();
 
-          if (Shopify.theme.jsCart) {
+          if (window.PXUTheme.jsCart) {
             $.ajax({
               dataType: "json",
               async: false,
@@ -258,13 +264,18 @@ Shopify.theme.jsAjaxCart = {
           }
 
         },
-        error: function (XMLHttpRequest) {
-          let response = eval('(' + XMLHttpRequest.responseText + ')');
-          response = response.description;
-
-          const cartWarning = `<p class="cart-warning__message animated bounceIn">${response.replace('All 1 ', 'All ')}</p>`;
+        error: XMLHttpRequest => {
+          const response = eval('(' + XMLHttpRequest.responseText + ')');
 
           $('.warning').remove();
+
+          let cartWarning;
+
+          if (response.errors && response.errors.email) {
+            this.recipientForm.classList.add('recipient-form--has-errors');
+          } else {
+            cartWarning = `<p class="cart-warning__message animated bounceIn">${response.description.replace('All 1 ', 'All ')}</p>`;
+          }
 
           $addToCartForm
             .find('.cart-warning')
@@ -289,8 +300,8 @@ Shopify.theme.jsAjaxCart = {
   },
   updateView: function () {
 
-    Shopify.theme.asyncView.load(
-      Shopify.routes.cart_url, // template name
+    window.PXUTheme.asyncView.load(
+      window.PXUTheme.routes.cart_url, // template name
       'ajax', // view name (suffix)
     )
     .done(({ html, options }) => {
@@ -313,8 +324,8 @@ Shopify.theme.jsAjaxCart = {
         $('[data-bind="itemCount"]').text('0');
       }
 
-      if (Shopify.theme.currencyConverter) {
-        Shopify.theme.currencyConverter.convertCurrencies();
+      if (window.PXUTheme.currencyConverter) {
+        window.PXUTheme.currencyConverter.convertCurrencies();
       }
     })
     .fail(() => {

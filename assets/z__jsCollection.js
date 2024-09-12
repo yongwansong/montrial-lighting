@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsCollection = {
+window.PXUTheme.jsCollection = {
   init: function($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsCollection = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsCollection = $.extend(this, window.PXUTheme.getSectionData($section));
 
     // function to check if browser is IE
     var isIE11 = !!navigator.userAgent.match(/Trident.*rv\:11\./);
@@ -29,20 +29,20 @@ Shopify.theme.jsCollection = {
 
     if (this.enable_filter == true || this.enable_sorting == true) {
       $('#tag_filter, #sort-by').on('change', function() {
-        Shopify.theme.jsCollection.filterURL();
+        window.PXUTheme.jsCollection.filterURL();
       });
     }
 
     if ($('[data-option-filter]').length) {
       // Show enabled filter tags based on selected checkboxes
       $('[data-tag-filter-checkbox]:checked').each(function(){
-        Shopify.theme.jsCollection.multiTagFilter.showSelectedFilter($(this));
+        window.PXUTheme.jsCollection.multiTagFilter.showSelectedFilter($(this));
       })
     }
 
     // If breadcrumbs enabled and basic pagination is set, call breadcrumbs object
     if (this.enable_breadcrumb && this.pagination_type == 'basic_pagination') {
-      Shopify.theme.breadcrumbs.init(this.number_of_pages);
+      window.PXUTheme.breadcrumbs.init(this.number_of_pages);
     }
 
     /* Collection sidebar filter */
@@ -51,8 +51,8 @@ Shopify.theme.jsCollection = {
 
       $(this).find('input').prop('checked', true);
 
-      Shopify.theme.jsCollection.multiTagFilter.init($(this));
-      Shopify.theme.scrollToTop($('.collection__content'));
+      window.PXUTheme.jsCollection.multiTagFilter.init($(this));
+      window.PXUTheme.scrollToTop($('.collection__content'));
     });
 
     $('body').on('click', '[data-clear-filter]', function () {
@@ -60,8 +60,8 @@ Shopify.theme.jsCollection = {
       const $productTagFilter = $('#tag_filter');
 
       $productTagFilter.find('option:eq(0)').prop('selected', true);
-      Shopify.theme.jsCollection.multiTagFilter.clearSelectedFilter($el);
-      Shopify.theme.scrollToTop($('.collection__content'));
+      window.PXUTheme.jsCollection.multiTagFilter.clearSelectedFilter($el);
+      window.PXUTheme.scrollToTop($('.collection__content'));
 
     });
   },
@@ -73,7 +73,7 @@ Shopify.theme.jsCollection = {
         siteUrl = 'https://' + $.url('hostname');
 
     // check if language has been translated. Length equals one when default language (eg: '/') and greater than 1 when language is translated (eg: '/fr')
-    if (Shopify.routes.root_url.length > 1) {
+    if (window.PXUTheme.routes.root_url.length > 1) {
       var url1 = $.url('1') ? '/' + $.url('1') + '/' : '';
       var url2 = $.url('2') ? $.url('2') + '/' : '';
       var url3 = $.url('3') ? $.url('3') + '/' : '';
@@ -124,8 +124,8 @@ Shopify.theme.jsCollection = {
 
     });
 
-    Shopify.theme.queryParameters.sort_by = query;
-    query = '?' + $.param(Shopify.theme.queryParameters);
+    window.PXUTheme.queryParameters.sort_by = query;
+    query = '?' + $.param(window.PXUTheme.queryParameters);
 
     this.processUrl(path, currentTags, query);
   },
@@ -189,13 +189,9 @@ Shopify.theme.jsCollection = {
 
       window.history && window.history.pushState && window.history.pushState("", "", filterURL);
 
-      if(Shopify.theme_settings.enable_shopify_collection_badges == true) {
-        Shopify.theme.productReviews();
-      }
-
       // Initiate infinite scrolling on new products appended to collection grid
       if ($('[data-custom-pagination]').length) {
-        Shopify.theme.infiniteScroll.init();
+        window.PXUTheme.infiniteScroll.init();
       }
 
     });
@@ -207,10 +203,10 @@ Shopify.theme.jsCollection = {
       this.showSelectedFilter($el);
 
       // Update url
-      Shopify.theme.jsCollection.filterURL();
+      window.PXUTheme.jsCollection.filterURL();
 
       var urlIndex;
-      if (Shopify.routes.root_url.length > 1) {
+      if (window.PXUTheme.routes.root_url.length > 1) {
         urlIndex = 3
       } else {
         urlIndex = 2
@@ -234,7 +230,7 @@ Shopify.theme.jsCollection = {
       if ($sidebarToggleBlock.length) {
         let $toggleBtn = $sidebarToggleBlock.find('[data-sidebar-block__toggle="closed"]');
 
-        Shopify.theme.jsSidebar.openSidebarBlock($toggleBtn);
+        window.PXUTheme.jsSidebar.openSidebarBlock($toggleBtn);
       }
 
     },
@@ -250,7 +246,7 @@ Shopify.theme.jsCollection = {
             .addClass('is-hidden');
 
       //Update url
-      Shopify.theme.jsCollection.filterURL();
+      window.PXUTheme.jsCollection.filterURL();
     }
   },
   unload: function($section) {
@@ -258,7 +254,7 @@ Shopify.theme.jsCollection = {
     $('[data-option-filter]').off();
     $('[data-reset-filters]').off();
     $('[data-clear-filter]').off();
-    Shopify.theme.breadcrumbs.unload();
+    window.PXUTheme.breadcrumbs.unload();
   }
 }
 

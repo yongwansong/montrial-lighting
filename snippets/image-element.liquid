@@ -83,7 +83,7 @@ background: url({{ dominant_color_image }});
 
 {% if back_to_basics %}
 <div
-class="image-element__wrap"
+class="image-element__wrap {{ additional_classes }} {{ additional_wrapper_classes }}"
 style="{{ image_background_color }}{{ height_style }}"
 >
 <img loading="lazy"
@@ -103,7 +103,7 @@ height="auto"
 {% else %}
 {% comment %}Build image element{% endcomment %}
 <div
-class="image-element__wrap"
+class="image-element__wrap {% if slideThumbnail %}{{ additional_classes | split:' ' | first }}{% else %}{{ additional_classes }} {{ additional_wrapper_classes }}{% endif %}"
 {% if calculate_aspect_ratio %}
 data-calculate-aspect-ratio
 {% endif %}
@@ -115,8 +115,8 @@ alt="{{ image.alt | escape }}"
 class=" {{ additional_classes }}"
 loading="eager"
 data-sizes="auto"
-width="{{ image.width }}"
-height="{{ image.height }}"
+width="{{ image_width | default: image.width }}"
+height="{{ image_height | default: image.height }}"
 >
 </div>
 {% endif %}

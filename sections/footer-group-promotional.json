@@ -1,0 +1,116 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer_icon_bar": {
+      "type": "footer__icon-bar",
+      "blocks": {
+        "footer__icon-bar-0": {
+          "type": "text",
+          "settings": {
+            "icon": "like",
+            "text": "110% Price Match",
+            "link": "shopify:\/\/pages\/110-price-match-gurantee"
+          }
+        },
+        "footer__icon-bar-1": {
+          "type": "text",
+          "settings": {
+            "icon": "phone",
+            "text": "<a href=\"tel:+15144162013\" style=\"color: white; text-decoration: none;\">(514) 416-2013<\/a>",
+            "link": ""
+          }
+        },
+        "footer__icon-bar-2": {
+          "type": "text",
+          "settings": {
+            "icon": "chat",
+            "text": "Live Chat",
+            "link": ""
+          }
+        },
+        "footer__icon-bar-3": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Delivery (orders $199+)*",
+            "link": "shopify:\/\/pages\/delivery-policy"
+          }
+        }
+      },
+      "block_order": [
+        "footer__icon-bar-0",
+        "footer__icon-bar-1",
+        "footer__icon-bar-2",
+        "footer__icon-bar-3"
+      ],
+      "settings": {
+        "show_icon_bar": true,
+        "icon_position": "row",
+        "alignment": "center",
+        "size": "medium",
+        "background": "#8b8b8b",
+        "link_color": "#ffffff",
+        "link_hover_color": "#000000",
+        "text_color": "#ffffff",
+        "width": "standard",
+        "css_class": "is-hidden-mobile-only",
+        "custom_css": ""
+      }
+    },
+    "footer": {
+      "type": "footer-promotional",
+      "blocks": {
+        "footer-promotional-0": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "size": "small",
+            "alignment": "start"
+          }
+        },
+        "footer-promotional-1": {
+          "type": "link_list",
+          "settings": {
+            "menu_1": "main-menu",
+            "menu_2": "",
+            "menu_3": ""
+          }
+        },
+        "footer-promotional-2": {
+          "type": "text",
+          "settings": {
+            "title": "Title",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "footer-promotional-0",
+        "footer-promotional-1",
+        "footer-promotional-2"
+      ],
+      "settings": {
+        "copyright_text": "",
+        "display_designed_by": true,
+        "display_shopify": true,
+        "display_payment_methods": true,
+        "enable_promo": true,
+        "promo_background": "#eeeeee",
+        "promo_text": "#000000",
+        "promo_position": "row-reverse",
+        "promo_image": "",
+        "richtext": "<p>Use this area for promotional information.<\/p>",
+        "promo_link": "",
+        "button_label": "Shop now",
+        "button_style": "button--primary",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "footer_icon_bar",
+    "footer"
+  ]
+}

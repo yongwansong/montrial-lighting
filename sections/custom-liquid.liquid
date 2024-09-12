@@ -14,22 +14,26 @@
 </div>
 
 {% schema %}
-{
-  "name": "Custom liquid",
-  "class": "shopify-section--custom-liquid",
-  "settings": [
-    {
-      "type": "liquid",
-      "id": "custom_liquid",
-      "label": "Custom liquid"
+  {
+    "name": "Custom liquid",
+    "class": "shopify-section--custom-liquid",
+    "settings": [
+      {
+        "type": "liquid",
+        "id": "custom_liquid",
+        "label": "Custom liquid"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom liquid",
+        "category": "Content"
+      }
+    ],
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
     }
-  ],
-  "presets": [
-    {
-      "name": "Custom liquid",
-      "category": "Content"
-    }
-  ]
-}
-
+  }
 {% endschema %}

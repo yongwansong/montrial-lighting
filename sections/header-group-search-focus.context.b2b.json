@@ -1,0 +1,8 @@
+{
+  "parent": "header-group-search-focus.json",
+  "context": {
+    "b2b": true
+  },
+  "sections": {
+  }
+}

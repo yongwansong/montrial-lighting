@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsRecommendedProducts = {
+window.PXUTheme.jsRecommendedProducts = {
   init: function($section) {
 
     // Add settings from schema to current object
-    Shopify.theme.jsRecommendedProducts = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsRecommendedProducts = $.extend(this, window.PXUTheme.getSectionData($section));
 
     // Look for an element with class 'product-recommendations'
     $section.hide();
@@ -49,7 +49,7 @@ Shopify.theme.jsRecommendedProducts = {
         $productRecommendations.html($recommendedProductsElement);
         $section.show();
 
-        Shopify.theme.jsProduct.relatedProducts();
+        //window.PXUTheme.jsProduct.relatedProducts();
 
         // Initialize shopify payment buttons
         if (Shopify.PaymentButton) {
@@ -57,8 +57,8 @@ Shopify.theme.jsRecommendedProducts = {
         }
 
         // Converting the currencies
-        if (Shopify.theme.currencyConverter) {
-          Shopify.theme.currencyConverter.convertCurrencies();
+        if (window.PXUTheme.currencyConverter) {
+          window.PXUTheme.currencyConverter.convertCurrencies();
         }
       }
     });
@@ -87,7 +87,7 @@ Shopify.theme.jsRecommendedProducts = {
       }
     }
 
-    Shopify.theme.jsVideo.setupListeners();
+    window.PXUTheme.jsVideo.setupListeners();
   },
   showCustomCollection: function($section) {
     const $recommendedProductsElement = $section.find('.product-recommendations').html();
@@ -95,7 +95,7 @@ Shopify.theme.jsRecommendedProducts = {
     const $productRecommendationsContainer = $('.product-recommendations');
     $productRecommendationsContainer.html($recommendedProductsElement);
 
-    Shopify.theme.jsProduct.relatedProducts();
+    window.PXUTheme.jsProduct.relatedProducts();
   },
   unload: function($section) {
   }

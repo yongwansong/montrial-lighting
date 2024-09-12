@@ -3,7 +3,9 @@
     Required to display unit prices, 'item' or 'line_item'
   @param class {String}
     CSS class names to add to unit price elements
-{% endcomment %}{%- capture total_quantity -%}
+{% endcomment %}
+
+{%- capture total_quantity -%}
   <span class="{{ class | append: '-total-quantity' }}" data-total-quantity>{{ item.unit_price_measurement.quantity_value }}{{ item.unit_price_measurement.quantity_unit }}</span>
 {%- endcapture -%}
 

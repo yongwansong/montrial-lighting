@@ -43,14 +43,28 @@
   </header>
 
   <div class="container has-padding-top">
-    <aside class="one-fourth column account-sidebar">
+    <aside
+      class="
+        one-fourth
+        column
+        account-sidebar
+        small-down--one-whole
+      "
+    >
       <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
       <div class="account-sidebar__content has-padding-top">
         <div class="has-padding-bottom" id="action"><a href="#" class="button action_button button--secondary" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">{{ 'customer.addresses.add_new' | t }}</a></div>
         {% render 'address-loop' with 'default' %}
       </div>
     </aside>
-    <main class="three-fourths column account-main">
+    <main
+      class="
+        three-fourths
+        column
+        account-main
+        small-down--one-whole
+      "
+    >
       <div id="add_address" style="display:none;">
         {% form 'customer_address', customer.new_address %}
           <h2 class="title" id="add_address_title">{{ 'customer.addresses.add_new' | t }}</h2>
@@ -143,29 +157,29 @@
         {% endform %}
       </div>
 
-      <div id="address_tables" class="container">
-      {% paginate customer.addresses by 10 %}
+      <div class="address-table">
+        {% paginate customer.addresses by 10 %}
+          {% if customer.addresses.size > 0 %}
+            {% render 'address-loop' %}
+          {% else %}
+            <p>{{ 'customer.addresses.no_addresses' | t }}</p>
+          {% endif %}
 
-        {% if customer.addresses.size > 0 %}
-          {% render 'address-loop' %}
-
-          <br class="clear" />
-
-        {% else %}
-          <p>{{ 'customer.addresses.no_addresses' | t }}</p>
-        {% endif %}
-
-        <div id="address_pagination">{{ paginate | default_pagination }}</div>
-      {% endpaginate %}
-      </div><!-- end #address_tables -->
+          <div class="address-table__pagination">
+            {{ paginate | default_pagination }}
+          </div>
+        {% endpaginate %}
+      </div>
     </main>
   </div>
 </section>
 
 <script type="text/javascript" charset="utf-8" >
-  // initialize observers on address selectors
-  new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address_province_container_new'});
-  {% for address in customer.addresses %}
-    new Shopify.CountryProvinceSelector('address_country_{{address.id}}', 'address_province_{{address.id}}', {hideElement: 'address_province_container_{{address.id}}'});
-  {% endfor %}
+  // Initialize observers on address selectors after DOM loads
+  window.addEventListener('DOMContentLoaded', () => {
+    new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address_province_container_new'});
+    {% for address in customer.addresses %}
+      new Shopify.CountryProvinceSelector('address_country_{{address.id}}', 'address_province_{{address.id}}', {hideElement: 'address_province_container_{{address.id}}'});
+    {% endfor %}
+  });
 </script>

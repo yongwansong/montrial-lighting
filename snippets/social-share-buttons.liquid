@@ -26,12 +26,12 @@
 <div class="social-share-buttons social-share-buttons--{{ settings.social_media_share_style }} field is-grouped has-margin-bottom">
   {% capture title %}{% if context == 'article' %}{{ article.title | strip_html | url_escape }}{% else %}{{ product.title | strip_html | url_escape }}{% endif %}{% endcapture %}
   {% capture shop_name %}{{ shop.name | url_param_escape }}{% endcapture %}
-  {% capture twitter_name %}{{ settings.twitter_link | split: 'twitter.com/' | last }}{% endcapture %}
+  {% capture x_name %}{{ settings.x_link | split: 'x.com/' | last | split: 'twitter.com/' | last }}{% endcapture %}
 
-  {% comment %} Twitter {% endcomment %}
-  <div class="share-btn share-btn--twitter control">
-    <a target="_blank" rel="noopener" class="button" title="{{ 'layout.social_sharing.twitter_title' | t }}" href="https://twitter.com/intent/tweet?text={{ title | replace: '&','%26' }}&url={{ current_url }}{%- if twitter_name != blank -%}&via={{ twitter_name }}{%- endif -%}">
-      {% render 'icon', name: 'twitter' %}
+  {% comment %} X {% endcomment %}
+  <div class="share-btn share-btn--x control">
+    <a target="_blank" rel="noopener" class="button" title="{{ 'layout.social_sharing.x_title' | t }}" href="https://x.com/intent/tweet?text={{ title | replace: '&','%26' }}&url={{ current_url }}{%- if x_name != blank -%}&via={{ x_name }}{%- endif -%}">
+      {% render 'icon', name: 'x-social' %}
     </a>
   </div>
 

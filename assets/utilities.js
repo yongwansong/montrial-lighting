@@ -1,6 +1,6 @@
 "use strict";
 
-Shopify.contentCreator.accordion = {
+window.PXUTheme.contentCreator.accordion = {
   init: function () {
     const $accordionHeading = $('.accordion > dt > a, [data-cc-accordion] > dt > a');
     $('.accordion > dd, [data-cc-accordion] > dd').attr('aria-hidden', true);
@@ -13,7 +13,6 @@ Shopify.contentCreator.accordion = {
     });
     $accordionHeading.on('keydown', function (event) {
       let keyCode = event.keyCode || e.which;
-
       if (keyCode === 13) {
         $(this).trigger('activate');
       }
@@ -24,7 +23,7 @@ Shopify.contentCreator.accordion = {
     $('.accordion > dt > a, [data-cc-accordion] > dt > a').off('keydown');
   }
 };
-Shopify.contentCreator.slideshow = {
+window.PXUTheme.contentCreator.slideshow = {
   init: function () {
     //backwards compatibility with flexslider
     $('.slider, .flexslider').find('li').unwrap();
@@ -34,7 +33,7 @@ Shopify.contentCreator.slideshow = {
     });
   }
 };
-Shopify.theme.animation = {
+window.PXUTheme.animation = {
   init: function () {
     $('[data-scroll-class]').waypoint(function () {
       const animationClass = $(this.element).data('scroll-class');
@@ -52,7 +51,7 @@ Shopify.theme.animation = {
   }
 };
 const deferred = {};
-Shopify.theme.asyncView = {
+window.PXUTheme.asyncView = {
   /**
    * Load the template given by the provided URL into the provided
    * view
@@ -62,33 +61,29 @@ Shopify.theme.asyncView = {
    * @param {object} options - Config options.
    * @param {string} options.hash - A hash of the current page content.
    */
-  load: (url, view, options = {}) => {
+  load: function (url, view) {
+    let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
     let data;
-
     if (url in deferred) {
       return deferred[url];
     }
-
     const $deferred = $.Deferred();
     deferred[url] = $deferred;
-
     if (options.hash) {
       data = sessionStorage.getItem(url);
-
       if (data) {
         const deserialized = JSON.parse(data);
-
         if (options.hash === deserialized.options.hash) {
           delete deferred[url];
           return $deferred.resolve(deserialized).promise();
         }
       }
-    } // NOTE The $.ajax request has the cache option set to false.
+    }
+
+    // NOTE The $.ajax request has the cache option set to false.
     // This is to prevent certain browsers from returning cached
     // versions of the url we are requesting.
     // See this PR for more info: https://github.com/pixelunion/shopify-asyncview/pull/4
-
-
     $.ajax({
       url,
       cache: false,
@@ -103,7 +98,6 @@ Shopify.theme.asyncView = {
         const responseOptions = JSON.parse(el.querySelector('[data-options]').innerHTML);
         const htmls = el.querySelectorAll('[data-html]');
         let html = {};
-
         if (htmls.length === 1 && htmls[0].getAttribute('data-html') === '') {
           html = htmls[0].innerHTML;
         } else {
@@ -111,7 +105,6 @@ Shopify.theme.asyncView = {
             html[htmls[i].getAttribute('data-html')] = htmls[i].innerHTML;
           }
         }
-
         if (options.hash) {
           try {
             sessionStorage.setItem(url, JSON.stringify({
@@ -122,7 +115,6 @@ Shopify.theme.asyncView = {
             console.error(error);
           }
         }
-
         delete deferred[url];
         return $deferred.resolve({
           options: responseOptions,
@@ -137,13 +129,11 @@ Shopify.theme.asyncView = {
     return $deferred.promise();
   }
 };
-
-Shopify.theme.addImageDimension = function (imageUrl, size) {
+window.PXUTheme.addImageDimension = function (imageUrl, size) {
   var insertPosition = imageUrl.lastIndexOf(".");
   return imageUrl.substring(0, insertPosition) + size + imageUrl.substring(insertPosition);
 };
-
-Shopify.theme.breadcrumbs = {
+window.PXUTheme.breadcrumbs = {
   init: function (pages) {
     // Show pagination if number of pages is greater than 1
     if (pages > 1) {
@@ -151,26 +141,45 @@ Shopify.theme.breadcrumbs = {
       const currentPage = document.querySelector('.paginate').dataset.currentPage ? document.querySelector('.paginate').dataset.currentPage : 1;
       const totalPages = document.querySelector('.paginate').dataset.paginatePages;
       document.querySelector('.js-breadcrumb-text').classList.remove('is-hidden');
-      breadcrumbSpan.innerHTML = `${Shopify.translation.page_text} ${currentPage} ${Shopify.translation.of_text} ${totalPages}`;
+      breadcrumbSpan.innerHTML = `${window.PXUTheme.translation.page_text} ${currentPage} ${window.PXUTheme.translation.of_text} ${totalPages}`;
     }
   },
   unload: function ($target) {
     document.querySelector('.js-breadcrumb-text').classList.add('is-hidden');
   }
 };
-Shopify.theme.disclosure = {
+window.PXUTheme.debounce = function (func, wait, immediate) {
+  let timeout = null;
+  return () => {
+    const context = this;
+    const args = arguments;
+    const later = () => {
+      timeout = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) {
+      func.apply(context, args);
+    }
+  };
+};
+window.PXUTheme.disclosure = {
   enable: function () {
     const $disclosure = $('[data-disclosure]');
     const $toggle = $('[data-disclosure-toggle]');
     const $disclosureWrap = $('.disclosure__list-wrap');
-    const $mobileMenuDisclosureList = $('[data-disclosure-list]'); // Check if current opened menu is offscreen
+    const $mobileMenuDisclosureList = $('[data-disclosure-list]');
 
+    // Check if current opened menu is offscreen
     function checkOffScreen($openedToggle) {
       if ($openedToggle.siblings('.disclosure__list-wrap').is(':off-right')) {
         $openedToggle.siblings('.disclosure__list-wrap').addClass('disclosure--left');
       }
     }
-
     function closeDisclosures(ignoreTarget, currentTarget) {
       if (ignoreTarget === true) {
         $toggle.not(currentTarget).removeClass('is-clicked');
@@ -179,38 +188,40 @@ Shopify.theme.disclosure = {
         $toggle.removeClass('is-clicked');
         $toggle.attr('aria-expanded', 'false');
       }
-
       $disclosureWrap.removeClass('disclosure--left');
-    } // Close menus on ESC
+    }
 
-
+    // Close menus on ESC
     $('body').on('keyup', function (e) {
       if (e.which == '27') {
         closeDisclosures();
       }
-    }); // Close menus on hoverout
+    });
 
+    // Close menus on hoverout
     $disclosure.on('mouseleave', function (e) {
       closeDisclosures();
-    }); // Close menus on hoverout
+    });
 
+    // Close menus on hoverout
     $disclosure.find('.disclosure-list__item:last-child').on('focusout', function (e) {
       closeDisclosures();
-    }); // On click/focus event for toggling options
+    });
 
+    // On click/focus event for toggling options
     $toggle.on('mouseenter focus', function (e) {
       // Close all other menus
       closeDisclosures(true, this);
       const $target = $(e.currentTarget);
       $target.attr('aria-expanded', 'true').addClass('is-clicked');
       checkOffScreen($target);
-    }); // Mobile toggle logic
+    });
 
+    // Mobile toggle logic
     $mobileMenuDisclosureList.on('touchstart', function (e) {
       const $target = $(e.currentTarget);
       $target.parents('.disclosure').addClass('is-clicked');
       closeDisclosures(true, this);
-
       if ($target.hasClass('is-clicked') == false) {
         $target.attr('aria-expanded', 'true').addClass('is-clicked');
         checkOffScreen($target);
@@ -221,15 +232,15 @@ Shopify.theme.disclosure = {
     });
     $mobileMenuDisclosureList.on('focusout', function (e) {
       closeDisclosures(true, this);
-    }); // Mobile form submitting
+    });
 
+    // Mobile form submitting
     $mobileMenuDisclosureList.on('change', function (e) {
-      if (Shopify.media_queries.medium.matches || !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      if (window.PXUTheme.media_queries.medium.matches || !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         const $target = $(e.currentTarget);
         const selectedValue = e.currentTarget.value;
         const disclosureInput = $target.parents('.selectors-form__item').find('[data-disclosure-input]');
         const selectorForm = $target.parents('.selectors-form');
-
         if (!$target.hasClass('custom-currency')) {
           disclosureInput.val(selectedValue);
           selectorForm.submit();
@@ -245,39 +256,19 @@ Shopify.theme.disclosure = {
     $('.disclosure__list-wrap').off();
   }
 };
-
-Shopify.theme.dropdownMenu = function () {
+window.PXUTheme.dropdownMenu = function () {
   // Grab menu items
-  const menuItems = $('.navbar-link'); // Grab dropdowns
+  const menuItems = $('.navbar-link');
 
-  const dropdowns = $('.navbar-dropdown'); // Grab megamenus
+  // Grab dropdowns
+  const dropdowns = $('.navbar-dropdown');
 
-  const megamenus = $('.has-mega-menu'); // Listen for enter key
+  // Grab megamenus
 
+  const megamenus = $('.has-mega-menu');
+
+  // Listen for enter key
   menuItems.each(function (index, item) {
-    let itemVisited = false;
-    $(item).on('keydown', function (e) {
-      // Check if enter key
-      if (e.which === 13) {
-        // Prevent it from going to the link
-        if (itemVisited === false) {
-          e.preventDefault();
-        } // Show dropdown
-
-
-        $(this).closest('.navbar-item').addClass('show-dropdown'); // Reset itemVisited so that they can visit the link
-
-        itemVisited = true;
-      }
-    });
-    $(item).closest('.navbar-item').on('focusout', function (e) {
-      if ($(this).find(e.relatedTarget).length === 0) {
-        $(item).closest('.navbar-item').removeClass('show-dropdown');
-      }
-    });
-  }); // Listen for enter key
-
-  dropdowns.each(function (index, item) {
     let itemVisited = false;
     $(item).on('keydown', function (e) {
       // Check if enter key
@@ -287,16 +278,41 @@ Shopify.theme.dropdownMenu = function () {
           e.preventDefault();
         }
 
-        if ($(this).find('.has-submenu').length > 0) {
-          $(this).addClass('show-nested-dropdown');
-        } // Reset itemVisited so that they can visit the link
+        // Show dropdown
+        $(this).closest('.navbar-item').addClass('show-dropdown');
 
-
+        // Reset itemVisited so that they can visit the link
         itemVisited = true;
       }
     });
-  }); // Listen for enter key
+    $(item).closest('.navbar-item').on('focusout', function (e) {
+      if ($(this).find(e.relatedTarget).length === 0) {
+        $(item).closest('.navbar-item').removeClass('show-dropdown');
+      }
+    });
+  });
 
+  // Listen for enter key
+  dropdowns.each(function (index, item) {
+    let itemVisited = false;
+    $(item).on('keydown', function (e) {
+      // Check if enter key
+      if (e.which === 13) {
+        // Prevent it from going to the link
+        if (itemVisited === false) {
+          e.preventDefault();
+        }
+        if ($(this).find('.has-submenu').length > 0) {
+          $(this).addClass('show-nested-dropdown');
+        }
+
+        // Reset itemVisited so that they can visit the link
+        itemVisited = true;
+      }
+    });
+  });
+
+  // Listen for enter key
   megamenus.each(function (index, item) {
     let itemVisited = false;
     $(item).on('keydown', function (e) {
@@ -305,15 +321,17 @@ Shopify.theme.dropdownMenu = function () {
         // Prevent it from going to the link
         if (itemVisited === false) {
           e.preventDefault();
-        } // Show megamenu
+        }
 
+        // Show megamenu
+        $(this).find('.mega-menu').addClass('mega-menu--show');
 
-        $(this).find('.mega-menu').addClass('mega-menu--show'); // Reset itemVisited so that they can visit the link
-
+        // Reset itemVisited so that they can visit the link
         itemVisited = true;
       }
-    }); // Hide mega menu on focusout
+    });
 
+    // Hide mega menu on focusout
     $(item).on('focusout', function (e) {
       if ($(item).find(e.relatedTarget).length === 0) {
         $(item).find('.mega-menu').removeClass('mega-menu--show');
@@ -321,8 +339,7 @@ Shopify.theme.dropdownMenu = function () {
     });
   });
 };
-
-Shopify.theme.newsletterAjaxForm = {
+window.PXUTheme.newsletterAjaxForm = {
   init: function () {
     // Selectors
     const $ajaxForm = $('.newsletter-form__wrapper .contact-form');
@@ -336,7 +353,7 @@ Shopify.theme.newsletterAjaxForm = {
             data: $form.serialize(),
             success: function (data) {
               $form.fadeOut("slow", () => {
-                $form.prev('.form__success-message').html(Shopify.translation.newsletter_form_success);
+                $form.prev('.form__success-message').html(window.PXUTheme.translation.newsletter_form_success);
               });
             },
             error: function (data) {
@@ -355,14 +372,13 @@ Shopify.theme.newsletterAjaxForm = {
     $submitButton.off();
   }
 };
-
-Shopify.theme.getSectionData = function ($section) {
+window.PXUTheme.getSectionData = function ($section) {
   const sectionId = $section.attr('id').replace('shopify-section-', '');
-  var $dataEl = $section.find('[data-section-data][data-section-id=' + sectionId + ']').first();
-  if (!$dataEl) return {}; // Load data from attribute, or innerHTML
+  const $dataEl = $section.find(`[data-section-data][data-section-id=${sectionId}]`).first();
+  if (!$dataEl) return {};
 
-  var data = $dataEl.data('section-data') || $dataEl.html();
-
+  // Load data from attribute, or innerHTML
+  const data = $dataEl.data('section-data') || $dataEl.html();
   try {
     return JSON.parse(data);
   } catch (error) {
@@ -370,37 +386,38 @@ Shopify.theme.getSectionData = function ($section) {
     return {};
   }
 };
-
-Shopify.theme.infiniteScroll = {
-  init: function () {
+window.PXUTheme.infiniteScroll = {
+  init() {
     this.defaults = {
       grid: '[data-load-more--grid]',
       gridItems: '[data-load-more--grid-item]'
     };
+    $('body').off('click', '[data-load-more]');
     $('body').on('click', '[data-load-more]', function (e) {
       e.preventDefault();
       const $button = $(this);
       const url = $button.attr('href');
-      Shopify.theme.infiniteScroll.loadNextPage(url, $button);
+      window.PXUTheme.infiniteScroll.loadNextPage(url, $button);
     });
+    $('body').off('click', '[data-load-more-infinite]');
     $('body').on('click', '[data-load-more-infinite]', function (e) {
-      Shopify.theme.infiniteScroll.enableInfinite();
-      $(this).remove(); // Prevent link from going to next page
+      window.PXUTheme.infiniteScroll.enableInfinite();
+      $(this).remove();
 
+      // Prevent link from going to next page
       e.stopPropagation();
       return false;
     });
-
     if ($('[data-load-infinite-scroll]').length) {
-      Shopify.theme.infiniteScroll.enableInfinite();
+      window.PXUTheme.infiniteScroll.enableInfinite();
     }
   },
-  loadNextPage: function (url, $button) {
+  loadNextPage(url, $button) {
     $.ajax({
       type: 'GET',
       dataType: 'html',
-      url: url,
-      beforeSend: function () {
+      url,
+      beforeSend() {
         $button.addClass('is-loading');
       },
       success: data => {
@@ -408,46 +425,48 @@ Shopify.theme.infiniteScroll = {
         const thumbnails = $(data).find(this.defaults.gridItems);
         const loadMoreButtonUrl = $(data).find('[data-load-more]').attr('href');
         $('[data-load-more]').attr('href', loadMoreButtonUrl);
-        $(this.defaults.grid).first().append(thumbnails); // Initialize product reviews
+        $(this.defaults.grid).first().append(thumbnails);
 
-        Shopify.theme.productReviews.init(); // When there are no additional pages, hide load more button
+        // Initialize product reviews
+        window.PXUTheme.productReviews.init();
 
-        if (typeof loadMoreButtonUrl == 'undefined') {
+        // When there are no additional pages, hide load more button
+        if (typeof loadMoreButtonUrl === 'undefined') {
           $('[data-load-more]').addClass('is-hidden');
         }
       },
-      error: function (x, t, m) {
+      error(x, t, m) {
         console.log(x);
         console.log(t);
         console.log(m);
-        location.replace(location.protocol + '//' + location.host + filterURL);
+        location.replace(`${location.protocol}//${location.host}`);
       }
     });
   },
-  enableInfinite: function () {
+  enableInfinite() {
     var infiniteScroll = new Waypoint.Infinite({
       element: $(this.defaults.grid)[0],
       items: '[data-load-more--grid-item]',
       more: '[data-load-infinite]',
       loadingClass: 'loading-in-progress',
-      onBeforePageLoad: function () {
+      onBeforePageLoad() {
         $('[data-load-infinite]').removeClass('is-hidden');
       },
-      onAfterPageLoad: function (data) {
+      onAfterPageLoad() {
         // Initialize product reviews
-        Shopify.theme.productReviews.init();
+        window.PXUTheme.productReviews.init();
       }
     });
   },
-  unload: function () {
+  unload() {
     $('[data-load-more]').off();
     $('[data-load-infinite]').off();
+    $('[data-load-more-infinite]').off();
   }
 };
-
-Shopify.theme.flickityIosFix = function () {
+window.PXUTheme.flickityIosFix = function () {
   var touchingCarousel = false,
-      touchStartCoords;
+    touchStartCoords;
   document.body.addEventListener('touchstart', function (e) {
     if (e.target.closest('.flickity-slider')) {
       touchingCarousel = true;
@@ -455,7 +474,6 @@ Shopify.theme.flickityIosFix = function () {
       touchingCarousel = false;
       return;
     }
-
     touchStartCoords = {
       x: e.touches[0].pageX,
       y: e.touches[0].pageY
@@ -465,7 +483,6 @@ Shopify.theme.flickityIosFix = function () {
     if (!(touchingCarousel && e.cancelable)) {
       return;
     }
-
     var moveVector = {
       x: e.touches[0].pageX - touchStartCoords.x,
       y: e.touches[0].pageY - touchStartCoords.y
@@ -475,23 +492,20 @@ Shopify.theme.flickityIosFix = function () {
     passive: false
   });
 };
-
-Shopify.theme.loadScript = function (name, url, callback) {
-  if (Shopify.theme[name]) {
+window.PXUTheme.loadScript = function (name, url, callback) {
+  if (window.PXUTheme[name]) {
     callback;
   } else {
     $.ajax({
-      url: url,
+      url,
       dataType: 'script',
       success: callback,
       async: false
     });
   }
 };
-
-Shopify.theme.applyMasonry = function (selector, gutterSize) {
-  let $galleryWrapper = $('.gallery-type--masonry');
-
+window.PXUTheme.applyMasonry = function (selector, gutterSize) {
+  let $galleryWrapper = $('.gallery__wrapper--vertical-masonry');
   if ($galleryWrapper.length > 0) {
     $galleryWrapper.imagesLoaded().progress(function () {
       $galleryWrapper.isotope({
@@ -506,9 +520,8 @@ Shopify.theme.applyMasonry = function (selector, gutterSize) {
     });
   }
 };
-
-Shopify.theme.applyHorizontalMasonry = function () {
-  let $galleryWrapper = $('.gallery-type--horizontal-masonry');
+window.PXUTheme.applyHorizontalMasonry = function () {
+  let $galleryWrapper = $('.gallery__wrapper--horizontal-masonry');
   $galleryWrapper.find('.gallery__item').each(function (e) {
     var wrapper = $(this);
     var imgWidth, imgHeight;
@@ -521,35 +534,32 @@ Shopify.theme.applyHorizontalMasonry = function () {
     }, 100);
   });
 };
-
-Shopify.theme.mobileMenu = {
+window.PXUTheme.mobileMenu = {
   init: function () {
     this.$mobileMenuToggle = $('[data-show-mobile-menu]');
     this.$mobileMenuIcon = $('.mobile-menu__toggle-icon');
     this.$mobileDropDownToggle = $('.mobile-menu .close-dropdown');
     $('body').on('click', '[data-show-mobile-menu="false"]', function () {
-      Shopify.theme.mobileMenu.open();
+      window.PXUTheme.mobileMenu.open();
     });
     $('body').on('click', '[data-show-mobile-menu="true"]', function () {
-      Shopify.theme.mobileMenu.close();
+      window.PXUTheme.mobileMenu.close();
     });
-
-    if (Shopify.theme.jsHeader.enable_sticky === true) {
+    if (window.PXUTheme.jsHeader.enable_sticky === true) {
       this.enableSticky();
     }
   },
   open: function () {
     //Get current position on page
     let currentScrollPosition = window.scrollY;
-    $('body').attr('data-current-position', currentScrollPosition); // Calculate height of mobile content area
+    $('body').attr('data-current-position', currentScrollPosition);
 
+    // Calculate height of mobile content area
     let announcementHeight = 0;
     let mobileHeaderHeight = parseInt($('.mobile-header').height());
-
-    if (typeof Shopify.theme.jsAnnouncementBar !== 'undefined' && Shopify.theme.jsAnnouncementBar.enable_sticky) {
-      announcementHeight = Shopify.theme.jsAnnouncementBar.getAnnouncementHeight();
+    if (typeof window.PXUTheme.jsAnnouncementBar !== 'undefined' && window.PXUTheme.jsAnnouncementBar.enable_sticky) {
+      announcementHeight = window.PXUTheme.jsAnnouncementBar.getAnnouncementHeight();
     }
-
     $('.mobile-menu').css({
       height: `calc(100vh - ${mobileHeaderHeight + announcementHeight}px)`
     });
@@ -558,34 +568,32 @@ Shopify.theme.mobileMenu = {
     });
     this.$mobileMenuIcon.addClass('is-active');
     $('[data-show-mobile-menu]').attr('data-show-mobile-menu', true);
+    if (typeof window.PXUTheme.jsAjaxCart !== 'undefined') {
+      window.PXUTheme.jsAjaxCart.hideMiniCart();
+      window.PXUTheme.jsAjaxCart.hideDrawer();
+    }
 
-    if (typeof Shopify.theme.jsAjaxCart !== 'undefined') {
-      Shopify.theme.jsAjaxCart.hideMiniCart();
-      Shopify.theme.jsAjaxCart.hideDrawer();
-    } //Set delay on menu open to get proper page position
-
-
+    //Set delay on menu open to get proper page position
     setTimeout(function () {
       $('body').addClass('mobile-menu--opened');
     }, 10);
   },
   close: function () {
-    $('body').removeClass('mobile-menu--opened'); // Once mobile menu is closed, return back to previous position on page
+    $('body').removeClass('mobile-menu--opened');
 
+    // Once mobile menu is closed, return back to previous position on page
     let lastScrollPosition = $('body').data('current-position');
     window.scrollTo(0, lastScrollPosition);
     this.$mobileMenuIcon.removeClass('is-active');
     $('[data-show-mobile-menu]').attr('data-show-mobile-menu', false);
   },
   enableSticky: function () {
-    Shopify.theme.jsHeader.disableSticky();
+    window.PXUTheme.jsHeader.disableSticky();
     let $stickyEl = $('#mobile-header');
     let offset = 0;
-
-    if (typeof Shopify.theme.jsAnnouncementBar !== 'undefined' && Shopify.theme.jsAnnouncementBar.enable_sticky) {
-      offset = Shopify.theme.jsAnnouncementBar.getAnnouncementHeight();
+    if (typeof window.PXUTheme.jsAnnouncementBar !== 'undefined' && window.PXUTheme.jsAnnouncementBar.enable_sticky) {
+      offset = window.PXUTheme.jsAnnouncementBar.getAnnouncementHeight();
     }
-
     $stickyEl.addClass('sticky--enabled');
     $stickyEl.sticky({
       wrapperClassName: 'header-sticky-wrapper',
@@ -597,8 +605,8 @@ Shopify.theme.mobileMenu = {
       var totalHeight = headerheight + annoucementHeight;
       $stickyEl.parent().parent().find('.search-overlay').addClass('sticky-search').css('top', totalHeight + 'px');
     }).on('sticky-end', () => {
-      $stickyEl.parent().parent().find('.search-overlay').removeClass('sticky-search').css('top', '100%'); // Safety timeout for logo width transition which can throw calculated height off
-
+      $stickyEl.parent().parent().find('.search-overlay').removeClass('sticky-search').css('top', '100%');
+      // Safety timeout for logo width transition which can throw calculated height off
       setTimeout(() => {
         $stickyEl.sticky('update');
       }, 250);
@@ -620,56 +628,54 @@ Shopify.theme.mobileMenu = {
     this.disableSticky();
   }
 };
-Shopify.theme.objectFitImages = {
+window.PXUTheme.objectFitImages = {
   init: function () {
     objectFitImages();
-
-    if (Shopify.theme_settings.image_loading_style == 'color') {
+    if (window.PXUTheme.theme_settings.image_loading_style == 'color') {
       this.calculateAspectRatio();
     }
   },
   calculateAspectRatio: function () {
     // Get list of image-element__wrap's to calculate
-    const imageWrap = document.querySelectorAll('[data-calculate-aspect-ratio]'); // Iterate through list
+    const imageWrap = document.querySelectorAll('[data-calculate-aspect-ratio]');
 
+    // Iterate through list
     for (let i = 0; i < imageWrap.length; i++) {
-      const image = imageWrap[i].firstElementChild; // Calculate aspect ratio based off of original width & height
+      const image = imageWrap[i].firstElementChild;
 
-      const aspectRatio = image.getAttribute('width') / image.getAttribute('height'); // Calculate proper width based off of aspect ratio
+      // Calculate aspect ratio based off of original width & height
+      const aspectRatio = image.getAttribute('width') / image.getAttribute('height');
+      // Calculate proper width based off of aspect ratio
+      const aspectWidth = image.height * aspectRatio;
 
-      const aspectWidth = image.height * aspectRatio; // Apply width to image wrap
-
+      // Apply width to image wrap
       imageWrap[i].style.maxWidth = `${Math.floor(aspectWidth)}px`;
-    } // Remove background color once loaded
+    }
 
-
+    // Remove background color once loaded
     document.addEventListener('lazyloaded', function (e) {
       e.srcElement.parentNode.style.background = 'none';
     });
   },
   unload: function () {}
 };
-/* option_selection.js */
 
+/* option_selection.js */
 function floatToString(t, e) {
   var o = t.toFixed(e).toString();
   return o.match(/^\.\d+/) ? "0" + o : o;
 }
-
 if ("undefined" == typeof Shopify) var Shopify = {};
 Shopify.each = function (t, e) {
   for (var o = 0; o < t.length; o++) e(t[o], o);
 }, Shopify.map = function (t, e) {
   for (var o = [], i = 0; i < t.length; i++) o.push(e(t[i], i));
-
   return o;
 }, Shopify.arrayIncludes = function (t, e) {
   for (var o = 0; o < t.length; o++) if (t[o] == e) return !0;
-
   return !1;
 }, Shopify.uniq = function (t) {
   for (var e = [], o = 0; o < t.length; o++) Shopify.arrayIncludes(e, t[o]) || e.push(t[o]);
-
   return e;
 }, Shopify.isDefined = function (t) {
   return "undefined" == typeof t ? !1 : !0;
@@ -677,7 +683,6 @@ Shopify.each = function (t, e) {
   return Object.prototype.toString.call(t).slice(8, -1);
 }, Shopify.extend = function (t, e) {
   function o() {}
-
   o.prototype = e.prototype, t.prototype = new o(), t.prototype.constructor = t, t.baseConstructor = e, t.superClass = e.prototype;
 }, Shopify.locationSearch = function () {
   return window.location.search;
@@ -713,7 +718,6 @@ Shopify.each = function (t, e) {
       var n = "option" + (r + 1);
       o[n] != t[r] && (i = !1);
     }
-
     return 1 == i ? void (e = o) : void 0;
   }), e);
 }, Shopify.Product.prototype.getVariantById = function (t) {
@@ -721,61 +725,50 @@ Shopify.each = function (t, e) {
     var o = this.variants[e];
     if (t == o.id) return o;
   }
-
   return null;
 }, Shopify.money_format = "${{amount}}", Shopify.formatMoney = function (t, e) {
   function o(t, e) {
     return "undefined" == typeof t ? e : t;
   }
-
   function i(t, e, i, r) {
     if (e = o(e, 2), i = o(i, ","), r = o(r, "."), isNaN(t) || null == t) return 0;
     t = (t / 100).toFixed(e);
     var n = t.split("."),
-        a = n[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1" + i),
-        s = n[1] ? r + n[1] : "";
+      a = n[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1" + i),
+      s = n[1] ? r + n[1] : "";
     return a + s;
   }
-
   "string" == typeof t && (t = t.replace(".", ""));
   var r = "",
-      n = /\{\{\s*(\w+)\s*\}\}/,
-      a = e || this.money_format;
-
+    n = /\{\{\s*(\w+)\s*\}\}/,
+    a = e || this.money_format;
   switch (a.match(n)[1]) {
     case "amount":
       r = i(t, 2);
       break;
-
     case "amount_no_decimals":
       r = i(t, 0);
       break;
-
     case "amount_with_comma_separator":
       r = i(t, 2, ".", ",");
       break;
-
     case "amount_with_apostrophe_separator":
       r = i(t, 2);
       break;
-
     case "amount_no_decimals_with_comma_separator":
       r = i(t, 0, ".", ",");
       break;
-
     case "amount_no_decimals_with_space_separator":
       r = i(t, 0, ".", " ");
   }
-
   return a.replace(n, r);
 }, Shopify.OptionSelectors = function (t, e) {
   return this.selectorDivClass = "selector-wrapper", this.selectorClass = "single-option-selector", this.variantIdFieldIdSuffix = "-variant-id", this.variantIdField = null, this.historyState = null, this.selectors = [], this.domIdPrefix = t, this.product = new Shopify.Product(e.product), this.onVariantSelected = Shopify.isDefined(e.onVariantSelected) ? e.onVariantSelected : function () {}, this.replaceSelector(t), this.initDropdown(), e.enableHistoryState && (this.historyState = new Shopify.OptionSelectors.HistoryState(this)), !0;
 }, Shopify.OptionSelectors.prototype.initDropdown = function () {
   var t = {
-    initialLoad: !0
-  },
-      e = this.selectVariantFromDropdown(t);
-
+      initialLoad: !0
+    },
+    e = this.selectVariantFromDropdown(t);
   if (!e) {
     var o = this;
     setTimeout(function () {
@@ -789,7 +782,7 @@ Shopify.each = function (t, e) {
   e || this.selectVariantFromDropdown(t);
 }, Shopify.OptionSelectors.prototype.replaceSelector = function (t) {
   var e = document.getElementById(t),
-      o = e.parentNode;
+    o = e.parentNode;
   Shopify.each(this.buildSelectors(), function (t) {
     o.insertBefore(t, e);
   }), e.style.display = "none", this.variantIdField = e;
@@ -804,14 +797,12 @@ Shopify.each = function (t, e) {
 }, Shopify.OptionSelectors.prototype.selectVariant = function (t, e) {
   var o = this.product.getVariantById(t);
   if (null == o) return !1;
-
   for (var i = 0; i < this.selectors.length; i++) {
     var r = this.selectors[i].element,
-        n = r.getAttribute("data-option"),
-        a = o[n];
+      n = r.getAttribute("data-option"),
+      a = o[n];
     null != a && this.optionExistInSelect(r, a) && (r.value = a);
   }
-
   return "undefined" != typeof jQuery ? jQuery(this.selectors[0].element).trigger("change", e) : this.selectors[0].element.onchange(e), !0;
 }, Shopify.OptionSelectors.prototype.optionExistInSelect = function (t, e) {
   for (var o = 0; o < t.options.length; o++) if (t.options[o].value == e) return !0;
@@ -826,80 +817,71 @@ Shopify.each = function (t, e) {
     var e = new Shopify.SingleOptionSelector(this, t, this.product.optionNames()[t], this.product.optionValues(t));
     e.element.disabled = !1, this.selectors.push(e);
   }
-
   var o = this.selectorDivClass,
-      i = this.product.optionNames(),
-      r = Shopify.map(this.selectors, function (t) {
-    var e = document.createElement("div");
-
-    if (e.setAttribute("class", o), i.length > 1) {
-      var r = document.createElement("label");
-      r.htmlFor = t.element.id, r.innerHTML = t.name, e.appendChild(r);
-    }
-
-    return e.appendChild(t.element), e;
-  });
+    i = this.product.optionNames(),
+    r = Shopify.map(this.selectors, function (t) {
+      var e = document.createElement("div");
+      if (e.setAttribute("class", o), i.length > 1) {
+        var r = document.createElement("label");
+        r.htmlFor = t.element.id, r.innerHTML = t.name, e.appendChild(r);
+      }
+      return e.appendChild(t.element), e;
+    });
   return r;
 }, Shopify.OptionSelectors.prototype.selectedValues = function () {
   for (var t = [], e = 0; e < this.selectors.length; e++) {
     var o = this.selectors[e].element.value;
     t.push(o);
   }
-
   return t;
 }, Shopify.OptionSelectors.prototype.updateSelectors = function (t, e) {
   var o = this.selectedValues(),
-      i = this.product.getVariant(o);
+    i = this.product.getVariant(o);
   i ? (this.variantIdField.disabled = !1, this.variantIdField.value = i.id) : this.variantIdField.disabled = !0, this.onVariantSelected(i, this, e), null != this.historyState && this.historyState.onVariantChange(i, this, e);
 }, Shopify.OptionSelectorsFromDOM = function (t, e) {
   var o = e.optionNames || [],
-      i = e.priceFieldExists || !0,
-      r = e.delimiter || "/",
-      n = this.createProductFromSelector(t, o, i, r);
+    i = e.priceFieldExists || !0,
+    r = e.delimiter || "/",
+    n = this.createProductFromSelector(t, o, i, r);
   e.product = n, Shopify.OptionSelectorsFromDOM.baseConstructor.call(this, t, e);
 }, Shopify.extend(Shopify.OptionSelectorsFromDOM, Shopify.OptionSelectors), Shopify.OptionSelectorsFromDOM.prototype.createProductFromSelector = function (t, e, o, i) {
   if (!Shopify.isDefined(o)) var o = !0;
   if (!Shopify.isDefined(i)) var i = "/";
   var r = document.getElementById(t),
-      n = r.childNodes,
-      a = (r.parentNode, e.length),
-      s = [];
+    n = r.childNodes,
+    a = (r.parentNode, e.length),
+    s = [];
   Shopify.each(n, function (t, r) {
     if (1 == t.nodeType && "option" == t.tagName.toLowerCase()) {
       var n = t.innerHTML.split(new RegExp("\\s*\\" + i + "\\s*"));
       0 == e.length && (a = n.length - (o ? 1 : 0));
       var p = n.slice(0, a),
-          l = o ? n[a] : "",
-          c = (t.getAttribute("value"), {
-        available: t.disabled ? !1 : !0,
-        id: parseFloat(t.value),
-        price: l,
-        option1: p[0],
-        option2: p[1],
-        option3: p[2]
-      });
+        l = o ? n[a] : "",
+        c = (t.getAttribute("value"), {
+          available: t.disabled ? !1 : !0,
+          id: parseFloat(t.value),
+          price: l,
+          option1: p[0],
+          option2: p[1],
+          option3: p[2]
+        });
       s.push(c);
     }
   });
   var p = {
     variants: s
   };
-
   if (0 == e.length) {
     p.options = [];
-
     for (var l = 0; a > l; l++) p.options[l] = "option " + (l + 1);
   } else p.options = e;
-
   return p;
 }, Shopify.SingleOptionSelector = function (t, e, o, i) {
   this.multiSelector = t, this.values = i, this.index = e, this.name = o, this.element = document.createElement("select");
-
   for (var r = 0; r < i.length; r++) {
     var n = document.createElement("option");
     n.value = i[r], n.innerHTML = i[r], this.element.appendChild(n);
   }
-
   return this.element.setAttribute("class", this.multiSelector.selectorClass), this.element.setAttribute("data-option", "option" + (e + 1)), this.element.id = t.domIdPrefix + "-option-" + e, this.element.onchange = function (o, i) {
     i = i || {}, t.updateSelectors(e, i);
   }, !0;
@@ -916,7 +898,7 @@ Shopify.each = function (t, e) {
   switchImage: function (t, e, o) {
     if (t && e) {
       var i = this.imageSize(e.src),
-          r = this.getSizedImageUrl(t.src, i);
+        r = this.getSizedImageUrl(t.src, i);
       o ? o(r, t, e) : e.src = r;
     }
   },
@@ -928,13 +910,11 @@ Shopify.each = function (t, e) {
     if (null == e) return t;
     if ("master" == e) return this.removeProtocol(t);
     var o = t.match(/\.(jpg|jpeg|gif|png|bmp|bitmap|tiff|tif)(\?v=\d+)?$/i);
-
     if (null != o) {
       var i = t.split(o[0]),
-          r = o[0];
+        r = o[0];
       return this.removeProtocol(i[0] + "_" + e + r);
     }
-
     return null;
   },
   removeProtocol: function (t) {
@@ -953,11 +933,12 @@ Shopify.each = function (t, e) {
 }, Shopify.OptionSelectors.HistoryState.prototype.browserSupports = function () {
   return window.history && window.history.replaceState;
 };
+
 /*============================================================================
 Product media controls
 ==============================================================================*/
 
-Shopify.theme.productMedia = {
+window.PXUTheme.productMedia = {
   models: [],
   setupMedia: function () {
     const config = {
@@ -967,10 +948,10 @@ Shopify.theme.productMedia = {
     };
     $('model-viewer').each(function (index, model) {
       model = new Shopify.ModelViewerUI(model, config);
-      Shopify.theme.productMedia.models.push(model);
+      window.PXUTheme.productMedia.models.push(model);
     });
     $('.product-gallery__model model-viewer').on('mousedown', function () {
-      Shopify.theme.productMedia.hideModelIcon(this);
+      window.PXUTheme.productMedia.hideModelIcon(this);
     });
   },
   showModelIcon: function (slide) {
@@ -980,7 +961,7 @@ Shopify.theme.productMedia = {
     $(slide).find('.button--poster, .model-icon-button-control').hide();
   }
 };
-Shopify.theme.productReviews = {
+window.PXUTheme.productReviews = {
   init: function () {
     if ($('#shopify-product-reviews').length || $('.shopify-product-reviews-badge').length) {
       SPR.$(document).ready(function () {
@@ -991,7 +972,7 @@ Shopify.theme.productReviews = {
   productReviewScroll: function () {
     if ($('#shopify-product-reviews').length && $('.shopify-product-reviews-badge').length) {
       $('.spr-badge-container').on('click', function () {
-        Shopify.theme.scrollToTop('#shopify-product-reviews');
+        window.PXUTheme.scrollToTop('#shopify-product-reviews');
       });
     }
   },
@@ -999,13 +980,13 @@ Shopify.theme.productReviews = {
     $('.spr-badge-container').off();
   }
 };
-Shopify.theme.quantityBox = {
+window.PXUTheme.quantityBox = {
   init: function () {
     $('body').on('click', '[data-update-quantity]:not([disabled])', function () {
-      Shopify.theme.quantityBox.updateQuantity($(this));
+      window.PXUTheme.quantityBox.updateQuantity($(this));
     });
     $('body').on('keyup keydown change', '.quantity-input', function () {
-      Shopify.theme.quantityBox.updateQuantity($(this));
+      window.PXUTheme.quantityBox.updateQuantity($(this));
     });
   },
   updateQuantityControls: function ($el) {
@@ -1013,18 +994,9 @@ Shopify.theme.quantityBox = {
     const $input = $('.quantity-input', $quantityBox);
     let val = parseInt($input.val());
     let valMax = 100000000000000000;
-
-    
-    if(typeof WSAIO !== "undefined" && typeof WSAIO.productDiscount === "function"){
-setTimeout(function(){
-WSAIO.preCheckout()
-},500)
-}
-
     if ($input.attr('max') != null) {
       valMax = $input.attr('max');
     }
-
     if (val === 1 || val === 0) {
       $('.quantity-minus', $quantityBox).attr('disabled', true);
       $('.quantity-plus', $quantityBox).attr('disabled', false);
@@ -1036,7 +1008,6 @@ WSAIO.preCheckout()
       $('.quantity-minus', $quantityBox).attr('disabled', false);
       $('.quantity-plus', $quantityBox).attr('disabled', false);
     }
-    
   },
   updateQuantity: function ($el) {
     const $quantityBox = $el.parents('.product-quantity-box');
@@ -1045,11 +1016,9 @@ WSAIO.preCheckout()
     let val = parseInt($input.val());
     let valMax = 100000000000000000;
     let valMin = $input.attr('min') || 0;
-
     if ($input.attr('max') != null) {
       valMax = $input.attr('max');
     }
-
     if (val < valMin) {
       $input.val(valMin);
       return false;
@@ -1057,7 +1026,6 @@ WSAIO.preCheckout()
       $input.val(valMax);
       return false;
     }
-
     if ($el.data('update-quantity') === 'plus') {
       // Increase quantity input by one
       if (val < valMax) {
@@ -1070,16 +1038,16 @@ WSAIO.preCheckout()
         val--;
         $input.val(val);
       }
-    } // Update quantity if within cart (vs on the product page)
+    }
 
-
+    // Update quantity if within cart (vs on the product page)
     if ($el.parents('[data-line-item]').length) {
       const lineID = $quantityBox.data('line-item-key');
-      Shopify.theme.quantityBox.updateCart(lineID, val);
-    } // Call to update quantity controls
+      window.PXUTheme.quantityBox.updateCart(lineID, val);
+    }
 
-
-    Shopify.theme.quantityBox.updateQuantityControls($el);
+    // Call to update quantity controls
+    window.PXUTheme.quantityBox.updateQuantityControls($el);
   },
   updateCart: function (lineID, quantity) {
     $('.quantity-warning').removeClass('animated bounceIn');
@@ -1093,14 +1061,13 @@ WSAIO.preCheckout()
         let itemsLeftText = '';
         let quantityWarning = $(`[data-line-item="${lineID}"]`).find('.quantity-warning');
         let $quantityBox = $(`[data-line-item="${lineID}"]`).find('.product-quantity-box');
-        let $currentDiscount = $('.cart__form').data('currentDiscount'); //check to see if there are correct amount of products in array
+        let $currentDiscount = $('.cart__form').data('currentDiscount');
 
+        //check to see if there are correct amount of products in array
         const cartItemsLineID = lineID - 1;
-
         if (typeof cart.items[cartItemsLineID] !== "undefined") {
           newQuantity = cart.items[cartItemsLineID].quantity;
         }
-
         for (let i = 0; i < cart.items.length; i++) {
           if (i != cartItemsLineID) {
             if (cart.items[i].id == cart.items[cartItemsLineID].id) {
@@ -1108,32 +1075,30 @@ WSAIO.preCheckout()
             }
           }
         }
-
         if (quantity > 0 && quantity != newQuantity) {
           //Check if total discount has changed
           if (cart.total_discount <= $currentDiscount) {
             if (newQuantity == 1) {
-              itemsLeftText = Shopify.translation.product_count_one;
+              itemsLeftText = window.PXUTheme.translation.product_count_one;
               quantityWarning.text(`${newQuantity} ${itemsLeftText}`);
               $('.quantity-minus', $quantityBox).attr('disabled', true);
             } else {
-              itemsLeftText = Shopify.translation.product_count_other;
+              itemsLeftText = window.PXUTheme.translation.product_count_other;
               quantityWarning.text(`${newQuantity} ${itemsLeftText}`);
             }
           }
-        } //Update total discount value
-
-
-        $('.cart__form').data('currentDiscount', cart.total_discount); // Apply quantity warning
-
-        quantityWarning.addClass('animated bounceIn');
-
-        if (typeof Shopify.theme.jsAjaxCart !== 'undefined') {
-          Shopify.theme.jsAjaxCart.updateView();
         }
 
-        if (Shopify.theme.jsCart) {
-          Shopify.theme.jsCart.updateView(cart, lineID);
+        //Update total discount value
+        $('.cart__form').data('currentDiscount', cart.total_discount);
+
+        // Apply quantity warning
+        quantityWarning.addClass('animated bounceIn');
+        if (typeof window.PXUTheme.jsAjaxCart !== 'undefined') {
+          window.PXUTheme.jsAjaxCart.updateView();
+        }
+        if (window.PXUTheme.jsCart) {
+          window.PXUTheme.jsCart.updateView(cart, lineID);
         }
       },
       error: function (XMLHttpRequest, textStatus) {
@@ -1147,35 +1112,32 @@ WSAIO.preCheckout()
     $('[data-update-quantity]').off();
   }
 };
-Shopify.theme.queryParameters = {};
-
+window.PXUTheme.queryParameters = {};
 if (location.search.length) {
   for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
     aKeyValue = aCouples[i].split('=');
-
     if (aKeyValue.length > 1) {
-      Shopify.theme.queryParameters[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      window.PXUTheme.queryParameters[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
     }
   }
 }
-
-Shopify.theme.responsiveVideo = {
+window.PXUTheme.responsiveVideo = {
   init: function () {
     // Find youtube iframes
-    var $videoIframes = $('iframe[src*="youtube.com"], iframe[src*="vimeo.com"]'); // For each iframe, if parent is a responsive video wrapper do nothing
+    var $videoIframes = $('iframe[src*="youtube.com"], iframe[src*="vimeo.com"]');
+
+    // For each iframe, if parent is a responsive video wrapper do nothing
     // If no parent responsive video wrapper, then wrap iframe in responsive video wrapper
 
     $videoIframes.each(function (index, iframe) {
       // Update selector
       var $iframe = $(iframe);
-
       if (!$iframe.parents('.plyr__video-wrapper').length && !$iframe.parents('.lazyframe').length) {
         $iframe.wrap('<div class="lazyframe" data-ratio="16:9"></div>');
       }
     });
   }
 };
-
 function selectCallback(productEl, product, variant, state) {
   const $product = $(productEl);
   const $notifyForm = $('.product__notify-form', $product);
@@ -1183,38 +1145,26 @@ function selectCallback(productEl, product, variant, state) {
   const variantInventory = $productForm.data('variant-inventory');
   const $productFormInput = $productForm.find('.quantity-input');
   const $notifyFormInputs = $('.notify_form__inputs');
-  const notifyEmail = Shopify.translation.notify_form_email;
-  const notifyEmailValue = Shopify.translation.contact_email;
-  const notifySend = Shopify.translation.notify_form_send;
+  const notifyEmail = window.PXUTheme.translation.notify_form_email;
+  const notifyEmailValue = window.PXUTheme.translation.contact_email;
+  const notifySend = window.PXUTheme.translation.notify_form_send;
   const notifyUrl = $notifyFormInputs.data('url');
   let notifyMessage = '';
   let notifyEmailInput = '';
-  
-  //SV-6-Dec-21
-  $(document).trigger({
-    type: 'variant-change',
-    variant: variant,
-    product: product,
-    productEl: productEl,
-    state: state
-  });
-
   if (variant) {
     if (variant.title != null) {
       // Escape variant titles
-      const variantTitle = variant.title.replace(/"/g, '&quot;');
-      notifyMessage = `${Shopify.translation.email_content}${variantTitle} | ${notifyUrl}?variant=${variant.id}`;
+      const variantTitle = variant.title.toLowerCase() === 'default title' ? variant.name.replace(/"/g, '&quot;') : variant.title.replace(/"/g, '&quot;');
+      notifyMessage = `${window.PXUTheme.translation.email_content}${variantTitle} | ${notifyUrl}?variant=${variant.id}`;
     }
   } else {
-    notifyMessage = `${Shopify.translation.email_content} | ${notifyUrl}`;
+    notifyMessage = `${window.PXUTheme.translation.email_content} | ${notifyUrl}`;
   }
-
   if ($notifyFormInputs.hasClass('customer--true')) {
-    notifyEmailInput = `<input required type="email" class="notify_email input" name="contact[email]" aria-label="Email" id="contact[email]" placeholder="${notifyEmail}" value="${Shopify.translation.customer_email}" />`;
+    notifyEmailInput = `<input required type="email" class="notify_email input" name="contact[email]" id="contact[email]" placeholder="${notifyEmail}" value="${window.PXUTheme.translation.customer_email}" />`;
   } else {
-    notifyEmailInput = `<input required type="email" class="notify_email input" name="contact[email]" aria-label="Email" id="contact[email]" placeholder="${notifyEmail}" value="${notifyEmailValue}" />`;
+    notifyEmailInput = `<input required type="email" class="notify_email input" name="contact[email]" id="contact[email]" placeholder="${notifyEmail}" value="${notifyEmailValue}" />`;
   }
-
   const notifyFormHTML = `
     <input type="hidden" name="challenge" value="false" />
     <input type="hidden" name="contact[body]" class="notify_form_message" data-body="${notifyMessage}" value="${notifyMessage}" />
@@ -1225,96 +1175,82 @@ function selectCallback(productEl, product, variant, state) {
       <div class="control">
         <input class="action_button button" type="submit" value="${notifySend}" />
       </div>
-    </div>`; // Image Variant feature
+    </div>`;
 
+  // Image Variant feature
   if (variant && variant.featured_image && $product.is(':visible')) {
     const $sliders = $('.product-gallery__main, .js-gallery-modal', $product);
     $sliders.each((_index, value) => {
       const $slider = $(value);
       const $sliderInstance = window.Flickity.data(value);
       const index = $(`img[data-image-id=${variant.featured_media.id}]`).data('index');
-
       if ($slider.is(':visible') && $sliderInstance !== undefined) {
         $sliderInstance.select(index, false, true);
       }
     });
-  } // Emits custom event
+  }
 
-
+  // Emits custom event
   const $selectDropdown = $productForm.find('[data-variant-selector]');
   $selectDropdown.trigger('selectedVariantChanged');
   $('.cart-warning', $product).text('');
-
   if (variant) {
     $('.sku', $product).text(variant.sku);
     $('.notify_form_message', $product).attr('value', `${$('.notify_form_message', $product).data('body')} - ${variant.title}`);
   }
-
   if (variant && variant.available) {
-    const variantWithInventory = { ...variant,
+    const variantWithInventory = {
+      ...variant,
       ...(variantInventory ? variantInventory.find(v => v.id === variant.id) || {} : {})
     };
-
     if (variantWithInventory.inventory_management && variantWithInventory.inventory_quantity > 0) {
-      if (Shopify.theme_settings.display_inventory_left) {
-        let itemsLeftText = Shopify.translation.product_count_other;
-
+      if (window.PXUTheme.theme_settings.display_inventory_left) {
+        let itemsLeftText = window.PXUTheme.translation.product_count_other;
         if (variantWithInventory.inventory_quantity === 1) {
-          itemsLeftText = Shopify.translation.product_count_one;
+          itemsLeftText = window.PXUTheme.translation.product_count_one;
         }
-
-        const inventoryThreshold = Shopify.theme_settings.inventory_threshold;
-
+        const inventoryThreshold = window.PXUTheme.theme_settings.inventory_threshold;
         if (variantWithInventory.inventory_quantity <= inventoryThreshold) {
           $('.items_left', $product).html(`${variantWithInventory.inventory_quantity} ${itemsLeftText}`);
         } else {
           $('.items_left', $product).html('');
         }
       }
-
       if (variantWithInventory.inventory_policy === 'deny') {
-        $('[data-max-inventory-management]', $product).attr('max', variantWithInventory.inventory_quantity); // Check to see if quantity selector should be disabled based on inventory remaining
+        $('[data-max-inventory-management]', $product).attr('max', variantWithInventory.inventory_quantity);
 
-        Shopify.theme.quantityBox.updateQuantityControls($productFormInput);
+        // Check to see if quantity selector should be disabled based on inventory remaining
+        window.PXUTheme.quantityBox.updateQuantityControls($productFormInput);
       }
     } else {
       $('.items_left', $product).text('');
       $('[data-max-inventory-management]', $product).removeAttr('max');
     }
-
     $('.sold_out', $product).text('');
-    $('[data-add-to-cart-trigger]', $product).removeClass('disabled').removeAttr('disabled').attr('data-options-unselected', null).find('span:not(.icon)').text($('[data-add-to-cart-trigger]', $product).data('label')); // Initialize shopify payment buttons
+    $('[data-add-to-cart-trigger]', $product).removeClass('disabled').removeAttr('disabled').attr('data-options-unselected', null).find('span:not(.icon)').text($('[data-add-to-cart-trigger]', $product).data('label'));
 
+    // Initialize shopify payment buttons
     if (Shopify.PaymentButton) {
       Shopify.PaymentButton.init();
     }
-
     $('.shopify-payment-button', $product).show();
     $('.purchase-details__quantity', $product).show();
     $notifyForm.hide();
     $notifyFormInputs.empty();
     $notifyFormInputs.append(notifyFormHTML);
-
-    if (Shopify.theme.currencyConverter) {
-      Shopify.theme.currencyConverter.convertCurrencies();
+    if (window.PXUTheme.currencyConverter) {
+      window.PXUTheme.currencyConverter.convertCurrencies();
     }
   } else {
-    const message = variant ? Shopify.translation.soldOut : Shopify.translation.unavailable;
+    const message = variant ? window.PXUTheme.translation.soldOut : window.PXUTheme.translation.unavailable;
     $('.items_left', $product).text('');
     $('[data-max-inventory-management]', $product).removeAttr('max');
-    $('.sold_out', $product).text(message); // If we haven't selected all options, let the add to cart button be enabled
-
-    if (state === 'not-selected') {
-      $('[data-add-to-cart-trigger]', $product).removeClass('disabled').removeAttr('disabled').attr('data-options-unselected', '').find('span:not(.icon)').text($('[data-add-to-cart-trigger]', $product).data('label'));
-    } else {
-      $('[data-add-to-cart-trigger]', $product).addClass('disabled').attr('disabled', 'disabled').attr('data-options-unselected', null).find('span:not(.icon)').text(message);
-    }
-
+    $('.sold_out', $product).text(message);
+    $('[data-add-to-cart-trigger]', $product).addClass('disabled').attr('disabled', 'disabled').attr('data-options-unselected', null).find('span:not(.icon)').text(message);
     $('.shopify-payment-button', $product).hide();
     $('.purchase-details__quantity', $product).hide();
     $notifyForm.hide();
     $notifyFormInputs.empty();
-
     if (variant && !variant.available) {
       $notifyForm.fadeIn();
       $notifyFormInputs.empty();
@@ -1322,13 +1258,13 @@ function selectCallback(productEl, product, variant, state) {
     }
   }
 }
-
 window.selectCallback = selectCallback;
-Shopify.theme.predictiveSearch = {
+
+/* eslint-disable */
+window.PXUTheme.predictiveSearch = {
   vars: {
     term: '',
-    searchPath: Shopify.routes.search_url,
-    displayTimer: ''
+    searchResourceType: null
   },
   init: function () {
     this.unload();
@@ -1336,205 +1272,138 @@ Shopify.theme.predictiveSearch = {
       if (!isScreenSizeLarge()) {
         e.stopPropagation();
         const formType = $(this).closest('form').find('[name="type"]').val();
-        const position = $(document).scrollTop();
-        Shopify.theme.predictiveSearch.showMobileSearch(formType, position);
+        window.PXUTheme.predictiveSearch.showMobileSearch(formType);
       }
-    }); // Focus state to display search results
+    });
+    $('.search-form .search__fields input[type="text"], .search-form .field input[type="text"]').on('focus', e => {
+      const dataSearchResourceType = e.target.closest('[data-search-resource-type]');
+      if (dataSearchResourceType) {
+        window.PXUTheme.predictiveSearch.vars.searchResourceType = dataSearchResourceType.getAttribute('data-search-resource-type');
+      }
 
-    $('[data-autocomplete-true]').on('focus', function () {
-      $(this).parents('[data-autocomplete-true]').find('.search__results-wrapper').show();
-    }); // Clicking outside makes the results disappear.
+      // Set the cursor at the end of the input field for better UX,
+      // otherwise it may be at the beginning of the input field when the input gets focus.
+      const searchInputEl = e.target;
+      const searchInputVal = searchInputEl.value.trim();
+      searchInputEl.setSelectionRange(searchInputVal.length, searchInputVal.length);
+      window.PXUTheme.predictiveSearch.getResults(searchInputVal, $(e.target.closest('.search-form')));
+    });
 
+    // Clicking outside makes the results disappear.
     $(document).on('click focusout', function (e) {
-      if (Shopify.media_queries.large.matches) {
-        var searchForm = $(e.target).parents('.search-form');
-
+      if (window.PXUTheme.media_queries.large.matches) {
+        const searchForm = $(e.target).parents('.search-form');
         if (searchForm.length === 0) {
-          $('[data-autocomplete-true] .search__results-wrapper').hide().removeClass('results-found');
+          $('[data-autocomplete-true] .search__results-wrapper').hide();
+
+          // This is for when the 'Vertical' header layout or the 'Search focus' header layout is in use,
+          // since unlockBodyScroll won't get called in jsHeader.
+          if ((window.PXUTheme.theme_settings.header_layout === 'vertical' || window.PXUTheme.theme_settings.header_layout === 'search_focus') && document.documentElement.classList.contains('scroll-locked')) {
+            window.PXUTheme.predictiveSearch.unlockBodyScroll();
+          }
         }
       }
-    }); // Submit wildcard searches
-
+    });
     $("[data-autocomplete-true] form").on("submit", function (e) {
-      e.preventDefault();
-      const formValue = $(this).find('input[name="q"]').val();
-      const cleanFormValue = encodeURI(formValue);
-      let searchType = Shopify.theme_settings.search_option;
-
-      if ($(this).find('[name="type"]').length > 0) {
-        searchType = $(this).find('[name="type"]').val();
-      }
-
-      if (cleanFormValue == null) {
-        window.location.href = Shopify.routes.search_url + '?type=' + searchType;
-      } else {
-        window.location.href = Shopify.theme.predictiveSearch.vars.searchPath + '?type=' + searchType + '&q=' + cleanFormValue + '*';
-      }
+      const query = $(this).find('input[name="q"]').val().trim();
+      if (!query) e.preventDefault();
     });
     $('[data-autocomplete-true] form').each(function () {
       const $this = $(this);
-      const input = $this.find('input[name="q"]'); // Adding a list for showing search results.
-
-      const resultWrapper = `
-        <div class="search__results-wrapper">
-          <h2 class="vertical-search__title">
-            ${Shopify.translation.top_suggestions}
-          </h2>
-          <ul class="search__results"></ul>
-        </div>
-      `;
+      const input = $this.find('input[name="q"]');
+      const resultWrapper = `<div class="search__results-wrapper"></div>`;
       $(resultWrapper).appendTo($this);
-      //SV-15.11.22-debounce
-      input.attr('autocomplete', 'off').on('input', _utils.debounce(function () {
-        clearTimeout(Shopify.theme.predictiveSearch.vars.displayTimer);
-
-        if ($(this).val().length > 3) {
-          Shopify.theme.predictiveSearch.vars.term = $(this).val();
-          Shopify.theme.predictiveSearch.getResults(Shopify.theme.predictiveSearch.vars.term, $this);
-        } else {
-          $('[data-autocomplete-true] .search__results-wrapper').hide().removeClass('results-found');
-        }
-      }, 250));
+      input.attr('autocomplete', 'off').on('input', window.PXUTheme.debounce(() => {
+        window.PXUTheme.predictiveSearch.vars.term = this.querySelector('[data-q]').value.trim();
+        window.PXUTheme.predictiveSearch.getResults(window.PXUTheme.predictiveSearch.vars.term, $this);
+      }, 200));
     });
+    window.addEventListener('resize', window.PXUTheme.debounce(() => {
+      if (window.PXUTheme.jsHeader.header_layout === 'vertical') {
+        window.PXUTheme.predictiveSearch.alignVerticalSearch();
+      }
+      this.resizeSearchResults();
+    }, 150));
+    document.body.addEventListener('keyup', e => this.onKeyUp(e));
+  },
+  onKeyUp: function (e) {
+    if (e.code === 'Escape') {
+      $('[data-q]').val('');
+      window.PXUTheme.predictiveSearch.vars.term = '';
+      window.PXUTheme.jsHeader.hideSearch();
+    }
+  },
+  resizeSearchResults: function () {
+    let inputFieldEl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector('[data-autocomplete-true]');
+    const innerHeight = window.innerHeight;
+    const inputFieldElBottom = inputFieldEl.getBoundingClientRect().bottom;
+    const offset = isScreenSizeLarge() ? 30 : 10;
+    const resultsMaxHeight = `${innerHeight - inputFieldElBottom - offset}px`;
+    const resultsContainerEl = inputFieldEl.closest('[data-autocomplete-true]').querySelector('.search__results-wrapper');
+    resultsContainerEl.style.setProperty('--results-max-height', resultsMaxHeight);
   },
   getResults: function (term, $this) {
-    let searchType = Shopify.theme_settings.search_option;
-
-    if ($this.find('[name="type"]').length > 0) {
-      searchType = $this.find('[name="type"]').val();
-    }
-
-    // SV-search ajax-15.11.22
-    var term = $this.find('[name=q]').val();
-    const $resultsWrapper = $this.find('.search__results-wrapper');
-    const $resultsList = $this.find('.search__results');
-    var search_url = `/search?type=product&q=${ term }*&view=ajax`;
-    fetch(search_url)
-    .then(res => res.text())
-    .then((res) => {
-      $resultsWrapper.show();
-      $resultsList.empty();
-  
-      $resultsList.html(res);
-      $resultsList.show();
-    });
-
-    return;
-    jQuery.getJSON("/search/suggest.json", {
-      "q": term,
-      "resources": {
-        "type": searchType,
-        "limit": Shopify.theme_settings.search_to_display,
-        "options": {
-          "unavailable_products": "last",
-          "fields": "title,body,variants.title,variants.sku,vendor,product_type,tag"
-        }
+    const {
+      header_layout
+    } = window.PXUTheme.theme_settings;
+    if (term.length === 0) {
+      if (header_layout === 'vertical' || header_layout === 'search_focus') {
+        window.PXUTheme.predictiveSearch.unlockBodyScroll();
       }
-    }).done(function (response) {
-      const suggestions = [response.resources.results.products, response.resources.results.pages, response.resources.results.articles];
-      let filteredResults = []; // Store results in array
+      window.PXUTheme.predictiveSearch.clearResults();
+      return;
+    }
+    const {
+      searchResourceType
+    } = window.PXUTheme.predictiveSearch.vars;
+    const restrictResourceCondition = searchResourceType && 'searchResourceType' in $this[0].dataset;
+    fetch(`${window.PXUTheme.routes.predictive_search_url}?q=${encodeURIComponent(term)}&section_id=predictive-search${restrictResourceCondition ? `&resources[type]=${searchResourceType}` : ''}`).then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.text();
+    }).then(text => {
+      window.PXUTheme.predictiveSearch.displayResults(text, $this);
 
-      $.each(suggestions, function (index, suggestion) {
-        if (suggestion !== undefined && suggestion.length > 0) {
-          // Ensure suggestion exists
-          filteredResults.push(suggestion);
-        }
-      }); // Display results
-
-      Shopify.theme.predictiveSearch.vars.displayTimer = setTimeout(function () {
-        Shopify.theme.predictiveSearch.displayResults(filteredResults[0], $this);
-      }, 500);
+      // This is for when the 'Vertical' header layout or the 'Search focus' header layout is in use,
+      // since lockBodyScroll won't get called in jsHeader (due to the search icon trigger not being present).
+      // lockBodyScroll has to be called here so the overlay appears at about the same time as the results.
+      if ((header_layout === 'vertical' || header_layout === 'search_focus') && $this.closest('.jsHeader').length > 0) {
+        window.PXUTheme.predictiveSearch.lockBodyScroll();
+      }
+    }).catch(error => {
+      throw error;
     });
   },
   displayResults: function (results, $this) {
+    const $fields = $this.find('.search__fields');
     const $resultsWrapper = $this.find('.search__results-wrapper');
-    const $resultsList = $this.find('.search__results');
-    let searchType = Shopify.theme_settings.search_option;
     $resultsWrapper.show();
-    $resultsList.empty();
+    $resultsWrapper.empty();
+    $resultsWrapper.append(results);
+    const inputFieldEls = $fields.length > 0 ? Array.from($fields) : document.querySelectorAll('[data-autocomplete-true]');
 
-    if ($this.find('[name="type"]').length > 0) {
-      searchType = $this.find('[name="type"]').val();
+    // Calculate resultsWrapper max height for header search (exclude blog sidebar)
+    inputFieldEls.forEach(el => {
+      if (el.closest('.search-popup__form') || el.closest('.mobile-search')) {
+        this.resizeSearchResults(el);
+      }
+    });
+    if ($this.parents('.vertical-header__content').length && window.PXUTheme.jsHeader.header_layout === 'vertical') {
+      window.PXUTheme.predictiveSearch.alignVerticalSearch();
     }
-
-    if (results && results.length > 0) {
-      $.each(results, function (index, result) {
-        let link = $('<a tabindex="0"></a>').attr('href', result.url);
-
-        if (Shopify.routes.root_url !== '/') {
-          // SV-06.02.22
-          //link = $('<a tabindex="0"></a>').attr('href', Shopify.routes.root_url + result.url);
-        } // if result is a product
-
-
-        if (result['price']) {
-          function formatPrice(price) {
-            return '<span class="money">' + Shopify.formatMoney(price, $('body').data('money-format')) + '</span>';
-          }
-
-          let itemPrice;
-
-          if (result.available === true) {
-            if (result.compare_at_price_max > result.price_max || result.compare_at_price_min > result.price_min) {
-              itemPrice = `${formatPrice(result.price)} <span class="was-price">${formatPrice(result.compare_at_price_max)}</span>`;
-            } else {
-              if (result.price > 0) {
-                if (result.price_min != result.price_max) {
-                  itemPrice = `${Shopify.translation.from} ${formatPrice(result.price)}`;
-                } else {
-                  itemPrice = `${formatPrice(result.price)}`;
-                }
-              } else {
-                itemPrice = Shopify.theme_settings.free;
-              }
-            }
-          } else {
-            itemPrice = Shopify.translation.soldOut;
-          } // If result has image
-
-
-          if (result['image']) {
-            link.append(`<div class="thumbnail"><img class="lazyload transition--${Shopify.theme_settings.image_loading_style}" src="${Shopify.theme.addImageDimension(result['image'], '_300x')}" /></div>`);
-          }
-
-          link.append(`<div class="description"><strong>${result.title}</strong><br><span class="item-pricing price">${itemPrice}</span></div>`); // if result is an article
-        } else if (result['summary_html']) {
-          if (result.image != 'NULL') {
-            link.append(`<div class="thumbnail"><img class="lazyload transition--${Shopify.theme_settings.image_loading_style}" src="${Shopify.theme.addImageDimension(result['image'], '_300x')}" /></div>`);
-          }
-
-          link.append(`<div class="description"><strong>${result.title}</strong><br><span class="item-description">'${result.summary_html.replace(/(<([^>]+)>)/ig, "").slice(0, 25)}</span></div>`); // if result is a page
-        } else if (result['published_at']) {
-          link.append(`<div class="description"><strong>${result.title}</strong><br><span class="item-description">${result.body.replace(/(<([^>]+)>)/ig, "").slice(0, 25)}</span></div>`);
-        } // Wrap link and append to list
-
-
-        link.wrap('<li class="item-result"></li>');
-        $resultsList.append(link.parent());
-
-        if (Shopify.theme.currencyConverter) {
-          Shopify.theme.currencyConverter.init();
-        }
-      });
-      $resultsList.prepend(`<li class="all-results"><span class="see-all"><a href="${this.vars.searchPath}?type=${searchType}&q=${this.vars.term}*"> ${Shopify.translation.all_results} ${Shopify.icons.right_caret}</a></span></li>`);
-      $resultsList.parents('.search__results-wrapper').addClass('results-found');
-    } else {
-      // if no results
-      const noResults = `<li class="item-result"><span class="no-results">${Shopify.translation.no_results}</span></li>`;
-      $resultsList.append(noResults);
-      $resultsList.parents('.search__results-wrapper').removeClass('results-found');
-    }
-
-    if ($this.parents('.vertical-header__content').length && Shopify.theme.jsHeader.header_layout === 'vertical') {
-      Shopify.theme.predictiveSearch.alignVerticalSearch();
-    }
-
-    $resultsList.show();
   },
-  showMobileSearch: function (formType, position) {
+  clearResults: function () {
+    const wrapperEls = document.querySelectorAll('.search-form .search__results-wrapper');
+    wrapperEls.forEach(el => {
+      // This should be more performant than `innerHTMl = ""`
+      while (el.firstChild) el.removeChild(el.firstChild);
+    });
+  },
+  showMobileSearch: function (formType) {
+    let position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
     $('body').css('max-height', window.innerHeight);
     $('.mobile-search').fadeIn(200);
-
     if (/iPad|iPhone|iPod/.test(navigator.platform) || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
       $('.mobile-search input[data-q]').focus();
     } else {
@@ -1543,39 +1412,45 @@ Shopify.theme.predictiveSearch = {
         $('.mobile-search input[data-q]').focus();
       }, 205);
     }
-
     document.body.style.position = 'fixed';
     document.body.style.top = '-' + position + 'px';
     $('.mobile-search').css('top', position);
-    const searchHeight = window.innerHeight - 46; //Full screen height - form height
-
-    $('.mobile-search .search__results-wrapper').css('max-height', searchHeight);
-
     if (formType) {
       $('.mobile-search [name="type"]').val(formType);
-    } else {
-      $('.mobile-search [name="type"]').val(Shopify.theme_settings.search_option);
     }
-
     $('.search-form .close-search').on('click touchstart', function (e) {
       e.preventDefault();
       e.stopPropagation();
-      Shopify.theme.predictiveSearch.hideMobileSearch(position);
-      $('[data-autocomplete-true] .search__results-wrapper').hide().removeClass('results-found');
+      window.PXUTheme.predictiveSearch.hideMobileSearch(position);
+      $('[data-autocomplete-true] .search__results-wrapper').hide();
     });
     $('.search-form .submit-search').on('click touchstart', function (e) {
       $(this).parents('form').submit();
     });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.search-form')) {
+        window.PXUTheme.predictiveSearch.hideMobileSearch();
+      }
+    });
   },
-  hideMobileSearch: function (position) {
+  hideMobileSearch: function () {
+    let position = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
     $('body').css('max-height', 'none');
     document.body.style.position = '';
     document.body.style.top = '';
     window.scrollTo(0, position);
     $('.mobile-search').fadeOut(200);
-    $('.mobile-search [name="q"]').val('');
     $('body').off('focus', '.search-form .close-search');
     $('body').off('focus', '.search-form .submit-search');
+    window.PXUTheme.predictiveSearch.unlockBodyScroll();
+  },
+  lockBodyScroll: function () {
+    document.documentElement.classList.add('scroll-locked');
+    document.querySelector('[data-site-overlay]').classList.remove('site-overlay--hidden');
+  },
+  unlockBodyScroll: function () {
+    document.documentElement.classList.remove('scroll-locked');
+    document.querySelector('[data-site-overlay]').classList.add('site-overlay--hidden');
   },
   alignVerticalSearch: function () {
     const $resultsList = $('.header--vertical .search__results');
@@ -1593,14 +1468,12 @@ Shopify.theme.predictiveSearch = {
     $('.search__results-wrapper').remove();
   }
 };
-
 function isScreenSizeLarge() {
-  if (Shopify.media_queries.large.matches) {
+  if (window.PXUTheme.media_queries.large.matches) {
     return true;
   }
 }
-
-Shopify.theme.scrollToTop = function (element, height) {
+window.PXUTheme.scrollToTop = function (element, height) {
   // Check if height argument is present
   if (height != undefined) {
     $('html, body').animate({
@@ -1612,18 +1485,19 @@ Shopify.theme.scrollToTop = function (element, height) {
     }, 1000);
   }
 };
-
-Shopify.theme.tabs = {
+window.PXUTheme.tabs = {
   enableTabs: function () {
     let $tabs = $('.tabs li, .tabs li a');
     $tabs.on('click', function (el) {
-      el.preventDefault(); // toggle active tab
+      el.preventDefault();
 
+      // toggle active tab
       $tabs.removeClass('is-active active');
       $(this).addClass('is-active');
       let $tabIndex = $(this).index();
-      let $tabContent = $(this).parents('.tabs').next('.tabs-content'); // toggle corresponding tab content
+      let $tabContent = $(this).parents('.tabs').next('.tabs-content');
 
+      // toggle corresponding tab content
       $tabContent.children('li, li a').removeClass('is-active active');
       $tabContent.children('li, li a').eq($tabIndex).addClass('is-active').show().css({
         'display': 'block'
@@ -1634,67 +1508,64 @@ Shopify.theme.tabs = {
     $('.tabs li, .tabs li a').off();
   }
 };
-
 class ProductCard {
   enableSwatches() {
     if (window.isScreenSizeLarge()) {
-      $('body').on('mouseenter', '.swatch span', ({
-        currentTarget
-      }) => {
-        if ($(currentTarget).data('image').indexOf('no-image') === -1) {
+      $('body').on('mouseenter', '.swatch span', _ref => {
+        let {
+          currentTarget
+        } = _ref;
+        if ($(currentTarget).data('image') && $(currentTarget).data('image').indexOf('no-image') === -1) {
           $(currentTarget).parents('.thumbnail').find('.product__imageContainer img:not(.secondary)').attr('src', $(currentTarget).data('image'));
           $(currentTarget).parents('.thumbnail').find('.product__imageContainer img:not(.secondary)').attr('srcset', $(currentTarget).data('image'));
         }
       });
     }
   }
-
   showVariantImage() {
     if (window.isScreenSizeLarge()) {
-      $('body').on('mouseenter', '.has-secondary-image-swap', ({
-        currentTarget
-      }) => {
+      $('body').on('mouseenter', '.has-secondary-image-swap', _ref2 => {
+        let {
+          currentTarget
+        } = _ref2;
         const $thumbnailImage = $(currentTarget).find('.product-image__wrapper img');
         const $thumbnailVideo = $(currentTarget).find('.product-image__wrapper .video-on-hover');
-
         if ($thumbnailImage) {
           $thumbnailImage.toggleClass('swap--visible');
         }
-
         if ($thumbnailVideo) {
           $thumbnailVideo.toggleClass('swap--visible');
-          Shopify.theme.video.enableVideoOnHover($(currentTarget));
+          window.PXUTheme.video.enableVideoOnHover($(currentTarget));
         }
       });
-      $('body').on('mouseleave', '.has-secondary-image-swap', ({
-        currentTarget
-      }) => {
+      $('body').on('mouseleave', '.has-secondary-image-swap', _ref3 => {
+        let {
+          currentTarget
+        } = _ref3;
         const $thumbnailImage = $(currentTarget).find('.product-image__wrapper img');
         const $thumbnailVideo = $(currentTarget).find('.product-image__wrapper .video-on-hover');
-
         if ($thumbnailImage) {
           $thumbnailImage.toggleClass('swap--visible');
         }
-
         if ($thumbnailVideo) {
           $thumbnailVideo.toggleClass('swap--visible');
-          Shopify.theme.video.disableVideoOnHover($(currentTarget));
+          window.PXUTheme.video.disableVideoOnHover($(currentTarget));
         }
       });
     }
   }
-
   showQuickShop() {
     // EVENT - click on quick-shop
     $('body').on('click', '.js-quick-shop-link', e => {
       e.preventDefault();
       const $currentTarget = $(e.currentTarget);
-      Shopify.theme.jsProductClass.load($currentTarget.data('url')).then(({
-        html
-      }) => {
+      window.PXUTheme.jsProductClass.load($currentTarget.data('url')).then(_ref4 => {
+        let {
+          html
+        } = _ref4;
         $('.js-quick-shop').html(html.content);
+        $('.js-quick-shop [data-section-data]').attr('data-section-id', 'quickshop');
         $('.js-quick-shop .js-product_section').addClass('quickshop');
-
         if (!$('.fancybox-active').length) {
           $.fancybox.open($('.js-quick-shop'), {
             baseClass: `quick-shop__lightbox product-${$currentTarget.data('id')}`,
@@ -1711,19 +1582,25 @@ class ProductCard {
               preventCaptionOverlap: false,
               toolbar: true
             },
+            beforeShow: () => {
+              // Enable tabs
+              if (document.querySelectorAll('.tabs').length > 0) {
+                window.PXUTheme.tabs.enableTabs();
+              }
+              // Enable accordions
+              if (document.querySelectorAll('.accordion').length > 0) {
+                window.PXUTheme.contentCreator.accordion.init();
+              }
+            },
             afterShow: (_e, instance) => {
               // Use unique identifier for the product gallery
               const {
                 src
               } = instance;
               const $quickshop = $(src).find('.quick-shop');
-              Shopify.theme.jsProduct.init($('.js-quick-shop'));
+              window.PXUTheme.jsProduct.init($('.js-quick-shop'));
               $quickshop.addClass('quick-shop--loaded');
               $quickshop.addClass('content-loaded');
-
-              if ($('.quickshop .tabs').length > 0) {
-                Shopify.theme.tabs.enableTabs();
-              }
             },
             beforeClose: (_e, instance) => {
               // Use unique identifier for the product gallery
@@ -1736,13 +1613,11 @@ class ProductCard {
             }
           });
         }
-      }).catch(error => console.error(e));
+      }).catch(error => console.error(error));
     });
   }
-
 }
-
-Shopify.theme.thumbnail = new ProductCard();
+window.PXUTheme.thumbnail = new ProductCard();
 const videoEl = {
   playButtonIcon: '<button type="button" class="plyr__control plyr__control--overlaid" aria-label="Play, {title}" data-plyr="play"><svg class="play-icon-button-control" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="60" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M23 20V40L39 29.4248L23 20Z" fill="#323232"/></svg><span class="plyr__sr-only">Play</span></button>',
   playButton: '<button type="button" class="plyr__controls__item plyr__control" aria-label="Play, {title}" data-plyr="play"><svg class="icon--pressed" role="presentation"><use xlink:href="#plyr-pause"></use></svg><svg class="icon--not-pressed" role="presentation"><use xlink:href="#plyr-play"></use></svg><span class="label--pressed plyr__tooltip" role="tooltip">Pause</span><span class="label--not-pressed plyr__tooltip" role="tooltip">Play</span></button>',
@@ -1754,7 +1629,7 @@ const videoEl = {
 const videoControls = `${videoEl.playButtonIcon}<div class="plyr__controls"> ${videoEl.playButton} ${videoEl.progressInput} ${videoEl.muteButton} ${videoEl.volume} ${videoEl.fullscreen}</div>`;
 let videoPlayers = [];
 let videosInRecommendedProductsPlayer;
-Shopify.theme.video = {
+window.PXUTheme.video = {
   init: function () {
     this.setupVideoPlayer();
   },
@@ -1784,18 +1659,16 @@ Shopify.theme.video = {
     $.each(videoPlayers, function (index, player) {
       const id = player.id;
       let $video;
-
       if (player.isHTML5) {
         $video = $(player.elements.wrapper).find('video');
         $video.attr('data-plyr-video-id', id);
-      } // When a video is playing, pause any other instances
+      }
 
-
+      // When a video is playing, pause any other instances
       player.on('play', function (event) {
         var instance = event.detail.plyr;
         $.each(videoPlayers, function (index, player) {
           var playerID = player.id || player.media.dataset.plyrVideoId;
-
           if (instance.id != playerID) {
             player.pause();
           }
@@ -1807,13 +1680,11 @@ Shopify.theme.video = {
     var $html5Video = $thumbnail.find('[data-html5-video]');
     var $youtubeVideo = $thumbnail.find('[data-youtube-video]');
     var videoID;
-
     if ($html5Video.length > 0) {
       videoID = $html5Video.find('[data-plyr-video-id]').data('plyr-video-id');
     } else if ($youtubeVideo.length > 0) {
       videoID = $youtubeVideo.find('iframe').attr('id');
     }
-
     if (videoID) {
       $.each(videoPlayers, function (index, player) {
         if (player.id == videoID || player.media.id == videoID) {
@@ -1828,13 +1699,11 @@ Shopify.theme.video = {
     var $html5Video = $thumbnail.find('[data-html5-video]');
     var $youtubeVideo = $thumbnail.find('[data-youtube-video]');
     var videoID;
-
     if ($html5Video.length > 0) {
       videoID = $html5Video.find('[data-plyr-video-id]').data('plyr-video-id');
     } else if ($youtubeVideo.length > 0) {
       videoID = $youtubeVideo.find('iframe').attr('id');
     }
-
     if (videoID) {
       $.each(videoPlayers, function (index, player) {
         if (player.id == videoID || player.media.id == videoID) {
@@ -1846,3 +1715,19 @@ Shopify.theme.video = {
     }
   }
 };
+window.addEventListener('load', () => {
+  // eslint-disable-next-line max-len
+  if (window.Shopify && window.Shopify.theme && window.PXUTheme && navigator && navigator.sendBeacon && window.Shopify.designMode) {
+    if (sessionStorage.getItem('oots_beacon')) return;
+    navigator.sendBeacon('https://app.outofthesandbox.com/beacon', new URLSearchParams({
+      shop_domain: window.Shopify.shop,
+      shop_id: window.Store.id,
+      theme_name: window.PXUTheme.name,
+      theme_version: window.PXUTheme.version,
+      theme_store_id: window.Shopify.theme.theme_store_id,
+      theme_id: window.Shopify.theme.id,
+      theme_role: window.Shopify.theme.role
+    }));
+    sessionStorage.setItem('oots_beacon', '');
+  }
+});

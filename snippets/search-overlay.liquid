@@ -15,18 +15,19 @@
       <div class="one-whole column" data-autocomplete-{{ settings.enable_autocomplete }}>
         <form class="search-form search-popup__form" action="{{ routes.search_url }}">
           <div class="search__fields">
-            <input type="hidden" name="type" value="{{ settings.search_option }}" />
-            <label for="q" class="visuallyhidden">{{ settings.search_placeholder }}</label>
+            <label for="q" class="visually-hidden">{{ settings.search_placeholder }}</label>
             <div class="field">
-              <div class="control has-icons-left">
+              <div class="control has-icons-left search-overlay__control">
                 <input class="input" type="text" name="q" placeholder="{{ settings.search_placeholder }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" data-q/>
-                {% render 'icon',
-                        name: 'search',
-                        class: 'icon is-left'
-                %}
+                <button type="submit" name="search">
+                  {%
+                    render 'icon',
+                    name: 'search',
+                    class: 'icon is-left',
+                  %}
+                </button>
               </div>
             </div>
-            <input type="submit" name="search" class="visuallyhidden" value="" />
           </div>
         </form>
       </div>
@@ -35,7 +36,7 @@
         {% assign search_menu = linklists[settings.search_menu] %}
         <div class="one-whole column text-align-center">
           <div class="search-menu">
-            <span>{{ 'general.search.common_terms' | t }}:</span>
+            <span class="search-menu__heading">{{ 'general.search.common_terms' | t }}:</span>
             <ul class="search-menu__list">
               {% for link in search_menu.links %}
                 <li class="search-menu__item">

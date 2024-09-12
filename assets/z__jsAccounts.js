@@ -1,25 +1,23 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsAccounts = {
-  init: function($section){
-
-    $('.js-recover-password').on('click', function(){
+window.PXUTheme.jsAccounts = {
+  init() {
+    $('.js-recover-password').on('click', () => {
       $('#login').hide();
       $('#recover-password').show();
     });
 
-    $('.cancel-recover-password').on('click', function(){
+    $('.cancel-recover-password').on('click', () => {
       $('#recover-password').hide();
-      $('#login').show();
-    })
-
+      $('#login, #customer_login').show();
+    });
   },
 
-  unload: function($section) {
+  unload() {
     $('.js-recover-password').off();
     $('.cancel-recover-password').off();
-  }
-}
+  },
+};
 
 /******/ })()
 ;

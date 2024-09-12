@@ -1,5 +1,5 @@
 {% if block.settings.newsletter_title != blank %}
-  <div data-has-toggle-option>
+  <div class="sidebar-block__toggle" data-has-toggle-option>
     <h3 class="sidebar-block__heading" {% if settings.toggle_sidebar %}data-sidebar-block__toggle="closed" aria-label="toggle"{% endif %}>
       {{ block.settings.newsletter_title }}
       {% if settings.toggle_sidebar %}
@@ -25,10 +25,11 @@
   <div class="sidebar-block__text content">
     {{ block.settings.newsletter_richtext }}
   </div>
-  {% render 'newsletter-form',
-          type: 'block',
-          block: block,
-          display_first_name: block.settings.display_first_name,
-          display_last_name: block.settings.display_last_name
+  {%
+    render 'newsletter-form',
+    type: 'block',
+    display_first_name: block.settings.display_first_name,
+    display_last_name: block.settings.display_last_name,
+    id: 'sidebar',
   %}
 </div>

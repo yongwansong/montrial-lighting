@@ -96,9 +96,11 @@
 
     <div class="register__image one-half medium-down--one-whole column is-order-aligned-{{ section.settings.image_position }}">
       {% if section.settings.image %}
-        {% render 'image-element',
-                image: section.settings.image,
-                alt: section.settings.image.alt
+        {%
+          render 'image-element',
+          image: section.settings.image,
+          alt: section.settings.image.alt,
+          focal_point: section.settings.image.presentation.focal_point,
         %}
       {% endif %}
     </div>

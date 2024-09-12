@@ -1,4 +1,90 @@
 {
+  "product": {
+    "variants": {
+      "choose_variant": "Choose a variant",
+      "choose_option": "Choose a {{ option }}",
+      "chosen_option_html": "{{ option }}: <span>{{ value }}<\/span>"
+    },
+    "price": {
+      "range_html": "{{ price_min }} - {{ price_max }}",
+      "unit_pricing_html": "{{ unit_quantity }} | {{ unit_price }} \/ {{ unit_measurement}}"
+    },
+    "badge": {
+      "sale_percentage_range_html": "Save up to {{ price_percent }}%",
+      "sale_percentage_single_html": "Save {{ price_percent }}%",
+      "sale_money_range_html": "Save up to {{ price }}",
+      "sale_money_single_html": "Save {{ price }}",
+      "sold_out": "Sold out",
+      "sale": "Sale",
+      "in_stock": "In stock"
+    }
+  },
+  "store_availability": {
+    "general": {
+      "in_stock": "In stock",
+      "out_of_stock": "Out of stock",
+      "view_store_info": "View store information",
+      "check_other_stores": "Check availability at other stores",
+      "available_for_pick_up_at_html": "Pickup available at <b>{{ location_name }}<\/b>",
+      "unavailable_for_pick_up_at_html": "Pickup currently unavailable at <b>{{ location_name }}<\/b>",
+      "available_for_pick_up_at_time_html": "Pickup available, {{ pick_up_time }}",
+      "unavailable_for_pick_up_at_time_html": "Pickup currently unavailable",
+      "kilometers": "km",
+      "miles": "mi"
+    }
+  },
+  "structured_data": {
+    "breadcrumbs": {
+      "cart": "Cart",
+      "collections": "Collections",
+      "page": "Page {{ page }}",
+      "products": "Products",
+      "search": "Search",
+      "tags_html": "Tagged \"{{ tags }}\""
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox_label": "I want to send this as a gift",
+      "email_label": "Recipient email",
+      "email_placeholder": "Recipient email *",
+      "error_message": "Email is not valid",
+      "name_label": "Recipient name (optional)",
+      "name_placeholder": "Recipient name (optional)",
+      "message_label": "Message (optional)",
+      "message_placeholder": "Message (optional)",
+      "max_characters": "{{ max_characters }} characters max"
+    }
+  },
+  "sections": {
+    "complementary_product_block": {
+      "from": "from",
+      "now": "now",
+      "view_details": "View product",
+      "price_per_unit_html": "{{ total_quantity }} | {{ unit_price }} \/ {{ unit_measure }}"
+    }
+  },
+  "age_gate": {
+    "form": {
+      "confirm": "Confirm age and proceed to {{ shop }}",
+      "error": "Shop access is limited to adults age {{ age }} and older.",
+      "day": "Day",
+      "month": "Month",
+      "year": "Year",
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
+  },
   "date_formats": {
     "month_day_year": "%B %d, %Y"
   },
@@ -7,6 +93,11 @@
       "title": "Page Not Found",
       "subtext": "We're sorry, but the page you requested could not be found.",
       "continue_shopping_html": "Try searching or <a href=\"\/collections\/all\">continue shopping &rarr;<\/a>"
+    },
+    "accessibility": {
+      "star_review_text": "Review",
+      "star_reviews_text": "Reviews",
+      "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars"
     },
     "pagination": {
       "previous": "Previous",
@@ -57,8 +148,13 @@
       "description": "Find what you seek",
       "no_results_html": "Your search for \"{{ terms }}\" did not match any results.",
       "advanced_search_html": "Advanced Search &#8594;",
+      "suggestions": "Suggestions",
       "no_results": "No results found.",
-      "all_results": "View all results",
+      "search_for": "Search for \"{{ search_terms }}\"",
+      "products": "Products",
+      "pages": "Pages",
+      "posts": "Posts",
+      "pages_and_posts": "Pages & Posts",
       "results_count": {
         "zero": "{{ count }} results",
         "one": "{{ count }} result",
@@ -67,7 +163,14 @@
       "placeholder": "Search",
       "placeholder_with_shop_name": "Search {{ shop_name }}...",
       "submit": "Search",
-      "common_terms": "Commonly searched"
+      "common_terms": "Commonly searched",
+      "all_results": "View all results"
+    },
+    "country": {
+      "dropdown_label": "Country"
+    },
+    "language": {
+      "dropdown_label": "Language"
     }
   },
   "gallery": {
@@ -140,7 +243,9 @@
       "staff_pick": "Staff Pick",
       "pre_order": "Pre-Order",
       "sale": "Sale",
+      "sold_out": "Sold Out",
       "view_all": "View All",
+      "view_product_details": "View full details",
       "view_product_details_html": "View full details"
     },
     "sidebar": {
@@ -148,7 +253,11 @@
       "product_types": "Types",
       "vendors": "Vendors",
       "tags": "Tags",
-      "clear": "Clear"
+      "clear": "Clear",
+      "apply_filter": "Apply",
+      "clear_all": "Clear all",
+      "from": "From",
+      "to": "To"
     },
     "sorting": {
       "title": "Sort by",
@@ -172,6 +281,7 @@
       "from": "from"
     },
     "product": {
+      "select_variant": "Please select all your options",
       "sold_out": "Sold Out",
       "unavailable": "Unavailable",
       "quantity": "Qty",
@@ -182,7 +292,6 @@
       "collections": "Collections",
       "product_types": "Type",
       "tags": "Category",
-      "size_chart": "Size Guide",
       "savings": "You save:",
       "products_tagged": "Products tagged {{ tag }}",
       "items_left_count": {
@@ -190,9 +299,12 @@
         "other": "items left"
       },
       "view_in_your_space": "View in your space",
+      "size_chart": "Size Guide",
+      "range_html": "from {{ price_min }} to {{ price_max }}"
+    },
+    "item": {
       "price": {
-        "range_html": "{{ price_min }} - {{ price_max }}",
-        "unit_pricing_html": "{{ unit_quantity }} | {{ unit_price }} \/ {{ unit_measurement}}"
+        "price_per_unit_html": "{{ total_quantity }} | {{ unit_price }} \/ {{ unit_measure }}"
       }
     },
     "notify_form": {
@@ -220,7 +332,8 @@
       "title": "My Account",
       "details": "Account Details",
       "view_addresses": "View Addresses",
-      "return": "Return to Account Details"
+      "return": "Return to Account Details",
+      "primary_address": "Primary Address"
     },
     "orders": {
       "title": "Order History",
@@ -300,6 +413,8 @@
     "order": {
       "title": "Order {{ name }}",
       "date": "Placed on {{ date }}",
+      "note": "Order notes",
+      "note_placeholder": "No order notes were provided.",
       "cancelled": "Order Cancelled on {{ date }}",
       "cancelled_reason": "Reason: {{ reason }}",
       "billing_address": "Billing Address",
@@ -375,7 +490,10 @@
       "uploaded_file": "uploaded file",
       "continue_browsing_html": "There are no items in your cart.",
       "continue_shopping_link_html": "Continue Shopping",
-      "excluding_tax_shipping": "Excluding tax & shipping",
+      "tax_and_shipping": "Taxes and shipping calculated at checkout",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout",
+      "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
+      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping<\/a> calculated at checkout.",
       "orders_processed_in_currency_html": "Orders will be processed in {{ currency }}.",
       "note": "Order Notes",
       "note_detailed": "Include any notes or special instructions for your order here:",
@@ -385,7 +503,8 @@
       "or": "or",
       "subtotal": "Subtotal",
       "update": "Update Subtotal",
-      "checkout": "Checkout"
+      "checkout": "Checkout",
+      "excluding_tax_shipping": "Excluding tax & shipping"
     },
     "shipping_calculator": {
       "title": "Shipping rates calculator",
@@ -393,6 +512,9 @@
       "country": "Country",
       "province": "State \/ Province",
       "zip_code": "Zip \/ Postal Code",
+      "is_not_valid": "is not valid",
+      "is_not_blank": "can't be blank",
+      "is_not_supported": "is not supported",
       "heading": "Shipping rates calculator",
       "submit_button_label": "Calculate",
       "submit_button_label_disabled": "Calculating...",
@@ -427,14 +549,15 @@
     },
     "social_sharing": {
       "title": "Share",
-      "twitter_share": "Check out {{ title }} from {{ name }}: {{ current_url }}",
-      "twitter_title": "Share this on Twitter",
+      "x_title": "Share this on X",
       "facebook_title": "Share this on Facebook",
       "pinterest_title": "Share this on Pinterest",
       "pinterest_share": "{{ title }} from {{ name }}",
       "email_title": "Email this to a friend",
       "email_subject": "Thought you might like {{ title }}",
-      "email_message": "Hey, I was browsing {{ name }} and found {{ title }}. I wanted to share it with you."
+      "email_message": "Hey, I was browsing {{ name }} and found {{ title }}. I wanted to share it with you.",
+      "twitter_share": "Check out {{ title }} from {{ name }}: {{ current_url }}",
+      "twitter_title": "Share this on Twitter"
     },
     "customer": {
       "logged_in_as": "Logged in as",
@@ -524,50 +647,5 @@
     "review_token_expired": "You're late. The link is expired!",
     "view_on_instagram": "View on Instagram",
     "login_required_to_review": "Please log in to leave your review"
-  },
-  "pagefly": {
-    "products": {
-      "product": {
-        "regular_price": "Regular price",
-        "sold_out": "Sold out",
-        "unavailable": "Unavailable",
-        "on_sale": "Sale",
-        "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
-        "back_to_collection": "Back to {{ title }}",
-        "view_details": "View details"
-      }
-    },
-    "article": {
-      "tags": "Tags:",
-      "all_topics": "All topics",
-      "by_author": "by {{ author }}",
-      "posted_in": "Posted in",
-      "read_more": "Read more",
-      "back_to_blog": "Back to {{ title }}"
-    },
-    "comments": {
-      "title": "Leave a comment",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "post": "Post comment",
-      "moderated": "Please note, comments must be approved before they are published",
-      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
-      "success": "Your comment was posted successfully! Thank you!",
-      "comments_with_count": {
-        "one": "{{ count }} comment",
-        "other": "{{ count }} comments"
-      }
-    },
-    "password_page": {
-      "login_form_message": "Enter store using password:",
-      "login_form_password_label": "Password",
-      "login_form_password_placeholder": "Your password",
-      "login_form_submit": "Enter",
-      "signup_form_email_label": "Email",
-      "signup_form_success": "We will send you an email right before we open!",
-      "password_link": "Enter using password"
-    }
   }
 }

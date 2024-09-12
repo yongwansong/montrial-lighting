@@ -100,7 +100,7 @@
           "type": "content",
           "settings": {
             "title": "How long will it take to receive my order?",
-            "answer": "<p>In-stock orders ship from our warehouse in Montreal and typically arrive anywhere in Canada within 3-5 business days. Deliveries are made Monday-Friday during regular business hours. <\/p><p>Please be aware that your product may be shipped directly from the vendor for faster delivery. <\/p><p>We are happy to provide you with delivery quotations for expedited deliveries as well as international orders.<\/p>"
+            "answer": "<p>In-stock orders ship from our warehouse in Montreal and typically arrive anywhere in Canada within 3-5 business days. Deliveries are made Monday-Friday during regular business hours. <\/p><p>If an item is not in stock we will contact you with the expected delivery date. Please be aware that your product may be shipped directly from the vendor for faster delivery. <\/p><p>We are happy to provide you with delivery quotations for expedited deliveries as well as international orders.<\/p>"
           }
         },
         "42c1aa74-d9eb-4929-a5ce-c45be33ab0fb": {

@@ -23,11 +23,11 @@
 {%- assign locale_selector = false -%}
 {%- assign currency_selector = false -%}
 
-{%- if section.settings.show_currency_selector == true and shop.enabled_currencies.size > 1 -%}
+{%- if section.settings.show_currency_selector and shop.enabled_currencies.size > 1 or localization.available_countries.size > 1 -%}
   {%- assign currency_selector = true -%}
 {%- endif -%}
 
-{%- if section.settings.show_locale_selector == true and shop.published_locales.size > 1 -%}
+{%- if section.settings.show_locale_selector and shop.published_locales.size > 1 -%}
   {%- assign locale_selector = true -%}
 {%- endif -%}
 
@@ -81,24 +81,43 @@
 {% endstyle %}
 
 {% comment %} HTML markup {% endcomment %}
-{% if section.settings.show_top_bar and section.blocks.size > 0 %}
+{% if section.blocks.size > 0 %}
 <section class="{{ css_class }}
                 section
                 is-width-{{ width }}">
   <div class="container">
-    <header class="top-bar navbar is-justify-space-between one-whole column {% if locale_selector or currency_selector or settings.show_multiple_currencies == true %}disclosure-enabled{% endif %}">
+    <header class="top-bar navbar is-justify-space-between one-whole column {% if locale_selector or currency_selector or settings.show_multiple_currencies %}disclosure-enabled{% endif %}">
+      {% assign text_data = true %}
       {% for block in section.blocks %}
         {% if block.type == 'menu' %}
           {% comment %}Menu{% endcomment %}
           <div class="top-bar__{{ block.type | replace: '_', '-' }} is-justify-{{ block.settings.menu_alignment }}">
-            <div class="top-bar__menu-items is-flex is-flex-wrap ">
+            <div class="top-bar__menu-items is-flex is-flex-wrap is-align-center">
               {% assign main_menu = linklists[block.settings.menu] %}
               {% for link in main_menu.links %}
                 <a href="{{ link.url }}" class="navbar-link is-arrowless {% if link.active %}is-active{% endif %}">
                   {{ link.title }}
                 </a>
+                {% if forloop.index == 1 %}
+                {% endif %}
               {% endfor %}
               
+            </div>
+            <div translate="no" class="custom-language-switcher">
+              <div class="container">
+                <ul>
+                  <li data-code="fr">
+                    <a title="French" href="//{{ request.host }}{% unless request.path contains '/fr' %}/fr{% endunless %}{{ request.path }}" class="js-no-transition ls-sw-link">
+                      <i class="ls-text">FR</i>
+                    </a>        
+                  </li>
+                  <li data-code="en" class="active">
+                    <a title="English" href="//{{ request.host }}{{ request.path | replace: '/fr', '' }}" class="js-no-transition ls-sw-link">
+                      <i class="ls-text">EN</i>
+                    </a>
+                  </li>
+                </ul>    
+              </div>
             </div>
             <selector data-type="languages" data-id="16022519"></selector>
           </div>
@@ -109,17 +128,23 @@
               {% render 'social-icons' %}
             </div>
           </div>
-        {% elsif block.type == 'text' %}
+        {% elsif block.type == 'text' and text_data == true %}
           {% comment %}Phone number{% endcomment %}
+          {% assign text_block = section.blocks | where:'type','text' %}
+          
           <div class="top-bar__item top-bar__{{ block.type | replace: '_', '-' }}">
+            {% for block in text_block %}
             <p class="navbar-item is-flex is-flex-wrap">
               {{ block.settings.text }}
             </p>
+            {% endfor %}
           </div>
+          
+          {% assign text_data = false %}
         {% endif %}
       {% endfor %}
 
-      {% if locale_selector or currency_selector or settings.show_multiple_currencies == true %}
+      {% if locale_selector or currency_selector or settings.show_multiple_currencies %}
         <div class="top-bar__item top-bar__disclosure">
           {%
             render 'localization-switcher',
@@ -138,214 +163,196 @@
 {% endif %}
 
 {% schema %}
-
-{
-  "name": "Top bar",
-  "class": "top-bar",
-  "max_blocks": 4,
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_top_bar",
-      "label": "Show top bar",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Typography"
-    },
-    {
-      "type": "font_picker",
-      "id": "font",
-      "label": "Font",
-      "default": "open_sans_n4"
-    },
-    {
-      "type": "select",
-      "id": "font_style",
-      "label": "Capitalization",
-      "default": "none",
-      "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        },
-        {
-          "value": "uppercase",
-          "label": "Uppercase"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "font_size",
-      "label": "Base size",
-      "min": 10,
-      "max": 20,
-      "default": 14,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "letter_spacing",
-      "label": "Letter spacing",
-      "min": 0,
-      "max": 6,
-      "default": 0,
-      "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Language selector",
-      "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_locale_selector",
-      "label": "Show language selector",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Currency selector",
-      "info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_currency_selector",
-      "label": "Show currency selector",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "background",
-      "label": "Background",
-      "default": "rgba(0,0,0,0)"
-    },
-    {
-      "type": "color",
-      "id": "link_color",
-      "label": "Link",
-      "default": "rgba(0,0,0,0)"
-    },
-    {
-      "type": "color",
-      "id": "link_hover_color",
-      "label": "Link hover",
-      "default": "rgba(0,0,0,0)"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text",
-      "default": "rgba(0,0,0,0)"
-    },
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "width",
-      "label": "Width",
-      "default": "standard",
-      "options": [
-        {
-          "value": "standard",
-          "label": "Standard"
-        },
-        {
-          "value": "wide",
-          "label": "Wide"
-        }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Advanced",
-      "info": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
-    },
-    {
-      "type": "text",
-      "id": "css_class",
-      "label": "CSS Class"
-    },
-    {
-      "type": "textarea",
-      "id": "custom_css",
-      "label": "Custom CSS"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "menu",
-      "name": "Menu",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "link_list",
-          "id": "menu",
-          "label": "Menu",
-          "info": "This menu won't show drop-down items."
-        },
-        {
-          "type": "select",
-          "id": "menu_alignment",
-          "label": "Menu alignment",
-          "default": "center",
-          "options": [
-            {
-              "value": "start",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "end",
-              "label": "Right"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "social_media",
-      "name": "Social media",
-      "limit": 1
-    },
-    {
-      "type": "text",
-      "name": "Text",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "123 Main Street, Pleasantville USA"
-        }
-      ]
-    }
-  ],
-  "default": {
-    "blocks": [
+  {
+    "name": "Top bar",
+    "class": "top-bar",
+    "max_blocks": 4,
+    "settings": [
       {
-        "type": "text"
+        "type": "header",
+        "content": "Colors"
       },
       {
-        "type": "social_media"
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link",
+        "default": "rgba(0,0,0,0)"
+      },
+      {
+        "type": "color",
+        "id": "link_hover_color",
+        "label": "Link hover",
+        "default": "rgba(0,0,0,0)"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text",
+        "default": "rgba(0,0,0,0)"
+      },
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "font",
+        "label": "Font",
+        "default": "open_sans_n4"
+      },
+      {
+        "type": "select",
+        "id": "font_style",
+        "label": "Capitalization",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          },
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "font_size",
+        "label": "Base size",
+        "min": 10,
+        "max": 20,
+        "default": 14,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "letter_spacing",
+        "label": "Letter spacing",
+        "min": 0,
+        "max": 6,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "header",
+        "content": "Language selector",
+        "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_locale_selector",
+        "label": "Enable language selector",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Country selector",
+        "info": "To add a country, go to your [payment settings.](/admin/settings/payments)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_currency_selector",
+        "label": "Enable country selector",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "standard",
+        "options": [
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "wide",
+            "label": "Wide"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Advanced",
+        "info": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
+      },
+      {
+        "type": "text",
+        "id": "css_class",
+        "label": "CSS Class"
+      },
+      {
+        "type": "textarea",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "menu",
+        "name": "Menu",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu",
+            "info": "This menu won't show drop-down items."
+          },
+          {
+            "type": "select",
+            "id": "menu_alignment",
+            "label": "Menu alignment",
+            "default": "center",
+            "options": [
+              {
+                "value": "start",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "end",
+                "label": "Right"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "social_media",
+        "name": "Social media",
+        "limit": 1
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "123 Main Street, Pleasantville USA"
+          }
+        ]
       }
     ]
   }
-}
-
 {% endschema %}

@@ -1,11 +1,11 @@
 {%- assign locale_selector = false -%}
 {%- assign currency_selector = false -%}
 
-{%- if settings.show_currency_selector == true and shop.enabled_currencies.size > 1 -%}
+{%- if settings.show_currency_selector and shop.enabled_currencies.size > 1 or localization.available_countries.size > 1 -%}
   {%- assign currency_selector = true -%}
 {%- endif -%}
 
-{%- if settings.show_locale_selector == true and shop.published_locales.size > 1 -%}
+{%- if settings.show_locale_selector and shop.published_locales.size > 1 -%}
   {%- assign locale_selector = true -%}
 {%- endif -%}
 
@@ -26,10 +26,10 @@
 
       {% if shop.customer_accounts_enabled %}
         {% comment %} Accounts {% endcomment %}
-        <li class="mobile-menu__last"{% comment %}SV-Dec-6-2021{% endcomment %}>
+        <li>
           {% if customer %}
             {% comment %} Logout {% endcomment %}
-            <a class="mobile-menu__item item-with-icon" href="{{ routes.account_url }}" aria-label="log in">
+            <a class="mobile-menu__item item-with-icon" href="{{ routes.account_url }}" >
               {% if settings.icon_style != 'text' %}
                 {% render 'icon', name: 'avatar' %}
               {% endif %}
@@ -39,7 +39,7 @@
             </a>
           {% else %}
             {% comment %} Login {% endcomment %}
-            <a class="mobile-menu__item item-with-icon" href="{{ routes.account_login_url }}" aria-label="log in">
+            <a class="mobile-menu__item item-with-icon" href="{{ routes.account_login_url }}" >
               {% if settings.icon_style != 'text' %}
                 {% render 'icon', name: 'avatar' %}
               {% endif %}
@@ -48,30 +48,16 @@
               </span>
             </a>
           {% endif %}
-          
-          {% comment %}SV-Dec-6-2021{% endcomment %}
-          <a class="ssw-link-fave-menu ssw-link-fave-menu-hide-count header__link action-area__link" href="/pages/wishlist">
-            <i class="ssw-icon-heart-o"></i> View Wishlist
-            <span class="ssw-counter-fave-menu" style="display: none">0</span>
-          </a>   
-
-          <selector data-type="languages" data-id="9776383782"></selector>          
         </li>
       {% endif %}
-
-      {% comment %}SV-Dec-6-2021{% endcomment %}
-      {% comment %}
-      <li>
-        {%
-          render 'localization-switcher-mobile',
-          id: 'selector-form--mobile',
-          additional_classes: 'selectors-form--mobile',
-          currency_selector: currency_selector,
-          locale_selector: locale_selector,
-          show_currency: settings.show_currency_selector
-        %}
-      </li>
-      {% endcomment %}      
     </ul>
+    {%
+      render 'localization-switcher',
+      id: 'selector-form--mobile',
+      additional_classes: 'selectors-form--mobile',
+      currency_selector: currency_selector,
+      locale_selector: locale_selector,
+      show_currency: settings.show_currency_selector,
+     %}
   </div>
 </div>

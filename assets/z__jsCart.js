@@ -1,17 +1,17 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsCart = {
+window.PXUTheme.jsCart = {
   init: function ($section) {
 
     // Add settings from schema to current object
-    //Shopify.theme.jsCart = $.extend(this, Shopify.theme.getSectionData($section));
+    //window.PXUTheme.jsCart = $.extend(this, window.PXUTheme.getSectionData($section));
 
     this.$section = $section;
 
     $(document).on('click', '[data-cart-page-delete]', function (e) {
       e.preventDefault();
       const lineID = $(this).data('line-item-key');
-      Shopify.theme.jsCart.removeFromCart(lineID);
+      window.PXUTheme.jsCart.removeFromCart(lineID);
 
       return false;
     });
@@ -25,7 +25,7 @@ Shopify.theme.jsCart = {
     });
   },
   removeFromCart: function (lineID) {
-    const $cartItem = Shopify.theme.jsCart.$section.find(`[data-line-item="${lineID}"]`);
+    const $cartItem = window.PXUTheme.jsCart.$section.find(`[data-line-item="${lineID}"]`);
 
     $cartItem.css('opacity', '0.5');
 
@@ -39,10 +39,10 @@ Shopify.theme.jsCart = {
         $cartItem.addClass('animated zoomOut')
         $cartItem.remove();
 
-        Shopify.theme.jsCart.updateView(cart, lineID);
+        window.PXUTheme.jsCart.updateView(cart, lineID);
 
-        if (typeof Shopify.theme.jsAjaxCart !== 'undefined') {
-          Shopify.theme.jsAjaxCart.updateView();
+        if (typeof window.PXUTheme.jsAjaxCart !== 'undefined') {
+          window.PXUTheme.jsAjaxCart.updateView();
         }
       },
       error: function (XMLHttpRequest, textStatus) {

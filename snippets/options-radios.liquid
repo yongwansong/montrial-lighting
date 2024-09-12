@@ -4,12 +4,8 @@
   @param selected_variant
 {% endcomment %}
 
-{% assign downcased_option = option.name | downcase %}
+{% assign swatch_trigger = settings.swatch_trigger | strip | downcase %}
 {% assign file_extension = 'png' %}
-
-{% if show_swatches and downcased_option contains 'color' or downcased_option contains 'colour' %}
-  {% assign is_color = true %}
-{% endif %}
 
 {% assign loop_index = option_index | plus: 1 %}
 {%- assign swatch_option_key = 'option' | append: loop_index -%}
@@ -25,8 +21,13 @@
     data-variant-option-chosen-value="{% if selected_variant %}{{ option.selected_value }}{% else %}false{% endif %}"
   >
     {% for value in option.values %}
+      {% assign option_name = option.name | downcase %}
 
-      {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
+      {% if show_swatches and option_name == swatch_trigger %}
+        {% assign is_color = true %}
+      {% endif %}
+
+      {% if option_name == swatch_trigger %}
         {% assign swatch_search_color = value | downcase %}
         {% for variant in product.variants %}
           {% assign option_value_downcased = variant[swatch_option_key] | downcase %}
@@ -36,7 +37,7 @@
         {% endfor %}
       {% endif %}
 
-      <div class="swatch__option" data-variant-option-value-wrapper>
+      <div class="swatch__option" varId="{{ product.variants[forloop.index0].id  }}" data-variant-option-value-wrapper>
         <input
           class="swatch--{{ value | handle }}"
           type="radio"

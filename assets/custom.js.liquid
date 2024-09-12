@@ -41,6 +41,278 @@ var _utils = (function() {
   return fx;
 })();
 
+/* Read More */
+const ReadMore = (() => {
+  let s;
+
+  return {
+
+    settings(element) {
+      return {
+        content: element,
+        originalContentArr: [],
+        truncatedContentArr: [],
+        moreLink: "Read More",
+        lessLink: "Read Less",
+      }
+    },
+
+    init(element) {
+      s = this.settings(element);
+      this.bindEvents();
+      element.forEach( el =>{
+       el.classList.add('loaded');
+      })
+    },
+
+    bindEvents() {
+      ReadMore.truncateText();
+    },
+
+    /**
+     * Count Words
+     * Helper to handle word count.
+     * @param {string} str - Target content string.
+     */
+    countWords(str) {
+      return str.split(/\s+/).length;
+    },
+
+    /**
+     * Ellpise Content
+     * @param {string} str - content string.
+     * @param {number} wordsNum - Number of words to show before truncation.
+     */
+    ellipseContent(str, wordsNum) {
+      //return str.split(/\s+/).slice(0, wordsNum).join(' ') + '...';
+      return str.split(/\s+/).slice(0, wordsNum).join(' ');
+    },
+
+    /**
+     * Truncate Text
+     * Truncate and ellipses contented content
+     * based on specified word count.
+     * Calls createLink() and handleClick() methods.
+     */
+    truncateText() {
+
+      for (let i = 0; i < s.content.length; i++) {
+        // console.log(s.content)
+        const originalContent = s.content[i].innerHTML;
+        const numberOfWords = s.content[i].dataset.rmWords;
+        const truncateContent = ReadMore.ellipseContent(originalContent, numberOfWords);
+        const originalContentWords = ReadMore.countWords(originalContent);
+
+        s.originalContentArr.push(originalContent);
+        s.truncatedContentArr.push(truncateContent);
+
+        if (numberOfWords < originalContentWords) {
+          s.content[i].innerHTML = s.truncatedContentArr[i];
+          let self = i;
+          ReadMore.createLink(self)
+        }
+      }
+      ReadMore.handleClick(s.content);
+    },
+
+    /**
+     * Create Link
+     * Creates and Inserts Read More Link
+     * @param {number} index - index reference of looped item
+     */
+    createLink(index) {
+      const linkWrap = document.createElement('span');
+
+      linkWrap.className = 'read-more__link-wrap';
+
+      linkWrap.innerHTML = `<a href="#" id="read-more_${index}" class="button button--link-style read-more__link" style="cursor:pointer;">${s.moreLink}</a>`;
+
+      // Inset created link
+      s.content[index].parentNode.insertBefore(linkWrap, s.content[index].nextSibling);
+
+    },
+
+    /**
+     * Handle Click
+     * Toggle Click eve
+     */
+    handleClick(el) {
+      const readMoreLink = document.querySelectorAll('.section-coll-faq .read-more__link');
+
+      for (let j = 0, l = readMoreLink.length; j < l; j++) {
+
+        readMoreLink[j].addEventListener('click', function(e) {
+           e.preventDefault();
+          const moreLinkID = this.getAttribute('id');
+          let index = moreLinkID.split('_')[1];
+
+          el[index].classList.toggle('is-expanded');
+
+          if (this.dataset.clicked !== 'true') {
+             el[index].innerHTML = s.originalContentArr[index];
+             this.innerHTML = s.lessLink;
+             this.dataset.clicked = true;
+          } else {
+            el[index].innerHTML = s.truncatedContentArr[index];
+            this.innerHTML = s.moreLink;
+            this.dataset.clicked = false;
+          }
+        });
+      }
+    },
+
+    /**
+     * Open All
+     * Method to expand all instances on the page.
+     */
+    openAll() {
+      const instances = document.querySelectorAll('.section-coll-faq .read-more__link');
+        for (let i = 0; i < instances.length; i++) {
+          content[i].innerHTML = s.truncatedContentArr[i];
+          instances[i].innerHTML = s.moreLink;
+        }
+      }
+    }
+})();
+
+/* Read More */
+
+/* Read More 2 */
+const ReadMore2 = (() => {
+  let s;
+
+  return {
+
+    settings(element) {
+      return {
+        content: element,
+        originalContentArr: [],
+        truncatedContentArr: [],
+        moreLink: "Read More",
+        lessLink: "Read Less",
+      }
+    },
+
+    init(element) {
+      s = this.settings(element);
+      this.bindEvents();
+      element.forEach( el =>{
+       el.classList.add('loaded');
+      })
+    },
+
+    bindEvents() {
+      ReadMore2.truncateText();
+    },
+
+    /**
+     * Count Words
+     * Helper to handle word count.
+     * @param {string} str - Target content string.
+     */
+    countWords(str) {
+      return str.split(/\s+/).length;
+    },
+
+    /**
+     * Ellpise Content
+     * @param {string} str - content string.
+     * @param {number} wordsNum - Number of words to show before truncation.
+     */
+    ellipseContent(str, wordsNum) {
+      //return str.split(/\s+/).slice(0, wordsNum).join(' ') + '...';
+      return str.split(/\s+/).slice(0, wordsNum).join(' ');
+    },
+
+    /**
+     * Truncate Text
+     * Truncate and ellipses contented content
+     * based on specified word count.
+     * Calls createLink() and handleClick() methods.
+     */
+    truncateText() {
+
+      for (let i = 0; i < s.content.length; i++) {
+        // console.log(s.content)
+        const originalContent = s.content[i].innerHTML;
+        const numberOfWords = s.content[i].dataset.rmWords;
+        const truncateContent = ReadMore2.ellipseContent(originalContent, numberOfWords);
+        const originalContentWords = ReadMore2.countWords(originalContent);
+
+        s.originalContentArr.push(originalContent);
+        s.truncatedContentArr.push(truncateContent);
+
+        if (numberOfWords < originalContentWords) {
+          s.content[i].innerHTML = s.truncatedContentArr[i];
+          let self = i;
+          ReadMore2.createLink(self)
+        }
+      }
+      ReadMore2.handleClick(s.content);
+    },
+
+    /**
+     * Create Link
+     * Creates and Inserts Read More Link
+     * @param {number} index - index reference of looped item
+     */
+    createLink(index) {
+      const linkWrap = document.createElement('span');
+
+      linkWrap.className = 'read-more__link-wrap';
+
+      linkWrap.innerHTML = `<a href="#" id="read-more_${index}" class="button button--link-style read-more__link" style="cursor:pointer;">${s.moreLink}</a>`;
+
+      // Inset created link
+      s.content[index].parentNode.insertBefore(linkWrap, s.content[index].nextSibling);
+
+    },
+
+    /**
+     * Handle Click
+     * Toggle Click eve
+     */
+    handleClick(el) {
+      const readMoreLink2 = document.querySelectorAll('.bottom-content-2 .read-more__link');
+
+      for (let j = 0, l = readMoreLink2.length; j < l; j++) {
+
+        readMoreLink2[j].addEventListener('click', function(e) {
+           e.preventDefault();
+          const moreLinkID = this.getAttribute('id');
+          let index = moreLinkID.split('_')[1];
+
+          el[index].classList.toggle('is-expanded');
+
+          if (this.dataset.clicked !== 'true') {
+             el[index].innerHTML = s.originalContentArr[index];
+             this.innerHTML = s.lessLink;
+             this.dataset.clicked = true;
+          } else {
+            el[index].innerHTML = s.truncatedContentArr[index];
+            this.innerHTML = s.moreLink;
+            this.dataset.clicked = false;
+          }
+        });
+      }
+    },
+
+    /**
+     * Open All
+     * Method to expand all instances on the page.
+     */
+    openAll() {
+      const instances = document.querySelectorAll('.bottom-content-2 .read-more__link');
+        for (let i = 0; i < instances.length; i++) {
+          content[i].innerHTML = s.truncatedContentArr[i];
+          instances[i].innerHTML = s.moreLink;
+        }
+      }
+    }
+})();
+
+/* Read More 2 */
+
 (function($) {
   function LanguageSelector() {
     function addLanguageSelector() {
@@ -117,4 +389,53 @@ var _utils = (function() {
     BlogLanguageSwitcher();
     ProductQuantity();
   });
+  
 })(jQuery);
+
+// variant selector image changes 
+$(document).ready(function(){
+  $('body').on('click','.swatch__option',function(){
+     const variantID = $(this).attr("varid");
+  const imageID = $(this).parents(".product_form").find(`select option[value=${variantID}]`).attr("image-id");
+  console.log("imageID>>>",imageID);
+    $('.product-gallery__thumbnail').removeClass('is-nav-selected')
+    $(`img[src='${imageID}']`).parent('.product-gallery__thumbnail').addClass('is-nav-selected');
+     $(`img[src='${imageID}']`).trigger('click');
+  });
+  
+      if($('.tabs').length > 0) {
+    window.PXUTheme.tabs.enableTabs();
+  }
+
+  $('.top-bar__item').flickity({
+    contain: true,
+    prevNextButtons: false,
+    pageDots: false,
+    autoPlay: true,
+    fade: true
+  });
+});
+
+
+    $('body.product .featured-collection-section .slider-gallery').slick({
+  dots: false,
+  speed: 300,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  centerMode: true,
+  centerPadding: '50px',
+  autoplay: false,
+  infinite: true,
+  cssEase:'linear',
+  prevArrow:'<button class="flickity-button flickity-prev-next-button previous"><svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M95,48H9.83L41,16.86A2,2,0,0,0,38.14,14L3.59,48.58a1.79,1.79,0,0,0-.25.31,1.19,1.19,0,0,0-.09.15l-.1.2-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31L38.14,86A2,2,0,0,0,41,86a2,2,0,0,0,0-2.83L9.83,52H95a2,2,0,0,0,0-4Z" class="arrow"></path></svg></button>',
+  nextArrow:'<button class="flickity-button flickity-prev-next-button next"><svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M95,48H9.83L41,16.86A2,2,0,0,0,38.14,14L3.59,48.58a1.79,1.79,0,0,0-.25.31,1.19,1.19,0,0,0-.09.15l-.1.2-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31L38.14,86A2,2,0,0,0,41,86a2,2,0,0,0,0-2.83L9.83,52H95a2,2,0,0,0,0-4Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></button>',
+      responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow:1, 
+        slidesToScroll: 1, 
+      }
+    }
+  ]
+});

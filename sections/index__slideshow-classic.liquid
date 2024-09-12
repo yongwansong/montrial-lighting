@@ -2,16 +2,18 @@
 ** Slideshow classic **
 {% endcomment %}
 
-{% comment %} Content settings {% endcomment %}
-{%- assign blocks = section.blocks -%}
-{% comment %} End content settings {% endcomment %}
+{% liquid
+  assign blocks = section.blocks
+  assign width = section.settings.width
+%}
 
 {% comment %} Section specific CSS {% endcomment %}
 {% style %}
   #shopify-section-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
-    {% if section.settings.width == 'wide' %}
+
+    {% if width == 'wide' %}
       width: 100%;
     {% endif %}
   }
@@ -21,26 +23,31 @@
     width: 100%;
   }
 
+  @media only screen and (max-width: 798px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+
   {%
     render 'css-loop',
     css: section_css,
-    id: section.id
+    id: section.id,
   %}
 
   {%
     render 'css-loop',
     css: section.settings.custom_css,
-    id: section.id
+    id: section.id,
   %}
-
 {% endstyle %}
 
-{% comment %} HTML markup {% endcomment %}
 <section
   class="
     section
     {{ section.settings.css_class }}
-    is-width-{{ section.settings.width }}
+    is-width-{{ width }}
     under-overlay-menu
     {% if section.settings.mobile_text_below_image == true %}
       mobile-text--below-media
@@ -54,210 +61,269 @@
 >
   <div
     class="
-      slideshow-classic
-      image-slideshow
-      image-slideshow--{{ section.settings.image_transition }}
-      page-dots--{{ section.settings.show_nav_buttons }}
+      slideshow-classic-container
+      container
+      {% if width == 'wide' %}
+        equal-columns--outside-trim
+      {% endif %}
     "
-    data-slideshow-classic
   >
-    {% for block in blocks %}
-
-      {% comment %} Content settings {% endcomment %}
-      {%- assign image = block.settings.image -%}
-      {%- assign link = block.settings.link -%}
-      {%- assign mobile_image = block.settings.mobile_image -%}
-      {%- assign pretext = block.settings.pretext -%}
-      {%- assign title = block.settings.title -%}
-      {%- assign subtitle = block.settings.subtitle -%}
-      {%- assign text_horizontal_position = block.settings.text_horizontal_position -%}
-      {%- assign button_1 = block.settings.button_1 -%}
-      {%- assign button_1_link = block.settings.button_1_link -%}
-      {%- assign button_2 = block.settings.button_2 -%}
-      {%- assign button_2_link = block.settings.button_2_link -%}
-      {% comment %} Ends content settings {% endcomment %}
-
-      {% comment %} NE compatibility {% endcomment %}
-      {% comment %} In the new editor, these will reference the section settings instead of the blocks{% endcomment %}
-      {% comment %} In the new editor, aside from the block settings listed above, all other block setting references should be changed to section settings including classes {% endcomment %}
-      {%- assign background_color_alpha = block.settings.background_opacity | divided_by: 100.00 -%}
-      {%- assign heading_alpha = block.settings.heading_color | color_extract: 'alpha' -%}
-      {%- assign preheading_alpha = block.settings.pretext_color | color_extract: 'alpha' -%}
-      {%- assign subheading_alpha = block.settings.subheading_color | color_extract: 'alpha' -%}
-      {%- assign caption_border_alpha = block.settings.border_color | color_extract: 'alpha' -%}
-      {%- assign mobile_headline_alpha = block.settings.heading_color_mobile | color_extract: 'alpha' -%}
-      {%- assign mobile_preheading_alpha = block.settings.pretext_color_mobile | color_extract: 'alpha' -%}
-      {%- assign mobile_subtitle_alpha = block.settings.subheading_color_mobile | color_extract: 'alpha' -%}
-      {%- assign caption_background_alpha = block.settings.background_color | color_extract: 'alpha' -%}
-      {% comment %} Ends NE compatibility {% endcomment %}
-
+    <div class="one-whole column">
       <div
         class="
-          gallery-cell
-          image-slideshow__slide
-          slideshow-classic__banner
-          {% if section.settings.mobile_text_below_image == true %}
-            mobile-text--below-media
-          {% else %}
-            mobile-text--over-media
-          {% endif %}
-          image-crop-{{ block.settings.mobile_image_crop }}
+          slideshow-classic
+          image-slideshow
+          image-slideshow--{{ section.settings.image_transition }}
+          page-dots--{{ section.settings.show_nav_buttons }}
         "
-        id="shopify-section-{{ block.id }}"
-        data-slide-index={{ forloop.index0 }}
-        {{ block.shopify_attributes }}
+        data-slideshow-classic
       >
+        {% for block in blocks %}
+          {% liquid
+            assign image = block.settings.image
+            assign mobile_image = block.settings.mobile_image | default: block.settings.image
+            assign link = block.settings.link
+            assign pretext = block.settings.pretext
+            assign mobile_pretext = block.settings.mobile_pretext | default: pretext
+            assign title = block.settings.title
+            assign mobile_title = block.settings.mobile_title | default: title
+            assign subtitle = block.settings.subtitle
+            assign mobile_subtitle = block.settings.mobile_subtitle | default: subtitle
+            assign text_horizontal_position = block.settings.text_horizontal_position
+            assign button_1 = block.settings.button_1
+            assign button_1_link = block.settings.button_1_link
+            assign button_2 = block.settings.button_2
+            assign button_2_link = block.settings.button_2_link
+            assign background_color_alpha = block.settings.background_opacity | divided_by: 100.00
+            assign heading_alpha = block.settings.heading_color | color_extract: 'alpha'
+            assign preheading_alpha = block.settings.pretext_color | color_extract: 'alpha'
+            assign subheading_alpha = block.settings.subheading_color | color_extract: 'alpha'
+            assign caption_border_alpha = block.settings.border_color | color_extract: 'alpha'
+            assign mobile_headline_alpha = block.settings.heading_color_mobile | color_extract: 'alpha'
+            assign mobile_preheading_alpha = block.settings.pretext_color_mobile | color_extract: 'alpha'
+            assign mobile_subtitle_alpha = block.settings.subheading_color_mobile | color_extract: 'alpha'
+            assign caption_background_alpha = block.settings.background_color | color_extract: 'alpha'
 
-        {% if button_1 != blank and button_2 != blank %}
-          {%- assign buttons = true -%}
-        {% else %}
-          {%- assign buttons = false -%}
-        {% endif %}
-
-        {% style -%}
-          #shopify-section-{{ block.id }} .caption-content {
-            background-color: {% if caption_background_alpha != 0 %}{% if background_color_alpha != 100  %}{{ block.settings.background_color | color_modify: 'alpha', background_color_alpha }}{% else %}{{ block.settings.background_color }}{% endif %}{% else %}rgba(0,0,0,0){% endif %};
-            {% comment %} NE compatibility {% endcomment %}
-            {% comment %} This will change to a default 2px border if the border color has been set {% endcomment %}
-            {% comment %}{% if section.settings.border_color != 0 %}border: 2px solid {{ section.settings.border_color }}{% endif %};{% endcomment %}
-            border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
-            {% comment %} Ends NE compatibility {% endcomment %}
-          }
-
-          #shopify-section-{{ block.id }} .slideshow-classic__heading {
-            color: {% if heading_alpha != 0 %}{{ block.settings.heading_color }}{% else %}{{ settings.heading_color }}{% endif %};
-          }
-
-          #shopify-section-{{ block.id }} .slideshow-classic__preheading {
-            color: {% if preheading_alpha != 0 %}{{ block.settings.pretext_color }}{% else %}{{ settings.heading_color }}{% endif %};
-          }
-
-          #shopify-section-{{ block.id }} .slideshow-classic__subheading {
-            color: {% if subheading_alpha != 0 %}{{ block.settings.subheading_color }}{% else %}{{ settings.heading_color }}{% endif %};
-          }
-
-          @media only screen and (min-width: 480px) {
-            #shopify-section-{{ block.id }} .caption-content {
-              width: {{ block.settings.text_width }}%;
-            }
-          }
-
-          @media only screen and (max-width: 480px) {
-            #shopify-section-{{ block.id }}  .slideshow-classic__heading {
-              color: {% if mobile_headline_alpha != 0 %}{{ block.settings.heading_color_mobile}}{% endif %};
-            }
-            #shopify-section-{{ block.id }}  .slideshow-classic__preheading {
-              color: {% if mobile_preheading_alpha != 0 %}{{ block.settings.pretext_color_mobile}}{% endif %};
-            }
-            #shopify-section-{{ block.id }}  .slideshow-classic__subheading {
-              color: {% if mobile_subtitle_alpha != 0 %}{{ block.settings.subheading_color_mobile}}{% endif %};
-            }
-          }
-        {%- endstyle -%}
-
-        {% if mobile_image != blank %}
-          {%- assign hide_mobile = 'is-hidden-mobile-only' -%}
-        {% endif %}
-
-        {% if image != blank %}
-          {%
-            render 'image-element',
-            image: image,
-            alt: image.alt,
-            stretch_width: true,
-            additional_classes:
-            hide_mobile
+            if button_1 != blank and button_2 != blank
+              assign buttons = true
+            else
+              assign buttons = false
+            endif
           %}
-        {% else %}
-          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-        {% endif %}
 
-        {% if mobile_image != blank %}
-          <div class="is-hidden-desktop-only">
-            {%
-              render 'image-element',
-              image: mobile_image,
-              alt: mobile_image.alt,
-              stretch_width: true
-            %}
-          </div>
-        {% endif %}
-
-        {% if link != blank %}
-          <a class="banner--full-link" href="{{ link }}"></a>
-        {% endif %}
-
-        {% if pretext != blank or title != blank or subtitle != blank or button_1 != blank or button_2 != blank %}
-          <div class="caption text-align-{{ text_horizontal_position }}">
-            <div class="caption-content text-align-{{ block.settings.text_alignment }}">
-              {% if pretext != blank %}
-                <div class="slideshow-classic__preheading pretext">
-                  {{ pretext }}
-                </div>
+          <div
+            class="
+              gallery-cell
+              image-slideshow__slide
+              slideshow-classic__banner
+              {% if section.settings.mobile_text_below_image == true %}
+                mobile-text--below-media
+              {% else %}
+                mobile-text--over-media
               {% endif %}
-              {% if title != blank %}
-                <h2
+            "
+            id="shopify-section-{{ block.id }}"
+            data-slide-index={{ forloop.index0 }}
+            {{ block.shopify_attributes }}
+          >
+            {% style -%}
+              #shopify-section-{{ block.id }} .caption-content {
+                background-color: {% if caption_background_alpha != 0 %}{% if background_color_alpha != 100  %}{{ block.settings.background_color | color_modify: 'alpha', background_color_alpha }}{% else %}{{ block.settings.background_color }}{% endif %}{% else %}rgba(0,0,0,0){% endif %};
+                border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+              }
+
+              #shopify-section-{{ block.id }} .slideshow-classic__heading {
+                color: {% if heading_alpha != 0 %}{{ block.settings.heading_color }}{% else %}{{ settings.heading_color }}{% endif %};
+              }
+
+              #shopify-section-{{ block.id }} .slideshow-classic__preheading {
+                color: {% if preheading_alpha != 0 %}{{ block.settings.pretext_color }}{% else %}{{ settings.heading_color }}{% endif %};
+              }
+
+              #shopify-section-{{ block.id }} .slideshow-classic__subheading {
+                color: {% if subheading_alpha != 0 %}{{ block.settings.subheading_color }}{% else %}{{ settings.heading_color }}{% endif %};
+              }
+
+              @media only screen and (min-width: 480px) {
+                #shopify-section-{{ block.id }} .caption-content {
+                  width: {{ block.settings.text_width }}%;
+                }
+              }
+
+              @media only screen and (max-width: 480px) {
+                #shopify-section-{{ block.id }}  .slideshow-classic__heading {
+                  color: {% if mobile_headline_alpha != 0 %}{{ block.settings.heading_color_mobile}}{% endif %};
+                }
+                #shopify-section-{{ block.id }}  .slideshow-classic__preheading {
+                  color: {% if mobile_preheading_alpha != 0 %}{{ block.settings.pretext_color_mobile}}{% endif %};
+                }
+                #shopify-section-{{ block.id }}  .slideshow-classic__subheading {
+                  color: {% if mobile_subtitle_alpha != 0 %}{{ block.settings.subheading_color_mobile}}{% endif %};
+                }
+              }
+            {%- endstyle -%}
+
+            {% if image != blank %}
+              {%
+                render 'image-element',
+                image: image,
+                alt: image.alt,
+                stretch_width: true,
+                additional_wrapper_classes: 'is-hidden-mobile-only',
+                focal_point: image.presentation.focal_point,
+              %}
+            {% else %}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg is-hidden-mobile-only' }}
+            {% endif %}
+
+            {% if mobile_image != blank %}
+              {%
+                render 'image-element',
+                image: mobile_image,
+                alt: mobile_image.alt,
+                stretch_width: true,
+                additional_wrapper_classes: 'is-hidden-desktop-only',
+                focal_point: mobile_image.presentation.focal_point,
+              %}
+            {% else %}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg is-hidden-desktop-only' }}
+            {% endif %}
+
+            {% if link != blank %}
+              <a class="banner--full-link" href="{{ link }}"></a>
+            {% endif %}
+
+            {% if pretext != blank or mobile_pretext != blank or title != blank or mobile_title != blank or subtitle != blank or mobile_subtitle != blank or button_1 != blank or button_2 != blank %}
+              <div class="caption text-align-{{ text_horizontal_position }}">
+                <div
                   class="
-                    slideshow-classic__heading
-                    title
-                    {% if settings.banner_heading_size > 35 %}
-                      mobile-shrink-text
+                    caption-content
+                    text-align-{{ block.settings.text_alignment }}
+                    {% if block.settings.mobile_text_alignment != 'none' %}
+                      text-align--mobile-{{ block.settings.mobile_text_alignment }}
                     {% endif %}
                   "
                 >
-                  <span>{{ title }}</span>
-                </h2>
-              {% endif %}
-              {% if subtitle != blank %}
-                <div class="slideshow-classic__subheading subtitle">
-                  {{ subtitle }}
-                </div>
-              {% endif %}
-              {% if button_1 != blank or button_2 != blank %}
-                <div
-                  class="
-                    slideshow-classic__buttons
-                    buttons
-                    {% unless buttons == true %}
-                      is-justify-{{ block.settings.text_alignment }}
-                    {% endunless %}
-                  "
-                >
-                  {% if button_1 != blank %}
-                    {%
-                      render 'button',
-                      label: button_1,
-                      href: button_1_link,
-                      type: "link",
-                      style: block.settings.button_1_style
-                    %}
+                  {% if pretext != blank %}
+                    <div
+                      class="
+                        slideshow-classic__preheading
+                        pretext
+                        is-hidden-mobile-only
+                      "
+                    >
+                      {{- pretext -}}
+                    </div>
                   {% endif %}
 
-                  {% if button_2 != blank %}
-                    {%
-                      render 'button',
-                      label: button_2,
-                      href: button_2_link,
-                      type: "link",
-                      style: block.settings.button_2_style
-                    %}
+                  {% if mobile_pretext != blank %}
+                    <div
+                      class="
+                        slideshow-classic__preheading
+                        pretext
+                        is-hidden-desktop-only
+                      "
+                    >
+                      {{- mobile_pretext -}}
+                    </div>
+                  {% endif %}
+
+                  {% if title != blank %}
+                    <h2
+                      class="
+                        slideshow-classic__heading
+                        title
+                        {% if settings.banner_heading_size > 35 %}
+                          mobile-shrink-text
+                        {% endif %}
+                        is-hidden-mobile-only
+                      "
+                    >
+                      <span>
+                        {{- title -}}
+                      </span>
+                    </h2>
+                  {% endif %}
+
+                  {% if mobile_title != blank %}
+                    <h2
+                      class="
+                        slideshow-classic__heading
+                        title
+                        {% if settings.banner_heading_size > 35 %}
+                          mobile-shrink-text
+                        {% endif %}
+                        is-hidden-desktop-only
+                      "
+                    >
+                      <span>
+                        {{- mobile_title -}}
+                      </span>
+                    </h2>
+                  {% endif %}
+
+                  {% if subtitle != blank or mobile_subtitle != blank %}
+                    <div class="slideshow-classic__subheading subtitle">
+                      {% if subtitle != blank %}
+                        <div class="is-hidden-mobile-only">
+                          {{- subtitle -}}
+                        </div>
+                      {% endif %}
+
+                      {% if mobile_subtitle != blank %}
+                        <div class="is-hidden-desktop-only">
+                          {{- mobile_subtitle -}}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                  {% if button_1 != blank or button_2 != blank %}
+                    <div
+                      class="
+                        slideshow-classic__buttons
+                        buttons
+                        {% unless buttons == true %}
+                          is-justify-{{ block.settings.text_alignment }}
+                        {% endunless %}
+                      "
+                    >
+                      {% if button_1 != blank %}
+                        {%
+                          render 'button',
+                          label: button_1,
+                          href: button_1_link,
+                          type: "link",
+                          style: block.settings.button_1_style,
+                        %}
+                      {% endif %}
+
+                      {% if button_2 != blank %}
+                        {%
+                          render 'button',
+                          label: button_2,
+                          href: button_2_link,
+                          type: "link",
+                          style: block.settings.button_2_style,
+                        %}
+                      {% endif %}
+                    </div>
                   {% endif %}
                 </div>
-              {% endif %}
-            </div>
+              </div>
+            {% endif %}
           </div>
-        {% endif %}
+        {% endfor %}
       </div>
-    {% endfor %}
+    </div>
   </div>
 </section>
 
-{% comment %}JavaScript{% endcomment %}
 <script
-    type="application/json"
-    data-section-id="{{ section.id }}"
-    data-section-data
-  >
+  type="application/json"
+  data-section-id="{{ section.id }}"
+  data-section-data
+>
   {
     "image_transition": {{ section.settings.image_transition | json }},
     "image_slideshow_speed": {{ section.settings.image_slideshow_speed | json }},
@@ -273,6 +339,17 @@
     "name": "Slideshow - classic",
     "class": "jsSlideshowClassic overlaid-header-option slideshow-section under-menu",
     "settings": [
+      {
+        "type": "range",
+        "id": "image_slideshow_speed",
+        "label": "Change image every",
+        "info": "Set to 0 to disable autoplay.",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "default": 8,
+        "unit": "sec"
+      },
       {
         "type": "select",
         "id": "image_transition",
@@ -290,16 +367,6 @@
         "default": "slide"
       },
       {
-        "type": "range",
-        "id": "image_slideshow_speed",
-        "label": "Change image every",
-        "min": 0,
-        "max": 12,
-        "step": 1,
-        "default": 8,
-        "unit": "sec"
-      },
-      {
         "type": "checkbox",
         "id": "show_arrows",
         "label": "Show arrows",
@@ -309,16 +376,6 @@
         "type": "checkbox",
         "id": "show_nav_buttons",
         "label": "Show navigation dots",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Mobile"
-      },
-      {
-        "type": "checkbox",
-        "id": "mobile_text_below_image",
-        "label": "Show text below image",
         "default": true
       },
       {
@@ -397,6 +454,34 @@
       },
       {
         "type": "header",
+        "content": "Mobile layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "mobile_text_below_image",
+        "label": "Show text below image on mobile",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "label": "Mobile top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "label": "Mobile bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 0,
+        "unit": "px"
+      },
+      {
+        "type": "header",
         "content": "Advanced",
         "info": "[Learn more](https://help.outofthesandbox.com/hc/en-us/articles/360022329373)"
       },
@@ -417,12 +502,6 @@
         "name": "Slide",
         "settings": [
           {
-            "type": "url",
-            "id": "link",
-            "label": "Link",
-            "info": "Links entire image"
-          },
-          {
             "type": "image_picker",
             "id": "image",
             "label": "Image",
@@ -432,7 +511,13 @@
             "type": "image_picker",
             "id": "mobile_image",
             "label": "Mobile Image",
-            "info": "900 x 1800px recommended"
+            "info": "900 x 1800px recommended. Optional. Desktop image will show on mobile by default."
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Background link",
+            "info": "Links entire image"
           },
           {
             "type": "header",
@@ -475,9 +560,15 @@
             "default": "#000000"
           },
           {
-            "type": "select",
+            "type": "text_alignment",
             "id": "text_alignment",
             "label": "Text alignment",
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "text_horizontal_position",
+            "label": "Horizontal text position",
             "options": [
               {
                 "value": "left",
@@ -495,24 +586,13 @@
             "default": "center"
           },
           {
-            "type": "select",
-            "id": "text_horizontal_position",
-            "label": "Horizontal position",
-            "options": [
-              {
-                "value": "left",
-                "label": "Left"
-              },
-              {
-                "value": "center",
-                "label": "Center"
-              },
-              {
-                "value": "right",
-                "label": "Right"
-              }
-            ],
-            "default": "center"
+            "type": "range",
+            "id": "text_width",
+            "label": "Text width",
+            "min": 40,
+            "max": 100,
+            "default": 40,
+            "unit": "%"
           },
           {
             "type": "header",
@@ -521,7 +601,7 @@
           {
             "type": "color",
             "id": "background_color",
-            "label": "Background",
+            "label": "Background color",
             "default": "#FFFFFF"
           },
           {
@@ -536,7 +616,7 @@
           {
             "type": "color",
             "id": "border_color",
-            "label": "Border",
+            "label": "Border color",
             "default": "#FFFFFF"
           },
           {
@@ -549,33 +629,24 @@
             "unit": "px"
           },
           {
-            "type": "range",
-            "id": "text_width",
-            "label": "Text width",
-            "min": 40,
-            "max": 100,
-            "default": 40,
-            "unit": "%"
-          },
-          {
             "type": "header",
             "content": "Button 1"
           },
           {
             "type": "text",
             "id": "button_1",
-            "label": "First button label",
+            "label": "Button 1 label",
             "default": "Button 1"
           },
           {
             "type": "url",
             "id": "button_1_link",
-            "label": "First slide link"
+            "label": "Button 1 link"
           },
           {
             "type": "select",
             "id": "button_1_style",
-            "label": "First button style",
+            "label": "Button 1 style",
             "options": [
               {
                 "value": "button--primary",
@@ -599,18 +670,18 @@
           {
             "type": "text",
             "id": "button_2",
-            "label": "Second button label",
+            "label": "Button 2 label",
             "default": "Button 2"
           },
           {
             "type": "url",
             "id": "button_2_link",
-            "label": "Second slide link"
+            "label": "Button 2 link"
           },
           {
             "type": "select",
             "id": "button_2_style",
-            "label": "Second button style",
+            "label": "Button 2 style",
             "options": [
               {
                 "value": "button--primary",
@@ -629,31 +700,22 @@
           },
           {
             "type": "header",
-            "content": "Mobile"
+            "content": "Mobile text"
           },
           {
-            "type": "select",
-            "id": "mobile_image_crop",
-            "label": "Image cropping",
-            "default": "none",
-            "options": [
-              {
-                "value": "none",
-                "label": "None"
-              },
-              {
-                "value": "left",
-                "label": "Left"
-              },
-              {
-                "value": "center",
-                "label": "Center"
-              },
-              {
-                "value": "right",
-                "label": "Right"
-              }
-            ]
+            "type": "richtext",
+            "id": "mobile_pretext",
+            "label": "Mobile preheading"
+          },
+          {
+            "type": "text",
+            "id": "mobile_title",
+            "label": "Mobile heading"
+          },
+          {
+            "type": "richtext",
+            "id": "mobile_subtitle",
+            "label": "Mobile subheading"
           },
           {
             "type": "color",
@@ -672,6 +734,30 @@
             "id": "subheading_color_mobile",
             "label": "Subheading",
             "default": "rgba(0,0,0,0)"
+          },
+          {
+            "type": "select",
+            "id": "mobile_text_alignment",
+            "label": "Mobile text alignment",
+            "options": [
+              {
+                "value": "none",
+                "label": "Same as desktop"
+              },
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "none"
           }
         ]
       }
@@ -700,6 +786,11 @@
           }
         }
       ]
-    }]
+    }],
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
+    }
   }
 {% endschema %}

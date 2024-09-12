@@ -102,11 +102,12 @@
 
             {% if collection_image != nil %}
               <div class="thumbnail image__container has-image-crop">
-                {% render 'image-element',
-                        image: collection_image.src,
-                        alt: collection_image_alt,
-                        image_crop: true,
-                        max_height: collection_height
+                {%
+                  render 'image-element',
+                  image: collection_image.src,
+                  alt: collection_image_alt,
+                  image_crop: true,
+                  max_height: collection_height,
                 %}
               </div>
             {% else %}

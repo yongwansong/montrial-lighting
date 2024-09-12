@@ -1,38 +1,49 @@
 {% comment %}** Custom HTML **{% endcomment %}
 
-{%- assign html_content = section.settings.html_content -%}
-
 {% style %}
   #shopify-section-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
+    padding-right: {{ section.settings.padding_right }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     padding-left: {{ section.settings.padding_left }}px;
-    padding-right: {{ section.settings.padding_right }}px;
-    {% if section.settings.width == 'wide' -%}
+
+    {% if section.settings.width == 'wide' %}
       width: 100%;
-    {%- elsif section.settings.width == 'half' -%}
+    {% elsif section.settings.width == 'half' %}
       width: 50%;
-    {%- endif %}
+    {% endif %}
   }
-  {% render 'css-loop',
-          css: section.settings.custom_css,
-          id: section.id
+
+  @media only screen and (max-width: 798px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+
+  {%
+    render 'css-loop',
+    css: section.settings.custom_css,
+    id: section.id,
   %}
 {% endstyle %}
 
-<section class="section {{ section.settings.css_class }}
-                is-width-{{ section.settings.width }}
-                {% if background_alpha != 0 or gradient_alpha != 0  %}
-                  has-background
-                {% endif %}
-                "
-          data-section-id="{{ section.id }}"
-          {% if section.settings.animation != "none" %}
-            data-scroll-class="{{ section.settings.animation }}"
-          {% endif %}>
-  {{ html_content }}
+<section
+  class="
+    section
+    {{ section.settings.css_class }}
+    is-width-{{ section.settings.width }}
+    {% if background_alpha != 0 or gradient_alpha != 0  %}
+      has-background
+    {% endif %}
+  "
+  data-section-id="{{ section.id }}"
+  {% if section.settings.animation != "none" %}
+    data-scroll-class="{{ section.settings.animation }}"
+  {% endif %}
+>
+  {{ section.settings.html_content }}
 </section>
-
 
 {% schema %}
   {
@@ -147,6 +158,28 @@
       },
       {
         "type": "header",
+        "content": "Mobile layout"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "label": "Mobile top spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "label": "Mobile bottom spacing",
+        "min": 0,
+        "max": 80,
+        "default": 20,
+        "unit": "px"
+      },
+      {
+        "type": "header",
         "content": "Advanced"
       },
       {
@@ -167,11 +200,13 @@
     "presets": [
       {
         "name": "Custom HTML",
-        "category": "Layout",
-        "settings": {
-
-        }
+        "category": "Layout"
       }
-    ]
+    ],
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
+    }
   }
 {% endschema %}

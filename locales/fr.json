@@ -1,4 +1,90 @@
 {
+  "product": {
+    "variants": {
+      "choose_option": "Choisissez une {{ option }}",
+      "chosen_option_html": "{{ option }}: <span>{{ value }}<\/span>",
+      "choose_variant": "Choisissez une variante"
+    },
+    "price": {
+      "range_html": "{{ price_min }} - {{ price_max }}",
+      "unit_pricing_html": "{{ unit_quantity }} | {{ unit_price }} \/ {{ unit_measurement}}"
+    },
+    "badge": {
+      "sale_percentage_range_html": "Économiser jusqu'à {{ price_percent }}%",
+      "sale_percentage_single_html": "Sauvegarder {{ price_percent }}%",
+      "sale_money_range_html": "Économiser jusqu'à {{ price }}",
+      "sale_money_single_html": "Enregistrer {{ price }}",
+      "sold_out": "Épuisé",
+      "sale": "Vente",
+      "in_stock": "En stock"
+    }
+  },
+  "store_availability": {
+    "general": {
+      "in_stock": "En stock",
+      "out_of_stock": "En rupture de stock",
+      "view_store_info": "Afficher les informations du magasin",
+      "check_other_stores": "Vérifier la disponibilité dans d'autres magasins",
+      "available_for_pick_up_at_html": "Prise en charge disponible à <b>{{ location_name }}<\/b>",
+      "unavailable_for_pick_up_at_html": "Prise en charge actuellement indisponible à <b>{{ location_name }}<\/b>",
+      "available_for_pick_up_at_time_html": "Ramassage disponible, {{ pick_up_time }}",
+      "unavailable_for_pick_up_at_time_html": "Ramassage actuellement indisponible",
+      "kilometers": "km",
+      "miles": "mi"
+    }
+  },
+  "structured_data": {
+    "breadcrumbs": {
+      "cart": "Panier",
+      "collections": "Collections",
+      "page": "Page {{ page }}",
+      "products": "Produits",
+      "search": "Rechercher",
+      "tags_html": "Marqué \"{{ tags }}\""
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox_label": "Je souhaite envoyer ceci en cadeau",
+      "email_label": "Adresse e-mail du destinataire",
+      "email_placeholder": "Adresse e-mail du destinataire *",
+      "error_message": "L'adresse e-mail n'est pas valide",
+      "name_label": "Nom du destinataire (facultatif)",
+      "name_placeholder": "Nom du destinataire (facultatif)",
+      "message_label": "Message (facultatif)",
+      "message_placeholder": "Message (facultatif)",
+      "max_characters": "Maximum de {{ max_characters }} caractères"
+    }
+  },
+  "sections": {
+    "complementary_product_block": {
+      "from": "De",
+      "now": "À présent",
+      "price_per_unit_html": "{{ total_quantity }} | {{ unit_price }} \/ {{ unit_measure }}",
+      "view_details": "Voir le produit"
+    }
+  },
+  "age_gate": {
+    "form": {
+      "confirm": "Confirmez l'âge et passez à {{ shop }}",
+      "error": "L'accès à l'atelier est limité à l'âge des adultes {{ age }} et plus.",
+      "day": "Jour",
+      "month": "Mois",
+      "year": "An",
+      "january": "Janvier",
+      "february": "Février",
+      "march": "Mars",
+      "april": "Avril",
+      "may": "Peut",
+      "june": "Juin",
+      "july": "Juillet",
+      "august": "Août",
+      "september": "Septembre",
+      "october": "Octobre",
+      "november": "Novembre",
+      "december": "Décembre"
+    }
+  },
   "date_formats": {
     "month_day_year": "%B %d, %Y"
   },
@@ -7,6 +93,11 @@
       "title": "Page introuvable",
       "subtext": "Nous sommes désolés, la page que vous avez demandée n'existe pas.",
       "continue_shopping_html": "Essayez de faire une recherche ou <a href=\"\/collections\/all\">poursuivez vos achats →<\/a>"
+    },
+    "accessibility": {
+      "star_review_text": "Examen",
+      "star_reviews_text": "Commentaires",
+      "star_reviews_info": "{{ rating_value }} hors de {{ rating_max }} étoiles"
     },
     "pagination": {
       "previous": "Précédent",
@@ -57,8 +148,13 @@
       "description": "Recherchez un produit dans notre boutique",
       "no_results_html": "Votre recherche de \"{{ terms }}\" n'a donné aucun résultat.",
       "advanced_search_html": "Recherche avancée →",
+      "suggestions": "Suggestions",
       "no_results": "Aucun résultat trouvé.",
-      "all_results": "Tous les résultats",
+      "search_for": "Recherche \"{{ search_terms }}\"",
+      "products": "Des produits",
+      "pages": "Pages",
+      "posts": "Publications",
+      "pages_and_posts": "Pages et publications",
       "results_count": {
         "zero": "{{ count }} résultat",
         "one": "{{ count }} résultat",
@@ -67,7 +163,14 @@
       "placeholder": "Chercher",
       "placeholder_with_shop_name": "Rechercher dans {{ shop_name }}...",
       "submit": "Rechercher",
-      "common_terms": "Communément recherché"
+      "common_terms": "Communément recherché",
+      "all_results": "Tous les résultats"
+    },
+    "language": {
+      "dropdown_label": "Langue"
+    },
+    "country": {
+      "dropdown_label": "Pays"
     }
   },
   "gallery": {
@@ -141,6 +244,8 @@
       "pre_order": "Pré-Commande",
       "sale": "Soldes",
       "view_all": "Voir tout",
+      "view_product_details": "Voir la description complète du produit",
+      "sold_out": "Épuisé",
       "view_product_details_html": "Voir la description complète du produit"
     },
     "sidebar": {
@@ -148,7 +253,11 @@
       "product_types": "Types de produit",
       "vendors": "Vendeurs",
       "tags": "Labels",
-      "clear": "Annuler"
+      "clear": "Annuler",
+      "apply_filter": "Appliquer",
+      "clear_all": "Tout effacer",
+      "from": "De",
+      "to": "à"
     },
     "sorting": {
       "title": "Classer par",
@@ -175,13 +284,13 @@
       "sold_out": "Épuisé",
       "unavailable": "Indisponible",
       "quantity": "Quantité",
+      "add_to_cart": "Ajouter au panier",
       "add_to_cart_success": "Ajouté",
       "vendor": "Vendeur",
       "related_items": "Produits similaires",
       "collections": "Collections",
       "product_types": "Types de produits",
       "tags": "Catégorie",
-      "size_chart": "Tableau des Tailles",
       "savings": "Économisez",
       "products_tagged": "Produits étiquetés comme {{ tag }}",
       "items_left_count": {
@@ -189,7 +298,8 @@
         "other": "produits en stock"
       },
       "view_in_your_space": "Voir dans votre espace",
-      "add_to_cart": "Ajouter au panier"
+      "select_variant": "Veuillez sélectionner toutes vos options",
+      "size_chart": "Tableau des Tailles"
     },
     "notify_form": {
       "email": "Saisissez votre adresse e-mail...",
@@ -198,6 +308,11 @@
       "email_content": "Veuillez m'aviser lorsque le produit suivant est de retour en stock: ",
       "post_success": "Merci ! Nous vous contacterons lorsque ce produit sera de nouveau disponible !",
       "post_error": "Merci de saisir une adresse e-mail valide."
+    },
+    "item": {
+      "price": {
+        "price_per_unit_html": "{{total_quantity}} | {{unit_price}} \/ {{unit_measure}}"
+      }
     }
   },
   "contact": {
@@ -216,7 +331,8 @@
       "title": "Mon compte",
       "details": "Paramètres du compte",
       "view_addresses": "Voir les adresses",
-      "return": "Retourner aux paramètres du compte"
+      "return": "Retourner aux paramètres du compte",
+      "primary_address": "Adresse principale"
     },
     "orders": {
       "title": "Historique des commandes",
@@ -296,6 +412,8 @@
     "order": {
       "title": "Commande {{ name }}",
       "date": "Effectuée le {{ date }}",
+      "note": "Notes d'ordre",
+      "note_placeholder": "Aucune note de commande n'a été fournie.",
       "cancelled": "Commande annulée le {{ date }}",
       "cancelled_reason": "Raison : {{ reason }}",
       "billing_address": "Adresse de facturation",
@@ -371,7 +489,10 @@
       "uploaded_file": "fichier téléchargé",
       "continue_browsing_html": "Votre panier ne contient aucun article.",
       "continue_shopping_link_html": "Poursuivre vos achats→",
-      "excluding_tax_shipping": "Taxe et frais de livraison non compris",
+      "tax_and_shipping": "Taxes et frais de port calculés à l'étape de paiement",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes et <a href=\"{{ link }}\">frais de port<\/a> calculés à l'étape de paiement",
+      "taxes_included_but_shipping_at_checkout": "Taxes incluses et frais de port calculés à l'étape de paiement",
+      "taxes_included_and_shipping_policy_html": "Taxes incluses. <a href=\"{{ link }}\">Frais de port<\/a> calculés à l'étape de paiement.",
       "orders_processed_in_currency_html": "Les commandes seront facturées en {{ currency }}.",
       "note": "Commentaire",
       "note_detailed": "Inclure toutes les notes ou instructions spéciales pour votre commande ici:",
@@ -381,7 +502,8 @@
       "or": "ou",
       "subtotal": "Sous-total",
       "update": "Mettre à jour le sous-total",
-      "checkout": "Paiement"
+      "checkout": "Paiement",
+      "excluding_tax_shipping": "Taxe et frais de livraison non compris"
     },
     "shipping_calculator": {
       "title": "Calculateur de frais de livraison",
@@ -401,7 +523,10 @@
       "multiple_rates": "Nous avons trouvé {{ number_of_rates }} tarifs de livraison disponibles pour {{ address }}, à partir de {{ rate }}.",
       "one_rate": "Nous avons trouvé un tarif d'expédition disponible pour {{ address }}.",
       "no_rates": "Désolé, nous ne livrons pas à cette destination.",
-      "rate_value": "{{ rate_title }} à {{ rate }}"
+      "rate_value": "{{ rate_title }} à {{ rate }}",
+      "is_not_valid": "n'est pas valide",
+      "is_not_blank": "ne peut pas être vide",
+      "is_not_supported": "n'est pas pris en charge"
     }
   },
   "layout": {
@@ -423,14 +548,15 @@
     },
     "social_sharing": {
       "title": "Partager",
-      "twitter_share": "Jetez un œil sur {{ title }} de {{ name }}: {{ current_url }}",
-      "twitter_title": "Partagez ceci sur Twitter",
+      "x_title": "Partagez ceci sur X",
       "facebook_title": "Partagez ceci sur Facebook",
       "pinterest_title": "Partagez ceci sur Pinterest",
       "pinterest_share": "{{ title }} de {{ name }}",
       "email_title": "Envoyez cette page à un ami",
       "email_subject": "Je me suis dit que tu aimerais ce {{ title }}",
-      "email_message": "Salut, je regardais sur {{ name }} et j'ai trouvé {{ title }}. Je voulais te mettre au courant."
+      "email_message": "Salut, je regardais sur {{ name }} et j'ai trouvé {{ title }}. Je voulais te mettre au courant.",
+      "twitter_share": "Jetez un œil sur {{ title }} de {{ name }}: {{ current_url }}",
+      "twitter_title": "Partagez ceci sur Twitter"
     },
     "customer": {
       "logged_in_as": "Connecté(e) en tant que",
@@ -526,51 +652,6 @@
       "order_summary": {
         "shopping_cart_label": "Panier"
       }
-    }
-  },
-  "pagefly": {
-    "products": {
-      "product": {
-        "regular_price": "Regular price",
-        "sold_out": "Sold out",
-        "unavailable": "Unavailable",
-        "on_sale": "Sale",
-        "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
-        "back_to_collection": "Back to {{ title }}",
-        "view_details": "View details"
-      }
-    },
-    "article": {
-      "tags": "Tags:",
-      "all_topics": "All topics",
-      "by_author": "by {{ author }}",
-      "posted_in": "Posted in",
-      "read_more": "Read more",
-      "back_to_blog": "Back to {{ title }}"
-    },
-    "comments": {
-      "title": "Leave a comment",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "post": "Post comment",
-      "moderated": "Please note, comments must be approved before they are published",
-      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
-      "success": "Your comment was posted successfully! Thank you!",
-      "comments_with_count": {
-        "one": "{{ count }} comment",
-        "other": "{{ count }} comments"
-      }
-    },
-    "password_page": {
-      "login_form_message": "Enter store using password:",
-      "login_form_password_label": "Password",
-      "login_form_password_placeholder": "Your password",
-      "login_form_submit": "Enter",
-      "signup_form_email_label": "Email",
-      "signup_form_success": "We will send you an email right before we open!",
-      "password_link": "Enter using password"
     }
   }
 }

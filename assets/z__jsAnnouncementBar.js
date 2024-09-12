@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 var __webpack_exports__ = {};
-Shopify.theme.jsAnnouncementBar = {
+window.PXUTheme.jsAnnouncementBar = {
   init: function($section){
 
     // Add settings from schema to current object
-    Shopify.theme.jsAnnouncementBar = $.extend(this, Shopify.theme.getSectionData($section));
+    window.PXUTheme.jsAnnouncementBar = $.extend(this, window.PXUTheme.getSectionData($section));
 
     let template = this.homepage_only ? '.index' : '';
     this.$el = $('#announcement-bar', template);
@@ -15,25 +15,13 @@ Shopify.theme.jsAnnouncementBar = {
       // Close icon is disabled, always show announcement
       Cookies.remove('announcement-bar');
       $('body').addClass('announcement-bar--visible');
-      if (Shopify.theme_settings.header_layout == 'vertical') {
-        this.addVerticalHeaderTopMargin();
-      }
-
     } else if (announcementCookie !== 'dismiss') {
       // Close icon has not been clicked
       $('body').addClass('announcement-bar--visible');
-      if (Shopify.theme_settings.header_layout == 'vertical') {
-        this.addVerticalHeaderTopMargin();
-      }
-
     } else {
-
       // Close icon has been clicked and announcement is hidden
       $('body').addClass('announcement-bar--hidden');
       this.disableSticky();
-      if (Shopify.theme_settings.header_layout == 'vertical') {
-        this.removeVerticalHeaderTopMargin();
-      }
       return false;
     }
 
@@ -51,28 +39,13 @@ Shopify.theme.jsAnnouncementBar = {
       // Attach event to hide announcement if close icon is clicked
       this.$el.on('click', '.js-close-announcement', () => {
         this.hide();
-        if (Shopify.theme_settings.header_layout == 'vertical') {
-          this.removeVerticalHeaderTopMargin();
-        }
       });
     }
-  },
-  addVerticalHeaderTopMargin: function() {
-    // Add negative margin if header is vertical
-    if (isScreenSizeLarge()) {
-      $('.header--vertical').css('marginTop', -this.$el.height());
-      $('.announcement-bar__shadow').height(this.$el.height());
-    }
-  },
-  removeVerticalHeaderTopMargin: function () {
-    // Remove negative margin
-    $('.header--vertical').removeAttr('style');
   },
   enableSticky: function() {
     // Add sticky functionality and recalculate offset for header sticky
     this.$el.parent().sticky({
       wrapperClassName: 'announcement-sticky-wrapper',
-      zIndex: 40
     })
 
     this.resetHeader(this.$el.height());
@@ -92,16 +65,18 @@ Shopify.theme.jsAnnouncementBar = {
     Cookies.set('announcement-bar', 'dismiss', { expires: 30 });
   },
   resetHeader: function(offset) {
-    if (Shopify.theme.jsHeader.enable_sticky === true && isScreenSizeLarge()) {
-      if (Shopify.theme_settings.header_layout != 'vertical') {
+    if (!window.PXUTheme.jsHeader) return;
+
+    if (window.PXUTheme.jsHeader.enable_sticky === true && isScreenSizeLarge()) {
+      if (window.PXUTheme.theme_settings.header_layout != 'vertical') {
         // Reset desktop sticky header
-        Shopify.theme.jsHeader.disableSticky();
-        Shopify.theme.jsHeader.enableSticky(offset);
+        window.PXUTheme.jsHeader.disableSticky();
+        window.PXUTheme.jsHeader.enableSticky(offset);
       }
-    } else if (Shopify.theme.jsHeader.enable_sticky === true && !isScreenSizeLarge()) {
+    } else if (window.PXUTheme.jsHeader.enable_sticky === true && !isScreenSizeLarge()) {
       // Reset mobile sticky header
-      Shopify.theme.mobileMenu.disableSticky();
-      Shopify.theme.mobileMenu.enableSticky(offset);
+      window.PXUTheme.mobileMenu.disableSticky();
+      window.PXUTheme.mobileMenu.enableSticky(offset);
     }
   },
   getAnnouncementHeight() {

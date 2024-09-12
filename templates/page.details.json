@@ -18,19 +18,19 @@
       "settings": {
         "title": "Brands",
         "heading_font": "open_sans_n4",
-        "heading_color": "rgba(0,0,0,0)",
         "heading_alignment": "center",
         "heading_size": 30,
         "text": "",
         "text_font": "open_sans_n4",
-        "text_color": "rgba(0,0,0,0)",
         "text_alignment": "left",
         "text_size": 14,
         "columns": 1,
         "button_label": "",
         "button_link": "",
-        "button_alignment": "center",
         "button_style": "button--primary",
+        "button_alignment": "center",
+        "heading_color": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
         "background": "#ffffff",
         "gradient": "#ffffff",
         "gradient_rotation": 180,
@@ -51,26 +51,26 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/Nami-belgrade-3.jpg",
-            "link": "shopify:\/\/collections\/premium-brands",
-            "overlay_background": "#49494b",
-            "overlay_background_opacity": 50,
-            "overlay_text": "rgba(0,0,0,0)",
             "icon_label": "",
             "title": "Premium Brands",
-            "text": "<p>Browse our exclusive selection of brands offering high-end designs from around the world<\/p><p><\/p><p>Shop Premium Brands →<\/p>"
+            "text": "<p>Browse our exclusive selection of brands offering high-end designs from around the world<\/p><p><\/p><p>Shop Premium Brands →<\/p>",
+            "link": "shopify:\/\/collections\/premium-brands",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 50
           }
         },
         "164640803627ceb0bd-2": {
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/272745499_5186755724669764_430966985409800690_n_26bc14d6-ad80-4072-9f21-5d0306de19e6.jpg",
-            "link": "shopify:\/\/collections\/canadian-brands",
-            "overlay_background": "#49494b",
-            "overlay_background_opacity": 50,
-            "overlay_text": "rgba(0,0,0,0)",
             "icon_label": "",
             "title": "Canada's Best Brands",
-            "text": "<p>Discover homegrown brands featuring lighting and home decor designed in Canada<\/p><p><\/p><p>Shop Canadian →<\/p>"
+            "text": "<p>Discover homegrown brands featuring lighting and home decor designed in Canada<\/p><p><\/p><p>Shop Canadian →<\/p>",
+            "link": "shopify:\/\/collections\/canadian-brands",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 50
           }
         }
       },
@@ -81,10 +81,10 @@
       "settings": {
         "border_radius": 0,
         "crop_images": true,
+        "show_border": true,
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 70,
-        "overlay_text": "#ffffff",
-        "show_border": true,
         "width": "standard",
         "show_gutter": true,
         "padding_top": 20,
@@ -135,8 +135,8 @@
       "disabled": true,
       "settings": {
         "gallery_type": "classic",
-        "crop_images": false,
         "images_per_row": 4,
+        "crop_images": false,
         "enable_lightbox": false,
         "overlay_color": "#000000",
         "link_color": "#ffffff",
@@ -170,14 +170,6 @@
     "16396056408b519808": {
       "type": "index__collection-list",
       "blocks": {
-        "d02d9dbe-511b-4815-b544-590c063dd8b1": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "tradition",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "a87f4a01-2dcf-4c8a-afc0-5dab06e04343": {
           "type": "collection",
           "settings": {
@@ -233,17 +225,25 @@
             "title": "",
             "button_label": "View products"
           }
+        },
+        "d02d9dbe-511b-4815-b544-590c063dd8b1": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "arteriors",
+            "title": "",
+            "button_label": "View products"
+          }
         }
       },
       "block_order": [
-        "d02d9dbe-511b-4815-b544-590c063dd8b1",
         "a87f4a01-2dcf-4c8a-afc0-5dab06e04343",
         "f95682b1-450b-4ca0-b5e7-3e9ad3673def",
         "e1a62587-754d-426a-a167-8813fcd666e2",
         "21922d46-435a-4fb3-8505-fe488a35fa3b",
         "7969f8b2-3ea4-4ae4-bcad-4a4cd6971d30",
         "9900cd85-bd47-4100-98e3-46dda3f43bce",
-        "6ab484c3-486b-4416-8da2-70f0ed288fcd"
+        "6ab484c3-486b-4416-8da2-70f0ed288fcd",
+        "d02d9dbe-511b-4815-b544-590c063dd8b1"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -251,9 +251,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 0,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -267,14 +267,6 @@
     "16396056845623c77a": {
       "type": "index__collection-list",
       "blocks": {
-        "fa5aee56-8e73-45e5-99ff-97fb58597e49": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "arteriors",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "583b3565-4632-484c-84a2-96a36e1cd237": {
           "type": "collection",
           "settings": {
@@ -330,17 +322,25 @@
             "title": "",
             "button_label": "View products"
           }
+        },
+        "fa5aee56-8e73-45e5-99ff-97fb58597e49": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "bulbrite",
+            "title": "",
+            "button_label": "View products"
+          }
         }
       },
       "block_order": [
-        "fa5aee56-8e73-45e5-99ff-97fb58597e49",
         "583b3565-4632-484c-84a2-96a36e1cd237",
         "1639605683e4518c46-0",
         "c1dc8ed9-b5d9-4c90-b13f-48bc7c25e414",
         "5c4fd684-6ae8-4f36-87c4-17bcf02f5cd6",
         "762eabff-4ae0-4f6e-8b34-0bb1a8b34965",
         "f506a4e6-4d95-4900-9979-9261b44a83c8",
-        "5bcd019e-d144-4b66-8a37-61ebd43958b4"
+        "5bcd019e-d144-4b66-8a37-61ebd43958b4",
+        "fa5aee56-8e73-45e5-99ff-97fb58597e49"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -348,9 +348,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 0,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -364,22 +364,6 @@
     "1639664793cdd187e4": {
       "type": "index__collection-list",
       "blocks": {
-        "eacf0973-1ce6-4ab4-9db2-6c776aa540c8": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "bulbrite",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "2e757a7b-eb6a-4766-acfe-83a2ca7d53ca": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "buster-punch",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "b26f95bf-b3f1-4306-9fc7-e778c07d4f44": {
           "type": "collection",
           "settings": {
@@ -392,14 +376,6 @@
           "type": "collection",
           "settings": {
             "feature_collection": "cerno",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "819e5de3-526a-438d-840e-4f26749b70f0": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "contardi",
             "title": "",
             "button_label": "View products"
           }
@@ -427,17 +403,41 @@
             "title": "",
             "button_label": "View products"
           }
+        },
+        "eacf0973-1ce6-4ab4-9db2-6c776aa540c8": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "dainolite",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "819e5de3-526a-438d-840e-4f26749b70f0": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "dals-lighting",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "2e757a7b-eb6a-4766-acfe-83a2ca7d53ca": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "davey-lighting",
+            "title": "",
+            "button_label": "View products"
+          }
         }
       },
       "block_order": [
-        "eacf0973-1ce6-4ab4-9db2-6c776aa540c8",
-        "2e757a7b-eb6a-4766-acfe-83a2ca7d53ca",
         "b26f95bf-b3f1-4306-9fc7-e778c07d4f44",
         "23e579b6-141c-45c5-80bb-bd539c72ed1e",
-        "819e5de3-526a-438d-840e-4f26749b70f0",
         "0bb5c0f2-f457-4943-bcb8-4b0018b94acb",
         "0ed87f3e-ebf0-432b-b524-5062bf529970",
-        "aff48866-4a60-410e-ad11-a9b7a162e447"
+        "aff48866-4a60-410e-ad11-a9b7a162e447",
+        "eacf0973-1ce6-4ab4-9db2-6c776aa540c8",
+        "819e5de3-526a-438d-840e-4f26749b70f0",
+        "2e757a7b-eb6a-4766-acfe-83a2ca7d53ca"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -445,9 +445,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -461,38 +461,6 @@
     "876f67cc-8caf-45f2-ba8c-d487222c05bf": {
       "type": "index__collection-list",
       "blocks": {
-        "2930323d-0c5f-4f5a-bbb2-ffd77d505453": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "cvl-luminaires",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "6d09f5ba-c1c8-4122-98cb-93c46365482d": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "dainolite",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "727a1aa9-4e0b-45ff-a7ea-dd4d7895b7ea": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "dals-lighting",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "2d52f6ab-e4a5-4c7c-878d-12281ac64cc0": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "davey-lighting",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "4147cd7a-81e8-4eb3-ab77-3a7c3a2b3462": {
           "type": "collection",
           "settings": {
@@ -505,6 +473,14 @@
           "type": "collection",
           "settings": {
             "feature_collection": "du-verre-hardware",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "727a1aa9-4e0b-45ff-a7ea-dd4d7895b7ea": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "emery-allen",
             "title": "",
             "button_label": "View products"
           }
@@ -524,17 +500,41 @@
             "title": "",
             "button_label": "View products"
           }
+        },
+        "2930323d-0c5f-4f5a-bbb2-ffd77d505453": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "eurofase",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "6d09f5ba-c1c8-4122-98cb-93c46365482d": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "fine-art-lamps",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "2d52f6ab-e4a5-4c7c-878d-12281ac64cc0": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "flow-decor",
+            "title": "",
+            "button_label": "View products"
+          }
         }
       },
       "block_order": [
-        "2930323d-0c5f-4f5a-bbb2-ffd77d505453",
-        "6d09f5ba-c1c8-4122-98cb-93c46365482d",
-        "727a1aa9-4e0b-45ff-a7ea-dd4d7895b7ea",
-        "2d52f6ab-e4a5-4c7c-878d-12281ac64cc0",
         "4147cd7a-81e8-4eb3-ab77-3a7c3a2b3462",
         "9a84d634-6ad5-4e5f-a79f-487209e8c8c4",
+        "727a1aa9-4e0b-45ff-a7ea-dd4d7895b7ea",
         "be406aee-13af-485d-8acd-d6b591a0e3c1",
-        "1b68ae99-5fad-455f-b1c3-2f189f142209"
+        "1b68ae99-5fad-455f-b1c3-2f189f142209",
+        "2930323d-0c5f-4f5a-bbb2-ffd77d505453",
+        "6d09f5ba-c1c8-4122-98cb-93c46365482d",
+        "2d52f6ab-e4a5-4c7c-878d-12281ac64cc0"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -542,9 +542,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -558,38 +558,6 @@
     "2e832d2c-14eb-4087-83ef-35a737b0aff4": {
       "type": "index__collection-list",
       "blocks": {
-        "af302e99-6229-4bb5-9556-ebfdfb29ae84": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "eurofase",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "0ee270c8-250d-442f-b0a6-9985cebd79dd": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "fine-art-lamps",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "d1457e30-02f3-4642-8824-884aa9bd0fca": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "flos-lighting",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "dd11470c-2820-44b7-b35e-9bf667dc2df0": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "flow-decor",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "1091f1e7-a1ee-4435-89a3-687a4f70ea11": {
           "type": "collection",
           "settings": {
@@ -621,17 +589,49 @@
             "title": "",
             "button_label": "View products"
           }
+        },
+        "d1457e30-02f3-4642-8824-884aa9bd0fca": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "global-views",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "af302e99-6229-4bb5-9556-ebfdfb29ae84": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "graypants",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "0ee270c8-250d-442f-b0a6-9985cebd79dd": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "hammerton-studio",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "dd11470c-2820-44b7-b35e-9bf667dc2df0": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "hinkley-lighting",
+            "title": "",
+            "button_label": "View products"
+          }
         }
       },
       "block_order": [
-        "af302e99-6229-4bb5-9556-ebfdfb29ae84",
-        "0ee270c8-250d-442f-b0a6-9985cebd79dd",
-        "d1457e30-02f3-4642-8824-884aa9bd0fca",
-        "dd11470c-2820-44b7-b35e-9bf667dc2df0",
         "1091f1e7-a1ee-4435-89a3-687a4f70ea11",
         "ed262eec-a4d3-4979-938a-b83014b2ab37",
         "e0150f1a-e2fb-4960-a5ec-bb39d628ec31",
-        "ab5e61f0-e7d7-45ad-85af-9b18de64059e"
+        "ab5e61f0-e7d7-45ad-85af-9b18de64059e",
+        "d1457e30-02f3-4642-8824-884aa9bd0fca",
+        "af302e99-6229-4bb5-9556-ebfdfb29ae84",
+        "0ee270c8-250d-442f-b0a6-9985cebd79dd",
+        "dd11470c-2820-44b7-b35e-9bf667dc2df0"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -639,9 +639,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -655,46 +655,6 @@
     "9f26c2a4-180d-40c6-a174-b8e3ca9b3e97": {
       "type": "index__collection-list",
       "blocks": {
-        "28107e10-643e-4ed5-aef4-1b6a10b68f7b": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "global-views",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "c643ba3d-69ab-4813-a3b7-c75e3803fb9d": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "graypants",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "388666cd-c330-459b-814e-836cb3215695": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "hammerton-studio",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "e6a3ca48-6d45-48b5-9dd3-47097433c034": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "hinkley-lighting",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "b45f1b7f-94de-4e98-a808-2fe1722fb0d9": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "hollis-morris",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "e7fe54a8-fa92-4a1b-81b5-971c4c1b6cf5": {
           "type": "collection",
           "settings": {
@@ -718,17 +678,57 @@
             "title": "",
             "button_label": "View products"
           }
+        },
+        "28107e10-643e-4ed5-aef4-1b6a10b68f7b": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "ip44-de",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "b45f1b7f-94de-4e98-a808-2fe1722fb0d9": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "jamie-young-company",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "c643ba3d-69ab-4813-a3b7-c75e3803fb9d": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "jonathan-adler",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "388666cd-c330-459b-814e-836cb3215695": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "justice-designs",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "e6a3ca48-6d45-48b5-9dd3-47097433c034": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "jvi-designs",
+            "title": "",
+            "button_label": "View products"
+          }
         }
       },
       "block_order": [
-        "28107e10-643e-4ed5-aef4-1b6a10b68f7b",
-        "c643ba3d-69ab-4813-a3b7-c75e3803fb9d",
-        "388666cd-c330-459b-814e-836cb3215695",
-        "e6a3ca48-6d45-48b5-9dd3-47097433c034",
-        "b45f1b7f-94de-4e98-a808-2fe1722fb0d9",
         "e7fe54a8-fa92-4a1b-81b5-971c4c1b6cf5",
         "f95eca2c-1c4c-4528-828f-ddb7f0fcaff1",
-        "66d4c885-0085-415b-8764-00bd9e8d5cba"
+        "66d4c885-0085-415b-8764-00bd9e8d5cba",
+        "28107e10-643e-4ed5-aef4-1b6a10b68f7b",
+        "b45f1b7f-94de-4e98-a808-2fe1722fb0d9",
+        "c643ba3d-69ab-4813-a3b7-c75e3803fb9d",
+        "388666cd-c330-459b-814e-836cb3215695",
+        "e6a3ca48-6d45-48b5-9dd3-47097433c034"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -736,9 +736,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -752,58 +752,10 @@
     "e3b66cc7-ee1e-4e66-b7ac-128bc5a477f1": {
       "type": "index__collection-list",
       "blocks": {
-        "fafad975-e279-4887-bfd2-fa5e23f69f99": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "ip44-de",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "54e95194-6d1a-4522-a3fc-ab7039926506": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "jamie-young-company",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "65115e94-7583-48aa-960c-c491140a5288": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "jonathan-adler",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "4bf6fd60-bf3d-4d7d-959a-d2d9b4f95910": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "justice-designs",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "ed3dac85-805b-49f4-9476-71d0525b4c3b": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "jvi-designs",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "ebaefb5e-d48d-433d-b20e-eedb90c1ccb7": {
           "type": "collection",
           "settings": {
             "feature_collection": "kalco",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "b86156df-3228-4d22-8e84-212cc82f983d": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "kartners",
             "title": "",
             "button_label": "View products"
           }
@@ -815,17 +767,65 @@
             "title": "",
             "button_label": "View products"
           }
+        },
+        "b86156df-3228-4d22-8e84-212cc82f983d": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "kundalini",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "fafad975-e279-4887-bfd2-fa5e23f69f99": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "koncept",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "54e95194-6d1a-4522-a3fc-ab7039926506": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "kuzco-lighting",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "65115e94-7583-48aa-960c-c491140a5288": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "lark-living",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "4bf6fd60-bf3d-4d7d-959a-d2d9b4f95910": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "leff-amsterdam",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "ed3dac85-805b-49f4-9476-71d0525b4c3b": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "legrand",
+            "title": "",
+            "button_label": "View products"
+          }
         }
       },
       "block_order": [
+        "ebaefb5e-d48d-433d-b20e-eedb90c1ccb7",
+        "03020651-6f45-4145-88d0-674a38cf249b",
+        "b86156df-3228-4d22-8e84-212cc82f983d",
         "fafad975-e279-4887-bfd2-fa5e23f69f99",
         "54e95194-6d1a-4522-a3fc-ab7039926506",
         "65115e94-7583-48aa-960c-c491140a5288",
         "4bf6fd60-bf3d-4d7d-959a-d2d9b4f95910",
-        "ed3dac85-805b-49f4-9476-71d0525b4c3b",
-        "ebaefb5e-d48d-433d-b20e-eedb90c1ccb7",
-        "b86156df-3228-4d22-8e84-212cc82f983d",
-        "03020651-6f45-4145-88d0-674a38cf249b"
+        "ed3dac85-805b-49f4-9476-71d0525b4c3b"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -833,9 +833,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -849,54 +849,6 @@
     "5729240c-8412-43a8-ad6f-bf98e219714c": {
       "type": "index__collection-list",
       "blocks": {
-        "3606516f-1500-4aaa-b575-b33965e7543d": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "kundalini",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "e4c2b3f1-e16d-458d-b28f-c6a082aacef9": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "koncept",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "a241d39e-2dcf-426d-9b99-b322a0eacf31": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "kuzco-lighting",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "0f50d8e5-cb54-498c-9ea2-1da52ed58bd6": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "lark-living",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "fa638cf9-67f1-49b0-a3be-572b26a964f6": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "leff-amsterdam",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "0b2dd9ca-932a-4bf9-9e06-133473474db2": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "legrand",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "2bce5734-ddbf-46f3-b94f-481cf4ae8d81": {
           "type": "collection",
           "settings": {
@@ -905,24 +857,72 @@
             "button_label": "View products"
           }
         },
+        "3606516f-1500-4aaa-b575-b33965e7543d": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "lib-co",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "e4c2b3f1-e16d-458d-b28f-c6a082aacef9": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "liteline",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "a241d39e-2dcf-426d-9b99-b322a0eacf31": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "lladro",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
         "11285649-3ed0-4a0e-9246-5e3e15b44f5e": {
           "type": "collection",
           "settings": {
-            "feature_collection": "le-klint",
+            "feature_collection": "lodes",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "0f50d8e5-cb54-498c-9ea2-1da52ed58bd6": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "lotus-led-lights",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "fa638cf9-67f1-49b0-a3be-572b26a964f6": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "louis-poulsen",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "0b2dd9ca-932a-4bf9-9e06-133473474db2": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "louis-poulsen-pale-rose-collection",
             "title": "",
             "button_label": "View products"
           }
         }
       },
       "block_order": [
+        "2bce5734-ddbf-46f3-b94f-481cf4ae8d81",
         "3606516f-1500-4aaa-b575-b33965e7543d",
         "e4c2b3f1-e16d-458d-b28f-c6a082aacef9",
         "a241d39e-2dcf-426d-9b99-b322a0eacf31",
+        "11285649-3ed0-4a0e-9246-5e3e15b44f5e",
         "0f50d8e5-cb54-498c-9ea2-1da52ed58bd6",
         "fa638cf9-67f1-49b0-a3be-572b26a964f6",
-        "0b2dd9ca-932a-4bf9-9e06-133473474db2",
-        "2bce5734-ddbf-46f3-b94f-481cf4ae8d81",
-        "11285649-3ed0-4a0e-9246-5e3e15b44f5e"
+        "0b2dd9ca-932a-4bf9-9e06-133473474db2"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -930,9 +930,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -949,15 +949,7 @@
         "94a117f4-13bc-472d-b5a3-877fd105567a": {
           "type": "collection",
           "settings": {
-            "feature_collection": "lib-co",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "7b4af743-da51-46c7-b2bf-c214f0df7db9": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "liteline",
+            "feature_collection": "luceplan",
             "title": "",
             "button_label": "View products"
           }
@@ -965,7 +957,7 @@
         "e25c3feb-d568-4712-91b7-065f41d2763c": {
           "type": "collection",
           "settings": {
-            "feature_collection": "livabliss",
+            "feature_collection": "lutron",
             "title": "",
             "button_label": "View products"
           }
@@ -973,7 +965,7 @@
         "959b3719-ad06-4802-9386-617f703174be": {
           "type": "collection",
           "settings": {
-            "feature_collection": "lladro",
+            "feature_collection": "matteo-lighting",
             "title": "",
             "button_label": "View products"
           }
@@ -981,7 +973,15 @@
         "2726de92-b334-4c51-82a3-b4113f557709": {
           "type": "collection",
           "settings": {
-            "feature_collection": "lodes",
+            "feature_collection": "matthews-fan-company",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "7b4af743-da51-46c7-b2bf-c214f0df7db9": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "maxim-lighting",
             "title": "",
             "button_label": "View products"
           }
@@ -989,7 +989,7 @@
         "42fbc511-d5ae-4cb3-81ac-3ea7cc454351": {
           "type": "collection",
           "settings": {
-            "feature_collection": "lotus-led-lights",
+            "feature_collection": "meridian-lite-trends",
             "title": "",
             "button_label": "View products"
           }
@@ -997,7 +997,7 @@
         "76f577c2-bd88-4b2c-ae53-3f710cfdac93": {
           "type": "collection",
           "settings": {
-            "feature_collection": "louis-poulsen",
+            "feature_collection": "michael-mchale-designs",
             "title": "",
             "button_label": "View products"
           }
@@ -1005,7 +1005,7 @@
         "dcabbd64-6c10-4b25-ba51-51efe62ce3fb": {
           "type": "collection",
           "settings": {
-            "feature_collection": "louis-poulsen-pale-rose-collection",
+            "feature_collection": "mitzi",
             "title": "",
             "button_label": "View products"
           }
@@ -1013,10 +1013,10 @@
       },
       "block_order": [
         "94a117f4-13bc-472d-b5a3-877fd105567a",
-        "7b4af743-da51-46c7-b2bf-c214f0df7db9",
         "e25c3feb-d568-4712-91b7-065f41d2763c",
         "959b3719-ad06-4802-9386-617f703174be",
         "2726de92-b334-4c51-82a3-b4113f557709",
+        "7b4af743-da51-46c7-b2bf-c214f0df7db9",
         "42fbc511-d5ae-4cb3-81ac-3ea7cc454351",
         "76f577c2-bd88-4b2c-ae53-3f710cfdac93",
         "dcabbd64-6c10-4b25-ba51-51efe62ce3fb"
@@ -1027,9 +1027,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -1043,26 +1043,10 @@
     "8ba8051f-7d7f-403f-9fd9-0802f96400c2": {
       "type": "index__collection-list",
       "blocks": {
-        "dea13a5c-a58b-4b1a-bd37-bdac27dbb0d0": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "luceplan",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "bfe99526-a971-479d-8ab5-678b33c6c311": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "lutron",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "04ff67ca-8ccc-4aa6-b070-904d17b0417e": {
           "type": "collection",
           "settings": {
-            "feature_collection": "made-by-hand",
+            "feature_collection": "modern-forms",
             "title": "",
             "button_label": "View products"
           }
@@ -1070,7 +1054,7 @@
         "92952d97-1205-464f-aabe-4149e6c564d4": {
           "type": "collection",
           "settings": {
-            "feature_collection": "matteo-lighting",
+            "feature_collection": "montclair-light-works",
             "title": "",
             "button_label": "View products"
           }
@@ -1078,7 +1062,7 @@
         "6b10bff0-4350-4e56-9c7c-4e91c7e7f7b1": {
           "type": "collection",
           "settings": {
-            "feature_collection": "matthews-fan-company",
+            "feature_collection": "nemo-lighting",
             "title": "",
             "button_label": "View products"
           }
@@ -1086,7 +1070,7 @@
         "88546580-da34-4999-9f3a-6bcb36c84951": {
           "type": "collection",
           "settings": {
-            "feature_collection": "maxim-lighting",
+            "feature_collection": "nuevo-living",
             "title": "",
             "button_label": "View products"
           }
@@ -1094,7 +1078,15 @@
         "1c971614-4031-42da-be29-e5ee002eca77": {
           "type": "collection",
           "settings": {
-            "feature_collection": "meridian-lite-trends",
+            "feature_collection": "original-btc",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "dea13a5c-a58b-4b1a-bd37-bdac27dbb0d0": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "oxygen",
             "title": "",
             "button_label": "View products"
           }
@@ -1102,21 +1094,29 @@
         "b97b5a9b-7ddc-4385-bd4a-3b5b5da85e25": {
           "type": "collection",
           "settings": {
-            "feature_collection": "michael-mchale-designs",
+            "feature_collection": "pablo-designs",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "bfe99526-a971-479d-8ab5-678b33c6c311": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "pageone",
             "title": "",
             "button_label": "View products"
           }
         }
       },
       "block_order": [
-        "dea13a5c-a58b-4b1a-bd37-bdac27dbb0d0",
-        "bfe99526-a971-479d-8ab5-678b33c6c311",
         "04ff67ca-8ccc-4aa6-b070-904d17b0417e",
         "92952d97-1205-464f-aabe-4149e6c564d4",
         "6b10bff0-4350-4e56-9c7c-4e91c7e7f7b1",
         "88546580-da34-4999-9f3a-6bcb36c84951",
         "1c971614-4031-42da-be29-e5ee002eca77",
-        "b97b5a9b-7ddc-4385-bd4a-3b5b5da85e25"
+        "dea13a5c-a58b-4b1a-bd37-bdac27dbb0d0",
+        "b97b5a9b-7ddc-4385-bd4a-3b5b5da85e25",
+        "bfe99526-a971-479d-8ab5-678b33c6c311"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -1124,9 +1124,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -1140,26 +1140,10 @@
     "44a96a37-a6db-43ad-92e0-6eab8c79eb87": {
       "type": "index__collection-list",
       "blocks": {
-        "0dd39461-4347-4e0f-a00a-bfccc92def9b": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "mike-ally",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "069c2648-2443-40ee-b76e-ead3b14aee7a": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "mitzi",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "aca648fb-2bc3-4ba5-aca9-27b45fc4c1fd": {
           "type": "collection",
           "settings": {
-            "feature_collection": "modern-forms",
+            "feature_collection": "paris-mirror",
             "title": "",
             "button_label": "View products"
           }
@@ -1167,7 +1151,7 @@
         "9201e47b-8562-4ec6-b7b4-e3f7dd751f35": {
           "type": "collection",
           "settings": {
-            "feature_collection": "montclair-light-works",
+            "feature_collection": "qlocktwo",
             "title": "",
             "button_label": "View products"
           }
@@ -1175,7 +1159,7 @@
         "b5ea03f9-6579-4581-be4c-a2374fdc7105": {
           "type": "collection",
           "settings": {
-            "feature_collection": "nemo-lighting",
+            "feature_collection": "regina-andrew",
             "title": "",
             "button_label": "View products"
           }
@@ -1183,7 +1167,7 @@
         "bad76e2e-c764-432b-9a2f-aeaa6b4b7970": {
           "type": "collection",
           "settings": {
-            "feature_collection": "nuevo-living",
+            "feature_collection": "renwil",
             "title": "",
             "button_label": "View products"
           }
@@ -1191,7 +1175,7 @@
         "3b38d025-1db5-4d70-b2b6-ffc822215575": {
           "type": "collection",
           "settings": {
-            "feature_collection": "original-btc",
+            "feature_collection": "robert-abbey",
             "title": "",
             "button_label": "View products"
           }
@@ -1199,21 +1183,37 @@
         "cb744dfa-9162-4d77-b7ed-37408ded33bd": {
           "type": "collection",
           "settings": {
-            "feature_collection": "oxygen",
+            "feature_collection": "rocheleau",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "0dd39461-4347-4e0f-a00a-bfccc92def9b": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "savoy-house",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "069c2648-2443-40ee-b76e-ead3b14aee7a": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "schaub",
             "title": "",
             "button_label": "View products"
           }
         }
       },
       "block_order": [
-        "0dd39461-4347-4e0f-a00a-bfccc92def9b",
-        "069c2648-2443-40ee-b76e-ead3b14aee7a",
         "aca648fb-2bc3-4ba5-aca9-27b45fc4c1fd",
         "9201e47b-8562-4ec6-b7b4-e3f7dd751f35",
         "b5ea03f9-6579-4581-be4c-a2374fdc7105",
         "bad76e2e-c764-432b-9a2f-aeaa6b4b7970",
         "3b38d025-1db5-4d70-b2b6-ffc822215575",
-        "cb744dfa-9162-4d77-b7ed-37408ded33bd"
+        "cb744dfa-9162-4d77-b7ed-37408ded33bd",
+        "0dd39461-4347-4e0f-a00a-bfccc92def9b",
+        "069c2648-2443-40ee-b76e-ead3b14aee7a"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -1221,9 +1221,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -1237,50 +1237,10 @@
     "453cd6f9-807c-497a-8559-d5caf1540a7e": {
       "type": "index__collection-list",
       "blocks": {
-        "76ffcf77-dc85-4c41-9e7e-962915a59462": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "pablo-designs",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "2cfb92c0-63bc-49d1-9696-904a980afdc6": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "pageone",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "4c91c1d2-8899-4ed1-9ac2-54a8a23ecd99": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "paris-mirror",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "495a9744-243a-400e-a097-f99a8595308b": {
           "type": "collection",
           "settings": {
-            "feature_collection": "qlocktwo",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "f69cabca-d0fd-4c95-9845-7480b4ccadf3": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "regina-andrew",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "36548bc9-299b-4cb7-aa4f-52ebacec62d9": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "renwil",
+            "feature_collection": "schonbek-1870",
             "title": "",
             "button_label": "View products"
           }
@@ -1288,7 +1248,23 @@
         "3ceaaf29-ebe1-4b81-9bf2-edd5748e51de": {
           "type": "collection",
           "settings": {
-            "feature_collection": "ridgely-studio-works",
+            "feature_collection": "schonbek-beyond",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "f69cabca-d0fd-4c95-9845-7480b4ccadf3": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "schonbek-signature",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "36548bc9-299b-4cb7-aa4f-52ebacec62d9": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "seed-design",
             "title": "",
             "button_label": "View products"
           }
@@ -1296,21 +1272,45 @@
         "0e10107a-bcb4-4fec-93b5-faaf20aa8492": {
           "type": "collection",
           "settings": {
-            "feature_collection": "robert-abbey",
+            "feature_collection": "sidler",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "76ffcf77-dc85-4c41-9e7e-962915a59462": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "slamp",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "2cfb92c0-63bc-49d1-9696-904a980afdc6": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "sonneman",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "4c91c1d2-8899-4ed1-9ac2-54a8a23ecd99": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "stilnovo",
             "title": "",
             "button_label": "View products"
           }
         }
       },
       "block_order": [
-        "76ffcf77-dc85-4c41-9e7e-962915a59462",
-        "2cfb92c0-63bc-49d1-9696-904a980afdc6",
-        "4c91c1d2-8899-4ed1-9ac2-54a8a23ecd99",
         "495a9744-243a-400e-a097-f99a8595308b",
+        "3ceaaf29-ebe1-4b81-9bf2-edd5748e51de",
         "f69cabca-d0fd-4c95-9845-7480b4ccadf3",
         "36548bc9-299b-4cb7-aa4f-52ebacec62d9",
-        "3ceaaf29-ebe1-4b81-9bf2-edd5748e51de",
-        "0e10107a-bcb4-4fec-93b5-faaf20aa8492"
+        "0e10107a-bcb4-4fec-93b5-faaf20aa8492",
+        "76ffcf77-dc85-4c41-9e7e-962915a59462",
+        "2cfb92c0-63bc-49d1-9696-904a980afdc6",
+        "4c91c1d2-8899-4ed1-9ac2-54a8a23ecd99"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -1318,9 +1318,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -1334,42 +1334,10 @@
     "980ce82b-411d-4495-8528-191edf33b569": {
       "type": "index__collection-list",
       "blocks": {
-        "853ca7e5-db78-4cbd-849e-a0698df12e89": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "rocheleau",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "c292aa93-1eb8-4fd7-89ce-a1e06258b214": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "savoy-house",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "cef17fba-8122-4707-a24e-a33b7409d046": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "schaub",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "f3286e03-d87d-45e7-b410-b4b1f86bbb44": {
           "type": "collection",
           "settings": {
-            "feature_collection": "schonbek-1870",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "3d574c70-32e3-4962-ab6e-fc815b66c114": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "schonbek-beyond",
+            "feature_collection": "studio-m-lighting",
             "title": "",
             "button_label": "View products"
           }
@@ -1377,7 +1345,7 @@
         "50883b44-9ae7-41ca-97a6-4f5a19e82c39": {
           "type": "collection",
           "settings": {
-            "feature_collection": "schonbek-signature",
+            "feature_collection": "the-uttermost",
             "title": "",
             "button_label": "View products"
           }
@@ -1385,7 +1353,7 @@
         "da66839a-cce1-4c4f-a30d-0c890243196a": {
           "type": "collection",
           "settings": {
-            "feature_collection": "seed-design",
+            "feature_collection": "top-knobs",
             "title": "",
             "button_label": "View products"
           }
@@ -1393,21 +1361,53 @@
         "2b5665d8-0bcb-44be-ae3a-0259f0d705e7": {
           "type": "collection",
           "settings": {
-            "feature_collection": "sidler",
+            "feature_collection": "troy-lighting",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "3d574c70-32e3-4962-ab6e-fc815b66c114": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "umage",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "853ca7e5-db78-4cbd-849e-a0698df12e89": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "varaluz",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "c292aa93-1eb8-4fd7-89ce-a1e06258b214": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "vernon-towel-warmers",
+            "title": "",
+            "button_label": "View products"
+          }
+        },
+        "cef17fba-8122-4707-a24e-a33b7409d046": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "vesta-fine-hardware",
             "title": "",
             "button_label": "View products"
           }
         }
       },
       "block_order": [
-        "853ca7e5-db78-4cbd-849e-a0698df12e89",
-        "c292aa93-1eb8-4fd7-89ce-a1e06258b214",
-        "cef17fba-8122-4707-a24e-a33b7409d046",
         "f3286e03-d87d-45e7-b410-b4b1f86bbb44",
-        "3d574c70-32e3-4962-ab6e-fc815b66c114",
         "50883b44-9ae7-41ca-97a6-4f5a19e82c39",
         "da66839a-cce1-4c4f-a30d-0c890243196a",
-        "2b5665d8-0bcb-44be-ae3a-0259f0d705e7"
+        "2b5665d8-0bcb-44be-ae3a-0259f0d705e7",
+        "3d574c70-32e3-4962-ab6e-fc815b66c114",
+        "853ca7e5-db78-4cbd-849e-a0698df12e89",
+        "c292aa93-1eb8-4fd7-89ce-a1e06258b214",
+        "cef17fba-8122-4707-a24e-a33b7409d046"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -1415,9 +1415,9 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
@@ -1431,144 +1431,7 @@
     "22316f3d-5673-4cf0-8d15-ac6aaa25b1da": {
       "type": "index__collection-list",
       "blocks": {
-        "64bcc1d9-12d1-4c48-84e6-fba5ea0b3f83": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "slamp",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "450e5c98-d437-43a9-8e8f-40d5b7c8a32d": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "sonneman",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-2": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "stilnovo",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "collection_QWXBUM": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "studio-m-lighting",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
         "collection_E4jHKp": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "surya",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-1": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "tala",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "ada72d48-a518-4d01-8565-1a9e0476d398": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "the-uttermost",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "dba00b83-b2d8-48dc-bdcd-3de7a43ab561": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "top-knobs",
-            "title": "",
-            "button_label": "View products"
-          }
-        }
-      },
-      "block_order": [
-        "64bcc1d9-12d1-4c48-84e6-fba5ea0b3f83",
-        "450e5c98-d437-43a9-8e8f-40d5b7c8a32d",
-        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-2",
-        "collection_QWXBUM",
-        "collection_E4jHKp",
-        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-1",
-        "ada72d48-a518-4d01-8565-1a9e0476d398",
-        "dba00b83-b2d8-48dc-bdcd-3de7a43ab561"
-      ],
-      "settings": {
-        "collections_per_row": 4,
-        "align_height": true,
-        "collection_height": 200,
-        "enable_zoom": true,
-        "button_style": "button--primary",
-        "overlay_background": "#939393",
-        "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
-        "collection_title_below_image": true,
-        "width": "wide",
-        "show_gutter": true,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "animation": "none",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
-    "index_collection_list_xgLUki": {
-      "type": "index__collection-list",
-      "blocks": {
-        "collection_TzyeR7": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "troy-lighting",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "collection_KdUp8X": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "umage",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "collection_bq9xXR": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "varaluz",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "collection_frTVYd": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "vernon-towel-warmers",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "collection_hnkd33": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "vesta-fine-hardware",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "collection_rNQAxQ": {
           "type": "collection",
           "settings": {
             "feature_collection": "visual-comfort",
@@ -1576,7 +1439,7 @@
             "button_label": "View products"
           }
         },
-        "collection_D8qKxA": {
+        "ada72d48-a518-4d01-8565-1a9e0476d398": {
           "type": "collection",
           "settings": {
             "feature_collection": "visual-comfort-fan-collection",
@@ -1584,48 +1447,15 @@
             "button_label": "View products"
           }
         },
-        "collection_n7mU9j": {
+        "dba00b83-b2d8-48dc-bdcd-3de7a43ab561": {
           "type": "collection",
           "settings": {
             "feature_collection": "visual-comfort-modern-collection",
             "title": "",
             "button_label": "View products"
           }
-        }
-      },
-      "block_order": [
-        "collection_TzyeR7",
-        "collection_KdUp8X",
-        "collection_bq9xXR",
-        "collection_frTVYd",
-        "collection_hnkd33",
-        "collection_rNQAxQ",
-        "collection_D8qKxA",
-        "collection_n7mU9j"
-      ],
-      "settings": {
-        "collections_per_row": 4,
-        "align_height": true,
-        "collection_height": 200,
-        "enable_zoom": true,
-        "button_style": "button--primary",
-        "overlay_background": "#939393",
-        "overlay_background_opacity": 20,
-        "overlay_text": "#000000",
-        "collection_title_below_image": true,
-        "width": "wide",
-        "show_gutter": true,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "animation": "none",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
-    "index_collection_list_Vhitr7": {
-      "type": "index__collection-list",
-      "blocks": {
-        "collection_r7Laq8": {
+        },
+        "64bcc1d9-12d1-4c48-84e6-fba5ea0b3f83": {
           "type": "collection",
           "settings": {
             "feature_collection": "visual-comfort-studio-collection",
@@ -1633,7 +1463,7 @@
             "button_label": "View products"
           }
         },
-        "collection_UJyCeq": {
+        "450e5c98-d437-43a9-8e8f-40d5b7c8a32d": {
           "type": "collection",
           "settings": {
             "feature_collection": "wac-lighting",
@@ -1641,15 +1471,7 @@
             "button_label": "View products"
           }
         },
-        "collection_jbHXJi": {
-          "type": "collection",
-          "settings": {
-            "feature_collection": "woud-design",
-            "title": "",
-            "button_label": "View products"
-          }
-        },
-        "collection_7JjkaP": {
+        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-2": {
           "type": "collection",
           "settings": {
             "feature_collection": "zafferano-america",
@@ -1657,7 +1479,7 @@
             "button_label": "View products"
           }
         },
-        "collection_annfR4": {
+        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-1": {
           "type": "collection",
           "settings": {
             "feature_collection": "zen-design",
@@ -1667,11 +1489,13 @@
         }
       },
       "block_order": [
-        "collection_r7Laq8",
-        "collection_UJyCeq",
-        "collection_jbHXJi",
-        "collection_7JjkaP",
-        "collection_annfR4"
+        "collection_E4jHKp",
+        "ada72d48-a518-4d01-8565-1a9e0476d398",
+        "dba00b83-b2d8-48dc-bdcd-3de7a43ab561",
+        "64bcc1d9-12d1-4c48-84e6-fba5ea0b3f83",
+        "450e5c98-d437-43a9-8e8f-40d5b7c8a32d",
+        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-2",
+        "template--16123450720446__22316f3d-5673-4cf0-8d15-ac6aaa25b1da-collection-1"
       ],
       "settings": {
         "collections_per_row": 4,
@@ -1679,14 +1503,14 @@
         "collection_height": 200,
         "enable_zoom": true,
         "button_style": "button--primary",
+        "overlay_text": "#ffffff",
         "overlay_background": "#939393",
         "overlay_background_opacity": 20,
-        "overlay_text": "#ffffff",
         "collection_title_below_image": true,
         "width": "wide",
         "show_gutter": true,
-        "padding_top": 20,
-        "padding_bottom": 20,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "animation": "none",
         "css_class": "",
         "custom_css": ""
@@ -1712,8 +1536,6 @@
     "44a96a37-a6db-43ad-92e0-6eab8c79eb87",
     "453cd6f9-807c-497a-8559-d5caf1540a7e",
     "980ce82b-411d-4495-8528-191edf33b569",
-    "22316f3d-5673-4cf0-8d15-ac6aaa25b1da",
-    "index_collection_list_xgLUki",
-    "index_collection_list_Vhitr7"
+    "22316f3d-5673-4cf0-8d15-ac6aaa25b1da"
   ]
 }

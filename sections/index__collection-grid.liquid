@@ -1,0 +1,108 @@
+<div class="section is-width-wide">
+  <div class="container collection-grid">
+    {%- for block in section.blocks -%}
+      {%- assign collection = block.settings.collection -%}
+      {%- assign url = collection.url | default: '#' -%}
+      {%- assign image = block.settings.image | default: collection.featured_image -%}
+      <div class="collection-grid--item">
+        <picture class="collGrid__image-picture">
+          {% if image != blank  %}
+            <img loading="lazy" fetchpriority="low" 
+              src="{{ image | image_url: width: 650 }}"
+              srcset="{% if image.width > 375 %} {{ image | image_url : width: 375 }} 375w,{% endif %}
+              {% if image.width > 420 %} {{ image | image_url : width: 420 }} 420w,{% endif %}
+              {% if image.width > 520 %} {{ image | image_url : width: 520 }} 520w,{% endif %}
+              {% if image.width > 640 %} {{ image | image_url : width: 640 }} 640w,{% endif %}
+              {% if image.width > 990 %} {{ image | image_url : width: 990 }} 990w,{% endif %}
+              {% if image.width > 1200 %}  {{ image | image_url : width: 1200 }} 1200w,{% endif %}            
+              {{ image | image_url }} {{ image.width }}w"
+              sizes= "33.33vw"
+              alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}" style="" />
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </picture>
+        <div class="collGrid__text">
+          <div class="collGrid_wrap_html_block">
+            <h3 class="collGrid__subheading">{{ block.settings.title }}</h3>
+            <a class="collGrid__button" href="{{ block.settings.btn_link | default: url }}">
+              <span class="collGrid__button--text">{{ block.settings.btn_text }}</span>
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                  <path d="M335 408.1C330.3 404.3 328 398.2 328 392s2.344-12.28 7.031-16.97L430.1 280H24C10.75 280 0 269.2 0 255.1C0 242.7 10.75 232 24 232h406.1l-95.03-95.03c-9.375-9.375-9.375-24.56 0-33.94s24.56-9.375 33.94 0l136 136c9.375 9.375 9.375 24.56 0 33.94l-136 136C359.6 418.3 344.4 418.3 335 408.1z"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>      
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Grid",
+    "class":"section-collection-grid",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Collection block",
+        "settings":[
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Select collection"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Upload image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Enter collection title",
+            "default": "Collection title"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Enter link text",
+            "default": "Shop"
+          },
+          {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Provide link",
+            "info": "it will override collection link. If collection is selected."
+          }
+        ]
+      }
+    ],    
+    "presets": [{
+      "name": "Collection Grid",
+      "category": "Image",
+      "settings": {
+      },
+      "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ],
+    "disabled_on": {
+      "groups": [
+        "*"
+      ]
+    }
+  }
+{% endschema %}

@@ -94,11 +94,13 @@
   <div class="popup__inner is-flex {% if section.settings.image == blank %} is-align-center {% endif %} text-align-{{ section.settings.newsletter_section_text_align }} image-position-{{ image_position }}">
 
     {% if section.settings.image != blank %}
-      <div class="popup__image {% if section.settings.image_cropping != 'none' %}has-image-crop image-crop--{{ section.settings.image_cropping }}{% endif %}">
-        {% render 'image-element',
-                image: section.settings.image,
-                alt: section.settings.image.alt,
-                stretch_width: true
+      <div class="popup__image">
+        {%
+          render 'image-element',
+          image: section.settings.image,
+          alt: section.settings.image.alt,
+          stretch_width: true,
+          focal_point: section.settings.image.presentation.focal_point,
         %}
       </div>
     {% endif %}
@@ -118,10 +120,11 @@
 
       {% if section.settings.show_signup_form %}
         <div class="popup__newsletter newsletter-section--popup">
-          {% render 'newsletter-form',
-                  type: 'section',
-                  display_first_name: section.settings.display_first_name,
-                  display_last_name: section.settings.display_last_name
+          {%
+            render 'newsletter-form',
+            type: 'section',
+            display_first_name: section.settings.display_first_name,
+            display_last_name: section.settings.display_last_name,
           %}
         </div>
       {% endif %}
@@ -199,23 +202,9 @@
         "default": "<p>Sign up to get the latest on sales, new releases and more …</p>"
       },
       {
-        "type": "select",
+        "type": "text_alignment",
         "id": "newsletter_section_text_align",
         "label": "Text alignment",
-        "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          },
-          {
-            "value": "right",
-            "label": "Right"
-          }
-        ],
         "default": "center"
       },
       {
@@ -261,31 +250,6 @@
         "id": "image",
         "label": "Image",
         "info": "600 x 875px recommended. Hidden on mobile."
-      },
-      {
-        "type": "select",
-        "id": "image_cropping",
-        "label": "Image cropping",
-        "info": "Crops image to same height as text content.",
-        "options": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "left",
-            "label": "Left"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          },
-          {
-            "value": "right",
-            "label": "Right"
-          }
-        ],
-        "default": "center"
       },
       {
         "type": "select",
