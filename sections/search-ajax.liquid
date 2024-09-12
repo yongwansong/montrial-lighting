@@ -1,0 +1,78 @@
+<li class="all-results">
+  <span class="see-all">
+    <a href="/search?type=product&q={{ search.terms }}"> View all results 
+    <span class="icon " data-icon="right-caret">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g id="right-caret"><path d="M74.25,48.58l-45.69-45a2,2,0,1,0-2.81,2.84l9.81,9.66a2,2,0,0,0,.47.78L69.17,50,36,83.14a2,2,0,0,0-.47.78l-9.81,9.66a2,2,0,1,0,2.81,2.84l45.69-45a2,2,0,0,0,0-2.84Z"></path></g></svg>
+    </span>
+  </a>
+  </span>
+</li>
+
+{% if search.results == empty %}
+  {% comment %} No results {% endcomment %}
+  <li class="search__no-results  item-result">
+    <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+  </li>
+{% endif %}
+
+{% assign count = 0 %}
+{% for item in search.results %}
+  {% if count <= 10 %}
+  {% if item.object_type == 'product' %}
+    {% liquid 
+      assign selected_variant = item.selected_or_first_available_variant
+  
+      assign is_discontinued = false
+      if item.metafields.custom_fields.discontinued == 'true'
+        assign is_discontinued = true
+      endif
+      assign dc_variants_count = 0
+      assign hasDiscontinuedVariants = false
+      for variant in item.variants
+        if variant.metafields.custom_fields.discontinued == 'true'
+          assign dc_variants_count = dc_variants_count | plus: 1
+          assign hasDiscontinuedVariants = true
+        else 
+          assign selected_variant = variant
+        endif
+      endfor
+      if dc_variants_count == item.variants.size
+        assign is_discontinued = true
+      endif
+    %}
+  
+    {% unless is_discontinued %}
+      <li class="item-result" data-ajax>
+      <a tabindex="0" href="{{ item.url }}">
+        <div class="thumbnail">
+          <img loading="lazy" class="lazyload" alt="" data-src="{{ item.featured_image | img_url: 'x360' }}" />
+        </div>
+        <div class="description">
+          <strong>{{ item.title }}</strong>
+     {% if hasDiscontinuedVariants %}
+            <br><span class="item-pricing price" style="display:none"><span class="money">{{ selected_variant.price | money }}</span></span>
+          {% else %}
+<br><span class="item-pricing price"  style="display:none">from <span class="money">{{ item.price_min | money }}</span></span>
+
+          {% endif %}
+        </div>
+      </a>
+    </li>
+      {% assign count = count | plus: 1 %}
+    {% endunless %}
+  {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Search Ajax",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

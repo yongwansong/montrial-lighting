@@ -1,0 +1,13 @@
+{
+  "layout": false,
+  "sections": {
+    "main": {
+      "type": "search-ajax",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

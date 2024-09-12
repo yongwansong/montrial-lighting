@@ -1,0 +1,112 @@
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
+
+
+<div id="cartbar" class="cartbar-section ">
+  <div class="section">
+
+
+  
+ <div class="cartbar-top">
+  <img loading="lazy" id="cartimg" data-src="{{ product | img_url: '900x'}}" class="lazyload" alt="">
+  <h3 class="cartinfo">{{product.title}}</h3>
+ <form class="product-form sticky-form" action="/cart/add" data-productid="{{product.id}}"  method="post">
+    <h4 id="priceinfo" class="cartinfo hide-on-mobile" style="width: 220px;">{{ product.price | money}}</h4>  
+  <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
+   
+     {% comment %} <button type="submit" class="addtocart hide-on-mobile cartbtn btn btn-default ">Add to cart</button> {% endcomment %}
+   {% comment %} <button type="submit" class="addtocart hide-on-desktop cartbtn btn btn-default ">Add to cart  - {{ product.price | money_without_trailing_zeros | strip_html  }}
+   </button> {% endcomment %}
+<!--     <input type="submit" value="Add To Cart" class="hide-on-mobile cartbtn btn btn btn-default add-to-cart" /> 
+    <input type="submit" value="Add To Cart - {{ product.price | money_without_trailing_zeros | strip_html  }}" class=" hide-on-desktop cartbtn btn btn btn-default add-to-cart" /> -->
+</form>
+  
+ </div>
+  <div class="varient-middle">
+  {% unless collection_handles contains 'coming-soon' %}
+                {%
+                  render 'product__form2',
+                  context: 'product',
+                  product: product,
+                  sold_out_options: sold_out_options,
+                  selected_variant: selected_variant,
+                  show_payment_button: block.settings.show_payment_button,
+                  collection_handles: collection_handles
+                %}
+              {% endunless %}
+
+  </div>
+    
+   <div class="quantity-cart"> 
+<form method="post" action="/cart/add">
+  <div class="cartinput">
+  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+  <input min="1" type="number" id="quantity" name="quantity" value="1"/>
+  </div>
+  
+<div class="cartbtn">
+<button type="submit" name="add" class="button-new-cart ajax-submit action_button button--add-to-cart action_button--secondary" data-label="Add to cart" data-add-to-cart-trigger="" fdprocessedid="sp76y">
+<span class="icon icon--cart" data-icon="cart"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g id="cart"><path d="M47.55,73.94a8,8,0,1,0,8,8A8,8,0,0,0,47.55,73.94Zm0,12a4,4,0,1,1,4-4A4,4,0,0,1,47.55,85.91Z"></path><path d="M76.82,73.94a8,8,0,1,0,8,8A8,8,0,0,0,76.82,73.94Zm0,12a4,4,0,1,1,4-4A4,4,0,0,1,76.82,85.91Z"></path><path d="M88.75,61.75l8.09-36.12a6.46,6.46,0,0,0-6.3-7.87H27.47l-1.24-6.07a2,2,0,0,0-2-1.6H5a2,2,0,0,0,0,4H22.64l1.24,6.07h0l8.5,41.55h0L34.29,71a2,2,0,0,0,2,1.6H92.12a2,2,0,0,0,0-4H37.88l-1.09-5.31h50A2,2,0,0,0,88.75,61.75ZM36,59.31,28.29,21.76H90.54a2.45,2.45,0,0,1,2.4,3L85.19,59.31Z"></path></g></svg>
+</span> <span class="text">Add to cart</span> <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark"> <path fill="none" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path></svg></button>
+</div>
+</form>        
+
+   </div>
+  
+
+              
+
+
+</div>
+</div>
+
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+
+
+
+<!--<script>
+
+  // When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction();};
+
+// Get the navbar
+var navbar = document.getElementById("cartbar");
+
+// Get the offset position of the navbar
+var sticky = document.getElementById("test").offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+    	cartbar.style.opacity = 0;
+        cartbar.style.display = "none";
+    }else if (window.pageYOffset >= sticky) {
+		cartbar.style.opacity = 1;
+        cartbar.style.display = "unset";
+  } else {
+    	cartbar.style.opacity = 0;
+        cartbar.style.display = "none";
+  }
+}
+</script>-->
+
+
+
+{% schema %}
+
+{
+  "name": "Cartbar",
+  "class": "cartbar",
+  "settings": [],
+  "presets":[
+    {
+      "name":"cartbar",
+      "category":"custom"
+    }
+  ]
+}
+
+{% endschema %}

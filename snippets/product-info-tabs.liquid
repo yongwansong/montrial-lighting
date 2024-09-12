@@ -1,0 +1,18 @@
+<ul class="tabs">
+  <li><a class="active" href="#tab1">Delivery</a></li>
+  <li><a href="#tab2">110% Price Match Guarantee</a></li>
+</ul>
+
+<!--Start tab content-->
+<ul class="tabs-content">
+  <li class="active" id="tab1">
+    {% assign item = product.metafields.item %}
+    {% if product.metafields.item.delivery != blank %}
+    {% assign key = 'delivery' %}
+    <p><strong>Delivery:</strong> {{ item.delivery }}</p>{% endif %}
+  </li>
+  
+  <li id="tab2">
+    You know you are getting the best Canadian Landed Price at Montreal Lighting & Hardware. If you find the same product advertised for less by one of our Canadian competitors within 30 days of your purchase, we will gladly match the lower price + 10% of the difference. Click <a href="https://www.montreallighting.com/pages/110-price-match-gurantee">here</a> for more information.
+  </li>
+</ul>

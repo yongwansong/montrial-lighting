@@ -1,0 +1,28 @@
+{%- comment %}
+  Hey there! This asset is managed by Locksmith (uselocksmith.com).
+
+  Do not modify this file. Any changes will be reset the next time that
+  Locksmith interacts with this theme.
+
+  Last updated: Thu, 04 Jul 2024 12:18:53 -0400 (EDT)
+{% endcomment -%}
+
+{%comment%}
+    !! The Locksmith account for this store has been disabled, but we detected
+    !! custom code in the following assets which depend on Locksmith:
+    !!   * snippets/product-thumbnail.liquid
+    !!   * snippets/product-thumbnail__product-info.liquid
+    !!   * snippets/product.liquid
+    !!   * snippets/product__form.liquid
+    !!
+    !! To allow files depending on Locksmith to render correctly without errors,
+    !! we have left this file in place. However, it has been modified to
+    !! allow access to all visitors in all scenarios.
+    !! To have Locksmith fully remove all of its code from this
+    !! theme, remove all custom code from the assets listed above,
+    !! then request a Locksmith removal from within the app.
+    !!
+    !! More information on Locksmith: https://apps.shopify.com/locksmith
+    !! Locksmith removal guide: https://www.locksmith.guide/basics/removing-locksmith
+    !! Contact Locksmith support: https://www.locksmith.guide/policies/contact
+{%endcomment%}{%assign locksmith_access_granted=true%}{%assign locksmith_access_denied=false%}{%assign locksmith_transparent=true%}{%assign locksmith_initialized=true%}{%assign locksmith_locked=false%}{%if variable != blank%}{%capture value%}{%case variable%}{%when "locked"%}{{locksmith_locked|json}}{%when "initialized"%}{{locksmith_initialized|json}}{%when "scope"%}{{locksmith_scope|json}}{%when "access_granted"%}{{locksmith_access_granted|json}}{%when "access_denied"%}{{locksmith_access_denied|json}}{%when "requires_customer"%}{{locksmith_requires_customer|json}}{%when "manual_lock"%}{{locksmith_manual_lock|json}}{%when "remote_lock"%}{{locksmith_remote_lock|json}}{%when "remote_rendered"%}{{locksmith_remote_rendered|json}}{%when "hide_resource"%}{{locksmith_hide_resource|json}}{%when "hide_links_to_resource"%}{{locksmith_hide_links_to_resource|json}}{%when "transparent"%}{{locksmith_transparent|json}}{%when "lock_ids"%}{{locksmith_lock_ids|join:","|json}}{%when "opened_lock_ids"%}{{locksmith_opened_lock_ids|join:","|json}}{%when "key_ids"%}{{locksmith_key_ids|join:","|json}}{%when "json_tag"%}{{locksmith_json}}{%when "section_replacement"%}{{locksmith_section_replacement_content}}{%endcase%}{%endcapture%}{{value|strip}}{%endif%}
