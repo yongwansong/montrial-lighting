@@ -75,285 +75,286 @@
                   %}
                   medium-down--one-half"
                   {{ block.shopify_attributes }}>
-
-        {% if block.type == 'menu' %}
-          {% comment %} Menu {% endcomment %}
-          <div class="mega-menu__content">
-            {% if block.settings.menu_1 != blank %}
-              {%
-                render 'mega-menu__linklist',
-                menu_link: block.settings.menu_1,
-                link_setting: block.settings.menu_1_link
-              %}
-            {% else %}
-              <p class="menu__heading">{{ 'homepage.onboarding.menu_title' | t }}</p>
-              <p>{{ 'homepage.onboarding.no_content' | t }}</p>
-            {% endif %}
-          </div>
-
-        {% elsif block.type == 'image' %}
-          {% comment %} Image and menu {% endcomment %}
-          <div class="mega-menu__content">
-            {% if block.settings.image_link != blank %}
-              <a href="{{ block.settings.image_link }}">
-            {% endif %}
-
-              {% if block.settings.image != nil %}
+        {%- case block.type -%}
+          {%- when 'menu' -%}
+            {% comment %} Menu {% endcomment %}
+            <div class="mega-menu__content">
+              {% if block.settings.menu_1 != blank %}
                 {%
-                  render 'image-element',
-                  image: block.settings.image,
-                  alt: block.settings.image.alt,
-                  additional_classes: 'mega-menu__image',
-                  focal_point: block.settings.image.presentation.focal_point,
+                  render 'mega-menu__linklist',
+                  menu_link: block.settings.menu_1,
+                  link_setting: block.settings.menu_1_link
                 %}
               {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                <p class="menu__heading">{{ 'homepage.onboarding.menu_title' | t }}</p>
+                <p>{{ 'homepage.onboarding.no_content' | t }}</p>
+              {% endif %}
+            </div>
+
+          {% when 'image' %}
+            
+            {% comment %} Image and menu {% endcomment %}
+            <div class="mega-menu__content">
+              {% if block.settings.image_link != blank %}
+                <a href="{{ block.settings.image_link }}">
               {% endif %}
 
-            {% if block.settings.image_link != blank %}
-              </a>
-            {% endif %}
-          </div>
-          <div class="mega-menu__content content">
-            {% if block.settings.image_caption %}
-              {{ block.settings.image_caption }}
-            {% endif %}
-          </div>
-
-        {% elsif block.type == 'html' %}
-          {% comment %} Custom HTML {% endcomment %}
-          <div class="mega-menu__content">
-            {{ block.settings.html_content }}
-          </div>
-
-        {% elsif block.type == 'featured_promo' %}
-          {% comment %} Featured promotion {% endcomment %}
-          <div class="mega-menu__content">
-            {% if block.settings.promo_link != blank %}
-              <a href="{{ block.settings.promo_link }}">
-            {% endif %}
-              {% if block.settings.image != nil %}
-                {%
-                  render 'image-element',
-                  image: block.settings.image,
-                  alt: block.settings.image.alt,
-                  additional_classes: 'mega-menu__image',
-                  focal_point: block.settings.image.presentation.focal_point,
-                %}
-              {% else %}
-                {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
-              {% endif %}
-            {% if block.settings.promo_link != blank %}
-              </a>
-            {% endif %}
-          </div>
-
-          {% if block.settings.richtext != blank %}
-            <div class="mega-menu__content">
-              {{ block.settings.richtext }}
-            </div>
-          {% endif %}
-
-          {% if block.settings.button_label != blank %}
-            <div class="mega-menu__content">
-              {%
-                render 'button',
-                label: block.settings.button_label,
-                href: block.settings.promo_link,
-                type: "link",
-                style: block.settings.button_style
-              %}
-            </div>
-          {% endif %}
-
-        {% elsif block.type == 'featured_product' %}
-          {% comment %} Featured product {% endcomment %}
-          <div class="mega-menu__content">
-            {%- assign product = all_products[block.settings.featured_product] -%}
-            {%- assign collection_handles = product.collections | map: 'handle' -%}
-
-            {% if product != blank %}
-              {% comment %} Product image {% endcomment %}
-              <a href="{{ product.url }}" class="mega-menu__image {% if settings.stickers_enabled %}has-thumbnail-sticker{% endif %}">
-                {% if settings.stickers_enabled %}
+                {% if block.settings.image != nil %}
                   {%
-                    render 'product-thumbnail__sticker',
-                    product: product,
-                    context: 'thumbnail',
-                    collection_handles: collection_handles
+                    render 'image-element',
+                    image: block.settings.image,
+                    alt: block.settings.image.alt,
+                    additional_classes: 'mega-menu__image',
+                    focal_point: block.settings.image.presentation.focal_point,
                   %}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                 {% endif %}
 
+              {% if block.settings.image_link != blank %}
+                </a>
+              {% endif %}
+            </div>
+            <div class="mega-menu__content content">
+              {% if block.settings.image_caption %}
+                {{ block.settings.image_caption }}
+              {% endif %}
+            </div>
+
+          {% when 'html' %}
+            {% comment %} Custom HTML {% endcomment %}
+            <div class="mega-menu__content">
+              {{ block.settings.html_content }}
+            </div>
+
+          {%- when 'featured_promo' -%}
+            {% comment %} Featured promotion {% endcomment %}
+            <div class="mega-menu__content">
+              {% if block.settings.promo_link != blank %}
+                <a href="{{ block.settings.promo_link }}">
+              {% endif %}
+                {% if block.settings.image != nil %}
+                  {%
+                    render 'image-element',
+                    image: block.settings.image,
+                    alt: block.settings.image.alt,
+                    additional_classes: 'mega-menu__image',
+                    focal_point: block.settings.image.presentation.focal_point,
+                  %}
+                {% else %}
+                  {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              {% if block.settings.promo_link != blank %}
+                </a>
+              {% endif %}
+            </div>
+
+            {% if block.settings.richtext != blank %}
+              <div class="mega-menu__content">
+                {{ block.settings.richtext }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.button_label != blank %}
+              <div class="mega-menu__content">
                 {%
-                  render 'image-element',
-                  image: product.featured_image,
-                  alt: product.featured_image.alt,
-                  additional_classes: 'mega-menu__image',
+                  render 'button',
+                  label: block.settings.button_label,
+                  href: block.settings.promo_link,
+                  type: "link",
+                  style: block.settings.button_style
                 %}
-              </a>
+              </div>
+            {% endif %}
 
-              {% comment %} Product title {% endcomment %}
-              <p class="menu__heading mega-menu__content">
-                <a href="{{ product.url }}">{{ product.title }}</a>
-              </p>
+          {% when 'featured_product' %}
+            {% comment %} Featured product {% endcomment %}
+            <div class="mega-menu__content">
+              {%- assign product = all_products[block.settings.featured_product] -%}
+              {%- assign collection_handles = product.collections | map: 'handle' -%}
 
-              {% comment %} Price / availability {% endcomment %}
-              {% if collection_handles contains 'coming-soon' %}
-                <span>{{ 'collections.general.coming_soon' | t }}</span>
-              {% else %}
-                <span class="price {% if product.compare_at_price > product.price %}sale{% endif %}">
-                  {% if product.available %}
-                    {% if product.price_varies and product.price_min > 0 %}
-                      <small><em>{{ 'products.general.from' | t }}</em></small>
-                    {% endif %}
-                    {% if product.price_min > 0 %}
-                      <span class="money">
-                        {%
-                          render 'price-element',
-                          price: product.price_min
-                        %}
-                      </span>
-                    {% else %}
-                      {{ settings.free_price_text }}
-                    {% endif %}
-                    {% if product.compare_at_price > product.price %}
-                      <span class="compare-at-price">
+              {% if product != blank %}
+                {% comment %} Product image {% endcomment %}
+                <a href="{{ product.url }}" class="mega-menu__image {% if settings.stickers_enabled %}has-thumbnail-sticker{% endif %}">
+                  {% if settings.stickers_enabled %}
+                    {%
+                      render 'product-thumbnail__sticker',
+                      product: product,
+                      context: 'thumbnail',
+                      collection_handles: collection_handles
+                    %}
+                  {% endif %}
+
+                  {%
+                    render 'image-element',
+                    image: product.featured_image,
+                    alt: product.featured_image.alt,
+                    additional_classes: 'mega-menu__image',
+                  %}
+                </a>
+
+                {% comment %} Product title {% endcomment %}
+                <p class="menu__heading mega-menu__content">
+                  <a href="{{ product.url }}">{{ product.title }}</a>
+                </p>
+
+                {% comment %} Price / availability {% endcomment %}
+                {% if collection_handles contains 'coming-soon' %}
+                  <span>{{ 'collections.general.coming_soon' | t }}</span>
+                {% else %}
+                  <span class="price {% if product.compare_at_price > product.price %}sale{% endif %}">
+                    {% if product.available %}
+                      {% if product.price_varies and product.price_min > 0 %}
+                        <small><em>{{ 'products.general.from' | t }}</em></small>
+                      {% endif %}
+                      {% if product.price_min > 0 %}
                         <span class="money">
                           {%
                             render 'price-element',
-                            price: product.compare_at_price,
+                            price: product.price_min
                           %}
                         </span>
-                      </span>
+                      {% else %}
+                        {{ settings.free_price_text }}
+                      {% endif %}
+                      {% if product.compare_at_price > product.price %}
+                        <span class="compare-at-price">
+                          <span class="money">
+                            {%
+                              render 'price-element',
+                              price: product.compare_at_price,
+                            %}
+                          </span>
+                        </span>
+                      {% endif %}
+                    {% else %}
+                      <span class="sold-out">{{ 'products.product.sold_out' | t }}</span>
                     {% endif %}
-                  {% else %}
-                    <span class="sold-out">{{ 'products.product.sold_out' | t }}</span>
-                  {% endif %}
-                </span>
+                  </span>
+                {% endif %}
+
+              {% else %}
+
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+
+                <p class="menu__heading mega-menu__content">
+                  <a href="{{ product.url }}">{{ 'homepage.onboarding.product_title' | t }}</a>
+                </p>
+                <p>
+                  <span class="price">
+                    <span class="money">$49.00</span>
+                  </span>
+                </p>
+
               {% endif %}
 
-            {% else %}
+              {% if block.settings.richtext_bottom != blank %}
+                <div class="mega-menu__content content">
+                  {{ block.settings.richtext_bottom }}
+                </div>
+              {% endif %}
 
-              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+            </div>
 
-              <p class="menu__heading mega-menu__content">
-                <a href="{{ product.url }}">{{ 'homepage.onboarding.product_title' | t }}</a>
-              </p>
-              <p>
-                <span class="price">
-                  <span class="money">$49.00</span>
-                </span>
-              </p>
+          {% when 'mixed' %}
+            {% comment %} Mixed {% endcomment %}
+            {% if block.settings.richtext_top != blank %}
+              <div class="mega-menu__content">
+                <p class="menu__heading">{{ block.settings.richtext_top }}</p>
+              </div>
+            {% endif %}
 
+            {% if block.settings.image_top != nil %}
+              <div class="mega-menu__content">
+                {% if block.settings.image_link_top != blank %}
+                  <a href="{{ block.settings.image_link_top }}">
+                {% endif %}
+                  {%
+                    render 'image-element',
+                    image: block.settings.image_top,
+                    alt: block.settings.image_top.alt,
+                    additional_classes: 'mega-menu__image',
+                    focal_point: block.settings.image_top.presentation.focal_point,
+                  %}
+                {% if block.settings.image_link_top != blank %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.image_caption_top != blank %}
+              <div class="mega-menu__content">
+                {{ block.settings.image_caption_top }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.menu_1 != blank %}
+              <div class="mega-menu__content">
+                {%
+                  render 'mega-menu__linklist',
+                  menu_link: block.settings.menu_1,
+                  link_setting: block.settings.menu_1_link
+                %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.menu_2 != blank %}
+              <div class="mega-menu__content">
+                {%
+                  render 'mega-menu__linklist',
+                  menu_link: block.settings.menu_2,
+                  link_setting: block.settings.menu_2_link
+                %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.menu_3 != blank %}
+              <div class="mega-menu__content">
+                {%
+                  render 'mega-menu__linklist',
+                  menu_link: block.settings.menu_3,
+                  link_setting: block.settings.menu_3_link
+                %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.menu_4 != blank %}
+              <div class="mega-menu__content">
+                {%
+                  render 'mega-menu__linklist',
+                  menu_link: block.settings.menu_4,
+                  link_setting: block.settings.menu_4_link
+                %}
+              </div>
+            {% endif %}
+
+            {% if block.settings.image_bottom != nil %}
+              <div class="mega-menu__content">
+                {% if block.settings.image_link_bottom != blank %}
+                  <a href="{{ block.settings.image_link_bottom }}">
+                {% endif %}
+                  {%
+                    render 'image-element',
+                    image: block.settings.image_bottom,
+                    alt: block.settings.image_bottom.alt,
+                    additional_classes: 'mega-menu__image',
+                    focal_point: block.settings.image_bottom.presentation.focal_point,
+                  %}
+                {% if block.settings.image_link_bottom != blank %}
+                  </a>
+                {% endif %}
+              </div>
             {% endif %}
 
             {% if block.settings.richtext_bottom != blank %}
-              <div class="mega-menu__content content">
+              <div class="mega-menu__content">
                 {{ block.settings.richtext_bottom }}
               </div>
             {% endif %}
 
-          </div>
-
-        {% elsif block.type == 'mixed' %}
-          {% comment %} Mixed {% endcomment %}
-          {% if block.settings.richtext_top != blank %}
-            <div class="mega-menu__content">
-              <p class="menu__heading">{{ block.settings.richtext_top }}</p>
-            </div>
-          {% endif %}
-
-          {% if block.settings.image_top != nil %}
-            <div class="mega-menu__content">
-              {% if block.settings.image_link_top != blank %}
-                <a href="{{ block.settings.image_link_top }}">
-              {% endif %}
-                {%
-                  render 'image-element',
-                  image: block.settings.image_top,
-                  alt: block.settings.image_top.alt,
-                  additional_classes: 'mega-menu__image',
-                  focal_point: block.settings.image_top.presentation.focal_point,
-                %}
-              {% if block.settings.image_link_top != blank %}
-                </a>
-              {% endif %}
-            </div>
-          {% endif %}
-
-          {% if block.settings.image_caption_top != blank %}
-            <div class="mega-menu__content">
-              {{ block.settings.image_caption_top }}
-            </div>
-          {% endif %}
-
-          {% if block.settings.menu_1 != blank %}
-            <div class="mega-menu__content">
-              {%
-                render 'mega-menu__linklist',
-                menu_link: block.settings.menu_1,
-                link_setting: block.settings.menu_1_link
-              %}
-            </div>
-          {% endif %}
-
-          {% if block.settings.menu_2 != blank %}
-            <div class="mega-menu__content">
-              {%
-                render 'mega-menu__linklist',
-                menu_link: block.settings.menu_2,
-                link_setting: block.settings.menu_2_link
-              %}
-            </div>
-          {% endif %}
-
-          {% if block.settings.menu_3 != blank %}
-            <div class="mega-menu__content">
-              {%
-                render 'mega-menu__linklist',
-                menu_link: block.settings.menu_3,
-                link_setting: block.settings.menu_3_link
-              %}
-            </div>
-          {% endif %}
-
-          {% if block.settings.menu_4 != blank %}
-            <div class="mega-menu__content">
-              {%
-                render 'mega-menu__linklist',
-                menu_link: block.settings.menu_4,
-                link_setting: block.settings.menu_4_link
-              %}
-            </div>
-          {% endif %}
-
-          {% if block.settings.image_bottom != nil %}
-            <div class="mega-menu__content">
-              {% if block.settings.image_link_bottom != blank %}
-                <a href="{{ block.settings.image_link_bottom }}">
-              {% endif %}
-                {%
-                  render 'image-element',
-                  image: block.settings.image_bottom,
-                  alt: block.settings.image_bottom.alt,
-                  additional_classes: 'mega-menu__image',
-                  focal_point: block.settings.image_bottom.presentation.focal_point,
-                %}
-              {% if block.settings.image_link_bottom != blank %}
-                </a>
-              {% endif %}
-            </div>
-          {% endif %}
-
-          {% if block.settings.richtext_bottom != blank %}
-            <div class="mega-menu__content">
-              {{ block.settings.richtext_bottom }}
-            </div>
-          {% endif %}
-
-        {% elsif block.type == 'empty_column' %}
+          {% when 'empty_column' %}
           {% comment %} Empty column - nothing to see here {% endcomment %}
-        {% endif %}
+        {% endcase %}
       </div>
     {% endfor %}
   </div>
