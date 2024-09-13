@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "banner": {
@@ -10,26 +19,6 @@
         "padding_bottom": 0,
         "css_class": "",
         "custom_css": ".banner__content \n h1.banner__heading.title {\n    color: #525252;\n}"
-      }
-    },
-    "1721760580a2fbca01": {
-      "type": "apps",
-      "blocks": {
-        "product_filters_search_smart_collections_wT7VeL": {
-          "type": "shopify:\/\/apps\/product-filters-search\/blocks\/smart_collections\/95672d06-1c4e-4e1b-9368-e84ce1ad6886",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "product_filters_search_smart_collections_wT7VeL"
-      ],
-      "settings": {
-        "width": "wide",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "css_class": "",
-        "custom_css": ""
       }
     },
     "index_heading_hTgBRN": {
@@ -62,7 +51,6 @@
     },
     "main": {
       "type": "collection__main",
-      "disabled": true,
       "settings": {
         "collection_breadcrumb": true,
         "collection_tags": false,
@@ -264,7 +252,6 @@
   },
   "order": [
     "banner",
-    "1721760580a2fbca01",
     "index_heading_hTgBRN",
     "main",
     "index_blog_posts_9ABDhF",
