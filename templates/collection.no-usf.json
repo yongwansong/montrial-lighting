@@ -1,0 +1,262 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "banner": {
+      "type": "fallback_image_banner",
+      "settings": {
+        "image_darken": false,
+        "width": "wide",
+        "banner_height": "small",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ".banner__content \n h1.banner__heading.title {\n    color: #525252;\n}"
+      }
+    },
+    "index_heading_hTgBRN": {
+      "type": "index__heading",
+      "disabled": true,
+      "settings": {
+        "preheading": "<h1>Chandeliers<\/h1>",
+        "title": "",
+        "subheading": "",
+        "heading_alignment": "center",
+        "vertical_spacing": "small",
+        "preheading_color": "rgba(0,0,0,0)",
+        "heading_color": "rgba(0,0,0,0)",
+        "subheading_color": "rgba(0,0,0,0)",
+        "background": "rgba(0,0,0,0)",
+        "gradient": "rgba(0,0,0,0)",
+        "gradient_rotation": 0,
+        "width": "standard",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left": 0,
+        "padding_right": 0,
+        "animation": "none",
+        "mobile_text_alignment": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "css_class": "",
+        "custom_css": ".banner__content h1.banner__heading.title {\n    color: #525252;\n    font-size: 300%; \/* Triple the original font size *\/\n}"
+      }
+    },
+    "main": {
+      "type": "collection__main-no-usf",
+      "settings": {
+        "collection_breadcrumb": true,
+        "collection_tags": false,
+        "collection_sort": true,
+        "show_sidebar": false,
+        "sidebar_position": "left",
+        "show_promo_banner": false,
+        "image_darken": true,
+        "promo_title": "Special sale on now!",
+        "promo_text": "<p>Description of promotion with lots of details.<\/p>",
+        "banner_height": "medium",
+        "align_height": true,
+        "collection_height": 360,
+        "products_per_row": 3,
+        "mobile_products_per_row": "2",
+        "pagination_limit": 48,
+        "pagination_type": "basic_pagination",
+        "width": "wide",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "index_blog_posts_9ABDhF": {
+      "type": "index__blog-posts",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "blog_widget_select": "blog-english",
+        "home_page_articles": 2,
+        "blog_show_excerpt": true,
+        "blog_show_tags": false,
+        "blog_author": false,
+        "blog_date": true,
+        "read_time": true,
+        "blog_comment_count": false,
+        "show-border": true,
+        "button_label": "Read more",
+        "button_type": "button--primary",
+        "width": "standard",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "animation": "none",
+        "mobile_layout": "stacked",
+        "show_arrows": true,
+        "show_navigation_dots": true,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "blog_post_collection_jrYewG": {
+      "type": "blog_post_collection",
+      "settings": {
+        "title": "",
+        "blog_widget_select": "blogue-francais",
+        "home_page_articles": 2,
+        "blog_show_excerpt": true,
+        "blog_show_tags": true,
+        "blog_author": true,
+        "blog_date": true,
+        "read_time": true,
+        "blog_comment_count": false,
+        "show-border": true,
+        "button_label": "Read more",
+        "button_type": "button--primary",
+        "width": "standard",
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "animation": "none",
+        "mobile_layout": "stacked",
+        "show_arrows": true,
+        "show_navigation_dots": true,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "collection_faq": {
+      "type": "collection_faq",
+      "blocks": {
+        "collection_ph7JFh": {
+          "type": "Collection",
+          "settings": {
+            "coll": "2-5-low-volt"
+          }
+        },
+        "collection_p88X4E": {
+          "type": "Collection",
+          "settings": {
+            "coll": "100-200"
+          }
+        },
+        "collection_d8XbWT": {
+          "type": "Collection",
+          "settings": {
+            "coll": "500-1000"
+          }
+        },
+        "collection_X3mkfm": {
+          "type": "Collection",
+          "settings": {
+            "coll": "007"
+          }
+        },
+        "collection_Lx9mmh": {
+          "type": "Collection",
+          "settings": {
+            "coll": "1011"
+          }
+        },
+        "collection_47Bwkb": {
+          "type": "Collection",
+          "settings": {
+            "coll": "1021"
+          }
+        },
+        "collection_paHqfG": {
+          "type": "Collection",
+          "settings": {
+            "coll": "1041"
+          }
+        },
+        "collection_erGgLL": {
+          "type": "Collection",
+          "settings": {
+            "coll": "1051"
+          }
+        },
+        "text_block_wcUzyM": {
+          "type": "TextBlock",
+          "settings": {
+            "title": "What size modern chandelier should I get?",
+            "des": "Chandeliers, of course, vary in size from moderately large to enormous, but the modern chandeliers that are perfect for your home will have everything to do with the size of the space in which they hang—and with the other design features and furnishings of that space. Scale and proportion matter as much as the design of at the chandeliers itself, and ultimately you’ll be seeking a harmonious interior composition in which all the separate components create a visually striking and supremely functional space. Beyond the obvious—chandeliers that are so big that they overwhelm a room, or ones too small to create the desired impact in large spaces—it’s only when considered in context, that the size of your modern chandelier will produce the kind of lighting statement that you’re after. You’ll also want to consider the shape of the chandelier. Modern chandeliers come in many shapes including <a href=\"\/collections\/round-chandeliers\">round<\/a>, <a href=\"\/collections\/globe-chandeliers\">globe<\/a>, <a href=\"\/collections\/diamond-chandeliers\">diamond<\/a>, <a href=\"\/collections\/oval-chandeliers\">oval<\/a>, and <a href=\"\/collections\/teardrop-chandeliers\">teardrop<\/a>."
+          }
+        },
+        "text_block_Ag3BHn": {
+          "type": "TextBlock",
+          "settings": {
+            "title": "Aren’t modern chandeliers designed only for formal settings?",
+            "des": "Traditional chandeliers also known as <a href=\"\/collections\/candelabra-chandeliers\">candelabra chandeliers<\/a>,  were associated with formal dining rooms, massive entryways and opulent ballrooms, but the beauty of contemporary chandeliers is that technology and imagination have converged to create a range of modern chandeliers that, far from being suited to specific spaces only, look fantastic in almost any room—including kitchen, bedroom, and even bathroom. So, rather than thinking of chandeliers in traditional terms, think of them as modern lighting suited to any room in a home—just on a larger scale. Chandeliers can accommodate an array of styles such as mid century modern, Scandinavian, farmhouse, and <a href=\"\/collections\/french-country-chandeliers\">French Country<\/a>."
+          }
+        },
+        "text_block_bdjcf6": {
+          "type": "TextBlock",
+          "settings": {
+            "title": "Which room benefits best from modern chandeliers?",
+            "des": "As previously mentioned, almost any room may benefit from a chandelier, but it makes perfect sense to want a striking modern lighting statement in the room with the most visibility—<a href=\"\/collections\/living-room-chandeliers\">living room<\/a>, <a href=\"\/collections\/dining-room-chandeliers\">dining room<\/a>, <a href=\"\/collections\/kitchen-chandeliers\">kitchen<\/a>, <a href=\"\/collections\/bathroom-chandeliers\">bathroom<\/a>, <a href=\"\/collections\/foyer-chandeliers\">foyer <\/a>and <a href=\"\/collections\/bedroom-chandeliers\">bedroom<\/a>. Depending on the modern chandelier design that appeals to you—shape, size, materials, quality of light—a modern dining room featuring a beautiful chandelier above the dining table is an almost can’t miss design statement, and a living room with chandelier suspended from high ceiling is never a bad idea."
+          }
+        },
+        "text_block_WCnX37": {
+          "type": "TextBlock",
+          "settings": {
+            "title": "With modern chandeliers, size isn’t everything.",
+            "des": "It’s useful to note that as far as quality of light is concerned, bigger is not necessarily better. A larger sized contemporary chandelier may not always provide more illumination, or the right quality of light you may desire. Think carefully about the kind of light you envision for your home first, and then settle on a modern chandelier design that provides exactly the kind of lighting you’re after."
+          }
+        }
+      },
+      "block_order": [
+        "collection_ph7JFh",
+        "collection_p88X4E",
+        "collection_d8XbWT",
+        "collection_X3mkfm",
+        "collection_Lx9mmh",
+        "collection_47Bwkb",
+        "collection_paHqfG",
+        "collection_erGgLL",
+        "text_block_wcUzyM",
+        "text_block_Ag3BHn",
+        "text_block_bdjcf6",
+        "text_block_WCnX37"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Choosing the perfect modern chandelier",
+        "des": "<p>If the word <em>chandelier<\/em> once conjured up images of grand ballrooms and opulent shimmering crystal, modern chandeliers have dispelled those notions beautifully. Anything but traditional, our collection of chandeliers includes designs made from wood, plastic, and even paper—in addition to various types of glass and lighting types such as <a href=\"\/collections\/led-chandeliers\">LED<\/a>. Substantially sized and meant to be attention getters, chandeliers are the very definition of statement lighting—and, because of their larger size, present design challenges of their own.<\/p>\n        <p>Whether perfectly suited or ill-chosen, a modern chandelier, which is typically larger than most modern lighting designs, naturally has a more significant impact on a room than other types of smaller scale modern lighting—so choosing the right modern chandelier for a room or space demands particularly thoughtful consideration. Before you go shopping for contemporary chandeliers, review the following questions and information to arrive at the best chandelier lighting solution for your home.<\/p>",
+        "slider-title": "Popular Chandelier Colors",
+        "relat-search": "Related Searches: <a href=\"\/collections\/dining-room-chandeliers\">Dining Room Chandeliers<\/a> | <a href=\"\/collections\/dining-room-lighting\">Dining Room Lighting<\/a> | <a href=\"\/collections\/kitchen-chandeliers\">Kitchen Chandeliers<\/a> | <a href=\"\/collections\/kitchen-lighting\">Kitchen Lighting<\/a> | <a href=\"\/collections\/living-room-chandeliers\">Living Room Chandeliers<\/a> | <a href=\"\/collections\/foyer-chandeliers\">Foyer Chandeliers<\/a>"
+      }
+    },
+    "bottom_content_2_BUPzQW": {
+      "type": "bottom-content-2",
+      "settings": {
+        "heading_font": "din_next_n4",
+        "heading_alignment": "center",
+        "heading_size": 30,
+        "heading_color": "rgba(0,0,0,0)",
+        "text_color": "#000000",
+        "background": "#ffffff",
+        "gradient_rotation": 180,
+        "text_font": "open_sans_n4",
+        "text_alignment": "left",
+        "text_size": 14
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "index_heading_hTgBRN",
+    "main",
+    "index_blog_posts_9ABDhF",
+    "blog_post_collection_jrYewG",
+    "collection_faq",
+    "bottom_content_2_BUPzQW"
+  ]
+}
