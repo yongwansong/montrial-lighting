@@ -32,7 +32,7 @@
     <div class="footer__column column-icon-row">
       {% if block.settings.icon != blank %}
       <div class="image-element__wrap column-icon">
-        <img loading="lazy" src="{{ block.settings.icon | image_url: width: 300 }}" loading="lazy" sizes="32" width="32" height="33" />
+        <img loading="lazy" src="{{ block.settings.icon | image_url: width: 300 }}" loading="lazy" sizes="32" width="32" height="33" alt="{{ block.settings.icon.alt }}" />
       </div>      
       {% endif %}
       {% if block.settings.title != blank %}
