@@ -18,7 +18,7 @@ link_setting: <string>
   <ul>
     {% for link in menu.links %}
       <li class="footer__menu-link">
-        <a href="{{ link.url }}" class="{% if link.active %}is-active{% endif %} footer_item">
+        <a href="{{ link.url }}" class="{% if link.active %}is-active{% endif %} nav-link">
           {{ link.title }}
         </a>
       </li>
