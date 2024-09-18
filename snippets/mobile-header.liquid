@@ -89,7 +89,7 @@
 
       {% comment %} Cart icon {% endcomment %}
       <div class="header-cart action-area__link {% if cart.item_count != 0 %}has-cart-count{% endif %}" data-ajax-cart-trigger>
-        <a class="header__link" {% if settings.cart_action != 'mini_cart' or settings.cart_action != 'drawer' %}href="{{ routes.cart_url }}"{% endif %} aria-label="cart">
+        <a class="header__link" {% if settings.cart_action != 'mini_cart' or settings.cart_action != 'drawer' %}href="{{ routes.cart_url }}"{% endif %} aria-label="cart" title=view-cart>
           <span class="header-cart__icon">
             {% render 'icon',
                     name: settings.cart_icon,
