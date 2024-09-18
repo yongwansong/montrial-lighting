@@ -55,7 +55,7 @@
     {% comment %} Account icon {% endcomment %}
     {% if customer %}
       {% comment %} Logout {% endcomment %}
-      <a href="{{ routes.account_url }}" class="header__link action-area__link" >
+      <a href="{{ routes.account_url }}" class="header__link action-area__link" title="Redirect to Customer Identity Page">
           {% render 'icon',
                   name: 'avatar',
                   icon_class: 'header__icon'
@@ -64,7 +64,7 @@
       </a>
     {% else %}
       {% comment %} Login {% endcomment %}
-      <a href="{{ routes.account_login_url }}" class="header__link action-area__link" >
+      <a href="{{ routes.account_login_url }}" class="header__link action-area__link" title="View Cart">
           {% render 'icon',
                   name: 'avatar',
                   icon_class: 'header__icon'
