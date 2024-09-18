@@ -14,9 +14,15 @@
       <div class="mobile-menu__first-level has-submenu" data-mobile-menu-has-toggle="true">
         <input class="visually-hidden submenu__input" type="checkbox" id="mobile-submenu-{{ forloop.index }}">
         <label class="submenu__label" for="mobile-submenu-{{ forloop.index }}">
-          <a {% unless link.url == 'http://' or link.url == '' or link.url == '/' or link.url == 'https://' or link.url == '#' %}href="{{ link.url }}" {%- else -%} href="#" {% endunless %} class="mobile-menu-link {% if link.active %}is-active{% endif %}" >
-            {{ link.title }}
-          </a>
+          {% unless link.url == 'http://' or link.url == '' or link.url == '/' or link.url == 'https://' or link.url == '#' %}
+            <a href="{{ link.url }}" class="mobile-menu-link {% if link.active %}is-active{% endif %}" >
+              {{ link.title }}
+            </a>
+          {% else %}
+            <span class="mobile-menu-link {% if link.active %}is-active{% endif %}" >
+              {{ link.title }}
+            </span>
+          {% endunless %}
           <span class="close-dropdown"></span>
         </label>
         <ul class="mobile-submenu__list mobile-menu__submenu has-dropdown" data-mobile-submenu-first-level-list>
