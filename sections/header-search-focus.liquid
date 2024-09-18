@@ -145,7 +145,7 @@
                 <input class="input" type="text" name="q" placeholder="{{ settings.search_placeholder }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" data-q/>
               </div>
               <div class="control">
-                <button class="button header__search-button">
+                <button class="button header__search-button" aria-label="Search">
                   {% render 'icon', name: 'search' %}
                 </button>
               </div>
