@@ -54,7 +54,7 @@
         "footer-classic-0": {
           "type": "logo",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/New_Project_2.webp",
+            "logo": "shopify:\/\/shop_images\/footer-logo.png",
             "size": "medium",
             "text": "",
             "social_icons_footer": false
