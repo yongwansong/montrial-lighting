@@ -75,7 +75,7 @@
         "button_1": "Save Now",
         "button_1_link": "https:\/\/www.montreallighting.com\/collections\/sale",
         "text_btn": "#ffffff",
-        "back_btn_color": "#8b8b8b",
+        "back_btn_color": "#000000",
         "button_1_style": "button--primary",
         "button_2": "",
         "button_2_link": "",
@@ -86,7 +86,7 @@
         "heading_color_mobile": "rgba(0,0,0,0)",
         "subheading_color_mobile": "#ffffff",
         "textbtn_color_mobile": "#ffffff",
-        "backgroundbtn_color_mobile": "#8b8b8b",
+        "backgroundbtn_color_mobile": "#000000",
         "width": "wide",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -104,24 +104,21 @@
           "type": "text",
           "settings": {
             "text": "Battery Lamp Sale",
-            "textdes": "<p>Save 20% on Battery Lamps<\/p>",
-            "text_link": ""
+            "textdes": "<p>Save 20% on Battery Lamps<\/p>"
           }
         },
         "text_X3Drbb": {
           "type": "text",
           "settings": {
             "text": "Hudson Valley Lighting Sale",
-            "textdes": "<p>Save 20% on Hudson Valley Lighting<\/p>",
-            "text_link": ""
+            "textdes": "<p>Save 20% on Hudson Valley Lighting<\/p>"
           }
         },
         "text_CjNtkn": {
           "type": "text",
           "settings": {
             "text": "OVERSTOCK \/ OPEN BOX",
-            "textdes": "<p>Shop our Clearance Sale for Huge Savings<\/p>",
-            "text_link": ""
+            "textdes": "<p>Shop our Clearance Sale for Huge Savings<\/p>"
           }
         }
       },
@@ -169,6 +166,7 @@
         "image_bz9zrb": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/PD-56431-AB_IMRO_5_1.jpg",
             "icon_label": "",
             "title": "New Arrivals",
             "text": "<p>Shop New<\/p>",
@@ -307,6 +305,7 @@
         "grid_item_8wXMJX": {
           "type": "grid_item",
           "settings": {
+            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -320,6 +319,7 @@
         "grid_item_nkqXek": {
           "type": "grid_item",
           "settings": {
+            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-005.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -333,6 +333,7 @@
         "grid_item_9xmymH": {
           "type": "grid_item",
           "settings": {
+            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -402,7 +403,8 @@
             "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
             "pos": "POSITION",
             "btn-text": "Contact us",
-            "btn-link": ""
+            "btn-link": "",
+            "desk-img": "shopify:\/\/shop_images\/01024302a.jpg"
           }
         },
         "testimonial_nG6Mpa": {
@@ -412,7 +414,8 @@
             "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
             "pos": "POSITION",
             "btn-text": "Contact Us",
-            "btn-link": ""
+            "btn-link": "",
+            "desk-img": "shopify:\/\/shop_images\/01024306a.jpg"
           }
         }
       },
@@ -540,7 +543,7 @@
         "1639166386180b5388-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project.webp",
+            "image": "shopify:\/\/shop_images\/Vezzo_LS_ALT_2.jpg",
             "icon_label": "",
             "title": "Shop By Category",
             "text": "<p>Discover our collections →<\/p>",
@@ -647,7 +650,7 @@
         "1639348161407bc59a-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1.webp",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-10-06_104530.png",
             "icon_label": "",
             "title": "Our Showroom",
             "text": "<p>Visit our showroom →<\/p>",
@@ -700,7 +703,7 @@
         "1639350192262089b7-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_d75264d1-fc0f-4466-a5a6-d2b3f44103bc.webp",
+            "image": "shopify:\/\/shop_images\/71345-11992850.jpg",
             "icon_label": "",
             "title": "Book An Appointment",
             "text": "<p>Our team of experts is here to help you with complimentary in-person and virtual consultations.<\/p><p><strong>Click Here<\/strong><\/p>",
