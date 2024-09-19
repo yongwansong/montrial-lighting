@@ -1,4 +1,4 @@
-/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/19/2024 9:38:31 AM*/
+/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/19/2024 1:07:30 PM*/
 /* Begin custom theme code */
 
 
@@ -696,25 +696,22 @@ usf.templates = {
                     <div class="usf-is-list" v-else style="background:url('//cdn.shopify.com/s/files/1/0257/0108/9360/t/85/assets/no-products.png?t=2') center no-repeat;min-height:250px"></div>
                 </div>
 
-                <div class="usf-is-side">
-                    <!-- Suggestions -->
+                <!--<div class="usf-is-side"> 
                     <div class="usf-is-matches usf-is-suggestions" v-if="result.suggestions && result.suggestions.length">
                         <div class="usf-title" v-html="loc.searchSuggestions"></div>
                         <button v-for="s in result.suggestions" class="usf-is-match usf-btn" v-html="usf.utils.highlight(s, result.query)" @click="search(s)"></button>
                     </div>
-
-                    <!-- Collections -->
+ 
                     <div class="usf-is-matches usf-is-collections" v-if="result.collections && result.collections.length">
                         <div class="usf-title" v-html="loc.collections"></div>
                         <button v-for="c in result.collections" class="usf-is-match usf-btn" v-html="usf.utils.highlight(c.title, result.query)" @click="selectCollection(c)"></button>
                     </div>
-
-                    <!-- Pages -->
+ 
                     <div class="usf-is-matches usf-is-pages" v-if="result.pages && result.pages.length">
                         <div class="usf-title" v-html="loc.pages"></div>
                         <button v-for="p in result.pages" class="usf-is-match usf-btn" v-html="usf.utils.highlight(p.title, result.query)" @click="selectPage(p)"></button>
                     </div>
-                </div>
+                </div>-->
             </div>
 
             <!-- Footer -->
