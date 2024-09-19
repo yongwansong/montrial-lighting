@@ -13,11 +13,11 @@ window._usfLocale = {{ request.locale.iso_code | json | downcase }};
 window._usfRootUrl = {{ routes.root_url | json }};
 window.usf = {
   settings: {{ shop.metafields.usf.settings }}
-}
-  usf.platform.useProductsUrl = true
+} 
 </script>
 <script src="{{ 'usf-boot.js' | asset_url }}" async></script>
 <script>
-  
+  setTimeout(function(){
   usf.platform.useProductsUrl = true
+},100) 
 </script>
