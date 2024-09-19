@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "banner": {
@@ -16,7 +25,6 @@
     },
     "main": {
       "type": "search__main",
-      "disabled": true,
       "settings": {
         "search_breadcrumb": true,
         "text": "<p>Find what you seek.<\/p>",
@@ -50,16 +58,6 @@
     },
     "172355466050432558": {
       "type": "apps",
-      "blocks": {
-        "product_filters_search_search_results_g4fhg8": {
-          "type": "shopify:\/\/apps\/product-filters-search\/blocks\/search_results\/95672d06-1c4e-4e1b-9368-e84ce1ad6886",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "product_filters_search_search_results_g4fhg8"
-      ],
       "settings": {
         "width": "standard",
         "padding_top": 20,
