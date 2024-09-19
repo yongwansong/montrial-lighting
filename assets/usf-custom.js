@@ -254,6 +254,7 @@ usf.templates = {
                 <!-- price -->
                 <usf-plugin name="searchResultsProductPrice" :data="pluginData"></usf-plugin>
                 `+ _usfProductPriceTemplate +`
+                <i style="color:#999;" v-if="product.options.length>0">More options available</i>
             </div>
       </div>
   </div>

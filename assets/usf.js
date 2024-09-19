@@ -1,4 +1,4 @@
-/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/19/2024 1:08:01 PM*/
+/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/19/2024 1:40:45 PM*/
 /* Begin custom theme code */
 
 
@@ -256,6 +256,7 @@ usf.templates = {
                 <!-- price -->
                 <usf-plugin name="searchResultsProductPrice" :data="pluginData"></usf-plugin>
                 `+ _usfProductPriceTemplate +`
+                <i style="color:#999;" v-if="product.options.length>0">More options available</i>
             </div>
       </div>
   </div>
