@@ -11,6 +11,7 @@ window._usfCollectionId = {{ collection.id | json }};
 window._usfCollectionDefaultSort = {{ collection.default_sort_by | json }};
 window._usfLocale = {{ request.locale.iso_code | json | downcase }};
 window._usfRootUrl = {{ routes.root_url | json }};
+  usf.platform.useProductsUrl = true;
 window.usf = {
   settings: {{ shop.metafields.usf.settings }}
 }
