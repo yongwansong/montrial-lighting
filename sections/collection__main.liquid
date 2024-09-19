@@ -97,7 +97,7 @@
   </div>
 
   {% comment %} Collection description {% endcomment %}
-  {% if collection.description != blank %}
+  {% comment %} {% if collection.description != blank %}
     <div class="container">
       <div class="one-whole column">
         <div class="collection__description content has-padding-bottom">
@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-  {% endif %}
+  {% endif %}{% endcomment %}
 
   {% comment %} Collection sidebar and main content area {% endcomment %}
   <div class="container collection__content">
