@@ -681,7 +681,7 @@ usf.templates = {
             <!-- Body content -->
             <div class="usf-is-content">
                 <!-- Products -->
-                <div class="usf-is-matches usf-is-products">
+                <div class="usf-is-matches usf-is-products" style=" width: 100%; ">
                     <div class="usf-title" v-html="queryOrTerm ? loc.productMatches : loc.trending"></div>
                     
                     <div class="usf-is-list" v-if="result.items.length">

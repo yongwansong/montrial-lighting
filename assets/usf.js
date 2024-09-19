@@ -1,4 +1,4 @@
-/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/19/2024 1:07:30 PM*/
+/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/19/2024 1:08:01 PM*/
 /* Begin custom theme code */
 
 
@@ -683,7 +683,7 @@ usf.templates = {
             <!-- Body content -->
             <div class="usf-is-content">
                 <!-- Products -->
-                <div class="usf-is-matches usf-is-products">
+                <div class="usf-is-matches usf-is-products" style=" width: 100%; ">
                     <div class="usf-title" v-html="queryOrTerm ? loc.productMatches : loc.trending"></div>
                     
                     <div class="usf-is-list" v-if="result.items.length">
