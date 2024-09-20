@@ -104,21 +104,24 @@
           "type": "text",
           "settings": {
             "text": "Battery Lamp Sale",
-            "textdes": "<p>Save 20% on Battery Lamps<\/p>"
+            "textdes": "<p>Save 20% on Battery Lamps<\/p>",
+            "text_link": ""
           }
         },
         "text_X3Drbb": {
           "type": "text",
           "settings": {
             "text": "Hudson Valley Lighting Sale",
-            "textdes": "<p>Save 20% on Hudson Valley Lighting<\/p>"
+            "textdes": "<p>Save 20% on Hudson Valley Lighting<\/p>",
+            "text_link": ""
           }
         },
         "text_CjNtkn": {
           "type": "text",
           "settings": {
             "text": "OVERSTOCK \/ OPEN BOX",
-            "textdes": "<p>Shop our Clearance Sale for Huge Savings<\/p>"
+            "textdes": "<p>Shop our Clearance Sale for Huge Savings<\/p>",
+            "text_link": ""
           }
         }
       },
@@ -166,7 +169,6 @@
         "image_bz9zrb": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/PD-56431-AB_IMRO_5_1.jpg",
             "icon_label": "",
             "title": "New Arrivals",
             "text": "<p>Shop New<\/p>",
@@ -305,7 +307,6 @@
         "grid_item_8wXMJX": {
           "type": "grid_item",
           "settings": {
-            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -319,7 +320,6 @@
         "grid_item_nkqXek": {
           "type": "grid_item",
           "settings": {
-            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-005.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -333,7 +333,6 @@
         "grid_item_9xmymH": {
           "type": "grid_item",
           "settings": {
-            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -403,8 +402,7 @@
             "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
             "pos": "POSITION",
             "btn-text": "Contact us",
-            "btn-link": "",
-            "desk-img": "shopify:\/\/shop_images\/01024302a.jpg"
+            "btn-link": ""
           }
         },
         "testimonial_nG6Mpa": {
@@ -414,8 +412,7 @@
             "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
             "pos": "POSITION",
             "btn-text": "Contact Us",
-            "btn-link": "",
-            "desk-img": "shopify:\/\/shop_images\/01024306a.jpg"
+            "btn-link": ""
           }
         }
       },
@@ -543,7 +540,7 @@
         "1639166386180b5388-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Vezzo_LS_ALT_2.jpg",
+            "image": "shopify:\/\/shop_images\/New_Project_1.webp",
             "icon_label": "",
             "title": "Shop By Category",
             "text": "<p>Discover our collections →<\/p>",
@@ -703,7 +700,7 @@
         "1639350192262089b7-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/71345-11992850.jpg",
+            "image": "shopify:\/\/shop_images\/New_Project_2_e1ef16d4-859a-4c3a-9879-3fc9d5ce4244.webp",
             "icon_label": "",
             "title": "Book An Appointment",
             "text": "<p>Our team of experts is here to help you with complimentary in-person and virtual consultations.<\/p><p><strong>Click Here<\/strong><\/p>",
