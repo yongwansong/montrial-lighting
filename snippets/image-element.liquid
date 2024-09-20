@@ -109,7 +109,7 @@ data-calculate-aspect-ratio
 {% endif %}
 style="{{ image_background_color }}{{ height_style }} {% unless stretch_width == true or object_fit %}max-width: {{ image.width }}px;{% endunless %}"
 >
-<img loading="lazy"
+<img {% unless no_lady %} loading="lazy" {% endunless %}
 src="{{ image | image_url }}"
 alt="{{ image.alt | escape }}"
 class=" {{ additional_classes }}"
