@@ -47,13 +47,9 @@
 
   <!-- Preload JS -->
   <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
   <link rel="preload" href="{{ 'vendors.js' | asset_url }}" as="script">
-  <script src="{{ 'vendors.js' | asset_url }}" defer></script>
   <link rel="preload" href="{{ 'utilities.js' | asset_url }}" as="script">
-  <script href="{{ 'utilities.js' | asset_url }}" defer></script>
   <link rel="preload" href="{{ 'app.js' | asset_url }}" as="script">
-  <script href="{{ 'app.js' | asset_url }}" defer></script>
 
 
   {% if settings.show_multiple_currencies or shop.enabled_currencies.size > 1 or localization.available_countries.size > 1 %}
