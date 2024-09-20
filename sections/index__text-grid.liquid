@@ -1,5 +1,6 @@
 {% if section.blocks.size > 0 %}
-<link rel="stylesheet" href="{{ 'index__text-grid.css' | asset_url }}">
+<link rel="preload" href="{{ 'index__text-grid.css' | asset_url }}">
+<noscript><link rel="stylesheet" href="{{ 'index__text-grid.css' | asset_url }}"></noscript>
 <div class="section">
   <div class="container">
     <div class="grid">
