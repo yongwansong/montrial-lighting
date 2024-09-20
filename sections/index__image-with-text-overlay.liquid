@@ -146,7 +146,7 @@
                 image: image,
                 alt: image.alt,
                 stretch_width: true,
-                additional_classes: hide_mobile
+                additional_classes: hide_mobile,
                 no_lady: false
         %}
       {% else %}
@@ -158,7 +158,8 @@
           {% render 'image-element',
                   image: mobile_image,
                   alt: mobile_image.alt,
-                  stretch_width: true
+                  stretch_width: true,
+                  no_lady: false
           %}
         </div>
       {% endif %}
