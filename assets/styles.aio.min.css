@@ -3173,7 +3173,7 @@ h3 {
 h3>a,
 h3>a:link,
 h3>a:visited {
-    color: #49494b
+    color: #49494b!important
 }
 
 .h3>a:focus,
