@@ -64,7 +64,7 @@
         "text_dHRCVN"
       ],
       "settings": {
-        "background": "#000000",
+        "background": "#8b8b8b",
         "link_color": "#ffffff",
         "link_hover_color": "#ededed",
         "text_color": "#ffffff",
@@ -386,7 +386,7 @@
         "alignment": "center",
         "icon_position": "row",
         "size": "medium",
-        "background": "#000000",
+        "background": "#8b8b8b",
         "link_color": "#ffffff",
         "link_hover_color": "#000000",
         "text_color": "#ffffff",
