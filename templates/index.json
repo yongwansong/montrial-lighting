@@ -75,7 +75,7 @@
         "button_1": "Save Now",
         "button_1_link": "https:\/\/www.montreallighting.com\/collections\/sale",
         "text_btn": "#ffffff",
-        "back_btn_color": "#000000",
+        "back_btn_color": "#8b8b8b",
         "button_1_style": "button--primary",
         "button_2": "",
         "button_2_link": "",
@@ -86,7 +86,7 @@
         "heading_color_mobile": "rgba(0,0,0,0)",
         "subheading_color_mobile": "#ffffff",
         "textbtn_color_mobile": "#ffffff",
-        "backgroundbtn_color_mobile": "#000000",
+        "backgroundbtn_color_mobile": "#8b8b8b",
         "width": "wide",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -104,24 +104,21 @@
           "type": "text",
           "settings": {
             "text": "Battery Lamp Sale",
-            "textdes": "<p>Save 20% on Battery Lamps<\/p>",
-            "text_link": ""
+            "textdes": "<p>Save 20% on Battery Lamps<\/p>"
           }
         },
         "text_X3Drbb": {
           "type": "text",
           "settings": {
             "text": "Hudson Valley Lighting Sale",
-            "textdes": "<p>Save 20% on Hudson Valley Lighting<\/p>",
-            "text_link": ""
+            "textdes": "<p>Save 20% on Hudson Valley Lighting<\/p>"
           }
         },
         "text_CjNtkn": {
           "type": "text",
           "settings": {
             "text": "OVERSTOCK \/ OPEN BOX",
-            "textdes": "<p>Shop our Clearance Sale for Huge Savings<\/p>",
-            "text_link": ""
+            "textdes": "<p>Shop our Clearance Sale for Huge Savings<\/p>"
           }
         }
       },
@@ -143,7 +140,7 @@
         "image_EDxWLt": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_1_0273597f-319c-465c-959c-dc7f11cec968.webp",
+            "image": "shopify:\/\/shop_images\/Pablo-Designs-Bola-Disc-Matt-Black-1.webp",
             "icon_label": "",
             "title": "Shop by Brand",
             "text": "<p>Discover our Brands<\/p>",
@@ -156,7 +153,7 @@
         "image_4ixVQN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_2_145e8490-52c2-4a57-8c22-3e92f6f1faee.webp",
+            "image": "shopify:\/\/shop_images\/71345-11992850.jpg",
             "icon_label": "",
             "title": "Shop by Category",
             "text": "<p>Shop All<\/p>",
@@ -169,6 +166,7 @@
         "image_bz9zrb": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/PD-56431-AB_IMRO_5_1.jpg",
             "icon_label": "",
             "title": "New Arrivals",
             "text": "<p>Shop New<\/p>",
@@ -307,6 +305,7 @@
         "grid_item_8wXMJX": {
           "type": "grid_item",
           "settings": {
+            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -320,6 +319,7 @@
         "grid_item_nkqXek": {
           "type": "grid_item",
           "settings": {
+            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-005.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -333,6 +333,7 @@
         "grid_item_9xmymH": {
           "type": "grid_item",
           "settings": {
+            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -402,7 +403,8 @@
             "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
             "pos": "POSITION",
             "btn-text": "Contact us",
-            "btn-link": ""
+            "btn-link": "",
+            "desk-img": "shopify:\/\/shop_images\/01024302a.jpg"
           }
         },
         "testimonial_nG6Mpa": {
@@ -412,7 +414,8 @@
             "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
             "pos": "POSITION",
             "btn-text": "Contact Us",
-            "btn-link": ""
+            "btn-link": "",
+            "desk-img": "shopify:\/\/shop_images\/01024306a.jpg"
           }
         }
       },
@@ -540,7 +543,7 @@
         "1639166386180b5388-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_3_99c7e932-0b0c-49dc-8076-1263e9d3158f.webp",
+            "image": "shopify:\/\/shop_images\/Vezzo_LS_ALT_2.jpg",
             "icon_label": "",
             "title": "Shop By Category",
             "text": "<p>Discover our collections →<\/p>",
@@ -553,7 +556,7 @@
         "1639166386180b5388-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_4.webp",
+            "image": "shopify:\/\/shop_images\/81kMapm4vuL._AC_UF894_1000_QL80.jpg",
             "icon_label": "",
             "title": "Shop By Brand",
             "text": "<p>Discover our brands  →<\/p>",
@@ -566,7 +569,7 @@
         "1639166386180b5388-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_5.webp",
+            "image": "shopify:\/\/shop_images\/64e50c076df9f10f76078125.jpg",
             "icon_label": "",
             "title": "Shop By Designer",
             "text": "<p>Discover our designers →<\/p>",
@@ -621,7 +624,7 @@
         "1639348161407bc59a-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_6.webp",
+            "image": "shopify:\/\/shop_images\/69274932_1402840399856050_4305365197075251200_n.jpg",
             "icon_label": "",
             "title": "Canada's Best Brands",
             "text": "<p>Shop Canadian →<\/p>",
@@ -634,7 +637,7 @@
         "1639348161407bc59a-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_3_caadfa62-e286-4d09-9949-1e5e6f1db7c4.webp",
+            "image": "shopify:\/\/shop_images\/Foscarini-APLOMB-MINI--pedant-Esstisch-Ambiete.jpg",
             "icon_label": "",
             "title": "Sale",
             "text": "<p>Shop our promotions →<\/p>",
@@ -647,7 +650,7 @@
         "1639348161407bc59a-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_8.webp",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-10-06_104530.png",
             "icon_label": "",
             "title": "Our Showroom",
             "text": "<p>Visit our showroom →<\/p>",
@@ -687,7 +690,7 @@
         "1639350192262089b7-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_1_0273597f-319c-465c-959c-dc7f11cec968.webp",
+            "image": "shopify:\/\/shop_images\/Pablo-Designs-Bola-Disc-Matt-Black-1.webp",
             "icon_label": "",
             "title": "Want it, can't find it?",
             "text": "<p>Our specialists love a challenge! Let us know what you’re searching for and we’ll source it for you.<\/p><p><strong>Click Here<\/strong><\/p>",
@@ -700,7 +703,7 @@
         "1639350192262089b7-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_2_f9d36b09-37d5-4bf0-a4f8-6cb984f273e5.webp",
+            "image": "shopify:\/\/shop_images\/71345-11992850.jpg",
             "icon_label": "",
             "title": "Book An Appointment",
             "text": "<p>Our team of experts is here to help you with complimentary in-person and virtual consultations.<\/p><p><strong>Click Here<\/strong><\/p>",
