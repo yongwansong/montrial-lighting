@@ -103,7 +103,7 @@ height="auto"
 {% else %}
 {% comment %}Build image element{% endcomment %}
 <div
-class="image-element__wrap {% if slideThumbnail %}{{ additional_classes | split:' ' | first }}{% else %}{{ additional_classes }} {{ additional_wrapper_classes }}{% endif %}"
+class="image-element__wrap {% if slideThumbnail %}{{ additional_classes | split:' ' | first }} {{ additional_wrapper_classes }}{% endif %}"
 {% if calculate_aspect_ratio %}
 data-calculate-aspect-ratio
 {% endif %}
