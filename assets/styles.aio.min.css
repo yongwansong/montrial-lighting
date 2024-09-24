@@ -3049,7 +3049,7 @@ table th {
     src: url(//cdn.shopify.com/s/files/1/0423/4104/0296/t/31/assets/flex-icon.ttf?v=141001306366886470981638804422) format("truetype"), url(//cdn.shopify.com/s/files/1/0423/4104/0296/t/31/assets/flex-icon.woff?v=65562972783189949211638804422) format("woff"), url(//cdn.shopify.com/s/files/1/0423/4104/0296/t/31/assets/flex-icon.svg?v=122155750794120575381638804421) format("svg");
     font-weight: 400;
     font-style: normal;
-    font-display: block
+    font-display: swap
 }
 
 body {
@@ -3173,7 +3173,7 @@ h3 {
 h3>a,
 h3>a:link,
 h3>a:visited {
-    color: #49494b
+    color: #49494b!important
 }
 
 .h3>a:focus,
@@ -6721,6 +6721,7 @@ fieldset[disabled] .textarea {
     left: calc(65% - .2rem);
     font-size: .7rem;
     background: #727272;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
