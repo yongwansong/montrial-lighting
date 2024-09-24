@@ -6720,8 +6720,8 @@ fieldset[disabled] .textarea {
     top: calc(1rem * -.3);
     left: calc(65% - .2rem);
     font-size: .7rem;
-    background: #727272;
-    color: #fff;
+    background: #fff;
+    color: #727272;
     display: flex;
     justify-content: center;
     align-items: center;
