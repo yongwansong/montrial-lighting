@@ -21,8 +21,7 @@
     padding-bottom: {{ padding_bottom }}px;
     {% if width == 'wide' %}
       width: 100%;
-    {% endif %}  
-    max-width: 95%; 
+    {% endif %}
   }
 
   .sidebar-section {
@@ -98,7 +97,7 @@
   </div>
 
   {% comment %} Collection description {% endcomment %}
-  {% comment %} {% if collection.description != blank %}
+  {% if collection.description != blank %}
     <div class="container">
       <div class="one-whole column">
         <div class="collection__description content has-padding-bottom">
@@ -106,7 +105,7 @@
         </div>
       </div>
     </div>
-  {% endif %}{% endcomment %}
+  {% endif %}
 
   {% comment %} Collection sidebar and main content area {% endcomment %}
   <div class="container collection__content">
@@ -457,6 +456,10 @@ window._usfCollectionById[{{ collection.id | json }}] = {{ collection.handle | j
 
 
 
+
+
+
+
 {% comment %}
 ** Collection template with sidebar **
 {% endcomment %}
@@ -742,6 +745,8 @@ window._usfCollectionById[{{ collection.id | json }}] = {{ collection.handle | j
 
 <script data-theme-editor-load-script src="{{ 'z__jsSidebar.js' | asset_url }}"></script>
 <script src="{{ 'z__jsCollection.js' | asset_url }}"></script>
+
+
 
 
 

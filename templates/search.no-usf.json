@@ -25,7 +25,6 @@
     },
     "main": {
       "type": "search__main-no-usf",
-      "disabled": true,
       "settings": {
         "search_breadcrumb": true,
         "text": "<p>Find what you seek.<\/p>",
