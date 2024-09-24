@@ -103,7 +103,7 @@
     "header_background": "#49494b",
     "header_link_color": "#ffffff",
     "header_link_hover_color": "#ffffff",
-    "header_cart_badge_color": "#808080",
+    "header_cart_badge_color": "#ffffff",
     "cart_background_color": "#fff",
     "show_dropdown_shadow": false,
     "dropdown_background": "#ffffff",
