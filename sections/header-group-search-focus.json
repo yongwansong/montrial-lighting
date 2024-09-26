@@ -21,7 +21,7 @@
         "enable_sticky": true,
         "show_close_icon": false,
         "icon_label": "",
-        "text": "<p>VALENTINE'S DAY SALE: 20% OFF WITH CODE \"LOVE20\"<\/p>",
+        "text": "<p>VALENTINE'S DAY SALE: 20% OFF WITH CODE \"LOVE20\"</p>",
         "mobile_text": "",
         "alignment": "center",
         "size": "small",
@@ -82,8 +82,8 @@
     "header": {
       "type": "header-search-focus",
       "settings": {
-        "logo": "shopify:\/\/shop_images\/New_Project_6_deb998ff-0a05-4d27-9e05-9c05b3017b6c.webp",
-        "logo_fr": "shopify:\/\/shop_images\/New_Project_6_deb998ff-0a05-4d27-9e05-9c05b3017b6c.webp",
+        "logo": "shopify://shop_images/New_Project_6_deb998ff-0a05-4d27-9e05-9c05b3017b6c.webp",
+        "logo_fr": "shopify://shop_images/New_Project_6_deb998ff-0a05-4d27-9e05-9c05b3017b6c.webp",
         "logo_width": 245,
         "search_background": "#000000",
         "search_icon": "#ffffff",
@@ -106,7 +106,7 @@
           "type": "menu",
           "settings": {
             "menu_1": "ceiling-lighting",
-            "menu_1_link": "shopify:\/\/collections\/ceiling-lighting"
+            "menu_1_link": "shopify://collections/ceiling-lighting"
           }
         },
         "5a8e4a93-b56c-4e57-ad92-5870f4852566": {
@@ -114,9 +114,9 @@
           "settings": {
             "richtext_top": "",
             "image_link_top": "",
-            "image_caption_top": "<p><\/p>",
+            "image_caption_top": "<p></p>",
             "menu_1": "wall-lighting",
-            "menu_1_link": "shopify:\/\/collections\/wall-lighting",
+            "menu_1_link": "shopify://collections/wall-lighting",
             "menu_2": "",
             "menu_2_link": "",
             "menu_3": "",
@@ -134,7 +134,7 @@
             "image_link_top": "",
             "image_caption_top": "",
             "menu_1": "table-floor-lamps",
-            "menu_1_link": "shopify:\/\/collections\/table-floor-lamps",
+            "menu_1_link": "shopify://collections/table-floor-lamps",
             "menu_2": "",
             "menu_2_link": "",
             "menu_3": "",
@@ -142,7 +142,7 @@
             "menu_4": "",
             "menu_4_link": "",
             "image_link_bottom": "",
-            "richtext_bottom": "<p><\/p>"
+            "richtext_bottom": "<p></p>"
           }
         },
         "8025ab5b-cf85-44cc-99f6-de6ab78781da": {
@@ -150,17 +150,17 @@
           "settings": {
             "richtext_top": "",
             "image_link_top": "",
-            "image_caption_top": "<p><\/p>",
+            "image_caption_top": "<p></p>",
             "menu_1": "recessed-lighting",
-            "menu_1_link": "shopify:\/\/collections\/recessed-lighting",
+            "menu_1_link": "shopify://collections/recessed-lighting",
             "menu_2": "",
-            "menu_2_link": "shopify:\/\/collections\/fans",
+            "menu_2_link": "shopify://collections/fans",
             "menu_3": "",
             "menu_3_link": "",
             "menu_4": "",
             "menu_4_link": "",
             "image_link_bottom": "",
-            "richtext_bottom": "<p><\/p>"
+            "richtext_bottom": "<p></p>"
           }
         },
         "88d49983-b27f-48bd-8ade-027ef2417dc4": {
@@ -168,9 +168,9 @@
           "settings": {
             "richtext_top": "",
             "image_link_top": "",
-            "image_caption_top": "<p><\/p>",
+            "image_caption_top": "<p></p>",
             "menu_1": "outdoor-lighting",
-            "menu_1_link": "shopify:\/\/collections\/outdoor-lighting",
+            "menu_1_link": "shopify://collections/outdoor-lighting",
             "menu_2": "",
             "menu_2_link": "",
             "menu_3": "",
@@ -178,7 +178,7 @@
             "menu_4": "",
             "menu_4_link": "",
             "image_link_bottom": "",
-            "richtext_bottom": "<p><\/p>"
+            "richtext_bottom": "<p></p>"
           }
         },
         "f35c5617-8426-4523-bec1-79fd758cf204": {
@@ -188,9 +188,9 @@
             "image_link_top": "",
             "image_caption_top": "",
             "menu_1": "light-bulbs",
-            "menu_1_link": "shopify:\/\/collections\/light-bulbs",
+            "menu_1_link": "shopify://collections/light-bulbs",
             "menu_2": "lighting-controls",
-            "menu_2_link": "shopify:\/\/collections\/lighting-controls",
+            "menu_2_link": "shopify://collections/lighting-controls",
             "menu_3": "",
             "menu_3_link": "",
             "menu_4": "",
@@ -231,14 +231,14 @@
           "type": "menu",
           "settings": {
             "menu_1": "cabinet-hardware",
-            "menu_1_link": "shopify:\/\/collections\/cabinet-hardware"
+            "menu_1_link": "shopify://collections/cabinet-hardware"
           }
         },
         "2b32cf27-c266-4d37-8c48-aafa3692f9e4": {
           "type": "menu",
           "settings": {
             "menu_1": "bathroom-hardware",
-            "menu_1_link": "shopify:\/\/collections\/bathroom-hardware"
+            "menu_1_link": "shopify://collections/bathroom-hardware"
           }
         }
       },
@@ -269,21 +269,21 @@
           "type": "menu",
           "settings": {
             "menu_1": "furniture",
-            "menu_1_link": "shopify:\/\/collections\/furniture"
+            "menu_1_link": "shopify://collections/furniture"
           }
         },
         "ac6b8bee-a4c2-490d-b158-c6e4b72172e1": {
           "type": "menu",
           "settings": {
             "menu_1": "mirrors",
-            "menu_1_link": "shopify:\/\/collections\/mirrors"
+            "menu_1_link": "shopify://collections/mirrors"
           }
         },
         "cc2b0b57-baab-4690-bbb3-e50bf2fcf96c": {
           "type": "menu",
           "settings": {
             "menu_1": "home-accents",
-            "menu_1_link": "shopify:\/\/collections\/home-accents"
+            "menu_1_link": "shopify://collections/home-accents"
           }
         }
       },
@@ -346,7 +346,7 @@
           "settings": {
             "icon": "like",
             "text": "110% Price Match",
-            "link": "shopify:\/\/pages\/110-price-match-gurantee"
+            "link": "shopify://pages/110-price-match-gurantee"
           }
         },
         "text_hpxapV": {
@@ -370,7 +370,7 @@
           "settings": {
             "icon": "truck",
             "text": "Free Delivery (orders $199+)*",
-            "link": "shopify:\/\/pages\/delivery-policy"
+            "link": "shopify://pages/delivery-policy"
           }
         }
       },
