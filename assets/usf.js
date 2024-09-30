@@ -1,4 +1,4 @@
-/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/24/2024 9:53:03 AM*/
+/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/30/2024 6:39:11 AM*/
 /* Begin custom theme code */
 
 
@@ -225,9 +225,7 @@ usf.templates = {
                         <span class="product-thumbnail__vendor" v-if="usf.settings.search.showVendor && _usfGlobalSettings.display_vendor" v-html="product.vendor"></span>
                         <p class="product-thumbnail__title" v-html="product.title"></p>
                          <!-- Labels -->
-                         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
-                         <!-- Wishlist -->
-                         <usf-plugin name="searchResultsProductWishList" :data="pluginData"></usf-plugin>
+                         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin> 
                         <!-- price -->
                         <usf-plugin name="searchResultsProductPrice" :data="pluginData"></usf-plugin>
                         `+ _usfProductPriceTemplate +`

@@ -223,9 +223,7 @@ usf.templates = {
                         <span class="product-thumbnail__vendor" v-if="usf.settings.search.showVendor && _usfGlobalSettings.display_vendor" v-html="product.vendor"></span>
                         <p class="product-thumbnail__title" v-html="product.title"></p>
                          <!-- Labels -->
-                         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
-                         <!-- Wishlist -->
-                         <usf-plugin name="searchResultsProductWishList" :data="pluginData"></usf-plugin>
+                         <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin> 
                         <!-- price -->
                         <usf-plugin name="searchResultsProductPrice" :data="pluginData"></usf-plugin>
                         `+ _usfProductPriceTemplate +`
