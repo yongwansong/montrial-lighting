@@ -246,9 +246,7 @@ usf.templates = {
                 <span v-if="_usfGlobalSettings.thumbnail_hover_enabled" class="product-thumbnail__title" v-html="product.title"></span>
                 <a v-else :href="productUrl" class="product-thumbnail__title" v-html="product.title"></a>
                 <!-- Labels -->
-                <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin>
-                <!-- Wishlist -->
-                <usf-plugin name="searchResultsProductWishList" :data="pluginData"></usf-plugin>
+                <usf-plugin name="searchResultsProductLabel" :data="pluginData"></usf-plugin> 
                 <!-- price -->
                 <usf-plugin name="searchResultsProductPrice" :data="pluginData"></usf-plugin>
                 `+ _usfProductPriceTemplate +`
