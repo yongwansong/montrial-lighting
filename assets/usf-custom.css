@@ -1,0 +1,26 @@
+.usf-sr-empty,
+.usf-has-container .collection__main,
+.usf-has-container.search main {
+    width: 100%;
+}
+body:not(.usf-collections-page) .usf-sr-inputbox {
+	display: none;
+}
+.usf-results .has-secondary-image-swap:hover img:not(.secondary){
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0!important;
+}
+.usf-results .has-secondary-image-swap:hover img.secondary{
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto!important;
+}
+
+.usf-hide-theme-search .search__results-wrapper{
+    display: none !important;
+}
+.usf-results .ssw-faveiticon{
+    position: absolute;
+    top: 0;
+}

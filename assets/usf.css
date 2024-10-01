@@ -24,7 +24,12 @@ body:not(.usf-collections-page) .usf-sr-inputbox {
 .usf-hide-theme-search .search__results-wrapper{
     display: none !important;
 }
+.usf-results .ssw-faveiticon{
+    position: absolute;
+    top: 0;
+}
 /* End custom theme code */
+
 /* Begin common theme code */
 
 
