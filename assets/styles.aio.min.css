@@ -14779,6 +14779,16 @@ shopify-payment-terms {
     text-transform: uppercase
 }
 
+@media (max-width: 1120px){
+  .header,
+  .mobile-header {
+    font-size: 12px;
+  }
+  .navbar-item.has-dropdown a:after, .navbar-item.has-mega-menu a:after{
+    font-size: 12px;
+  }
+}
+
 .dropdown-style-horizontal {
     position: relative
 }
