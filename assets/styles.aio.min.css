@@ -14782,10 +14782,10 @@ shopify-payment-terms {
 @media (max-width: 1120px){
   .header,
   .mobile-header {
-    font-size: 12px;
+    font-size: 12px !important;
   }
   .navbar-item.has-dropdown a:after, .navbar-item.has-mega-menu a:after{
-    font-size: 12px;
+    font-size: 12px !important;
   }
 }
 
