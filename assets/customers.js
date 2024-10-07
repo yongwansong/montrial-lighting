@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
         item.querySelector('.quantity-minus').addEventListener('click', function(){
             let value = item.querySelector('.quantity-input-control .quantity-input').value;
             if(value > 1){
-                document.querySelector('.product-form-container .quantity-input-control .quantity-input').value = Number(value) - 1;
+                item.querySelector('.quantity-input-control .quantity-input').value = Number(value) - 1;
             }
             if(value == 2){
-                document.querySelector('.product-form-container .quantity-minus').setAttribute('disabled', 'true');
+                item.querySelector('.quantity-minus').setAttribute('disabled', 'true');
             }
         })
 
