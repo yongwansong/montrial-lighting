@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('herere');
     document.querySelector('.quantity-plus').addEventListener('click', function(){
         let value = document.querySelector('.quantity-input-control').value;
         console.log('herere', value);
