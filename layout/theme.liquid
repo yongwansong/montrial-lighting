@@ -50,6 +50,7 @@
   <link rel="preload" href="{{ 'vendors.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'utilities.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'app.js' | asset_url }}" as="script">
+  <link rel="preload" href="{{ 'custom.js' | asset_url }}" as="script">
 
 
   {% if settings.show_multiple_currencies or shop.enabled_currencies.size > 1 or localization.available_countries.size > 1 %}
@@ -171,8 +172,6 @@
   <script src="{{ 'custom.js' | asset_url }}" defer></script>
 
   {% render 'FSHooks' %}
-
-{% render 'usf' %}
 </head>
 
 {%- capture money_format_output -%}
