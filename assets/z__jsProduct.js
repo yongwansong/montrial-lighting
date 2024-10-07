@@ -1993,18 +1993,3 @@ Shopify.theme.jsProduct = {
 /******/
 })()
 ;
-
-$(document).ready(function(){
-  $('body').on('click','.swatch__option',function(){
-     const variantID = $(this).attr("varid");
-  const imageID = $(this).parents(".product_form").find(`select option[value=${variantID}]`).attr("image-id");
-  console.log("imageID>>>",imageID);
-    $('.product-gallery__thumbnail').removeClass('is-nav-selected')
-    $(`img[src='${imageID}']`).parent('.product-gallery__thumbnail').addClass('is-nav-selected');
-     $(`img[src='${imageID}']`).trigger('click');
-  });
-  
-      if($('.tabs').length > 0) {
-    window.PXUTheme.tabs.enableTabs();
-  }
-});
