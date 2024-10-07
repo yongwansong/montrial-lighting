@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let value = document.querySelector('.product-form-container .quantity-input-control .quantity-input').value;
         console.log('herere', value);
         if(value == 1){
+            console.log('her');
             document.querySelector('.product-form-container .quantity-minus').disabled = false;
         }
         document.querySelector('.product-form-container .quantity-input-control .quantity-input').value = Number(value) + 1;
