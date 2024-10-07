@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let value = document.querySelector('.product-form-container .quantity-input-control .quantity-input').value;
         console.log('herere', value);
         if(value == 1){
-            console.log('her');
             document.querySelector('.product-form-container .quantity-minus').removeAttribute('disabled');
         }
         document.querySelector('.product-form-container .quantity-input-control .quantity-input').value = Number(value) + 1;
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.product-form-container .quantity-input-control .quantity-input').value = Number(value) - 1;
         }
         if(value == 2){
-            document.querySelector('.product-form-container .quantity-minus').disabled = true;
+            document.querySelector('.product-form-container .quantity-minus').setAttribute('disabled');
         }
         
     })
