@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.quantity-plus').addEventListener('click', function(){
         let value = document.querySelector('.quantity-input-control').value;
+        console.log('herere', value);
         document.querySelector('.quantity-input-control').value = value+1;
     })
 
