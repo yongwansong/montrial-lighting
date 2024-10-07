@@ -172,7 +172,7 @@
   <script src="{{ 'custom.js' | asset_url }}" defer></script>
 
   {% render 'FSHooks' %}
-{% render ‘usf’ %} </head>
+</head>
 
 {%- capture money_format_output -%}
   {%- if settings.currency_format == 'money_with_currency_format' -%}
@@ -326,6 +326,7 @@
 
   {% render 'structured-data' %}
 {%- render "ecom_footer"-%}
+        {% render ‘usf’ %} 
   </body>
 </html>
 {% endcapture %}
