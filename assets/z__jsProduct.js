@@ -1533,12 +1533,12 @@ var utils = {};
 // ----- extend ----- //
 
 // extends objects
-// utils.extend = function( a, b ) {
-//   for ( var prop in b ) {
-//     a[ prop ] = b[ prop ];
-//   }
-//   return a;
-// };
+utils.extend = function( a, b ) {
+  for ( var prop in b ) {
+    a[ prop ] = b[ prop ];
+  }
+  return a;
+};
 
 // ----- modulo ----- //
 
