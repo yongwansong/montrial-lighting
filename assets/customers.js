@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.product-form-container .quantity-input-control .quantity-input').value = Number(value) - 1;
         }
         if(value == 2){
-            document.querySelector('.product-form-container .quantity-minus').setAttribute('disabled');
+            document.querySelector('.product-form-container .quantity-minus').setAttribute('disabled', 'true');
         }
         
     })
