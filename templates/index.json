@@ -222,11 +222,11 @@
         "image_7Wq78C": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/New_Project_2_145e8490-52c2-4a57-8c22-3e92f6f1faee.webp",
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_a43117ee-c953-43f3-b589-093edaffc2e4.webp",
             "icon_label": "",
-            "title": "Shop by Category",
+            "title": "Sale",
             "text": "<p>Shop All</p>",
-            "link": "shopify://pages/contact-us",
+            "link": "https://www.montreallighting.com/collections/sale",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 0
