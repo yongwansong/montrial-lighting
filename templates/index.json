@@ -141,6 +141,26 @@
             "image": "shopify://shop_images/Louis_Poulsen.webp",
             "link": "shopify://collections/louis-poulsen"
           }
+        },
+        "logo_image_g3YAWE": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Pablo_Logo.webp",
+            "link": "shopify://collections/pablo-designs"
+          }
+        },
+        "logo_image_gBmNfn": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Sonneman.webp",
+            "link": "shopify://collections/sonneman"
+          }
+        },
+        "logo_image_nVMNap": {
+          "type": "logo_image",
+          "settings": {
+            "link": "https://www.montreallighting.com/collections/zafferano-america"
+          }
         }
       },
       "block_order": [
@@ -149,7 +169,10 @@
         "logo_image_kF7ihy",
         "logo_image_yWFjyr",
         "logo_image_PaiyQf",
-        "logo_image_MdULfn"
+        "logo_image_MdULfn",
+        "logo_image_g3YAWE",
+        "logo_image_gBmNfn",
+        "logo_image_nVMNap"
       ],
       "settings": {
         "title": "",
