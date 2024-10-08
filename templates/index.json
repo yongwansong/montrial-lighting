@@ -235,6 +235,7 @@
         "text_X3Drbb",
         "text_CjNtkn"
       ],
+      "disabled": true,
       "custom_css": [
         ".h4 {color: #ffffff;}",
         "a {color: #ffffff;}"
