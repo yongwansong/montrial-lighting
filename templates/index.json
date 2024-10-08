@@ -142,6 +142,13 @@
             "link": "shopify://collections/louis-poulsen"
           }
         },
+        "logo_image_LbNJCL": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/New_Project_2_ba954962-dbed-4d78-8c42-b69d34d8c86c.webp",
+            "link": "shopify://collections/mitzi"
+          }
+        },
         "logo_image_g3YAWE": {
           "type": "logo_image",
           "settings": {
@@ -159,6 +166,7 @@
         "logo_image_nVMNap": {
           "type": "logo_image",
           "settings": {
+            "image": "shopify://shop_images/zafferano_logo.webp",
             "link": "https://www.montreallighting.com/collections/zafferano-america"
           }
         }
@@ -170,6 +178,7 @@
         "logo_image_yWFjyr",
         "logo_image_PaiyQf",
         "logo_image_MdULfn",
+        "logo_image_LbNJCL",
         "logo_image_g3YAWE",
         "logo_image_gBmNfn",
         "logo_image_nVMNap"
