@@ -201,7 +201,7 @@
                       </label>
                     </div>
                   {% else %}
-                    <div class="navbar-item header__item has-dropdown therere has-dropdown--{{ settings.dropdown_style }} is-hoverable {% if link.active or link.child_active %}is-active{% endif %}" aria-haspopup="true" aria-expanded="false" data-navlink-handle="{{ link.title | handleize }}">
+                    <div class="navbar-item header__item has-dropdown has-dropdown--{{ settings.dropdown_style }} is-hoverable {% if link.active or link.child_active %}is-active{% endif %}" aria-haspopup="true" aria-expanded="false" data-navlink-handle="{{ link.title | handleize }}">
                       <label for="dropdown-{{ link.title | handleize }}">
                         <a class="navbar-link header__link {% if link.active or link.child_active %}is-active{% endif %}"
                           {% unless link.url == 'http://' or link.url == '' or link.url == 'https://' or link.url == '#' %} href="{{ link.url }}" {% endunless %}>
