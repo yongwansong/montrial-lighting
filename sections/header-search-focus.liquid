@@ -188,10 +188,10 @@
                     </a>
                   </label>
 
-                  {% render 'header__dropdown-menu',
+                  {% comment %} {% render 'header__dropdown-menu',
                           link: link,
                           index: forloop.index
-                  %}
+                  %} {% endcomment %}
                 </div>
               {% endif %}
             {% endfor %}
