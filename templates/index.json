@@ -143,7 +143,7 @@
         "image_EDxWLt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/New_Project_13.webp",
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_5661bd04-c600-4a32-9474-98c39e43caaf.jpg",
             "icon_label": "",
             "title": "Shop by Brand",
             "text": "<p>Discover our Brands</p>",
@@ -156,7 +156,7 @@
         "image_4ixVQN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/New_Project_2_145e8490-52c2-4a57-8c22-3e92f6f1faee.webp",
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n.webp",
             "icon_label": "",
             "title": "Shop by Category",
             "text": "<p>Shop All</p>",
@@ -209,11 +209,11 @@
         "image_eVPRNr": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/New_Project_13.webp",
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_fa976c8d-bb7d-4a55-a8ed-5784be1f4306.webp",
             "icon_label": "",
-            "title": "Shop by Brand",
+            "title": "Shop By Designer",
             "text": "<p>Discover our Brands</p>",
-            "link": "shopify://pages/brands",
+            "link": "shopify://collections/designer-lighting",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 0
