@@ -169,7 +169,6 @@
         "image_bz9zrb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n.jpg",
             "icon_label": "",
             "title": "New Arrivals",
             "text": "<p>Shop New</p>",
@@ -184,6 +183,71 @@
         "image_EDxWLt",
         "image_4ixVQN",
         "image_bz9zrb"
+      ],
+      "settings": {
+        "border_radius": 0,
+        "crop_images": true,
+        "show_border": false,
+        "overlay_text": "#ffffff",
+        "overlay_background": "#939393",
+        "overlay_background_opacity": 70,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "animation": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "css_class": "promo_new",
+        "custom_css": ".featured-promotions__title {\nfont-size:32px;font-weight: bold;}"
+      }
+    },
+    "index_promotion_new_j8kzaK": {
+      "type": "index__promotion-new",
+      "blocks": {
+        "image_eVPRNr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/New_Project_13.webp",
+            "icon_label": "",
+            "title": "Shop by Brand",
+            "text": "<p>Discover our Brands</p>",
+            "link": "shopify://pages/brands",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 0
+          }
+        },
+        "image_7Wq78C": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/New_Project_2_145e8490-52c2-4a57-8c22-3e92f6f1faee.webp",
+            "icon_label": "",
+            "title": "Shop by Category",
+            "text": "<p>Shop All</p>",
+            "link": "shopify://pages/contact-us",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 0
+          }
+        },
+        "image_DCdiW9": {
+          "type": "image",
+          "settings": {
+            "icon_label": "",
+            "title": "New Arrivals",
+            "text": "<p>Shop New</p>",
+            "link": "",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_eVPRNr",
+        "image_7Wq78C",
+        "image_DCdiW9"
       ],
       "settings": {
         "border_radius": 0,
@@ -844,6 +908,7 @@
     "5bfc0e15-7a73-4321-9ed9-e4ea81ab394d",
     "index_text_grid_WW7hed",
     "index_promotion_new_xaGzmf",
+    "index_promotion_new_j8kzaK",
     "index_collection_grid_y9rnHC",
     "index_image_with_text_two_BcECMN",
     "index_image_with_text_two_kKhfzC",
