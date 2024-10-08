@@ -235,10 +235,11 @@
         "image_DCdiW9": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_b8185c89-b895-47c3-980b-a37ad5079d6d.webp",
             "icon_label": "",
-            "title": "New Arrivals",
+            "title": "Our Showroom",
             "text": "<p>Shop New</p>",
-            "link": "",
+            "link": "https://www.montreallighting.com/pages/showroom",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 0
