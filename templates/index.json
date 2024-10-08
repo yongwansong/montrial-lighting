@@ -169,6 +169,7 @@
         "image_bz9zrb": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n.jpg",
             "icon_label": "",
             "title": "New Arrivals",
             "text": "<p>Shop New</p>",
