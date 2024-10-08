@@ -45,7 +45,7 @@
       ],
       "disabled": true,
       "settings": {
-        "img": "shopify:\/\/shop_images\/showthumb.jpg",
+        "img": "shopify://shop_images/showthumb.jpg",
         "title": "Elevate <br> your space",
         "des": "Modern interior with a muted decor colour palette.",
         "btn-text": "Shop plant",
@@ -55,12 +55,12 @@
     "5bfc0e15-7a73-4321-9ed9-e4ea81ab394d": {
       "type": "index__image-with-text-overlay",
       "settings": {
-        "link": "https:\/\/www.montreallighting.com\/collections\/sale",
-        "image": "shopify:\/\/shop_images\/june_26_28e802eb-28cb-44f3-8773-27e554db3e92.png",
-        "mobile_image": "shopify:\/\/shop_images\/june_26_m_76a324dd-6c1f-49a0-988a-5810fb558ec9.png",
-        "pretext": "<p><strong>Lighting You'll Love<\/strong><\/p>",
+        "link": "https://www.montreallighting.com/collections/sale",
+        "image": "shopify://shop_images/banner-1.webp",
+        "mobile_image": "shopify://shop_images/june_26_m_76a324dd-6c1f-49a0-988a-5810fb558ec9.png",
+        "pretext": "<p><strong>Lighting You'll Love</strong></p>",
         "title": "15-20% OFF YOUR FAVOURITE BRANDS",
-        "subtitle": "<p>• Winter Sale • Artemide • Foscarini • Crystorama • Visual Comfort Studio • Battery Lamps • And much more...<\/p>",
+        "subtitle": "<p>• Winter Sale • Artemide • Foscarini • Crystorama • Visual Comfort Studio • Battery Lamps • And much more...</p>",
         "pretext_color": "#ffffff",
         "heading_color": "#ffffff",
         "subheading_color": "#ffffff",
@@ -73,9 +73,9 @@
         "border_width": 0,
         "text_width": 40,
         "button_1": "Save Now",
-        "button_1_link": "https:\/\/www.montreallighting.com\/collections\/sale",
+        "button_1_link": "https://www.montreallighting.com/collections/sale",
         "text_btn": "#ffffff",
-        "back_btn_color": "#8b8b8b",
+        "back_btn_color": "#000000",
         "button_1_style": "button--primary",
         "button_2": "",
         "button_2_link": "",
@@ -86,7 +86,7 @@
         "heading_color_mobile": "rgba(0,0,0,0)",
         "subheading_color_mobile": "#ffffff",
         "textbtn_color_mobile": "#ffffff",
-        "backgroundbtn_color_mobile": "#8b8b8b",
+        "backgroundbtn_color_mobile": "#000000",
         "width": "wide",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -97,6 +97,79 @@
         "custom_css": "@media screen and (min-width: 769px) {\n  .hero--adapt .hero__title,\n  .hero__slide .hero__title {\n    color: #f37022 !important;\n  }\n  .hero__slide .hero__subtitle {\n    color: white !important;\n  }\n}"
       }
     },
+    "index_logo_list_C3Fqc9": {
+      "type": "index__logo-list",
+      "blocks": {
+        "logo_image_zqr74y": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/flos-logo.webp",
+            "link": "shopify://collections/flos-lighting"
+          }
+        },
+        "logo_image_6rTydy": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Artemide.webp",
+            "link": "shopify://collections/artemide"
+          }
+        },
+        "logo_image_kF7ihy": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Cerno.webp",
+            "link": "shopify://collections/cerno"
+          }
+        },
+        "logo_image_yWFjyr": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Foscarini_1.webp",
+            "link": "shopify://collections/foscarini"
+          }
+        },
+        "logo_image_PaiyQf": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Hammerton_Studio.webp",
+            "link": "shopify://collections/hammerton-studio"
+          }
+        },
+        "logo_image_MdULfn": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Louis_Poulsen.webp",
+            "link": "shopify://collections/louis-poulsen"
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_zqr74y",
+        "logo_image_6rTydy",
+        "logo_image_kF7ihy",
+        "logo_image_yWFjyr",
+        "logo_image_PaiyQf",
+        "logo_image_MdULfn"
+      ],
+      "settings": {
+        "title": "",
+        "logos_per_row": 7,
+        "logo_size": "small",
+        "background": "rgba(0,0,0,0)",
+        "gradient": "rgba(0,0,0,0)",
+        "gradient_rotation": 0,
+        "width": "standard",
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "animation": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "index_text_grid_WW7hed": {
       "type": "index__text-grid",
       "blocks": {
@@ -104,21 +177,24 @@
           "type": "text",
           "settings": {
             "text": "Battery Lamp Sale",
-            "textdes": "<p>Save 20% on Battery Lamps<\/p>"
+            "textdes": "<p>Save 20% on Battery Lamps</p>",
+            "text_link": ""
           }
         },
         "text_X3Drbb": {
           "type": "text",
           "settings": {
             "text": "Hudson Valley Lighting Sale",
-            "textdes": "<p>Save 20% on Hudson Valley Lighting<\/p>"
+            "textdes": "<p>Save 20% on Hudson Valley Lighting</p>",
+            "text_link": ""
           }
         },
         "text_CjNtkn": {
           "type": "text",
           "settings": {
-            "text": "OVERSTOCK \/ OPEN BOX",
-            "textdes": "<p>Shop our Clearance Sale for Huge Savings<\/p>"
+            "text": "OVERSTOCK / OPEN BOX",
+            "textdes": "<p>Shop our Clearance Sale for Huge Savings</p>",
+            "text_link": ""
           }
         }
       },
@@ -140,11 +216,11 @@
         "image_EDxWLt": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Pablo-Designs-Bola-Disc-Matt-Black-1.webp",
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_5661bd04-c600-4a32-9474-98c39e43caaf.jpg",
             "icon_label": "",
             "title": "Shop by Brand",
-            "text": "<p>Discover our Brands<\/p>",
-            "link": "shopify:\/\/pages\/brands",
+            "text": "<p>Discover our Brands</p>",
+            "link": "shopify://pages/brands",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 0
@@ -153,11 +229,11 @@
         "image_4ixVQN": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/71345-11992850.jpg",
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n.webp",
             "icon_label": "",
             "title": "Shop by Category",
-            "text": "<p>Shop All<\/p>",
-            "link": "shopify:\/\/pages\/contact-us",
+            "text": "<p>Shop All</p>",
+            "link": "shopify://pages/contact-us",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 0
@@ -166,10 +242,10 @@
         "image_bz9zrb": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/PD-56431-AB_IMRO_5_1.jpg",
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n.jpg",
             "icon_label": "",
             "title": "New Arrivals",
-            "text": "<p>Shop New<\/p>",
+            "text": "<p>Shop New</p>",
             "link": "",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
@@ -200,6 +276,72 @@
         "custom_css": ".featured-promotions__title {\nfont-size:32px;font-weight: bold;}"
       }
     },
+    "index_promotion_new_j8kzaK": {
+      "type": "index__promotion-new",
+      "blocks": {
+        "image_eVPRNr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_fa976c8d-bb7d-4a55-a8ed-5784be1f4306.webp",
+            "icon_label": "",
+            "title": "Shop By Designer",
+            "text": "<p>Discover our Brands</p>",
+            "link": "shopify://collections/designer-lighting",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 0
+          }
+        },
+        "image_7Wq78C": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_a43117ee-c953-43f3-b589-093edaffc2e4.webp",
+            "icon_label": "",
+            "title": "Sale",
+            "text": "<p>Shop All</p>",
+            "link": "https://www.montreallighting.com/collections/sale",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 0
+          }
+        },
+        "image_DCdiW9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/452937365_884738180347597_6258601956563798246_n_b8185c89-b895-47c3-980b-a37ad5079d6d.webp",
+            "icon_label": "",
+            "title": "Our Showroom",
+            "text": "<p>Shop New</p>",
+            "link": "https://www.montreallighting.com/pages/showroom",
+            "overlay_text": "rgba(0,0,0,0)",
+            "overlay_background": "#49494b",
+            "overlay_background_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_eVPRNr",
+        "image_7Wq78C",
+        "image_DCdiW9"
+      ],
+      "settings": {
+        "border_radius": 0,
+        "crop_images": true,
+        "show_border": false,
+        "overlay_text": "#ffffff",
+        "overlay_background": "#939393",
+        "overlay_background_opacity": 70,
+        "width": "standard",
+        "show_gutter": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "animation": "none",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "css_class": "promo_new",
+        "custom_css": ".featured-promotions__title {\nfont-size:32px;font-weight: bold;}"
+      }
+    },
     "index_collection_grid_y9rnHC": {
       "type": "index__collection-grid",
       "blocks": {
@@ -207,7 +349,7 @@
           "type": "image",
           "settings": {
             "collection": "",
-            "image": "shopify:\/\/shop_images\/ecom-no-replace-uLBiEQvobdbn-f-1.png",
+            "image": "shopify://shop_images/ecom-no-replace-uLBiEQvobdbn-f-1.png",
             "title": "Living",
             "btn_text": "Shop All Living",
             "btn_link": "#"
@@ -217,7 +359,7 @@
           "type": "image",
           "settings": {
             "collection": "",
-            "image": "shopify:\/\/shop_images\/ecom-no-replace-F0werP5D8Jbn-f-2.png",
+            "image": "shopify://shop_images/ecom-no-replace-F0werP5D8Jbn-f-2.png",
             "title": "Bedroom",
             "btn_text": "Shop All Beds",
             "btn_link": "#"
@@ -227,10 +369,10 @@
           "type": "image",
           "settings": {
             "collection": "",
-            "image": "shopify:\/\/shop_images\/ecom-no-replace-uvR64MP2I4bn-f-3.png",
+            "image": "shopify://shop_images/ecom-no-replace-uvR64MP2I4bn-f-3.png",
             "title": "Dinning",
             "btn_text": "Shop All Dinning",
-            "btn_link": "shopify:\/\/collections\/dining-room"
+            "btn_link": "shopify://collections/dining-room"
           }
         }
       },
@@ -253,8 +395,8 @@
         "btn-text": "Shop earth day sale",
         "btn-link": "#",
         "textLeft": true,
-        "img-desktop": "shopify:\/\/shop_images\/04-16_Mashup_Earth-Day_Desktop_720x_2x_b11687ad-7cee-41cd-9818-7545459ec852.webp",
-        "img-mobile": "shopify:\/\/shop_images\/04-16_Mashup_Earth-Day_Mobile_375x_2x_f6710f25-0428-4f61-9db8-6e6661cc6193.jpg"
+        "img-desktop": "shopify://shop_images/04-16_Mashup_Earth-Day_Desktop_720x_2x_b11687ad-7cee-41cd-9818-7545459ec852.webp",
+        "img-mobile": "shopify://shop_images/04-16_Mashup_Earth-Day_Mobile_375x_2x_f6710f25-0428-4f61-9db8-6e6661cc6193.jpg"
       }
     },
     "index_image_with_text_two_kKhfzC": {
@@ -267,7 +409,7 @@
         "btn-text": "Shop earth day sale",
         "btn-link": "#",
         "textLeft": false,
-        "img-desktop": "shopify:\/\/shop_images\/04-16_Mashup_Earth-Day_Desktop_720x_2x_b11687ad-7cee-41cd-9818-7545459ec852.webp"
+        "img-desktop": "shopify://shop_images/04-16_Mashup_Earth-Day_Desktop_720x_2x_b11687ad-7cee-41cd-9818-7545459ec852.webp"
       }
     },
     "index_product_slider_GcxxBK": {
@@ -288,7 +430,7 @@
         "btn-text": "Shop earth day sale",
         "btn-link": "",
         "textLeft": true,
-        "img-desktop": "shopify:\/\/shop_images\/04-16_Mashup_Earth-Day_Desktop_720x_2x_b11687ad-7cee-41cd-9818-7545459ec852.webp"
+        "img-desktop": "shopify://shop_images/04-16_Mashup_Earth-Day_Desktop_720x_2x_b11687ad-7cee-41cd-9818-7545459ec852.webp"
       }
     },
     "index_product_slider_GUT7gJ": {
@@ -305,7 +447,6 @@
         "grid_item_8wXMJX": {
           "type": "grid_item",
           "settings": {
-            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -319,7 +460,6 @@
         "grid_item_nkqXek": {
           "type": "grid_item",
           "settings": {
-            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-005.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -333,7 +473,6 @@
         "grid_item_9xmymH": {
           "type": "grid_item",
           "settings": {
-            "grid_image": "shopify:\/\/shop_images\/contardi-stick-suspension-image-004.jpg",
             "link": "#",
             "heading": "Lorem Ipsum",
             "text": "Lorem Ipsum",
@@ -400,22 +539,20 @@
           "type": "testimonial",
           "settings": {
             "title": "Lorem Ipsum",
-            "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
+            "des": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>",
             "pos": "POSITION",
             "btn-text": "Contact us",
-            "btn-link": "",
-            "desk-img": "shopify:\/\/shop_images\/01024302a.jpg"
+            "btn-link": ""
           }
         },
         "testimonial_nG6Mpa": {
           "type": "testimonial",
           "settings": {
             "title": "Lorem Ipsum",
-            "des": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
+            "des": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>",
             "pos": "POSITION",
             "btn-text": "Contact Us",
-            "btn-link": "",
-            "desk-img": "shopify:\/\/shop_images\/01024306a.jpg"
+            "btn-link": ""
           }
         }
       },
@@ -437,71 +574,71 @@
         "9c7a4fda-92f6-4d97-8107-8370a9ec65b3": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Artemide.png",
-            "link": "shopify:\/\/collections\/artemide"
+            "image": "shopify://shop_images/Artemide.png",
+            "link": "shopify://collections/artemide"
           }
         },
         "955fd016-1b9b-406c-bd06-a50d79d59e19": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Cerno.png",
-            "link": "shopify:\/\/collections\/cerno"
+            "image": "shopify://shop_images/Cerno.png",
+            "link": "shopify://collections/cerno"
           }
         },
         "16388156203439ad69-0": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Foscarini_1.png",
-            "link": "shopify:\/\/collections\/foscarini"
+            "image": "shopify://shop_images/Foscarini_1.png",
+            "link": "shopify://collections/foscarini"
           }
         },
         "2135c2fe-d07f-4235-8393-7feab094fd80": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_1_bc68c9bd-6c5b-473d-b2a1-7c169192ee7e.jpg",
-            "link": "shopify:\/\/collections\/graypants"
+            "image": "shopify://shop_images/New_Project_1_bc68c9bd-6c5b-473d-b2a1-7c169192ee7e.jpg",
+            "link": "shopify://collections/graypants"
           }
         },
         "16388156203439ad69-4": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Hammerton_Studio.png",
-            "link": "shopify:\/\/collections\/hammerton-studio"
+            "image": "shopify://shop_images/Hammerton_Studio.png",
+            "link": "shopify://collections/hammerton-studio"
           }
         },
         "576a1587-1c4c-411b-9843-70e4dd83c6ae": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Louis_Poulsen.png",
-            "link": "shopify:\/\/collections\/louis-poulsen"
+            "image": "shopify://shop_images/Louis_Poulsen.png",
+            "link": "shopify://collections/louis-poulsen"
           }
         },
         "16388156203439ad69-3": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/New_Project_2_ba954962-dbed-4d78-8c42-b69d34d8c86c.jpg",
-            "link": "shopify:\/\/collections\/mitzi"
+            "image": "shopify://shop_images/New_Project_2_ba954962-dbed-4d78-8c42-b69d34d8c86c.jpg",
+            "link": "shopify://collections/mitzi"
           }
         },
         "16388156203439ad69-1": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Pablo_Logo.png",
-            "link": "shopify:\/\/collections\/pablo-designs"
+            "image": "shopify://shop_images/Pablo_Logo.png",
+            "link": "shopify://collections/pablo-designs"
           }
         },
         "16388156203439ad69-2": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Sonneman.png",
-            "link": "shopify:\/\/collections\/sonneman"
+            "image": "shopify://shop_images/Sonneman.png",
+            "link": "shopify://collections/sonneman"
           }
         },
         "e57f4f70-d768-40af-ab5c-682bc1ce0b2e": {
           "type": "logo_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/zafferano_logo.png",
-            "link": "https:\/\/www.montreallighting.com\/collections\/zafferano-america"
+            "image": "shopify://shop_images/zafferano_logo.png",
+            "link": "https://www.montreallighting.com/collections/zafferano-america"
           }
         }
       },
@@ -543,11 +680,11 @@
         "1639166386180b5388-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Vezzo_LS_ALT_2.jpg",
+            "image": "shopify://shop_images/New_Project_3_99c7e932-0b0c-49dc-8076-1263e9d3158f.webp",
             "icon_label": "",
             "title": "Shop By Category",
-            "text": "<p>Discover our collections →<\/p>",
-            "link": "shopify:\/\/collections\/category",
+            "text": "<p>Discover our collections →</p>",
+            "link": "shopify://collections/category",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 20
@@ -556,11 +693,11 @@
         "1639166386180b5388-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/81kMapm4vuL._AC_UF894_1000_QL80.jpg",
+            "image": "shopify://shop_images/New_Project_4.webp",
             "icon_label": "",
             "title": "Shop By Brand",
-            "text": "<p>Discover our brands  →<\/p>",
-            "link": "shopify:\/\/pages\/brands",
+            "text": "<p>Discover our brands  →</p>",
+            "link": "shopify://pages/brands",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 40
@@ -569,11 +706,11 @@
         "1639166386180b5388-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/64e50c076df9f10f76078125.jpg",
+            "image": "shopify://shop_images/New_Project_5.webp",
             "icon_label": "",
             "title": "Shop By Designer",
-            "text": "<p>Discover our designers →<\/p>",
-            "link": "shopify:\/\/collections\/designer-lighting",
+            "text": "<p>Discover our designers →</p>",
+            "link": "shopify://collections/designer-lighting",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 40
@@ -583,11 +720,11 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/greens-on-wood-background.jpg",
+            "image": "shopify://shop_images/greens-on-wood-background.jpg",
             "icon_label": "",
             "title": "Shop Gift Cards",
-            "text": "<p>Discover eGift Cards →<\/p>",
-            "link": "shopify:\/\/products\/giftcard",
+            "text": "<p>Discover eGift Cards →</p>",
+            "link": "shopify://products/giftcard",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "rgba(0,0,0,0)",
             "overlay_background_opacity": 70
@@ -624,11 +761,11 @@
         "1639348161407bc59a-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/69274932_1402840399856050_4305365197075251200_n.jpg",
+            "image": "shopify://shop_images/New_Project_6.webp",
             "icon_label": "",
             "title": "Canada's Best Brands",
-            "text": "<p>Shop Canadian →<\/p>",
-            "link": "shopify:\/\/collections\/canadian-brands",
+            "text": "<p>Shop Canadian →</p>",
+            "link": "shopify://collections/canadian-brands",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 40
@@ -637,11 +774,11 @@
         "1639348161407bc59a-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Foscarini-APLOMB-MINI--pedant-Esstisch-Ambiete.jpg",
+            "image": "shopify://shop_images/New_Project_3_caadfa62-e286-4d09-9949-1e5e6f1db7c4.webp",
             "icon_label": "",
             "title": "Sale",
-            "text": "<p>Shop our promotions →<\/p>",
-            "link": "https:\/\/www.montreallighting.com\/collections\/sale",
+            "text": "<p>Shop our promotions →</p>",
+            "link": "https://www.montreallighting.com/collections/sale",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 40
@@ -650,11 +787,11 @@
         "1639348161407bc59a-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Screenshot_2023-10-06_104530.png",
+            "image": "shopify://shop_images/New_Project_8.webp",
             "icon_label": "",
             "title": "Our Showroom",
-            "text": "<p>Visit our showroom →<\/p>",
-            "link": "shopify:\/\/pages\/showroom",
+            "text": "<p>Visit our showroom →</p>",
+            "link": "shopify://pages/showroom",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 40
@@ -690,11 +827,11 @@
         "1639350192262089b7-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Pablo-Designs-Bola-Disc-Matt-Black-1.webp",
+            "image": "shopify://shop_images/New_Project_12.webp",
             "icon_label": "",
             "title": "Want it, can't find it?",
-            "text": "<p>Our specialists love a challenge! Let us know what you’re searching for and we’ll source it for you.<\/p><p><strong>Click Here<\/strong><\/p>",
-            "link": "shopify:\/\/pages\/contact-us",
+            "text": "<p>Our specialists love a challenge! Let us know what you’re searching for and we’ll source it for you.</p><p><strong>Click Here</strong></p>",
+            "link": "shopify://pages/contact-us",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 40
@@ -703,11 +840,11 @@
         "1639350192262089b7-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/71345-11992850.jpg",
+            "image": "shopify://shop_images/New_Project_2_f9d36b09-37d5-4bf0-a4f8-6cb984f273e5.webp",
             "icon_label": "",
             "title": "Book An Appointment",
-            "text": "<p>Our team of experts is here to help you with complimentary in-person and virtual consultations.<\/p><p><strong>Click Here<\/strong><\/p>",
-            "link": "https:\/\/outlook.office365.com\/owa\/calendar\/MontrealLightingHardwareInc@montrealluminaire.com\/bookings\/",
+            "text": "<p>Our team of experts is here to help you with complimentary in-person and virtual consultations.</p><p><strong>Click Here</strong></p>",
+            "link": "https://outlook.office365.com/owa/calendar/MontrealLightingHardwareInc@montrealluminaire.com/bookings/",
             "overlay_text": "rgba(0,0,0,0)",
             "overlay_background": "#49494b",
             "overlay_background_opacity": 40
@@ -844,8 +981,10 @@
   "order": [
     "image_with_product_text_bFHtrK",
     "5bfc0e15-7a73-4321-9ed9-e4ea81ab394d",
+    "index_logo_list_C3Fqc9",
     "index_text_grid_WW7hed",
     "index_promotion_new_xaGzmf",
+    "index_promotion_new_j8kzaK",
     "index_collection_grid_y9rnHC",
     "index_image_with_text_two_BcECMN",
     "index_image_with_text_two_kKhfzC",
