@@ -187,11 +187,13 @@
                       {{ link.title }}
                     </a>
                   </label>
-
-                  {% render 'header__dropdown-menu',
-                          link: link,
-                          index: forloop.index
-                  %}
+                  {%- if forloop.index == 3 -%}
+                    {% render 'header__dropdown-menu',
+                            link: link,
+                            index: forloop.index
+                    %}
+                  {%- endif -%}
+                  
                 </div>
               {% endif %}
             {% endfor %}
