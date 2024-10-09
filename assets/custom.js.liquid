@@ -400,9 +400,7 @@ $(document).ready(function(){
   console.log("imageID>>>",imageID);
     $('.product-gallery__thumbnail').removeClass('is-nav-selected')
     $(`img[src='${imageID}']`).parent('.product-gallery__thumbnail').addClass('is-nav-selected');
-     $(`img[src='${imageID}']`).trigger('click');
-  });
-
+    $(`img[src='${imageID}']`).trigger('click');
     var current_variant_id = document.querySelector('select[name=id]').val();
     // var variant = e.variant;
     
@@ -419,6 +417,8 @@ $(document).ready(function(){
     var $btn_print = $('.btn-print-tearsheet');
     let variant_print_url = `${$btn_print.data('url')}?view=print&variant=${current_variant_id}`;
     $btn_print.attr('href', variant_print_url); 
+  });
+
   
       if($('.tabs').length > 0) {
     window.PXUTheme.tabs.enableTabs();
