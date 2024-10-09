@@ -6325,8 +6325,6 @@ class Product {
         ),
       );
 
-      console.log(this.variantSelection, 'this.variantSelection');
-
       if (surfacePickUpEl) {
         this.surfacePickUp = new shopify_surface_pick_up_dist_index_es(surfacePickUpEl);
         this.surfacePickUp.onModalRequest(contents => {
