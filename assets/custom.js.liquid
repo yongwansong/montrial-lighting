@@ -336,6 +336,7 @@ const ReadMore2 = (() => {
   
   function InitVariantChangeEvent() {
     $(document).on('variant-change', function(e) {
+      console.log('jetetet');
       var current_variant_id = $(e.productEl).find('select[name=id]').val();
       var variant = e.variant;
       
