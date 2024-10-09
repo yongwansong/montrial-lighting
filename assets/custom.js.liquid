@@ -402,6 +402,23 @@ $(document).ready(function(){
     $(`img[src='${imageID}']`).parent('.product-gallery__thumbnail').addClass('is-nav-selected');
      $(`img[src='${imageID}']`).trigger('click');
   });
+
+    var current_variant_id = document.querySelector('select[name=id]').val();
+    // var variant = e.variant;
+    
+    var variant_url = `${window.location.origin}${window.location.pathname}?variant=${current_variant_id}&view=variant-mf-raw'`;
+    $.get(variant_url).then(function(response) {
+      //console.log(response);
+      var newVariantMetafieldContent = $(response).find('.variant-metafields-content').html();
+      $('.variant-metafields-content').html(newVariantMetafieldContent);
+    });  
+    
+    // applyDiscontinued(variant);
+    
+    // Tearsheet update url
+    var $btn_print = $('.btn-print-tearsheet');
+    let variant_print_url = `${$btn_print.data('url')}?view=print&variant=${current_variant_id}`;
+    $btn_print.attr('href', variant_print_url); 
   
       if($('.tabs').length > 0) {
     window.PXUTheme.tabs.enableTabs();
