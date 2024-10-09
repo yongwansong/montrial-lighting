@@ -401,7 +401,7 @@ $(document).ready(function(){
     $('.product-gallery__thumbnail').removeClass('is-nav-selected')
     $(`img[src='${imageID}']`).parent('.product-gallery__thumbnail').addClass('is-nav-selected');
     $(`img[src='${imageID}']`).trigger('click');
-    var current_variant_id = document.querySelector('select[name=id]').val();
+    var current_variant_id = document.querySelector('select[name=id]').value;
     // var variant = e.variant;
     
     var variant_url = `${window.location.origin}${window.location.pathname}?variant=${current_variant_id}&view=variant-mf-raw'`;
