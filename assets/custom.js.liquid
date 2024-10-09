@@ -406,7 +406,7 @@ $(document).ready(function(){
     var current_variant_id = document.querySelector('select[name=id]').value;
     // var variant = e.variant;
     
-    var variant_url = `${window.location.origin}${window.location.pathname}?variant=${current_variant_id}&view=variant-mf-raw'`;
+    var variant_url = `${window.location.origin}${window.location.pathname}?variant=${variantId}&view=variant-mf-raw'`;
     $.get(variant_url).then(function(response) {
       //console.log(response, 'response');
       var newVariantMetafieldContent = $(response).find('.variant-metafields-content').html();
