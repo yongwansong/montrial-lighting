@@ -1375,6 +1375,32 @@ function setup() {
   body.removeChild( div );
 }
 
+InitVariantChangeEvent();
+
+function InitVariantChangeEvent() {
+  $(document).on('variant-change', function(e) {
+    console.log('jetetet');
+    var current_variant_id = $(e.productEl).find('select[name=id]').val();
+    var variant = e.variant;
+    
+    if (current_variant_id !== e.variant.id) {
+      var variant_url = `${window.location.origin}${window.location.pathname}?variant=${variant.id}&view=variant-mf-raw'`;
+      $.get(variant_url).then(function(response) {
+        //console.log(response);
+        var newVariantMetafieldContent = $(response).find('.variant-metafields-content').html();
+        $('.variant-metafields-content').html(newVariantMetafieldContent);
+      });        
+    }
+    
+    applyDiscontinued(variant);
+    
+    // Tearsheet update url
+    var $btn_print = $('.btn-print-tearsheet');
+    let variant_print_url = `${$btn_print.data('url')}?view=print&variant=${e.variant.id}`;
+    $btn_print.attr('href', variant_print_url);      
+  });
+}
+
 
 class Product {
   static load(url) {
@@ -2100,7 +2126,6 @@ class Product {
   }
 
   _switchVariant(product, variant, state) {
-    console.log('hererer');
     window.selectCallback(
       this._section.querySelector(`.product-${product.id}`),
       product,
