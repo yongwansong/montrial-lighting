@@ -2101,6 +2101,7 @@ class Product {
   }
 
   _switchVariant(product, variant, state) {
+    console.log('eee');
     window.selectCallback(
       this._section.querySelector(`.product-${product.id}`),
       product,
