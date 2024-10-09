@@ -1,4 +1,4 @@
-/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 9/30/2024 6:39:40 AM*/
+/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 10/9/2024 2:19:49 PM*/
 /* Begin custom theme code */
 
 
@@ -800,8 +800,24 @@ function usfImageExists(url, callback) {
 }
 
 //// swatchs color
-
-
+var widthFiltervalues ={
+    '13in-18in-w':'13" - 18"',
+    '19in-24in-w':'19" - 24"',
+    '25in-30in-w':'25" - 30"',
+    '31in-36in-w':'31" - 36"',
+    '37in-48in-w':'37" - 48"',
+    '49in-58in-w':'49" - 58"',
+    '59in-72in-w':'59" - 72"',
+    '72in-and-more-w':'72" and up"',
+}
+usf.event.add('sr_dataReceived', function(t, data){
+    if(data.facets.find(e=>e.title=='Width Range')){
+        var widthFilter=data.facets.find(e=>e.title=='Width Range').labels
+        widthFilter.forEach(function(e){
+            e.label=values[e.label]
+        })
+    }
+});
 usf.event.add('init', function () {
     var nodes = document.head.children;
     for (var i = 0; i < nodes.length; i++) {
