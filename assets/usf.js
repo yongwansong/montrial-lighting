@@ -1,4 +1,4 @@
-/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 10/9/2024 2:19:49 PM*/
+/* USF file - DO NOT MODIFY THIS FILE. THIS FILE IS REGULARLY CHANGED BY USF APP AND **ANY DIRECT CHANGES WILL BE LOST**. Use our in-app customization if you need to update CSS and JS code. Auto modified at: 10/9/2024 2:20:13 PM*/
 /* Begin custom theme code */
 
 
@@ -814,7 +814,7 @@ usf.event.add('sr_dataReceived', function(t, data){
     if(data.facets.find(e=>e.title=='Width Range')){
         var widthFilter=data.facets.find(e=>e.title=='Width Range').labels
         widthFilter.forEach(function(e){
-            e.label=values[e.label]
+            e.label=widthFiltervalues[e.label]
         })
     }
 });
