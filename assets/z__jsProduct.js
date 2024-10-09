@@ -1414,7 +1414,6 @@ class Product {
     }
 
     this.variantSelection = $section[0].querySelector('[data-variant-selection]');
-    console.log(this.variantSelection, 'kkkkkkkkk');
     if (this.variantSelection) {
       this.variantSelection.addEventListener(
         'variant-change',
@@ -2101,6 +2100,7 @@ class Product {
   }
 
   _switchVariant(product, variant, state) {
+    console.log('hererer');
     window.selectCallback(
       this._section.querySelector(`.product-${product.id}`),
       product,
