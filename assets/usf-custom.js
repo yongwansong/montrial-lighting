@@ -813,7 +813,7 @@ usf.event.add('sr_dataReceived', function(t, data){
         var widthFilter=data.facets.find(e=>e.title=='Width Range').labels
         widthFilter.forEach(function(e){
             if(widthFiltervalues[e.label])
-                e.label=widthFiltervalues[e.label]
+                e.llabel=widthFiltervalues[e.label]
         })
         console.log(widthFilter)
     }
