@@ -341,7 +341,6 @@ const ReadMore2 = (() => {
       
       if (current_variant_id !== e.variant.id) {
         var variant_url = `${window.location.origin}${window.location.pathname}?variant=${variant.id}&view=variant-mf-raw'`;
-        console.log($(response).find('.variant-metafields-content').html(), 'jerere');
         $.get(variant_url).then(function(response) {
           //console.log(response);
           var newVariantMetafieldContent = $(response).find('.variant-metafields-content').html();
