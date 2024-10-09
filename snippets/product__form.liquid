@@ -221,6 +221,9 @@
         {% comment %}Inject @pixelunion/shopify-variants-ui/options-selection end{% endcomment %}
     
       {% endif %}
+      <script type="application/json" class="variant_details">
+        {{ product.variants | json }}
+      </script>
     </variant-selection>
     {% comment %}Inject @pixelunion/shopify-variants-ui/variant-selection end{% endcomment %}
 
