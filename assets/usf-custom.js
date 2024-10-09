@@ -2,6 +2,16 @@
 
 // define templates for the Flex-Out of the Sandbox-5.0.1 theme
 
+var widthFiltervalues ={
+    '13in-18in-w':'13" - 18"',
+    '19in-24in-w':'19" - 24"',
+    '25in-30in-w':'25" - 30"',
+    '31in-36in-w':'31" - 36"',
+    '37in-48in-w':'37" - 48"',
+    '49in-58in-w':'49" - 58"',
+    '59in-72in-w':'59" - 72"',
+    '72in-and-more-w':'72" and up"',
+}
 var _usfFilesUrl;
 var _usfProductThumbnailSticker = `
 <div v-if="(_col_handles = _usfCollectionHandles(product,hasDiscount,isSoldOut))" class="sticker-holder" :class="['sticker-shape-' + _usfGlobalSettings.sticker_shape, 'sticker-position-' + _usfGlobalSettings.sticker_position]">
@@ -797,17 +807,7 @@ function usfImageExists(url, callback) {
     img.src = url;
 }
 
-//// swatchs color
-var widthFiltervalues ={
-    '13in-18in-w':'13" - 18"',
-    '19in-24in-w':'19" - 24"',
-    '25in-30in-w':'25" - 30"',
-    '31in-36in-w':'31" - 36"',
-    '37in-48in-w':'37" - 48"',
-    '49in-58in-w':'49" - 58"',
-    '59in-72in-w':'59" - 72"',
-    '72in-and-more-w':'72" and up"',
-}
+//// swatchs color 
 usf.event.add('sr_dataReceived', function(t, data){
     if(data.facets.find(e=>e.title=='Width Range')){
         var widthFilter=data.facets.find(e=>e.title=='Width Range').labels
