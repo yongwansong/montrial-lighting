@@ -814,6 +814,7 @@ usf.event.add('sr_dataReceived', function(t, data){
         widthFilter.forEach(function(e){
             e.label=widthFiltervalues[e.label]
         })
+        console.log(widthFilter)
     }
 });
 usf.event.add('init', function () {
