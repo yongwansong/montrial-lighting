@@ -24,3 +24,9 @@ body:not(.usf-collections-page) .usf-sr-inputbox {
     position: absolute;
     top: 0;
 }
+.usf-facets {
+    width: 15%; 
+}
+.usf-sr-container {
+    width: 85%; 
+}
