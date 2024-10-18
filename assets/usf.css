@@ -20,7 +20,7 @@ body:not(.usf-collections-page) .usf-sr-inputbox {
     visibility: visible !important;
     height: auto!important;
 }
-.usf-results span.product-thumbnail__vendor {
+.usf-results .product-thumbnail__vendor {
     font-weight: 700;
 }
 .usf-hide-theme-search .search__results-wrapper{
@@ -37,6 +37,7 @@ body:not(.usf-collections-page) .usf-sr-inputbox {
     width: 85%; 
 }
 /* End custom theme code */
+
 
 
 
